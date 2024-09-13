@@ -4,11 +4,11 @@
 
 [@morph-l2/sdk](../globals.md) / MessageReceiptStatus
 
-# Enumeration: MessageReceiptStatus
+# Énumération: MessageReceiptStatus
 
 Enum describing the status of a CrossDomainMessage message receipt.
 
-## Enumeration Members
+## Membres de l'Énumération
 
 ### RELAYED\_FAILED
 

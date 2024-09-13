@@ -1,52 +1,48 @@
 ---
-title: Voting Rules in Voice of the Jungle 
-lang: en-US
-keywords: [morph,ethereum,rollup,layer2,validity proof,optimistic zk-rollup]
-description: Upgrade your blockchain experience with Morph - the secure decentralized, cost0efficient, and high-performing optimistic zk-rollup solution. Try it now!
+title: Règles de Vote dans la Voix de la Jungle 
+lang: fr-FR
+keywords: [morph, ethereum, rollup, couche 2, preuve de validité, zk-rollup optimiste]
+description: Améliorez votre expérience blockchain avec Morph - la solution de zk-rollup optimiste sécurisée, décentralisée, rentable et performante. Essayez-le maintenant !
 ---
 
-Make your voice heard in our second Jungle activity: Voice of the Jungle. Use Voting power to vote for your favorite DApps, your votes help shape the ecosystem, make your 'roar' heard and you will be rewarded with Morph Points. 
+Faites entendre votre voix dans notre deuxième activité de la Jungle : Voix de la Jungle. Utilisez votre pouvoir de vote pour voter pour vos DApps préférées, vos votes aident à façonner l'écosystème, faites entendre votre 'rugissement' et vous serez récompensé par des Points Morph.
 
-### What is voting power?
+### Qu'est-ce que le pouvoir de vote ?
 
-To enhance our ecosystem and community, we’ve introduced a voting program to attract more valuable projects and DApps to the Morph ecosystem. Earn Voting Power through daily check-ins and unlocking bonus Mystery Boxes. Remember, it is the act of spending your Voting Power that earns you Morph Points, not the amount of unused Voting Power. At the end of the event, your Moph Points rewards will be calculated based on how much Voting Power you utilized, so be sure to vote every day!   
+Pour améliorer notre écosystème et notre communauté, nous avons introduit un programme de vote pour attirer des projets et des DApps plus précieux dans l'écosystème Morph. Gagnez du Pouvoir de Vote grâce à des enregistrements quotidiens et à l'ouverture de boîtes mystères bonus. Rappelez-vous, c'est l'acte de dépenser votre Pouvoir de Vote qui vous rapportera des Points Morph, et non le montant de Pouvoir de Vote non utilisé. À la fin de l'événement, vos récompenses de Points Morph seront calculées en fonction de la quantité de Pouvoir de Vote que vous avez utilisé, alors assurez-vous de voter chaque jour !
 
+### Comment puis-je utiliser mon Pouvoir de Vote ?
 
-### How can I use my Voting Power?
+Vous pouvez utiliser votre Pouvoir de Vote sur la page de vote pour soutenir les projets que vous aimez. Vous pouvez voter pour différents projets et gagner des Points pour les projets pour lesquels vous votez.
 
-You can utilize your Voting Power on the voting page to support projects that you like. You can vote for different projects and earn Points for the projects you vote for.
+### Règles de vote :
 
+1) Acquérez du Pouvoir de Vote de deux manières : en vous enregistrant quotidiennement et en ouvrant des boîtes mystères bonus.
 
-### Voting rules：
+2) Pour enregistrer votre Pouvoir de Vote et vos activités de vote, vous devez vous connecter avec votre portefeuille Web3. Cela vérifie votre Pouvoir de Vote, sans donner accès à vos actifs.
 
-1）Acquire Voting Power in two ways: daily check-ins and bonus Mystery Boxes.
+3) Vous pouvez attribuer jusqu'à 100 Pouvoir de Vote à chaque projet individuel par jour. Si vous souhaitez voter plus, vous devez attendre le lendemain.
 
-2) To record your Voting Power and voting activities, you must sign in with your Web3 wallet. This verifies your Voting Power, without granting access to your assets. 
+4) Le Pouvoir de Vote dépensé sur un projet est immédiatement consommé ; il ne peut pas être réutilisé pour plusieurs projets.
 
-3) You can allocate up to 100 Voting Power to each individual project per day. If you wish to vote more, you must wait until the next day.
+5) Seul l'acte de voter vous rapportera des Points Morph ; simplement accumuler du Pouvoir de Vote sans l'utiliser ne vous rapportera pas de Points Morph pour cette activité.
 
-4) Voting Power spent on a project is immediately consumed; it cannot be reused for multiple projects. 
+### Règles d'enregistrement quotidien :
 
-5) Only the act of voting will earn you Morph Points; simply accumulating Voting Power without using it will not earn you Morph Points for this activity.  
+Gagnez du Pouvoir de Vote en vous enregistrant chaque jour. Le premier jour de votre enregistrement, vous recevrez 2 Pouvoir de Vote. Au deuxième jour, vous recevrez 2 Pouvoir de Vote supplémentaires, plus le même montant de Pouvoir de Vote que vous avez reçu le jour précédent. Après vous être enregistré pendant 7 jours consécutifs, votre récompense de Pouvoir de Vote pour ce 7ème jour sera doublée à 28. Donc, si vous vous enregistrez régulièrement pendant une semaine, vous recevrez un total de 70 Pouvoir de Vote :
 
+**2(Jour 1) + 4(Jour 2) + 6(Jour 3) + 8(Jour 4) + 10(Jour 5) + 12(Jour 6) + 28(Jour 7 avec un bonus multiplicateur de 2x [14*2]) = 70**
 
-### Daily Check-in Rules：
+Veuillez noter qu'au 8ème jour d'enregistrement consécutif, votre récompense de Pouvoir de Vote sera réinitialisée à 2, car cela marque le début d'un nouveau cycle de 7 jours. Cependant, pour récompenser votre engagement, au 14ème jour consécutif, votre multiplicateur bonus sera augmenté à 3x pour ce jour-là. Cela signifie qu'au quatorzième jour, vous recevrez en fait 56 Pouvoir de Vote. En fait, chaque jour consécutif que vous enregistrez et qui tombe sur un multiple de 7, votre multiplicateur bonus augmentera d'un facteur supplémentaire par rapport à la semaine précédente.
 
-Earn Voting Power by checking in daily. On the first day that you check-in, you will receive 2 Voting Power. On day two, you will receive 2 more Voting Power plus the same amount of Voting Power you received the previous day. After checking in for 7 days in a row, your Voting Power reward for that 7th day will be doubled to 28. So if you consistently check in for a week, you will receive 70 Voting Power total: 
-
-
-**2(Day 1) + 4(Day 2) + 6(Day 3) + 8(Day 4) + 10(Day 5) + 12(Day 6) + 28(Day 7 you get a 2x multiplier bonus [14*2])  = 70**
-
-Please remember that on the 8th consecutive check-in day, your Voting Power reward will be reset back to 2, as this marks the beginning of a new 7-day cycle. However, to reward your commitment, on the 14th consecutive day, your bonus multiplier will be increased to 3x for that day. This means that on the fourteenth day, you actually receive 56 Voting Power. In fact, every consecutive day that you check in that lands on a multiple of 7, your bonus multiplier will increase by an additional factor compared to the previous week.
-
-So if you consistently check in every day for a month or four weeks in a row, you will receive a total of 448 Voting Power: 
+Ainsi, si vous vous enregistrez chaque jour pendant un mois ou quatre semaines consécutives, vous recevrez un total de 448 Pouvoir de Vote :
 
 **(2+4+6+8+10+12)x4=168**
-The same increasing Voting Power for the first 6 days of each week
+Le même Pouvoir de Vote croissant pour les 6 premiers jours de chaque semaine
 +
-**(28+56+84+112) = 280** The 7th day reward with an increasing multiplier each week
+**(28+56+84+112) = 280** La récompense du 7ème jour avec un multiplicateur croissant chaque semaine
 = **448**
 
 :::tip
-Please note that forgetting to check in one day will disrupt the 7-day cycle resetting it completely. This means you will start over from day one if that happens. For instance, if you have consistently checked in for 2 days but forgot on the 3rd day, you will only receive 2 Voting Power on the 4th day instead of 8.
+Veuillez noter que si vous oubliez de vous enregistrer un jour, cela perturbera le cycle de 7 jours, le réinitialisant complètement. Cela signifie que vous repartirez du jour un si cela se produit. Par exemple, si vous vous êtes enregistré pendant 2 jours consécutifs mais que vous avez oublié le 3ème jour, vous ne recevrez que 2 Pouvoir de Vote le 4ème jour au lieu de 8.
 :::

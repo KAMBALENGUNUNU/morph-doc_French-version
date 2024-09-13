@@ -4,10 +4,10 @@
 
 [@morph-l2/sdk](../globals.md) / BridgeAdapterData
 
-# Interface: BridgeAdapterData
+# Interface : BridgeAdapterData
 
-Something that looks like the list of custom bridges.
+Quelque chose qui ressemble à la liste des ponts personnalisés.
 
 ## Indexable
 
- \[`name`: `string`\]: `object`
+ \[`name` : `string`\] : `object`

@@ -4,15 +4,15 @@
 
 [@morph-l2/sdk](../globals.md) / MessageReceipt
 
-# Interface: MessageReceipt
+# Interface : MessageReceipt
 
-CrossDomainMessage receipt.
+Reçu du message CrossDomainMessage.
 
-## Properties
+## Propriétés
 
 ### receiptStatus
 
-> **receiptStatus**: [`MessageReceiptStatus`](../enumerations/MessageReceiptStatus.md)
+> **receiptStatus** : [`MessageReceiptStatus`](../enumerations/MessageReceiptStatus.md)
 
 #### Source
 
@@ -22,7 +22,7 @@ src/interfaces/types.ts:307
 
 ### transactionReceipt?
 
-> `optional` **transactionReceipt**: `TransactionReceipt`
+> `optionnel` **transactionReceipt** : `TransactionReceipt`
 
 #### Source
 

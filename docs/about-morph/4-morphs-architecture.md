@@ -1,59 +1,53 @@
 ---
-title: Morph's Architecture
-lang: en-US
-keywords: [morph,layer2,validity proof,optimistic zk-rollup]
-description: Upgrade your blockchain experience with Morph - the secure decentralized, cost0efficient, and high-performing optimistic zk-rollup solution. Try it now!
+title: L'Architecture de Morph
+lang: fr-FR
+keywords: [morph,layer2,preuve de validité,optimistic zk-rollup]
+description: Améliorez votre expérience blockchain avec Morph - la solution optimistic zk-rollup sécurisée, décentralisée et performante. Essayez-le maintenant !
 ---
 
 :::tip
 
- This overview offers a concise introduction to Morph’s rollup technology stack. For an in-depth understanding, please refer to the "How Morph Works" section of our documentation.
+Cette vue d'ensemble offre une introduction concise à la technologie de rollup de Morph. Pour une compréhension approfondie, veuillez consulter la section "Comment Fonctionne Morph" de notre documentation.
 
 :::
 
-
 ![Archi](../../assets/docs/about/architecture/archi.png)
 
+## L'Approche Modulaire en Layer 2
 
-## The Modular Approach in Layer 2
+Traditionnellement, le concept de modularité a été appliqué aux blockchains de Layer 1, les segmentant en couches distinctes. Chez Morph, nous avons étendu cette philosophie modulaire au Layer 2, construisant notre plateforme autour de ce principe.
 
-Traditionally, the concept of modularity has been applied to Layer 1 blockchains, segmenting them into distinct layers. At Morph, we've extended this modular philosophy to Layer 2, building our platform around this principle.
+Dans une blockchain typique de Layer 1, l'architecture se compose de quatre grandes couches :
+- Consensus : Le mécanisme par lequel un accord est atteint dans le réseau.
+- Exécution : Lieu où le traitement des transactions et les opérations de contrats intelligents se produisent.
+- Règlement : Le processus de finalisation des transactions.
+- Disponibilité des Données : Assurer que les informations nécessaires sont accessibles pour la validation.
 
-In a typical Layer 1 blockchain, the architecture consists of four major layers:
-- Consensus: The mechanism through which network agreement is achieved.
-- Execution: Where transaction processing and smart contract operations occur.
-- Settlement: The process of finalizing transactions.
-- Data Availability: Ensuring that necessary information is accessible for validation.
+Dans le contexte du Layer 2, Morph réinterprète ces couches avec des fonctionnalités uniques :
 
-In the context of Layer 2, Morph reinterprets these layers with unique functionalities:
-
-- **Consensus and Execution via Decentralized Sequencer Network**: At Morph, these functions are integrated and handled by our decentralized sequencer network. Sequencers orchestrate, process, and achieve consensus on Layer 2 transactions, forming the primary interface for user interactions.
-
+- **Consensus et Exécution via le Réseau de Séquenceurs Décentralisés** : Chez Morph, ces fonctions sont intégrées et gérées par notre réseau de séquenceurs décentralisés. Les séquenceurs orchestrent, traitent et atteignent un consensus sur les transactions de Layer 2, formant l'interface principale pour les interactions des utilisateurs.
 
 ![Archi](../../assets/docs/about/overview/seq1.png)
 
-- **Settlement with Optimistic zkEVM**: Settlement in Morph refers to the finalization of Layer 2 transactions at the Ethereum level. It involves the crucial step of validating Layer 2 states. Morph employs the optimistic zkEVM for this purpose, a hybrid approach blending the best of optimistic rollups and zk-rollups. Layer 2 states will be eventually finalized by a significantly shorter challenge period or if gets challenged, a corresponding zk-proof.
+- **Règlement avec Optimistic zkEVM** : Le règlement dans Morph fait référence à la finalisation des transactions de Layer 2 au niveau d'Ethereum. Cela implique l'étape cruciale de validation des états de Layer 2. Morph utilise l'optimistic zkEVM à cet effet, une approche hybride mêlant le meilleur des optimistic rollups et des zk-rollups. Les états de Layer 2 seront finalement finalisés par une période de défi significativement plus courte ou, s'ils sont contestés, par une preuve zk correspondante.
 
 ![Archi](../../assets/docs/about/overview/opzk.png)
 
-- **Data Availability through 'Rollup' Process**: This entails transferring essential Layer 2 data to Ethereum. In Morph, this is achieved through the 'Rollup' process, where a batch submitter compiles blocks into batches and submits them as Layer 1 transactions on Ethereum.
-
+- **Disponibilité des Données grâce au Processus de 'Rollup'** : Cela consiste à transférer les données essentielles de Layer 2 vers Ethereum. Dans Morph, cela se fait par le processus de 'Rollup', où un soumissionnaire de lots compile des blocs en lots et les soumet en tant que transactions de Layer 1 sur Ethereum.
 
 ![Archi](../../assets/docs/about/architecture/rollup.png)
 
-## Independent yet Collaborative Functions
-Each of these major functions operates independently, facilitating asynchronous tasks and switchable implementations:
-1. Sequencer Network: Executes Layer 2 transactions and updates local state.
-2. Rollup Module: Transforms Layer 2 blocks into batches for submission to Layer 1.
-3. State Verification: Utilizes Layer 1 security to verify Layer 2 states under the optimistic zkEVM rules. 
+## Fonctions Indépendantes mais Collaboratives
 
+Chacune de ces fonctions majeures opère de manière indépendante, facilitant des tâches asynchrones et des mises en œuvre interchangeables :
+1. Réseau de Séquenceurs : Exécute les transactions de Layer 2 et met à jour l'état local.
+2. Module de Rollup : Transforme les blocs de Layer 2 en lots pour soumission à Layer 1.
+3. Vérification d'État : Utilise la sécurité de Layer 1 pour vérifier les états de Layer 2 sous les règles de l'optimistic zkEVM.
 
-This modular architecture enhances flexibility, adaptability, and composability within the Morph ecosystem.
+Cette architecture modulaire améliore la flexibilité, l'adaptabilité et la composabilité au sein de l'écosystème Morph.
 
+## Rôles Divers
 
-## Diverse Roles
+L'architecture de Morph est également définie par cinq rôles clés : Séquenceurs, Validateurs, Nœuds, Preuveurs, et Layer 1 (Ethereum). Chaque rôle a des responsabilités spécifiques et utilise des composants distincts pour remplir sa fonction, contribuant au bon fonctionnement du réseau.
 
-Morph’s architecture is further defined by five pivotal roles: Sequencers, Validators, Nodes, Provers, and Layer 1 (Ethereum). Each role carries specific responsibilities and utilizes distinct components to fulfill its function, contributing to the seamless operation of the network.
-
-For a deeper understanding of Morph’s architecture, please visit our comprehensive [Developer Docs](../build-on-morph/0-developer-navigation-page.md).
-
+Pour une compréhension plus approfondie de l'architecture de Morph, veuillez visiter notre [Documentation Développeur](../build-on-morph/0-developer-navigation-page.md).

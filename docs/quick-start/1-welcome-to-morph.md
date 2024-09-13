@@ -1,29 +1,24 @@
 ---
-title: Welcome to Morph!
-lang: en-US
-keywords: [morph,ethereum,rollup,layer2,validity proof,optimistic zk-rollup]
-description: Upgrade your blockchain experience with Morph - the secure decentralized, cost0efficient, and high-performing optimistic zk-rollup solution. Try it now!
+title: Bienvenue sur Morph !
+lang: fr-FR
+keywords: [morph, ethereum, rollup, couche 2, preuve de validité, zk-rollup optimiste]
+description: Améliorez votre expérience blockchain avec Morph - la solution de zk-rollup optimiste sécurisée, décentralisée, rentable et performante. Essayez-le maintenant !
 ---
 
-Thank you for choosing Morph! We're excited to have you onboard with the first optimistic ZK-EVM scaling solution for Ethereum. Morph is designed to meet a variety of needs, and you can easily navigate to the most relevant information for your interests.
-
+Merci d'avoir choisi Morph ! Nous sommes ravis de vous accueillir avec la première solution de mise à l'échelle ZK-EVM optimiste pour Ethereum. Morph est conçu pour répondre à divers besoins, et vous pouvez facilement naviguer vers les informations les plus pertinentes pour vos intérêts.
 
 :::tip
 
-Beta Testnet Stage: Morph is currently in the beta testnet phase, offering a brand-new platform for exploration. We encourage you to delve into its features and capabilities.
-
+**Phase Beta Testnet :** Morph est actuellement en phase de testnet bêta, offrant une toute nouvelle plateforme pour l'exploration. Nous vous encourageons à découvrir ses fonctionnalités et ses capacités.
 
 :::
 
-**Web3 Enthusiasts**: If you are a web3 enthusiast who wants to try out the Morph, you can start with how to [connect to Morph](./2-wallet-setup.md).
+**Passionnés de Web3 :** Si vous êtes un passionné de web3 qui souhaite essayer Morph, vous pouvez commencer par [vous connecter à Morph](./2-wallet-setup.md).
 
-**Researchers**: For those seeking in-depth understanding of Morph's unique offerings compared to other solutions, the [how Morph works](../how-morph-works/1-intro.md) section is your go-to resource for comprehensive details.
+**Chercheurs :** Pour ceux qui cherchent à comprendre en profondeur les offres uniques de Morph par rapport aux autres solutions, la section [comment fonctionne Morph](../how-morph-works/1-intro.md) est votre ressource incontournable pour des détails complets.
 
-**Developers**: As a skilled developer ready to build on Morph, the [developer documentation](../build-on-morph/1-intro.md) provides all necessary resources and guides to kickstart your development journey.
+**Développeurs :** En tant que développeur expérimenté prêt à construire sur Morph, la [documentation pour les développeurs](../build-on-morph/1-intro.md) fournit toutes les ressources et les guides nécessaires pour commencer votre parcours de développement.
 
+### Besoin d'aide
 
-
-### Looking for help
-
-Having issues while developing or exploring? Join our [discord channel](https://discord.com/invite/L2Morph) and talk to us in the right channel. We would love to hear your thoughts or feedback on how we can improve your experience, too.
-
+Vous avez des problèmes pendant le développement ou l'exploration ? Rejoignez notre [canal discord](https://discord.com/invite/L2Morph) et parlez-nous dans le bon canal. Nous aimerions également connaître vos pensées ou vos retours sur la façon dont nous pouvons améliorer votre expérience.

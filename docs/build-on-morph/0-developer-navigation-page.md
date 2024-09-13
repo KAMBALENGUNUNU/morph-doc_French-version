@@ -1,32 +1,33 @@
 ---
-title: Developer Docs
-lang: en-US
-keywords: [morph,ethereum,rollup,layer2,validity proof,optimistic zk-rollup]
-description: Upgrade your blockchain experience with Morph - the secure decentralized, cost0efficient, and high-performing optimistic zk-rollup solution. Try it now!
+title: Documentation des Développeurs
+lang: fr-FR
+keywords: [morph,ethereum,rollup,couche2,preuve de validité,optimistic zk-rollup]
+description: Améliorez votre expérience blockchain avec Morph - la solution zk-rollup optimiste sécurisée, décentralisée, économique et performante. Essayez-la maintenant !
 ---
 
-If you’re ready to build applications on Morph, you're in the right place. 
+Si vous êtes prêt à construire des applications sur Morph, vous êtes au bon endroit.
 
 
-For those who are regular users or visiting for the first time, we recommend starting with our [For Users section](../about-morph/0-user-navigation-page.md) to explore introductory content such as definitions, our vision, key concepts, and more.
+Pour ceux qui sont des utilisateurs réguliers ou qui visitent pour la première fois, nous recommandons de commencer par notre section [Pour les utilisateurs](../about-morph/0-user-navigation-page.md) pour explorer le contenu introductif tel que les définitions, notre vision, les concepts clés, et plus encore.
 
 ![devintro](../../assets/docs/dev/devintro.png)
 
-### What is Morph?
+### Qu'est-ce que Morph ?
 
-Morph is the first optimistic zkEVM Ethereum Layer 2 solution that is 100% EVM compatible. Building on Morph is just like building on Ethereum. If you’re experienced in Ethereum development, you'll find your existing code, tooling, and dependencies are fully compatible with Morph.
-### Getting Started
+Morph est la première solution optimistic zkEVM de couche 2 sur Ethereum qui est 100 % compatible avec l'EVM. Construire sur Morph est exactement comme construire sur Ethereum. Si vous avez de l'expérience dans le développement sur Ethereum, vous constaterez que votre code, vos outils et vos dépendances existants sont entièrement compatibles avec Morph.
 
-To help you get started, here’s a recommended navigation through our documentation:
+### Pour Commencer
 
-**Fundamental Concepts**: Start here to learn the core components of Morph, including Morph’s Modular Design, the Decentralized Sequencer Network, and the Responsive Validity Proof system.
+Pour vous aider à démarrer, voici une navigation recommandée à travers notre documentation :
 
-**Advanced Concepts**: Dive deeper into topics such as understanding transaction costs on Morph and differences between Morph and Ethereum.
+**Concepts Fondamentaux** : Commencez ici pour apprendre les composants principaux de Morph, y compris le design modulaire de Morph, le réseau décentralisé de séquenceurs, et le système de preuve de validité réactive.
 
-**Developer Guides**: Access comprehensive guides on verifying smart contracts, running a Morph node, deploying contracts, and more.
+**Concepts Avancés** : Approfondissez des sujets tels que la compréhension des coûts de transaction sur Morph et les différences entre Morph et Ethereum.
 
-**Developer Resources**: Find detailed API methods, contract addresses and other useful developer resources.
+**Guides pour les Développeurs** : Accédez à des guides complets sur la vérification des contrats intelligents, l'exécution d'un nœud Morph, le déploiement de contrats, et plus encore.
 
-### Engage in Our Developer Community​
+**Ressources pour les Développeurs** : Trouvez des méthodes API détaillées, des adresses de contrats, et d'autres ressources utiles pour les développeurs.
 
-We're actively enhancing our network with more integrations and support infrastructure, progressing towards our Mainnet release. Join our growing developer community. You can find us on [Discord](https://discord.com/invite/L2Morph) or follow our progress on [Twitter](https://twitter.com/Morphl2).
+### Participez à Notre Communauté de Développeurs​
+
+Nous améliorons activement notre réseau avec plus d'intégrations et d'infrastructures de support, progressant vers notre lancement sur Mainnet. Rejoignez notre communauté croissante de développeurs. Vous pouvez nous trouver sur [Discord](https://discord.com/invite/L2Morph) ou suivre nos progrès sur [Twitter](https://twitter.com/Morphl2).

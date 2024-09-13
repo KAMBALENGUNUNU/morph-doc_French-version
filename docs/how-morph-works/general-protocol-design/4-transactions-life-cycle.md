@@ -1,54 +1,52 @@
 ---
-title: Transactions Life Cycle
-lang: en-US
-keywords: [morph,ethereum,rollup,layer2,validity proof,optimistic zk-rollup]
-description: Upgrade your blockchain experience with Morph - the secure decentralized, cost0efficient, and high-performing optimistic zk-rollup solution. Try it now!
+title: Cycle de Vie des Transactions
+lang: fr-FR
+keywords: [morph,ethereum,rollup,couche2,preuve de validité,optimistic zk-rollup]
+description: Améliorez votre expérience blockchain avec Morph - la solution de zk-rollup optimiste, sécurisée, décentralisée et à coût efficace. Essayez-la maintenant!
 ---
 
-## How is a L2 transaction processed on Morph
+## Comment une transaction L2 est-elle traitée sur Morph
 
-1. Submit Transaction
+1. Soumettre la Transaction
    
-User-initiated transactions are first sent to the L2 node's mempool, where they await selection and processing by a sequencer.
+Les transactions initiées par l'utilisateur sont d'abord envoyées à la mempool du nœud L2, où elles attendent d'être sélectionnées et traitées par un séquenceur.
 
-
-2. Transaction Consensus
+2. Consensus de Transaction
    
-Within the sequencer network, transactions undergo a consensus process. A selected sequencer proposes a block containing the transaction and then send the blocks to the consensus layer (consensus client).
+Au sein du réseau de séquenceurs, les transactions subissent un processus de consensus. Un séquenceur sélectionné propose un bloc contenant la transaction, puis envoie les blocs au niveau de consensus (client de consensus).
 
-Other sequencers then validate this block by executing this block, effectively verifying the transaction's legitimacy.
+D'autres séquenceurs valident ensuite ce bloc en exécutant ce bloc, vérifiant effectivement la légitimité de la transaction.
 
-
-3. Transaction Execution
+3. Exécution de la Transaction
    
-Once all the votes on the block are finalized, each sequencer & node will apply this block to update its local state.
+Une fois tous les votes sur le bloc finalisés, chaque séquenceur et nœud appliquera ce bloc pour mettre à jour son état local.
    
-4. Transaction Batching
+4. Regroupement de Transactions
    
-When batch point is reached, each sequencer will need to construct the batch with all the blocks consensussed for the last epoch, the batch will go through consensus by requiring each sequencer to sign, all of the signature will be aggregated with BLS signature.
+Lorsque le point de regroupement est atteint, chaque séquenceur devra construire le lot avec tous les blocs consensuels pour la dernière époque, le lot passera par un consensus nécessitant la signature de chaque séquenceur, toutes les signatures seront agrégées avec une signature BLS.
    
-5. Batch Sequencing
+5. Séquençage de Lots
    
-The [selected sequencer](../general-protocol-design/1-rollup.md) will commit the batches to the Layer 1 Rollup contract for both verification and to ensure data availability.
+Le [séquenceur sélectionné](../general-protocol-design/1-rollup.md) s'engagera à soumettre les lots au contrat Rollup de la Couche 1 pour la vérification et pour garantir la disponibilité des données.
    
-6. Batch Verification 
+6. Vérification de Lot
    
-A batch (so do the transactions within the batch) will first go through the BLS signature verification by the rollup contract to confirm the L2 consensus results, and then a batch will go through a [challenge period](../3-optimistic-zkevm.md) to be marked as finalized, solidifying their status within the L1 and L2 state.
+Un lot (tout comme les transactions au sein du lot) passera d'abord par la vérification de la signature BLS par le contrat rollup pour confirmer les résultats du consensus L2, puis un lot passera par une [période de contestation](../3-optimistic-zkevm.md) pour être marqué comme finalisé, solidifiant leur statut au sein de l'état L1 et L2.
 
-## Morph Transaction Status
+## Statut de la Transaction Morph
 
-### Processing​
+### Traitement​
 
-Once submitted, a transaction enters the consensus phase managed by sequencers and is placed into a block pre-execution.
+Une fois soumise, une transaction entre dans la phase de consensus gérée par les séquenceurs et est placée dans un bloc pré-exécution.
 
-### Confirmed​
+### Confirmée​
 
-Post-execution by the Sequencer, the transaction’s updated state is local to L2. It is then batched and sent to L1, where it must undergo a challenge period before finalization.
+Après l'exécution par le séquenceur, l'état mis à jour de la transaction est local à L2. Il est ensuite regroupé et envoyé à L1, où il doit subir une période de contestation avant la finalisation.
 
-### Safe
+### Sûre
 
-The batch that contains the transaction is submitted to Layer 1 but not finalized yet.
+Le lot contenant la transaction est soumis à la Couche 1 mais n'est pas encore finalisé.
 
-### Finalized​
+### Finalisée​
 
-A transaction is considered finalized after it survives the challenge period or is verified by a Zero-Knowledge Proof (ZK-Proof). Only then is it officially integrated into the final L1 and L2 state.
+Une transaction est considérée comme finalisée après avoir survécu à la période de contestation ou avoir été vérifiée par une preuve à connaissance nulle (ZK-Proof). Ce n'est qu'alors qu'elle est officiellement intégrée dans l'état final L1 et L2.

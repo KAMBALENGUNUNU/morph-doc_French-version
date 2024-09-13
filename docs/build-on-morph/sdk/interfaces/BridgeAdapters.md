@@ -4,10 +4,10 @@
 
 [@morph-l2/sdk](../globals.md) / BridgeAdapters
 
-# Interface: BridgeAdapters
+# Interface : BridgeAdapters
 
-Something that looks like the list of custom bridges.
+Quelque chose qui ressemble à la liste des ponts personnalisés.
 
 ## Indexable
 
- \[`name`: `string`\]: [`IBridgeAdapter`](IBridgeAdapter.md)
+ \[`name` : `string`\] : [`IBridgeAdapter`](IBridgeAdapter.md)

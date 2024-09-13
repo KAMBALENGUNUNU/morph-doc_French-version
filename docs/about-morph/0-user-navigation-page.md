@@ -1,46 +1,42 @@
 ---
-title: Welcome to Morph
-lang: en-US
-keywords: [morph,ethereum,rollup,layer2,validity proof,optimistic zk-rollup]
-description: Upgrade your blockchain experience with Morph - the secure decentralized, cost0efficient, and high-performing optimistic zk-rollup solution. Try it now!
+title: Bienvenue sur Morph
+lang: fr-FR
+keywords: [morph,ethereum,rollup,layer2,preuve de validité,optimistic zk-rollup]
+description: Améliorez votre expérience blockchain avec Morph - la solution optimistic zk-rollup sécurisée, décentralisée et performante. Essayez-le maintenant !
 ---
 
-We’re thrilled to have you here, exploring the world of Morph. If you’re a developer looking for technical documentation, head over to our [For Developers section](../build-on-morph/0-developer-navigation-page.md). But if you’re here to understand what Morph is all about, you’re in the right place!
+Nous sommes ravis de vous avoir ici, à explorer le monde de Morph. Si vous êtes développeur et que vous cherchez une documentation technique, rendez-vous dans notre [section Pour les Développeurs](../build-on-morph/0-developer-navigation-page.md). Mais si vous êtes ici pour comprendre ce qu'est Morph, vous êtes au bon endroit !
 
 ![userpage](../../assets/docs/about/userpage.png)
 
 :::tip
-Beta Testnet Stage: Morph is currently in the beta testnet phase, offering you a preview of many upcoming features for you to try. We encourage you to explore and test as much as you can.
+Phase de Testnet Beta : Morph est actuellement en phase de testnet beta, vous offrant un aperçu de nombreuses fonctionnalités à venir que vous pouvez essayer. Nous vous encourageons à explorer et à tester autant que vous le pouvez.
 :::
 
-### What is Morph?
+### Qu'est-ce que Morph ?
 
-Morph is a cutting-edge Layer 2 solution built on Ethereum, combining the best of optimistic rollups and zk technology. This makes us scalable, secure, and perfect for everyday applications. Our mission is to build the first blockchain for consumers, where user-friendly applications integrate seamlessly into everyday life, becoming indispensable utilities. We prioritize enabling blockchain applications that enhance daily experiences over chasing trivial technical milestones. Our focus is on creating meaningful, practical solutions that transform blockchain technology into core aspects of daily life
+Morph est une solution de Layer 2 de pointe construite sur Ethereum, combinant le meilleur des rollups optimistes et de la technologie zk. Cela nous rend évolutifs, sécurisés et parfaits pour les applications quotidiennes. Notre mission est de construire la première blockchain pour les consommateurs, où des applications conviviales s'intègrent parfaitement dans la vie quotidienne, devenant des utilitaires indispensables. Nous privilégions la possibilité d'appliquer la blockchain pour améliorer les expériences quotidiennes plutôt que de poursuivre des étapes techniques triviales. Notre objectif est de créer des solutions significatives et pratiques qui transforment la technologie blockchain en aspects essentiels de la vie quotidienne.
 
-### Getting Started
+### Commencer
 
-To help you navigate through our resources, here’s a quick guide:
+Pour vous aider à naviguer dans nos ressources, voici un guide rapide :
 
-**Introductory Concepts**: Get a general understanding of Morph, including what makes it unique, our vision and mission, key concepts, and a look at our roadmap. This section will help you grasp the basics and understand the foundation of Morph.
+**Concepts de base** : Obtenez une compréhension générale de Morph, y compris ce qui le rend unique, notre vision et notre mission, les concepts clés et un aperçu de notre feuille de route. Cette section vous aidera à saisir les bases et à comprendre les fondements de Morph.
 
-**Step-by-Step Guides**: Follow these practical tutorials for setting up your wallet, using the faucet, bridging assets, and exploring the Morph ecosystem. These guides are perfect for hands-on learning and getting started with Morph.
+**Guides étape par étape** : Suivez ces tutoriels pratiques pour configurer votre portefeuille, utiliser le robinet, transférer des actifs et explorer l'écosystème Morph. Ces guides sont parfaits pour un apprentissage pratique et pour commencer avec Morph.
 
-**Links and Tools**: Access useful tools such as the Morph Holesky Explorer and the official bridge. This section provides all the necessary links and resources to interact with and explore the Morph network effectively.
+**Liens et Outils** : Accédez à des outils utiles tels que l'explorateur Morph Holesky et le pont officiel. Cette section fournit tous les liens et ressources nécessaires pour interagir et explorer le réseau Morph efficacement.
 
-### Engage in Our Ecosystem
+### Engagez-vous dans notre Écosystème
 
-Want to skip most of the reading and get started with exploring more right away? These are the guides that will get you right into the action:
+Vous voulez passer la plupart de la lecture et commencer à explorer tout de suite ? Voici les guides qui vous plongeront directement dans l'action :
 
-- **Wallet Setup**: Learn how to set up your wallet to interact with Morph.
-- **Using the Faucet**: Get test tokens to start experimenting on our testnet.
-- **Bridging Assets**: Understand how to bridge assets between Morph and Ethereum.
-- **Exploring Morph Zoo**: Dive into the diverse range of dApps and projects in the Morph ecosystem.
-- **Morph Holesky Explorer**: Use our explorer to track transactions and explore the blockchain.
+- **Configuration du Portefeuille** : Apprenez à configurer votre portefeuille pour interagir avec Morph.
+- **Utilisation du Robinet** : Obtenez des jetons de test pour commencer à expérimenter sur notre testnet.
+- **Transfert d'Actifs** : Comprenez comment transférer des actifs entre Morph et Ethereum.
+- **Explorer Morph Zoo** : Plongez dans la gamme diversifiée d'applications décentralisées (dApps) et de projets dans l'écosystème Morph.
+- **Explorateur Morph Holesky** : Utilisez notre explorateur pour suivre les transactions et explorer la blockchain.
 
-### Explore and Connect
+### Explorez et Connectez-vous
 
-We believe in building a vibrant community around Morph. Join us on [Discord](https://discord.com/invite/L2Morph) to engage with other users and follow us on [Twitter](https://twitter.com/Morphl2) to stay updated with our latest news and developments.
-
-
-
-
+Nous croyons en la construction d'une communauté dynamique autour de Morph. Rejoignez-nous sur [Discord](https://discord.com/invite/L2Morph) pour échanger avec d'autres utilisateurs et suivez-nous sur [Twitter](https://twitter.com/Morphl2) pour rester informé de nos dernières nouvelles et développements.

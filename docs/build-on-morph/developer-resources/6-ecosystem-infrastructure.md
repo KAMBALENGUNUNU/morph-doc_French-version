@@ -1,18 +1,18 @@
 ---
-title: Use Ecosystem Infrastructures
-lang: en-US
+title: Utiliser les Infrastructures de l'Écosystème
+lang: fr-FR
 ---
 
-Besides the official tools and resources, we have also partnered with other infrastructure projects to help builders on Morph. Here is the list of the projects that are live on Morph Holesky testnet. 
+En plus des outils et ressources officiels, nous avons également établi des partenariats avec d'autres projets d'infrastructure pour aider les constructeurs sur Morph. Voici la liste des projets qui sont en ligne sur le testnet Holesky de Morph.
 
-:::tip More partners coming soon
+:::tip Plus de partenaires à venir bientôt
 
-As Morph is still in beta testnet stage, we are working closely to complete the infrastructure cooperations, to ensure clear instructions, patners that is still working on Holesky testnet integration is not listed, we will keep updating this page.
+Comme Morph est encore en phase de test bêta, nous travaillons en étroite collaboration pour compléter les coopérations d'infrastructure, afin d'assurer des instructions claires. Les partenaires qui travaillent encore sur l'intégration du testnet Holesky ne sont pas listés, nous mettrons à jour cette page.
 :::
 
 
 <!--
-### 3rd Party Bridges
+### Ponts de 3ème Partie
 
 [LayerZero]()
 
@@ -21,73 +21,70 @@ As Morph is still in beta testnet stage, we are working closely to complete the 
 [Axelar]()
 -->
 
-### RPC Services
+### Services RPC
 
 #### Quicknode
 
-QuickNode is transforming blockchain infrastructure and tooling by simplifying web3 development and providing high-performance access to Morph. 
+QuickNode transforme l'infrastructure et les outils blockchain en simplifiant le développement web3 et en fournissant un accès haute performance à Morph.
 
-Developers in the Morph ecosystem are now eligible for free QuickNode credits/discounts!
+Les développeurs de l'écosystème Morph sont maintenant éligibles pour des crédits/remises QuickNode gratuits !
 
-Read more about what you can get here:
+Lisez-en plus sur ce que vous pouvez obtenir ici :
 
-[Quicknode Partnership](https://quicknode.notion.site/QuickNode-Benefits-for-Morph-Developers-4baf42f78dd64f389a2405e61350a0a6)
+[Partenariat Quicknode](https://quicknode.notion.site/QuickNode-Benefits-for-Morph-Developers-4baf42f78dd64f389a2405e61350a0a6)
 
 ![QuickNode](../../../assets/docs/dev/resources/quicknode.png)
 
-### Account Abstraction
+### Abstraction de Compte
 
 #### Biconomy
 
 ![biconomy](../../../assets/docs/dev/resources/biconomy.png)
 
-Documentation: https://docs.biconomy.io
+Documentation : https://docs.biconomy.io
 
-Integration for Morph Holesky is still in process, more details coming soon.
+L'intégration pour Morph Holesky est encore en cours, plus de détails à venir bientôt.
 
-### Blockchain Indexing Services
+### Services d'Indexation Blockchain
 
 #### Goldsky
 
 ![goldsky](../../../assets/docs/dev/resources/goldsky.png)
 
-We have partnered with Goldsky to provide indexing and subgraph services for Morph Holesky and Morph Mainnet.
+Nous avons établi un partenariat avec Goldsky pour fournir des services d'indexation et de sous-graphes pour Morph Holesky et Morph Mainnet.
 
-Goldsky also allow us to grant selected developers with free subgraph services now. If you want to deploy a subgraph with Goldsky, please raise a ticket in our Discord to let us know how we can help.
+Goldsky nous permet également d'accorder à certains développeurs des services de sous-graphe gratuits dès maintenant. Si vous souhaitez déployer un sous-graphe avec Goldsky, veuillez ouvrir un ticket dans notre Discord pour nous faire savoir comment nous pouvons aider.
 
-For more information, please refer to [their documentation](https://docs.goldsky.com/chains/morph).
-
+Pour plus d'informations, veuillez consulter [leur documentation](https://docs.goldsky.com/chains/morph).
 
 ### Oracles
 
 #### Pyth Network
 
-Documentation: https://docs.pyth.network/price-feeds
+Documentation : https://docs.pyth.network/price-feeds
 
-Right now Pyth is deployed on Morph Holesky, check the [contract](https://explorer-holesky.morphl2.io/address/0x2880aB155794e7179c9eE2e38200202908C17B43).
+En ce moment, Pyth est déployé sur Morph Holesky, consultez le [contrat](https://explorer-holesky.morphl2.io/address/0x2880aB155794e7179c9eE2e38200202908C17B43).
 
 #### eOracle
 
-Deployed [contract](https://explorer-holesky.morphl2.io/address/0xbd53b35Bf458Cd22dBDeB5Da71181daA3cFb6A10)
+Contrat déployé : [contrat](https://explorer-holesky.morphl2.io/address/0xbd53b35Bf458Cd22dBDeB5Da71181daA3cFb6A10)
 
-Full price feeds and docs can be found here : https://eoracle.gitbook.io/eoracle/price-feeds/feed-addresses.
+Les flux de prix complets et la documentation peuvent être trouvés ici : https://eoracle.gitbook.io/eoracle/price-feeds/feed-addresses.
 
 ### MultiSig
 
 #### Morph Safe
 
-We have partnered with [Protofire](https://www.protofire.io/) to create Morph Safe for multisig services on Morph.
+Nous avons établi un partenariat avec [Protofire](https://www.protofire.io/) pour créer Morph Safe pour des services multisig sur Morph.
 
-Please refer to the docs about [How to create a safe multisig on Morph](../developer-resources/4-create-a-safe-multi-signature-wallet.md).
+Veuillez consulter la documentation sur [Comment créer un portefeuille multisig sécurisé sur Morph](../developer-resources/4-create-a-safe-multi-signature-wallet.md).
 
-### Explorer
+### Explorateur
 
-Besides the official [Morph explorer](https://explorer-testnet.morphl2.io/), we have also partnered with 3rd party providers for different Morph blockchain data presentations forms.
+En plus de l'[explorateur Morph officiel](https://explorer-testnet.morphl2.io/), nous avons également établi des partenariats avec des fournisseurs tiers pour différentes présentations des données de la blockchain Morph.
 
 #### Socialscan
 
-Track Morph Testnet transactions and wallets on the [SocialScan Explorer](https://morphl2-testnet.socialscan.io/).
+Suivez les transactions et les portefeuilles du testnet Morph sur l'[Explorateur SocialScan](https://morphl2-testnet.socialscan.io/).
 
 ![socialscan](../../../assets/docs/dev/resources/socialscan.png)
-
-

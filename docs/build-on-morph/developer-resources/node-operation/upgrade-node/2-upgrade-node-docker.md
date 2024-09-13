@@ -1,41 +1,42 @@
 ---
-title: Upgrade node running from docker
-lang: en-US
+title: Mettre à jour le nœud exécuté depuis Docker
+lang: fr-FR
 ---
 
-If you are running the Docker container for the node using a custom setup, you will need to update the docker image yourself and then restart the container. 
+Si vous exécutez le conteneur Docker pour le nœud avec une configuration personnalisée, vous devrez mettre à jour l'image Docker vous-même, puis redémarrer le conteneur.
 
-The source code is available at https://github.com/morph-l2/morph.git. You need to switch to the latest version of the code and then update your docker image.
+Le code source est disponible sur https://github.com/morph-l2/morph.git. Vous devez passer à la dernière version du code, puis mettre à jour votre image Docker.
 
-If you are using  [Run a Morph node with docker](../2-how-to-run-a-morph-node-docker.md) to start the docker container, you can follow the subsequent steps to upgrade the node.
+Si vous utilisez [Exécuter un nœud Morph avec Docker](../2-how-to-run-a-morph-node-docker.md) pour démarrer le conteneur Docker, vous pouvez suivre les étapes suivantes pour mettre à jour le nœud.
 
-### Step1:  Fetch latest code version 
+### Étape 1 : Récupérer la dernière version du code
+
 ```bash
 git clone https://github.com/morph-l2/morph.git
-## checkout the latest version of the source code you need
+## vérifier la dernière version du code source dont vous avez besoin
 git checkout ${latestVersion}
 ```
-### Step2: Stop the nodes and delete previous images
+### Étape 2 : Arrêter les nœuds et supprimer les images précédentes
 
 ```bash
-## stop docker container
+## arrêter le conteneur Docker
 cd ops/publicnode
 make stop-holesky-node
 make rm-holesky-node
-## delete the pervious docker image for node
+## supprimer l'image Docker précédente pour le nœud
 docker rmi morph/node:latest
-## delete the pervious docker image for geth
+## supprimer l'image Docker précédente pour geth
 docker rmi morph/geth-nccc:latest
 ```
 
-### Step3: Build the latest image and restart the container
+### Étape 3 : Construire la dernière image et redémarrer le conteneur
 
 :::note 
-Please note that we need to ensure that the Docker container startup parameters are consistent with those used previously. If you used a custom configuration before, make sure that the configuration and directory paths used in this run are the same as before. For details, please refer to [**Advanced Usage**](../2-how-to-run-a-morph-node-docker.md#advanced-usage) 
+Veuillez noter que nous devons nous assurer que les paramètres de démarrage du conteneur Docker sont cohérents avec ceux utilisés auparavant. Si vous avez utilisé une configuration personnalisée auparavant, assurez-vous que la configuration et les chemins de répertoire utilisés dans cette exécution sont les mêmes qu'auparavant. Pour plus de détails, veuillez consulter [**Advanced Usage**](../2-how-to-run-a-morph-node-docker.md#advanced-usage) 
 :::
 
 ```bash
-## start the docker container, it will automatically build the new docker images
+## démarrer le conteneur Docker, il construira automatiquement les nouvelles images Docker
 make run-holesky-node
 ```
 

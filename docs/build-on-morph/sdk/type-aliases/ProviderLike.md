@@ -4,11 +4,11 @@
 
 [@morph-l2/sdk](../globals.md) / ProviderLike
 
-# Type alias: ProviderLike
+# Alias de type : ProviderLike
 
-> **ProviderLike**: `string` \| `Provider`
+> **ProviderLike** : `string` \| `Provider`
 
-Stuff that can be coerced into a provider.
+Des éléments qui peuvent être convertis en un fournisseur.
 
 ## Source
 

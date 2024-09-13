@@ -4,11 +4,11 @@
 
 [@morph-l2/sdk](../globals.md) / NumberLike
 
-# Type alias: NumberLike
+# Alias de type : NumberLike
 
-> **NumberLike**: `string` \| `number` \| `BigNumber` \| `bigint`
+> **NumberLike** : `string` \| `number` \| `BigNumber` \| `bigint`
 
-Stuff that can be coerced into a number.
+Des choses qui peuvent être converties en un nombre.
 
 ## Source
 

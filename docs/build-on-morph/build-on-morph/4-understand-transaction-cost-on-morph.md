@@ -1,139 +1,137 @@
 ---
-title: Understand Transaction Cost on Morph
-lang: en-US
-keywords: [morph,ethereum,rollup,layer2,validity proof,optimistic zk-rollup]
-description: Upgrade your blockchain experience with Morph - the secure decentralized, cost0efficient, and high-performing optimistic zk-rollup solution. Try it now!
+title: Comprendre le Coût des Transactions sur Morph
+lang: fr-FR
+keywords: [morph,ethereum,rollup,layer2,preuve de validité,optimistic zk-rollup]
+description: Améliorez votre expérience blockchain avec Morph - la solution zk-rollup optimiste, décentralisée, sécurisée et performante. Essayez-la maintenant !
 ---
 
-Transaction fees on Morph work similarly to fees on Ethereum. However, Layer 2 introduces some unique aspects. Morph's optimistic zkEVM makes these differences easy to understand and even easier to handle. 
+Les frais de transaction sur Morph fonctionnent de manière similaire à ceux d'Ethereum. Cependant, la Layer 2 introduit certains aspects uniques. Le zkEVM optimiste de Morph rend ces différences faciles à comprendre et encore plus faciles à gérer.
 
-This page includes the formula for calculating the gas cost of transactions on Morph.
-There are two kinds of costs for transactions on Morph: the L2 execution fee and the L1 data/security fee.
-
+Cette page inclut la formule pour calculer le coût en gas des transactions sur Morph.  
+Il existe deux types de coûts pour les transactions sur Morph : les frais d'exécution L2 et les frais de données/sécurité L1.
 
 <!--
 :::tip
 
-The transaction fees are collected into the `SequencerFeeVault` contract balance. This contract also tracks the amount we’ve historically withdrawn to L1 using `totalProcessed()(uint256)`.
+Les frais de transaction sont collectés dans le solde du contrat `SequencerFeeVault`. Ce contrat suit également le montant que nous avons historiquement retiré vers L1 en utilisant `totalProcessed()(uint256)`.
 
-The block producer receives no direct reward, and the `COINBASE` opcode returns the fee vault address.
+Le producteur de blocs ne reçoit aucune récompense directe, et l'opcode `COINBASE` renvoie l'adresse du coffre de frais.
 
 :::
 -->
 
-## The L2 execution fee
+## Les frais d'exécution L2
 
-Like Ethereum, transactions on Morph incur gas costs for computation and storage usage.
+Comme sur Ethereum, les transactions sur Morph entraînent des coûts en gas pour l'utilisation de la computation et du stockage.
 
-Every L2 transaction will pay some **execution** fee, equal to the amount of gas used multiplied by the gas price of the transaction.
+Chaque transaction sur L2 paiera des **frais d'exécution**, égaux à la quantité de gas utilisée multipliée par le prix du gas de la transaction.
 
-Morph supports EIP-1559 transaction type. The EIP-1559 pricing model, which comprises a base fee and a priority fee, contributes to a more predictable and stable transaction fee.
+Morph prend en charge le type de transaction EIP-1559. Le modèle de tarification EIP-1559, qui comprend des frais de base et des frais prioritaires, contribue à des frais de transaction plus prévisibles et stables.
 
-The formula is straightforward:
+La formule est simple :
+
 ```
 l2_execution_fee = l2_gas_price * l2_gas_used
 l2_gas_price = l2_base_fee + l2_priority_fee
 ```
 
-The amount of L2 gas used depends on the specific transaction. Due to EVM compatibility, gas usage on Morph is typically similar to Ethereum.
 
+La quantité de gas utilisée sur L2 dépend de la transaction spécifique. En raison de la compatibilité avec l'EVM, la consommation de gas sur Morph est généralement similaire à celle d'Ethereum.
 
-## The L1 data fee
+## Les frais de données L1
 
-Morph transactions are also published to Ethereum, crucial to Morph’s security as it ensures all data needed to verify Morph's state is always publicly available on Ethereum. 
+Les transactions sur Morph sont également publiées sur Ethereum, ce qui est crucial pour la sécurité de Morph, car cela garantit que toutes les données nécessaires pour vérifier l'état de Morph sont toujours disponibles publiquement sur Ethereum.
 
-Users must pay for the cost of submitting their transactions to Ethereum, known as the L1 data fee. This fee typically represents most of the total cost of a transaction on Morph.
+Les utilisateurs doivent payer pour le coût de soumission de leurs transactions sur Ethereum, ce que l'on appelle les frais de données L1. Ces frais représentent généralement la majeure partie du coût total d'une transaction sur Morph.
 
-Formula:
+Formule :
 
 ```
 l1DataFee = (l1BaseFee * commitScalar + l1BlobBaseFee * tx_data_gas * blobScalar) / rcfg.Precision
 ```
 
-where tx_data_gas is
+où tx_data_gas is
 
 ```
 tx_data_gas = count_zero_bytes(tx_data) * 4 + count_non_zero_bytes(tx_data) * 16
 ```
 
-And other parameters:
+Et les autres paramètres :
 
-1. l1BaseFee：Layer1 base fee
-2. commitScalar: a factor used to measure the gas cost for data commitment
-3. l1BlobBaseFee: the blobBaseFee on L1
-4. blobScalar: a factor used to measure the gas cost for one transaction to be stored in EIP-4844 blob
+1. l1BaseFee : Frais de base sur Layer1
+2. commitScalar : un facteur utilisé pour mesurer le coût en gas de l'engagement des données
+3. l1BlobBaseFee : le blobBaseFee sur L1
+4. blobScalar : un facteur utilisé pour mesurer le coût en gas d'une transaction stockée dans un blob EIP-4844
 
 
 :::tip
-You can read the parameter values from the GasPrice oracle contract. Morph has pre-deployed `GasPriceOracle`, accessible on Morph Holesky at [GasPriceOracle](https://explorer-holesky.morphl2.io/address/0x530000000000000000000000000000000000000F).
+Vous pouvez lire les valeurs des paramètres depuis le contrat oracle des prix du gas. Morph a pré-déployé `GasPriceOracle`, accessible sur Morph Holesky à [GasPriceOracle](https://explorer-holesky.morphl2.io/address/0x530000000000000000000000000000000000000F).
 :::
 
+## Effet des frais de transaction sur le développement logiciel
+
+### Envoi de transactions
+
+Le processus d'envoi d'une transaction sur Morph est identique à celui sur Ethereum.
+
+Lorsque vous envoyez une transaction, vous devez fournir un prix du gas qui est supérieur ou égal au prix actuel du gas sur L2.
+
+Comme sur Ethereum, vous pouvez interroger ce prix du gas avec la méthode RPC `eth_gasPrice`.
+
+De même, vous devez définir la limite de gas de votre transaction de la même manière que vous le feriez sur Ethereum (par exemple via `eth_estimateGas`).
 
 
-## Transaction fees' effect on software development
+### Affichage des frais aux utilisateurs
 
-### Sending transactions
+De nombreuses applications Ethereum affichent des frais estimés aux utilisateurs en multipliant le prix du gas par la limite de gas.
 
-The process of sending a transaction on Morph is identical to sending a transaction on Ethereum.
+Cependant, comme mentionné précédemment, les utilisateurs sur Morph paient à la fois des frais d'exécution L2 et des frais de données L1.
 
-When sending a transaction, you should provide a gas price that is greater than or equal to the current L2 gas price.
-
-Like on Ethereum, you can query this gas price with the `eth_gasPrice` RPC method.
-
-Similarly, you should set your transaction gas limit in the same way that you would set it on Ethereum (e.g. via `eth_estimateGas`).
+Par conséquent, vous devez afficher la somme de ces deux frais pour donner aux utilisateurs l'estimation la plus précise du coût total d'une transaction.
 
 
-### Displaying fees to users
+#### Estimation des frais d'exécution L2
 
-Many Ethereum applications display estimated fees to users by multiplying the gas price by the gas limit.
+Vous pouvez estimer les frais d'exécution L2 en multipliant le prix du gas par la limite de gas, comme sur Ethereum.
 
-However, as discussed earlier, users on Morph are charged both an L2 execution fee and an L1 data fee.
-
-As a result, you should display the sum of both of these fees to give users the most accurate estimate of the total cost of a transaction.
+#### [Estimation des frais de données L1](./understand-transaction-cost-on-morph#the-l1-data-fee)
 
 
-#### Estimating the L2 execution fee
+#### Estimation des frais totaux
 
-You can estimate the L2 execution fee by multiplying the gas price by the gas limit, just like on Ethereum.
+Vous pouvez estimer les frais totaux en combinant vos estimations des frais d'exécution L2 et des frais de données L1.
 
-#### [Estimating the L1 data fee](./understand-transaction-cost-on-morph#the-l1-data-fee)
+### Envoi du maximum d'ETH
 
+L'envoi du montant maximum d'ETH qu'un utilisateur possède dans son portefeuille est un cas d'utilisation relativement courant.
 
+Lorsque vous faites cela, vous devrez soustraire les frais d'exécution L2 estimés et les frais de données L1 estimés du montant d'ETH que vous souhaitez que l'utilisateur envoie.
 
-#### Estimating the total fee
+Utilisez la logique décrite ci-dessus pour estimer les frais totaux.
 
-You can estimate the total fee by combining your estimates for the L2 execution fee and L1 data fee.
+## Erreurs RPC courantes
 
-### Sending max ETH
+### Fonds insuffisants
 
-Sending the maximum amount of ETH that a user has in their wallet is a relatively common use case.
+- Code d'erreur : `-32000`
+- Message d'erreur : `transaction invalide : fonds insuffisants pour l1Fee + l2Fee + value`
 
-When doing this, you will need to subtract the estimated L2 execution fee and the estimated L1 data fee from the amount of ETH you want the user to send.
+Vous obtiendrez cette erreur lorsque vous tentez d'envoyer une transaction et que vous n'avez pas assez d'ETH pour payer la valeur de la transaction, les frais d'exécution L2 et les frais de données L1.  
+Vous pourriez rencontrer cette erreur en essayant d'envoyer le maximum d'ETH si vous ne prenez pas correctement en compte à la fois les frais d'exécution L2 et les frais de données L1.
 
-Use the logic described above for estimating the total fee.
+### Prix du gas trop bas
 
-## Common RPC Errors
+- Code d'erreur : `-32000`
+- Message d'erreur : `prix du gas trop bas : X wei, utilisez au moins tx.gasPrice = Y wei`
 
-### Insufficient funds
+Ceci est une erreur RPC personnalisée que Morph renvoie lorsqu'une transaction est rejetée parce que le prix du gas est trop bas.  
+Voir la section sur [Répondre aux mises à jour du prix du gas](#responding-to-gas-price-updates) pour plus d'informations.
 
-- Error code: `-32000`
-- Error message: `invalid transaction: insufficient funds for l1Fee + l2Fee + value`
+### Prix du gas trop élevé
 
-You'll get this error when attempting to send a transaction and you don't have enough ETH to pay for the value of the transaction, the L2 execution fee, and the L1 data fee.
-You might get this error when attempting to send max ETH if you aren't properly accounting for both the L2 execution fee and the L1 data fee.
+- Code d'erreur : `-32000`
+- Message d'erreur : `prix du gas trop élevé : X wei, utilisez au maximum tx.gasPrice = Y wei`
 
-### Gas price too low
-
-- Error code: `-32000`
-- Error message: `gas price too low: X wei, use at least tx.gasPrice = Y wei`
-
-This is a custom RPC error that Morph returns when a transaction is rejected because the gas price is too low.
-See the section on [Responding to gas price updates](#responding-to-gas-price-updates) for more information.
-
-### Gas price too high
-- Error code: `-32000`
-- Error message: `gas price too high: X wei, use at most tx.gasPrice = Y wei`
-
-This is a custom RPC error that Morph returns when a transaction is rejected because the gas price is too high.
-We include this as a safety measure to prevent users from accidentally sending a transaction with an extremely high L2 gas price.
-See the section on [Responding to gas price updates](#responding-to-gas-price-updates) for more information.
+Ceci est une erreur RPC personnalisée que Morph renvoie lorsqu'une transaction est rejetée parce que le prix du gas est trop élevé.  
+Nous incluons cela comme une mesure de sécurité pour empêcher les utilisateurs d'envoyer accidentellement une transaction avec un prix du gas L2 extrêmement élevé.  
+Voir la section sur [Répondre aux mises à jour du prix du gas](#responding-to-gas-price-updates) pour plus d'informations.

@@ -1,22 +1,20 @@
 ---
-title: Verify Your Smart Contracts
-lang: en-US
-keywords: [morph,ethereum,rollup,layer2,validity proof,optimistic zk-rollup]
-description: Upgrade your blockchain experience with Morph - the secure decentralized, cost0efficient, and high-performing optimistic zk-rollup solution. Try it now!
+title: Vérifiez Vos Smart Contracts
+lang: fr-FR
+keywords: [morph,ethereum,rollup,couche2,preuve de validité,optimistic zk-rollup]
+description: Améliorez votre expérience blockchain avec Morph - la solution décentralisée, sécurisée, rentable et performante de type optimistic zk-rollup. Essayez-le maintenant !
 ---
 
-After deploying your smart contracts, it's crucial to verify your code on our [block explorer](https://explorer-holesky.morphl2.io). This can be automated using your development framework, such as Hardhat.
+Après avoir déployé vos smart contracts, il est crucial de vérifier votre code sur notre [explorateur de blocs](https://explorer-holesky.morphl2.io). Cela peut être automatisé en utilisant votre framework de développement, tel que Hardhat.
 
+## Vérifier avec un framework de développement
 
+La plupart des outils de smart contract disposent de plugins pour vérifier les contrats sur Etherscan. Blockscout prend en charge les APIs de vérification de contrat d'Etherscan, ce qui rend l'utilisation de ces outils facile avec le Testnet de Morph.
 
+### Vérifier avec Hardhat
 
-## Verify with development framework
+Pour vérifier votre contrat via Hardhat, vous devez ajouter les configurations Etherscan et Sourcify suivantes à votre fichier hardhat.config.js :
 
-Most smart contract tools have plugins for verifying contracts on Etherscan. Blockscout supports Etherscan's contract verification APIs, making it straightforward to use these tools with the Morph Testnet.
-
-### Verify with Hardhat
-
-To verify your contract through hardhat, you need to add the following Etherscan and Sourcify configs to your hardhat.config.js file:
 
 ```javascript
 module.exports = {
@@ -41,9 +39,9 @@ module.exports = {
 };
 ```
 
-### Verify with Foundry
+### Vérifier avec Foundry
 
-Verification with foundry requires some flags passed to the normal verification script. You can verify using the command below:
+La vérification avec Foundry nécessite quelques options supplémentaires à passer dans le script de vérification classique. Vous pouvez vérifier en utilisant la commande ci-dessous :
 
 ```bash
  forge verify-contract YourContractAddress Counter\
@@ -51,70 +49,70 @@ Verification with foundry requires some flags passed to the normal verification 
   --verifier-url https://explorer-api-holesky.morphl2.io/api? \
   --verifier blockscout --watch
 ```
+## Vérifier avec l'interface de l'explorateur Morph
 
-## Verify with Morph explorer frontend
+- Visitez : [Explorateur de blocs Morph](https://explorer-holesky.morphl2.io)
 
-- Visit：[Morph block explorer](https://explorer-holesky.morphl2.io)
+Nous supportons actuellement 6 différentes façons de vérifier vos contrats sur notre explorateur de blocs.
 
-We currently support 6 different ways to verify your contracts on our block explorer.
+Il y a 2 paramètres généraux :
 
-There are 2 general parameters:
+- Compilateur : Il doit être cohérent avec ce que vous sélectionnez lors du déploiement.
+- Optimisation : Peut être ignoré si vous n'avez pas d'optimisation de contrat. Si vous en avez, elle doit être cohérente avec le déploiement.
 
-- Compiler: Has to be consistent with what you select when deployment.
-- Optimization: Can be ignored if you don't have contract optimization. If you do, it has to be consistent with deployment.
+### Méthode : Solidity (Code source aplati)
 
-### Method: Solidity (Flattened Sources Code)
-
-#### Frontend:
+#### Interface :
 
 ![fscs](../../../assets/docs/dev/contract-verify/flatsourcesol.png)
 
-#### Flatten
+#### Aplatir
 
-Flatten through [forge command](https://book.getfoundry.sh/reference/forge/forge-flatten?highlight=flatten#forge-flatten), for example:
+Aplatissez via la [commande forge](https://book.getfoundry.sh/reference/forge/forge-flatten?highlight=flatten#forge-flatten), par exemple :
 
-~~~
+~~~bash
 forge flatten --output FlattenedL2StandardBridge.sol ./contracts/L2/L2StandardBridge.sol
 ~~~
 
-### Method: Solidity (Standard JSON Input)
+### Méthode : Solidity (Entrée JSON standard)
+
 ![sjis1](../../../assets/docs/dev/contract-verify/sjisol1.png)
 
+#### Obtenir le fichier JSON
 
-
-#### Obtain JSON File
-
-- Can be obtained through solc
-- Can be obatined through remix compiler
+- Peut être obtenu via solc
+- Peut être obtenu via le compilateur Remix
 
 ![sjis2](../../../assets/docs/dev/contract-verify/sjisol3.png)
 
 ![sjis3](../../../assets/docs/dev/contract-verify/sjisol3.png)
-### Method: Solidity (Multi-part files)
 
-#### Frontend:
+### Méthode : Solidity (Fichiers multiples)
 
-- You can submit multiple contract file by your own needs
+#### Interface :
+
+- Vous pouvez soumettre plusieurs fichiers de contrat selon vos besoins
 ![mpfs1](../../../assets/docs/dev/contract-verify/mpfsol.png)
 
-#### SOL File Process
-- If there is any imported file, it needs to be modified to be referenced by the same level path, and these files must be submitted together. 
+#### Processus de fichier SOL
+- S'il y a un fichier importé, il doit être modifié pour être référencé par un chemin au même niveau, et ces fichiers doivent être soumis ensemble. 
 ![mpfs2](../../../assets/docs/dev/contract-verify/mpfsol2.png)
-### Method: Vyper (Contracts)
 
-#### Frontend:
+### Méthode : Vyper (Contrats)
+
+#### Interface :
 ![cv](../../../assets/docs/dev/contract-verify/cv.png)
-### Method: Vyper (Standard Json Input)
 
-#### Frontend:
+### Méthode : Vyper (Entrée JSON standard)
+
+#### Interface :
 ![sjiv](../../../assets/docs/dev/contract-verify/sjiv.png)
-### Method: Vyper (Multi-part files)
 
-#### Frontend:
+### Méthode : Vyper (Fichiers multiples)
+
+#### Interface :
 ![mpfv](../../../assets/docs/dev/contract-verify/mpfv.png)
 
-### After Verification
+### Après vérification
 
 ![avp](../../../assets/docs/dev/contract-verify/avp.png)
-
-

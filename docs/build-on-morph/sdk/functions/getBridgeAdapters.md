@@ -4,37 +4,37 @@
 
 [@morph-l2/sdk](../globals.md) / getBridgeAdapters
 
-# Function: getBridgeAdapters()
+# Fonction : getBridgeAdapters()
 
-> **getBridgeAdapters**(`l2ChainId`, `messenger`, `opts`?): [`BridgeAdapters`](../interfaces/BridgeAdapters.md)
+> **getBridgeAdapters**(l2ChainId, messenger, opts?) : [BridgeAdapters](../interfaces/BridgeAdapters.md)
 
-Gets a series of bridge adapters for the given L2 chain ID.
+Obtient une série d'adaptateurs de pont pour l'ID de chaîne L2 donné.
 
-## Parameters
+## Paramètres
 
-• **l2ChainId**: `number`
+• **l2ChainId** : nombre
 
-Chain ID for the L2 network.
+ID de chaîne pour le réseau L2.
 
-• **messenger**: [`CrossChainMessenger`](../classes/CrossChainMessenger.md)
+• **messenger** : [CrossChainMessenger](../classes/CrossChainMessenger.md)
 
-Cross chain messenger to connect to the bridge adapters
+Messager inter-chaînes pour se connecter aux adaptateurs de pont.
 
-• **opts?**
+• **opts ?**
 
-Additional options for connecting to the custom bridges.
+Options supplémentaires pour se connecter aux ponts personnalisés.
 
-• **opts.contracts?**: [`DeepPartial`](../type-aliases/DeepPartial.md)\<[`OEContractsLike`](../interfaces/OEContractsLike.md)\>
+• **opts.contracts ?** : [DeepPartial](../type-aliases/DeepPartial.md)\<[OEContractsLike](../interfaces/OEContractsLike.md)\>
 
-• **opts.overrides?**: [`BridgeAdapterData`](../interfaces/BridgeAdapterData.md)
+• **opts.overrides ?** : [BridgeAdapterData](../interfaces/BridgeAdapterData.md)
 
-Custom bridge adapters.
+Adaptateurs de pont personnalisés.
 
-## Returns
+## Retourne
 
-[`BridgeAdapters`](../interfaces/BridgeAdapters.md)
+[BridgeAdapters](../interfaces/BridgeAdapters.md)
 
-An object containing all bridge adapters
+Un objet contenant tous les adaptateurs de pont.
 
 ## Source
 

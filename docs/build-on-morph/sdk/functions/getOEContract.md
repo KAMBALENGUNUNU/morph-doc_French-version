@@ -4,42 +4,39 @@
 
 [@morph-l2/sdk](../globals.md) / getOEContract
 
-# Function: getOEContract()
+# Fonction : getOEContract()
 
-> **getOEContract**(`contractName`, `l2ChainId`, `opts`): `Contract`
+> **getOEContract**(`contractName`, `l2ChainId`, `opts`) : `Contract`
 
-Returns an ethers.Contract object for the given name, connected to the appropriate address for
-the given L2 chain ID. Users can also provide a custom address to connect the contract to
-instead. If the chain ID is not known then the user MUST provide a custom address or this
-function will throw an error.
+Renvoie un objet ethers.Contract pour le nom donné, connecté à l'adresse appropriée pour l'ID de chaîne L2 donné. Les utilisateurs peuvent également fournir une adresse personnalisée pour connecter le contrat à la place. Si l'ID de chaîne n'est pas connu, l'utilisateur DOIT fournir une adresse personnalisée, sinon cette fonction générera une erreur.
 
-## Parameters
+## Paramètres
 
-• **contractName**: `"L1MessageQueueWithGasPriceOracle"` \| `"L1GatewayRouter"` \| `"L2GatewayRouter"` \| `"MorphStandardERC20"` \| `"L2WETH"` \| `"L1WETHGateway"` \| `"L2WETHGateway"` \| `"L2ToL1MessagePasser"` \| `"Sequencer"` \| `"Gov"` \| `"L2ETHGateway"` \| `"L2CrossDomainMessenger"` \| `"L2StandardERC20Gateway"` \| `"L2ERC721Gateway"` \| `"L2TxFeeVault"` \| `"L2ERC1155Gateway"` \| `"MorphStandardERC20Factory"` \| `"GasPriceOracle"` \| `"WrappedEther"` \| `"MorphToken"` \| `"L1CrossDomainMessenger"` \| `"Staking"` \| `"Rollup"` \| `"L1ETHGateway"` \| `"L1StandardERC20Gateway"` \| `"L1ERC721Gateway"` \| `"L1ERC1155Gateway"` \| `"EnforcedTxGateway"` \| `"WETH"`
+• **contractName** : `"L1MessageQueueWithGasPriceOracle"` \| `"L1GatewayRouter"` \| `"L2GatewayRouter"` \| `"MorphStandardERC20"` \| `"L2WETH"` \| `"L1WETHGateway"` \| `"L2WETHGateway"` \| `"L2ToL1MessagePasser"` \| `"Sequencer"` \| `"Gov"` \| `"L2ETHGateway"` \| `"L2CrossDomainMessenger"` \| `"L2StandardERC20Gateway"` \| `"L2ERC721Gateway"` \| `"L2TxFeeVault"` \| `"L2ERC1155Gateway"` \| `"MorphStandardERC20Factory"` \| `"GasPriceOracle"` \| `"WrappedEther"` \| `"MorphToken"` \| `"L1CrossDomainMessenger"` \| `"Staking"` \| `"Rollup"` \| `"L1ETHGateway"` \| `"L1StandardERC20Gateway"` \| `"L1ERC721Gateway"` \| `"L1ERC1155Gateway"` \| `"EnforcedTxGateway"` \| `"WETH"`
 
-Name of the contract to connect to.
+Nom du contrat auquel se connecter.
 
-• **l2ChainId**: `number`
+• **l2ChainId** : `number`
 
-Chain ID for the L2 network.
+ID de chaîne pour le réseau L2.
 
 • **opts**= `{}`
 
-Additional options for connecting to the contract.
+Options supplémentaires pour se connecter au contrat.
 
-• **opts.address?**: [`AddressLike`](../type-aliases/AddressLike.md)
+• **opts.address?** : [`AddressLike`](../type-aliases/AddressLike.md)
 
-Custom address to connect to the contract.
+Adresse personnalisée à connecter au contrat.
 
-• **opts.signerOrProvider?**: `Provider` \| `Signer`
+• **opts.signerOrProvider?** : `Provider` \| `Signer`
 
-Signer or provider to connect to the contract.
+Signer ou fournisseur à connecter au contrat.
 
-## Returns
+## Retourne
 
 `Contract`
 
-An ethers.Contract object connected to the appropriate address and interface.
+Un objet ethers.Contract connecté à l'adresse et à l'interface appropriées.
 
 ## Source
 

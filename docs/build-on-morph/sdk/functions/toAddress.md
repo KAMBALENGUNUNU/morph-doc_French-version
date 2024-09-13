@@ -4,23 +4,23 @@
 
 [@morph-l2/sdk](../globals.md) / toAddress
 
-# Function: toAddress()
+# Fonction : toAddress()
 
-> **toAddress**(`addr`): `string`
+> **toAddress**(`addr`) : `string`
 
-Converts an address-like into a 0x-prefixed address string.
+Convertit une adresse similaire en une chaîne d'adresse avec le préfixe 0x.
 
-## Parameters
+## Paramètres
 
-• **addr**: [`AddressLike`](../type-aliases/AddressLike.md)
+• **addr** : [`AddressLike`](../type-aliases/AddressLike.md)
 
-Address-like to convert into an address.
+Adresse similaire à convertir en adresse.
 
-## Returns
+## Retourne
 
 `string`
 
-Address-like as an address.
+Adresse similaire sous forme d'adresse.
 
 ## Source
 

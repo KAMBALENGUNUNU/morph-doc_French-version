@@ -1,121 +1,120 @@
 ---
-title: Bridge
-lang: en-US
-keywords: [morph,ethereum,rollup,layer2,validity proof,optimistic zk-rollup]
-description: Upgrade your blockchain experience with Morph - the secure decentralized, cost0efficient, and high-performing optimistic zk-rollup solution. Try it now!
+title: Pont
+lang: fr-FR
+keywords: [morph, ethereum, rollup, couche2, preuve de validité, zk-rollup optimiste]
+description: Améliorez votre expérience blockchain avec Morph - la solution zk-rollup optimiste sécurisée, décentralisée, rentable et performante. Essayez-le maintenant !
 ---
 
-# Deposit from Holesky to Morph Testnet
+# Dépôt de Holesky au Testnet Morph
 
-## Instructions:
+## Instructions :
 
-:::tip Use the bridge here
+:::tip Utilisez le pont ici
 
  https://bridge-holesky.morphl2.io
  
 :::
 
-1. Open your MetaMask wallet and switch to the **Holesky** network. 
+1. Ouvrez votre portefeuille MetaMask et passez au réseau **Holesky**. 
 
 ![image1](../../assets/docs/quick-start/bridge/01.png)
 ![image1](../../assets/docs/quick-start/bridge/02.png)
 
-2. Within Morph’s Bridge app, click **Connect wallet**, select MetaMask, and approve the connection if prompted.
+2. Dans l'application Bridge de Morph, cliquez sur **Connecter le portefeuille**, sélectionnez MetaMask, et approuvez la connexion si demandé.
 
 ![image2](../../assets/docs/quick-start/bridge/03.png)
 
-3. Make sure that **Holesky** is selected under ‘From’ and Morph L2 under ‘To’. If not, click the "↓" button to switch their positions.
+3. Assurez-vous que **Holesky** est sélectionné sous ‘De’ et Morph L2 sous ‘À’. Si ce n'est pas le cas, cliquez sur le bouton "↓" pour changer leurs positions.
 
-4. Select the token that you want to transfer. 
+4. Sélectionnez le jeton que vous souhaitez transférer. 
 
-5. Click the Send button to initiate the deposit.
+5. Cliquez sur le bouton Envoyer pour initier le dépôt.
 
 :::tip
-If this is your first time transferring an ERC20 token, you need to approve the **Holesky** Bridge contract to access your ERC20 token.
+Si c'est la première fois que vous transférez un jeton ERC20, vous devez approuver le contrat de pont **Holesky** pour accéder à votre jeton ERC20.
 :::
 
-6. A window will pop up asking for confirmation of the transfer transaction, click **Deposit**.
+6. Une fenêtre apparaîtra demandant la confirmation de la transaction de transfert, cliquez sur **Dépôt**.
 
 ![image3](../../assets/docs/quick-start/bridge/04.png)
 
-7. Click the Confirm button in MetaMask. Once the transfer transaction is finalized, the token will be deducted from your **Holesky** wallet address.
+7. Cliquez sur le bouton Confirmer dans MetaMask. Une fois la transaction de transfert finalisée, le jeton sera déduit de votre adresse de portefeuille **Holesky**.
 
 ![image5](../../assets/docs/quick-start/bridge/05.png)
 
-8. While you wait, you can check status of your transactions by clicking on the transactions button. 
+8. Pendant que vous attendez, vous pouvez vérifier l'état de vos transactions en cliquant sur le bouton des transactions.
 
 ![image6](../../assets/docs/quick-start/bridge/06.png)
 
 
-## How long does it take for a token to arrive to Morph Testnet ?
+## Combien de temps faut-il pour qu'un jeton arrive au Testnet Morph ?
 
-A token transfer from **Holesky** to Morph Testnet may take 8 to 14 minutes (time for block to become Safe on **Holesky**) before it appears in your Morph wallet. To check the progress of your deposit transactions, follow these steps:
+Un transfert de jeton de **Holesky** au Testnet Morph peut prendre de 8 à 14 minutes (temps pour que le bloc soit sûr sur **Holesky**) avant d'apparaître dans votre portefeuille Morph. Pour vérifier l'avancement de vos transactions de dépôt, suivez ces étapes :
 
-1. Click your wallet address at the top-right corner of the Bridge web app.
+1. Cliquez sur votre adresse de portefeuille en haut à droite de l'application web Bridge.
 
 ![image6](../../assets/docs/quick-start/bridge/07.png)
 
-2. Click on Transactions. A pop-up panel will display your recent transactions.
+2. Cliquez sur Transactions. Un panneau contextuel affichera vos transactions récentes.
 
 :::tip
-Note: For deposit transactions (L1 -> L2), once your transaction is confirmed as Safe on **Holesky** (8 to 14 minutes), you will see a **Success** status. Your funds will then be relayed to L2.
+Note : Pour les transactions de dépôt (L1 -> L2), une fois que votre transaction est confirmée comme sûre sur **Holesky** (8 à 14 minutes), vous verrez un statut **Succès**. Vos fonds seront alors transmis à L2.
 :::
 
 ![image8](../../assets/docs/quick-start/bridge/08.png)
 
-3. Click on the most recent **Holesky** transaction hash.
+3. Cliquez sur le dernier hachage de transaction **Holesky**.
 
 ![image9](../../assets/docs/quick-start/bridge/09.png)
 
-4. You will be taken to a Transaction Details page in the Explorer. Verify your transaction status (this transaction is confirmed on **Holesky**). 
+4. Vous serez dirigé vers une page de Détails de la transaction dans l'Explorateur. Vérifiez le statut de votre transaction (cette transaction est confirmée sur **Holesky**). 
 
 ![image10](../../assets/docs/quick-start/bridge/10.png)
 
-5. Once your transaction status shows *success* on L2, return to the Bridge app to see a transaction hash and funds in your Morph L2 wallet.
+5. Une fois que le statut de votre transaction montre *succès* sur L2, retournez à l'application Bridge pour voir un hachage de transaction et des fonds dans votre portefeuille Morph L2.
 
 ![image11](../../assets/docs/quick-start/bridge/11.png)
 
 ![image12](../../assets/docs/quick-start/bridge/12.png)
 
+# Retrait du Testnet Morph vers Holesky
 
-# Withdraw from Morph Testnet to Holesky
+Pour retirer des fonds du Testnet Morph, suivez ces étapes :
+1. Initiez le retrait sur le Testnet Morph.
+2. Attendez que la racine du retrait soit publiée sur L1 (**Holesky**). Cela prend généralement quelques minutes, mais cela peut prendre plus de temps en cas de panne.
+3. Prouvez le retrait.
+4. Attendez la période de challenge de vérification, qui dure sept jours à partir du moment où le retrait est prouvé sur L1 (**Holesky**).
+5. Réclamez votre retrait.
 
-To withdraw funds from Morph Testnet, follow these steps:
-1. Initiate the withdrawal on Morph Testnet.
-2. Wait for the withdrawal root to be published on L1 (**Holesky**). This usually takes a few minutes, but it may take longer during outages.
-3. Prove withdrawal.
-4. Wait for the verification challenge period, which lasts seven days from the time the withdrawal is proven on L1 (**Holesky**).
-5. Claim your withdrawal.
+## Initier le retrait
 
-## Initiate withdrawal
+1. Cliquez sur Connecter le portefeuille et sélectionnez MetaMask. Si demandé, approuvez la connexion dans votre portefeuille.
 
-1. Click Connect Wallet and select MetaMask. If prompted, approve the connection in your wallet.
-
-2. Select Withdraw. Choose the asset and amount you wish to withdraw.
+2. Sélectionnez Retrait. Choisissez l'actif et le montant que vous souhaitez retirer.
 
 ![image13](../../assets/docs/quick-start/bridge/13.png)
 
-3. Click Send ETH to **Holesky**.
+3. Cliquez sur Envoyer ETH à **Holesky**.
 
 ![image14](../../assets/docs/quick-start/bridge/14.png)
 
-4. Click Initiate withdrawal, wait for a few minutes to confirm. After it is finished, you need to switch the network in your wallet and then prove the withdrawal on **Holesky**.
+4. Cliquez sur Initier le retrait, attendez quelques minutes pour confirmer. Une fois terminé, vous devez changer le réseau dans votre portefeuille, puis prouver le retrait sur **Holesky**.
 
 ![image15](../../assets/docs/quick-start/bridge/15.png)
 
 ![image16](../../assets/docs/quick-start/bridge/16.png)
 
-5. Waiting for the batch submission to be completed.
+5. Attendez que la soumission du lot soit terminée.
 
 ![image17](../../assets/docs/quick-start/bridge/17.png)
 
 ![image18](../../assets/docs/quick-start/bridge/18.png)
 
-## Waiting for the verification challenge period
+## Attente de la période de challenge de vérification
 
-1. Click your address in the top right corner. 
+1. Cliquez sur votre adresse dans le coin supérieur droit.
 
-2. Click Transactions and then Withdrawals. This will display a list of your recent withdrawals and their status. Or you can find a notice in the top area, by clicking the button View Account (see the pic below).
+2. Cliquez sur Transactions, puis sur Retraits. Cela affichera une liste de vos retraits récents et de leur statut. Vous pouvez aussi trouver une notification dans la zone supérieure en cliquant sur le bouton Voir le compte (voir l'image ci-dessous).
 
 ![image19](../../assets/docs/quick-start/bridge/19.png)
 
@@ -123,36 +122,30 @@ To withdraw funds from Morph Testnet, follow these steps:
 
 ![image21](../../assets/docs/quick-start/bridge/21.png)
 
-
-
-3. You can search for the transaction hash on Morph Explorer.
+3. Vous pouvez rechercher le hachage de la transaction sur l'Explorateur Morph.
 
 ![image22](../../assets/docs/quick-start/bridge/22.png)
 
 ![image23](../../assets/docs/quick-start/bridge/23.png)
 
-4. Click the L1 State Root Submission Tx to see when the transaction was written to L1 (**Holesky**).
+4. Cliquez sur la transaction de soumission de la racine d'état L1 pour voir quand la transaction a été écrite sur L1 (**Holesky**).
 
 ![image24](../../assets/docs/quick-start/bridge/24.png)
 
 ![image25](../../assets/docs/quick-start/bridge/25.png)
 
+## Réclamer le retrait
 
+1. Une fois la période de challenge terminée, le statut changera en Réclamer.
 
-
-## Claim the Withdrawal
-
-1. Once the challenge period is over, the status will change to Claim.
-
-2. Click Claim withdrawal.
+2. Cliquez sur Réclamer le retrait.
 
 ![image26](../../assets/docs/quick-start/bridge/26.png)
 
-3. Confirm the withdrawal in the wallet.
+3. Confirmez le retrait dans le portefeuille.
 
 ![image27](../../assets/docs/quick-start/bridge/27.png)
 
-4. Wait until the withdrawal is completed.
+4. Attendez que le retrait soit terminé.
 
 ![image28](../../assets/docs/quick-start/bridge/28.png)
-

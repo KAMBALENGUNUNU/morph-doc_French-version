@@ -1,20 +1,20 @@
 ---
-title: Where Should I Start?
-lang: en-US
-keywords: [morph,layer2,validity proof,optimistic zk-rollup]
-description: Upgrade your blockchain experience with Morph - the secure decentralized, cost0efficient, and high-performing optimistic zk-rollup solution. Try it now!
+title: Par Où Devrais-je Commencer ?
+lang: fr-FR
+keywords: [morph,layer2,preuve de validité,optimistic zk-rollup]
+description: Améliorez votre expérience blockchain avec Morph - la solution optimistic zk-rollup sécurisée, décentralisée et performante. Essayez-le maintenant !
 ---
 
-## For Developers: Dive Into Building On Morph
+## Pour les Développeurs : Plongez Dans la Création Sur Morph
 
-As a developer keen on harnessing the innovative capabilities of the Morph network, your journey begins in the "Build on Morph" section of our documentation. Here, you'll find all the resources you need – from comprehensive guides and tutorials to practical examples. These materials are designed to elucidate the core concepts and features of Morph, enabling you to integrate with our APIs, deploy sophisticated smart contracts, and utilize an array of tools and libraries. The ["Build on Morph"](../build-on-morph/1-intro.md) guide is your gateway to crafting powerful, decentralized applications that leverage the full potential of our network.
+En tant que développeur désireux d'exploiter les capacités innovantes du réseau Morph, votre parcours commence dans la section "Construire sur Morph" de notre documentation. Ici, vous trouverez toutes les ressources dont vous avez besoin : des guides complets et des tutoriels aux exemples pratiques. Ces matériaux sont conçus pour expliquer les concepts de base et les fonctionnalités de Morph, vous permettant de vous intégrer avec nos API, de déployer des contrats intelligents sophistiqués et d'utiliser une gamme d'outils et de bibliothèques. Le guide ["Construire sur Morph"](../build-on-morph/1-intro.md) est votre porte d'entrée pour créer des applications décentralisées puissantes qui exploitent le plein potentiel de notre réseau.
 
-## For Users: Embark On Your Morph Journey
+## Pour les Utilisateurs : Commencez Votre Voyage Avec Morph
 
-If you're eager to explore the possibilities within the Morph network, the "Quick Start" section in our documentation is your ideal starting point. Tailored for ease of understanding, this guide walks you through the essentials – from setting up your wallet to engaging in transactions on the network. It's designed to introduce you to the world of asset transfers, decentralized finance, and the diverse range of dApps available on Morph. Follow the ["Quick Start"](../quick-start/1-welcome-to-morph.md) guide for a smooth, user-friendly introduction to leveraging Morph's functionalities in your everyday activities.
+Si vous êtes impatient d'explorer les possibilités offertes par le réseau Morph, la section "Démarrage Rapide" de notre documentation est le point de départ idéal. Conçu pour être facile à comprendre, ce guide vous accompagne à travers les éléments essentiels : de la configuration de votre portefeuille à l'engagement dans des transactions sur le réseau. Il est conçu pour vous introduire au monde des transferts d'actifs, de la finance décentralisée et à la diversité des dApps disponibles sur Morph. Suivez le guide ["Démarrage Rapide"](../quick-start/1-welcome-to-morph.md) pour une introduction fluide et conviviale à l'utilisation des fonctionnalités de Morph dans vos activités quotidiennes.
 
-## For Researchers: Unraveling The Technical Depth Of Morph
+## Pour les Chercheurs : Dévoiler la Profondeur Technique de Morph
 
-For those intrigued by the technical intricacies of the Morph network, the ["How Morph Works"](../how-morph-works/1-intro.md) section offers an in-depth exploration of its underlying architecture and mechanisms. This comprehensive resource is rich in technical details, providing an extensive understanding of Morph's innovative features and foundational principles. Whether you're delving into research or seeking a thorough grasp of blockchain technology, this section unveils the nuances and sophisticated engineering that define the Morph network.
+Pour ceux qui sont intrigués par les complexités techniques du réseau Morph, la section ["Comment Fonctionne Morph"](../how-morph-works/1-intro.md) offre une exploration approfondie de son architecture sous-jacente et de ses mécanismes. Cette ressource complète est riche en détails techniques, fournissant une compréhension étendue des fonctionnalités innovantes et des principes fondamentaux de Morph. Que vous soyez en train de mener des recherches ou que vous cherchiez à comprendre en profondeur la technologie blockchain, cette section dévoile les nuances et l'ingénierie sophistiquée qui définissent le réseau Morph.
 
-No matter your background – developer, user, or researcher – our documentation is structured to offer you a customized pathway into the Morph ecosystem. Each guide is designed to help you leverage and understand our state-of-the-art technology and features, ensuring a rewarding experience on the Morph network.
+Peu importe votre parcours – développeur, utilisateur ou chercheur – notre documentation est structurée pour vous offrir un chemin personnalisé dans l'écosystème Morph. Chaque guide est conçu pour vous aider à tirer parti et à comprendre notre technologie et nos fonctionnalités à la pointe, assurant une expérience enrichissante sur le réseau Morph.

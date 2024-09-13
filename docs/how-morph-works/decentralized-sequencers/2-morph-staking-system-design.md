@@ -1,217 +1,220 @@
 ---
-title: Morph's Staking System Design
-lang: en-US
-keywords: [morph,ethereum,rollup,layer2,validity proof,optimistic zk-rollup]
-description: Upgrade your blockchain experience with Morph - the secure decentralized, cost0efficient, and high-performing optimistic zk-rollup solution. Try it now!
+title: Conception du Système de Staking de Morph
+lang: fr-FR
+keywords: [morph,ethereum,rollup,layer2,preuve de validité,zk-rollup optimiste]
+description: Améliorez votre expérience blockchain avec Morph, la solution zk-rollup optimiste sécurisée, décentralisée, et performante. Essayez-la dès maintenant !
 ---
 
-# What is Morph Staking System?
+# Qu'est-ce que le système de staking de Morph ?
 
 :::tip
-Currently the Staking System is in beta testing phase, the design described in this document will change as the testing process progresses, and does not represent the final experience on the Mainnet.
+Actuellement, le système de staking est en phase de test bêta. Le design décrit dans ce document changera au fur et à mesure du processus de test, et ne représente pas l'expérience finale sur le réseau principal.
 :::
 
-Morph Staking is a complete economic and engineering system built upon the decentralized sequencer network to ensure the operation and security of the network.
+Le staking de Morph est un système économique et technique complet basé sur le réseau de séquenceurs décentralisés pour assurer l'opération et la sécurité du réseau.
 
-It can be divided into 2 parts:
+Il se divise en deux parties :
 
-**ETH Staking**
+**Staking d'ETH**
 
-On Ethereum, potential sequencers are required to stake ETH in the layer 1 staking contract to become a staker first.
+Sur Ethereum, les séquenceurs potentiels doivent staker de l'ETH dans le contrat de staking de la couche 1 pour devenir un staker.
 
-The ETH staking serves to increase the cost of malicious behavior by sequencers. 
+Le staking d'ETH sert à augmenter le coût du comportement malveillant des séquenceurs.
 
-In case of confirmed dishonesty or negligence by a sequencer, the staked ETH will be slashed. The required ETH staking amount is immutable.
+En cas de malhonnêteté ou de négligence confirmée par un séquenceur, l'ETH staké sera pénalisé. Le montant de l'ETH requis pour le staking est immuable.
 
-**Morph token Staking**
+**Staking de tokens Morph**
 
-Morph token is the governance token of Morph (Gas token is ETH). In the staking system, it will play the following roles: 
+Le token Morph est le token de gouvernance de Morph (le token de gaz est l'ETH). Dans le système de staking, il joue les rôles suivants :
 
-Staker is elected as the sequencer according to the amount of Morph tokens that token holders have delegated to them. So stakers need to attract Morph token holders to delegate their tokens to them. Only sequencers can receive network rewards. 
-Morph token holders can delegate stake their tokens to any stakers, which will determine whether stakers can be selected as sequencer. Sequencers receive rewards from the inflation of the Morph token based on the sequencer’s contribution, and delegators share a portion of the rewards based on their delegation amount.
+Le staker est élu comme séquenceur en fonction du nombre de tokens Morph que les détenteurs de tokens lui ont délégués. Ainsi, les stakers doivent attirer les détenteurs de tokens Morph à déléguer leurs tokens à eux. Seuls les séquenceurs peuvent recevoir les récompenses du réseau.
+Les détenteurs de tokens Morph peuvent déléguer leurs tokens à n'importe quel staker, ce qui détermine si les stakers peuvent être sélectionnés comme séquenceur. Les séquenceurs reçoivent des récompenses grâce à l'inflation des tokens Morph en fonction de la contribution du séquenceur, et les délégants partagent une partie des récompenses en fonction de leur montant de délégation.
 
-## Roles within the Staking System:
+## Rôles dans le système de staking :
 
-1. Staker (Sequencer Candidate): Anyone (required in the whitelist in the early stage) can stake ETH to L1 staking contract and become a staker. Only stakers can join the sequencer election.
-2. Sequencer: Sequencers are able to perform the sequencer tasks and get reward from it. Sequencers are selected according to the delegation amount of  Morph tokens.
-3. Delegator: Morph token holders can delegate stake their tokens to any of the stakers. Delegators can share the rewards gained by delegated sequencer based on the delegation amounts.
+1. **Staker (candidat séquenceur)** : Toute personne (inscrite sur la liste blanche au début) peut staker de l'ETH dans le contrat de staking L1 et devenir un staker. Seuls les stakers peuvent participer à l'élection des séquenceurs.
+2. **Séquenceur** : Les séquenceurs peuvent effectuer les tâches de séquenceur et être récompensés pour cela. Les séquenceurs sont sélectionnés en fonction du montant de délégation des tokens Morph.
+3. **Délégant** : Les détenteurs de tokens Morph peuvent déléguer leurs tokens à n'importe quel staker. Les délégants peuvent partager les récompenses obtenues par le séquenceur délégué, en fonction des montants de délégation.
 
-## Details of sequencer set election:
+## Détails de l'élection de l'ensemble des séquenceurs :
 
-The determination of the sequencer set will be based on two points:
+La détermination de l'ensemble des séquenceurs se fait selon deux points :
 
-1. Sequencers must have staked a fixed amount of ETH in Layer 1 staking contract.
-2. Assuming the maximum size of the sequencer set is X, based on the delegation amount of  Morph token, select up to X sequencers from all valid candidates as sequencer set.
+1. Les séquenceurs doivent avoir staké un montant fixe d'ETH dans le contrat de staking de la couche 1.
+2. En supposant que la taille maximale de l'ensemble des séquenceurs soit X, en fonction du montant de délégation des tokens Morph, jusqu'à X séquenceurs sont sélectionnés parmi tous les candidats valides pour former l'ensemble des séquenceurs.
 
+L'ensemble des séquenceurs sera mis à jour en temps réel sur la base de ces principes.
 
-The sequencer set will be updated in real-time based on the above principles.
+Lorsqu'un nouveau token Morph est staké, le contrat de staking L2 vérifiera si cela entraînera un changement dans l'ensemble des séquenceurs, et mettra à jour l'ensemble des séquenceurs si nécessaire.
 
-When there's a new MorphToken stake, the L2 staking contract will check if this would cause the sequencer set to change, and update the sequencer set if needed.
+Rejoindre l'ensemble des séquenceurs signifie que tous les séquenceurs auront le droit de participer aux opérations du réseau actuel pour gagner des récompenses, tout en assumant la responsabilité de maintenir le bon fonctionnement du réseau.
 
-Joining the sequencer set means that all sequencers will have the right to participate in the current network operations to earn rewards, while also bearing the responsibility of maintaining the network's efficient and normal operation.
+En pratique, chaque séquenceur, quel que soit le montant de délégation, a le même poids.
 
-In practice, each sequencer, regardless of the delegation amount, has the same weight.
+Les séquenceurs peuvent sortir à tout moment. Ils doivent soumettre une demande de sortie sur le contrat de staking L1, puis entrer dans une période de verrouillage. Une fois que les contrats de la couche 2 ont terminé le processus de sortie et ont atteint la hauteur de bloc de déverrouillage, ils sont déverrouillés et peuvent récupérer l'ETH staké.
 
-Sequencers can exit at any time. They need to submit an exit request on Layer 1 staking contract, then enter a lock-up period. After Layer 2 contracts complete the exit process and reach the unlocking block height, they are unlocked and could claim the staked ETH.
+## Récompenses et Pénalités
 
+### Récompenses
 
-## Rewards & Slash
+Il existe trois récompenses potentielles pour les séquenceurs au sein de l'écosystème Morph.
 
-### Rewards
+**Récompenses de staking du token Morph L2 :**
 
-There are 3 potential rewards for sequencers within the Morph ecosystem.
+Le token Morph est inflationniste, augmentant de 6% du total maximal initial chaque année sous forme de récompenses de staking du token Morph L2.
 
-**L2 MorphToken staking rewards.**
+Ces 6% seront distribués chaque jour (une journée est une époque) à tous les séquenceurs en activité.
 
-The Morph token is inflationary that increases 6% of the initial max total supply each year as the L2 Morph token staking rewards.
+Les séquenceurs prélèveront une commission en premier, puis distribueront le reste aux délégants en fonction de leurs montants de délégation.
 
-These 6% will be distributed everyday (one day is an epoch) to all the current running sequencers.
+**Revenu de gaz L2 :**
 
-Sequencers will take commission first and distribute the rest to the delegators based on their delegation amount.
+Les séquenceurs reçoivent de l'ETH des utilisateurs de la couche 2 (revenu L2) et dépensent de l'ETH pour soumettre des lots à la couche 1 (coût L1).
 
-**L2 Gas Income:**
+Si le coût de la couche 1 est inférieur au revenu de la couche 2, la valeur restante devient théoriquement le profit de la couche 2.
 
-Sequencers take ETH from layer 2 users (Layer2 income) and spend ETH to submit batches to layer1 (Layer1 cost).
+Au tout début, le réseau collecte tous les revenus de la couche 2 et paie de l'ETH aux séquenceurs pour couvrir leurs coûts de la couche 1. À l'avenir, un plan plus détaillé sera mis en place sur l'utilisation de ces fonds.
 
-If the Layer1 cost is less than Layer2 income, the remaining value theoretically becomes the profit of Layer 2.
+**Rendement du re-staking d'ETH :**
 
-At the very beginning, the network collects all the Layer2 incomes and pays ETH to sequencers to cover their Layer 1 cost. In the future, we’ll have a more detailed plan about how this part of the funds will be utilized.
+Pour améliorer l'efficacité du capital, nous prévoyons d'exploiter le dépôt d'ETH des stakers pour générer un rendement dans des produits de re-staking, et ce rendement sera toujours alloué aux stakers.
 
-**ETH Re-staking yield:**
+#### Comment déterminer les récompenses de MorphToken de chaque séquenceur ?
 
-To improve capital efficiency, we plan to leverage staker’s ETH deposit to generate yield in restaking products, and the yield will still be allocated to stakers.
+Cela se base sur les enregistrements de production de blocs.
 
+À chaque époque, la récompense totale reçue par chaque séquenceur et ses délégants est calculée comme suit :
 
+**récompense_séquenceur = (blocs_produits_par_séquenceur / blocs_totaux_produits) * inflation_totale_token_morph**
 
-#### How to decide each sequencer’s MorphToken rewards?
+Les récompenses des séquenceurs sont finalement distribuées aux délégants (bien que les séquenceurs puissent être leurs propres délégants). Le séquenceur peut fixer un taux de commission pour en prendre une part, et ce taux est ajustable.
 
-This is based on the block production records.
+**commission_séquenceur = récompense_séquenceur * taux_de_commission**
 
-In each epoch, the total reward received by each sequencer and their delegators is calculated as follows:
+La récompense que chaque délégant de ce séquenceur reçoit est la portion restante multipliée par le pourcentage de leur montant de délégation :
 
-**sequencer_reward = (sequencer_produced_block / total_produced_blocks) * total_morph_token_inflation**
+**récompense_délégant = (récompense_séquenceur - commission_séquenceur) * montant_de_délégation / délégation_totale**
 
+Les récompenses de délégation de l'utilisateur seront calculées à partir de l'époque suivante après le staking de l'utilisateur.
 
-The sequencer rewards are eventually distributed to delegators (although sequencers can be their own delegators too). Sequencer can set a commission rate to take a share from it and the rate is adjustable.
+**Exemple :**
 
-**sequencer_commission = sequencer_reward * commission_rate**
+Si l'inflation totale de Morph pour aujourd'hui (cette époque) est de 100, et qu'il y a 100 blocs produits durant cette époque.
 
+Le séquenceur A a produit 10 blocs durant cette époque, il recevra donc :
 
-The reward each delegator of this sequencer receives is the remaining portion multiplied by the percentage of their staked amount:
+**récompense_séquenceur = (séquenceur_bloc_produit / total_blocs_produits) * total_inflation_token_morph  = (10/100) * 100 = 10 MorphToken.**
 
-**delegator_reward = (sequencer_reward - sequencer_commission) * delegation_amount / total_delegation_amount**
+Si le taux de commission du séquenceur est de 5% :
 
-The user’s delegation rewards will be calculated starting from the next epoch after the user stakes.
+**commission_séquenceur = récompense_séquenceur * taux_de_commission = 10 * 0.05 = 5 MorphToken**
 
-**Example:**
+Si un délégataire a délégué 100 MorphToken et qu’il y a un total de 1000 MorphToken délégués au séquenceur :
 
-If today’s (this epoch’s) total Morph Inflation is 100, and there are 100 blocks produced in this epoch.
+**récompense_délégataire = (récompense_séquenceur - commission_séquenceur) * montant_délégation / montant_total_délégation = (100 - 5) * (100/1000) = 9.5 MorphToken**
 
-Sequencer A produced 10 blocks within this epoch, so he will receive:
+Idéalement, puisque le poids de chaque séquenceur est le même, chaque séquenceur pourra produire la même quantité de blocs au cours d'une certaine époque. Ainsi, leurs récompenses devraient être les mêmes.
 
-**sequencer_reward = (sequencer_produced_block / total_produced_blocks) * total_morph_token_inflation  = (10/100) * 100 = 10 MorphToken.**
-
-If sequencer’s commission rate is 5%
-
-**sequencer_commission = sequencer_reward * commission_rate = 10 * 0.05 = 5 MorphToken**
-
-If one delegator staked 100 MorphToken and then there are a total 1000 MorphToken delegated to the sequencer.
-
-**delegator_reward = (sequencer_reward - sequencer_commission) * delegation_amount / total_delegation_amount = (100 - 5) * (100/1000) = 9.5 MorphToken**
-
-Ideally, since the weights for each sequencer is the same, each sequencer will be able to produce the same amount of blocks within a certain epoch. Thus their rewards should be the same.
-
-However, if the sequencer failed to perform their duties, the block production will be much lower thus their rewards would be much lower too.
-
+Cependant, si le séquenceur n'a pas rempli ses fonctions, la production de blocs sera bien plus faible et, par conséquent, ses récompenses seront également bien inférieures.
 
 ### Slash
 
-Based on the optimistic zkEVM design, there will be validators constantly verifying the batch submitted by sequencers, and if they think sequencers committed fraud, validators will start a challenge through the L1 rollup contract.
+Sur la base de la conception du zkEVM optimiste, des validateurs vérifieront constamment le lot soumis par les séquenceurs, et s'ils estiment que les séquenceurs ont commis une fraude, les validateurs lanceront une contestation via le contrat de rollup L1.
 
-[Read more about the challenge here:](../3-optimistic-zkevm.md)
+[Lisez plus sur la contestation ici :](../3-optimistic-zkevm.md)
 
-To prevent fraudulent behavior by Sequencers from affecting network security, the following rules need are established:
+Pour éviter que les comportements frauduleux des Séquenceurs n'affectent la sécurité du réseau, les règles suivantes sont établies :
 
-- Validators will challenge a fixed batch, and all sequencers who signed that batch will collectively be challenged.
-- When a sequencer takes on the role of batch submitter, repeated instances of timeouts accumulating to a certain extent will result in a deduction of rewards or removal from the sequencer set (not fully implemented yet).
-- Sequencers with long periods that have not produced blocks will be removed from the sequencer set (not fully implemented yet).
+- Les validateurs contesteront un lot fixe, et tous les séquenceurs ayant signé ce lot seront collectivement contestés.
+- Lorsqu'un séquenceur prend le rôle de soumissionnaire de lots, des délais d'attente répétés peuvent entraîner la déduction de récompenses ou la suppression du séquenceur du groupe (pas encore entièrement implémenté).
+- Les séquenceurs qui n'ont pas produit de blocs pendant de longues périodes seront retirés du groupe de séquenceurs (pas encore entièrement implémenté).
 
 :::tip
-The submitter rotation and submission timeout is part of decentralized rollup design, you can read the details [here](../general-protocol-design/1-rollup.md).
+La rotation des soumissionnaires et le délai de soumission font partie de la conception du rollup décentralisé, vous pouvez lire les détails [ici](../general-protocol-design/1-rollup.md).
 :::
 
-For the reward and slash functionalities, we have 2 contracts:
+Pour les fonctionnalités de récompense et de slash, nous avons deux contrats :
 
-- L2 Record Contract: The off-chain data affecting rewards and penalties will be collected and recorded in the L2 Record contract through an Oracle, primarily consisting of rollup data and Block data.
-- L2 Distribute Contract: Sequencers and Delegator will manually claim rewards based on the Record.
+- Contrat d'Enregistrement L2 : Les données hors chaîne affectant les récompenses et les pénalités seront collectées et enregistrées dans le contrat d'Enregistrement L2 via un Oracle, principalement constitué de données de rollup et de données de blocs.
+- Contrat de Distribution L2 : Les séquenceurs et les délégataires réclameront manuellement les récompenses en fonction de l'Enregistrement.
 
-## Governance:
+## Gouvernance :
 
-We have a governance contract right now that decides some of the network parameters. Currently, only sequencers can create proposals and vote. 
+Nous avons actuellement un contrat de gouvernance qui décide de certains paramètres du réseau. Actuellement, seuls les séquenceurs peuvent créer des propositions et voter.
 
-In the next phase of the roadmap, we are planning to build a complete governance system that allows all Morph token holders to decide every aspect of the network.
+Dans la prochaine phase de la feuille de route, nous prévoyons de construire un système de gouvernance complet qui permettra à tous les détenteurs de tokens Morph de décider de chaque aspect du réseau.
 
-## Major Process
+## Processus Principal
 
-### Staking & Sequencer Selection
+### Sélection du Séquenceur & Staking
 
-Morph token staking will be divided into 2 stages based on the network status:
+Le staking des tokens Morph sera divisé en deux phases en fonction de l'état du réseau :
 
-- Phase 1: Morph token inflation and staking rewards not started yet.
-Sequencer elections will be FCFS at the beginning, but delegate stake is allowed. No morph token rewards since there is no new token generation yet.
+- Phase 1 : L'inflation des tokens Morph et les récompenses de staking ne sont pas encore commencées.
+Les élections des séquenceurs seront FCFS au début, mais la délégation de staking est autorisée. Pas de récompenses en tokens Morph car il n'y a pas encore de génération de nouveaux tokens.
 
-- Phase 2: Morph token inflation and staking rewards is started.
-The sequencer election will officially start and based on the delegation amount of Morph token, the rewards will start to be distributed too.
+- Phase 2 : L'inflation des tokens Morph et les récompenses de staking ont commencé.
+L'élection des séquenceurs commencera officiellement et en fonction du montant délégué des tokens Morph, les récompenses commenceront également à être distribuées.
 
-How is the sequencer set generated?
+Comment est généré le groupe de séquenceurs ?
 
-1. `L1` Staking Contract: Add potential sequencers to the whitelist.
-2. `L1` Staking Contract: Potential sequencer will be able to register and stake eth on Ethereum to become eligible for sequencer election (become staker).
-3. An `add staker` message will be sent as a cross-layer message from L1 staking contract to L2 staking contract.
-4. `L2` Staking Contract: Will update stakers with the message synced.
-5. `L2` Staking Contract: Users will be able to delegate/undelegate stake MorphToken to a staker.
-6. `L2` Sequencer Contract: L2 staking contract will update the sequencer set by calling L2 sequencer contact based on the ranking of the Morph token delegation amount, the top staker will be elected as sequencer.
+1. `Contrat de Staking L1` : Ajouter les séquenceurs potentiels à la liste blanche.
+2. `Contrat de Staking L1` : Les séquenceurs potentiels pourront s'inscrire et miser de l'ETH sur Ethereum pour devenir éligibles à l'élection des séquenceurs (devenir staker).
+3. Un message `add staker` sera envoyé comme message cross-layer du contrat de staking L1 au contrat de staking L2.
+4. `Contrat de Staking L2` : Mettra à jour les stakers avec le message synchronisé.
+5. `Contrat de Staking L2` : Les utilisateurs pourront déléguer/retirer la délégation de tokens Morph à un staker.
+6. `Contrat de Séquenceur L2` : Le contrat de staking L2 mettra à jour le groupe de séquenceurs en appelant le contrat de séquenceur L2 en fonction du classement du montant délégué des tokens Morph. Le staker principal sera élu comme séquenceur.
 
-### Sequencer network consensus & Verification on Layer 1
+### Consensus du Réseau Séquenceur & Vérification sur la Couches 1
 
-- Every submitted batch requires the BLS signature of more than 2/3 of the sequencers within the sequencer set to be accepted  by the L1 rollup contract.
+- Chaque lot soumis nécessite la signature BLS de plus des 2/3 des séquenceurs au sein du groupe pour être accepté par le contrat de rollup L1.
 
-Notice: Currently, the BLS 12-381 signature pre-compiled contract has not been implemented on Ethereum. Therefore, the L1 rollup contract cannot verify whether the batch is signed by the L2 sequencer set.
-Until this functionality is available, the rollup contracts only allow batch submission from stakers included in the whitelist. This measure is in place to enable us to slash the ETH deposit in case of fraudulent submissions. After signature verification is implemented, the submitter will be permissionless and the sequencers which signed the fraudulent batch will be slashed instead of the submitter.
+Remarque : Actuellement, le contrat pré-compilé BLS 12-381 n'a pas été implémenté sur Ethereum. Par conséquent, le contrat de rollup L1 ne peut pas vérifier si le lot est signé par le groupe de séquenceurs L2.
+Jusqu'à ce que cette fonctionnalité soit disponible, les contrats de rollup autorisent uniquement la soumission de lots par des stakers inclus dans la liste blanche. Cette mesure est en place pour permettre de réduire le dépôt d'ETH en cas de soumissions frauduleuses. Une fois la vérification de signature implémentée, le soumissionnaire sera autorisé sans permission, et les séquenceurs ayant signé le lot frauduleux seront pénalisés au lieu du soumissionnaire.
 
+Processus :
 
-1. `L1` Rollup Contract: Batch submitter commits the batch to rollup contract.
-2.  `L1` Rollup Contract: Rollup contract verifies the batch’s BLS signature and compares it with the sequencer set sync from L1 staking contract. It will only accept the batch if the verification passed.
+1. `Contrat de Rollup L1` : Le soumissionnaire du lot s'engage à soumettre le lot au contrat de rollup.
+2. `Contrat de Rollup L1` : Le contrat de rollup vérifie la signature BLS du lot et la compare avec le groupe de séquenceurs synchronisé depuis le contrat de staking L1. Il n'acceptera le lot que si la vérification est réussie.
 
-### Slash for Sequencers
+### Slash pour les Séquenceurs
 
-#### What happens if validators successfully challenge sequencers?
+#### Que se passe-t-il si les validateurs réussissent à contester les séquenceurs ?
 
-- Sequencer will be slashed all staked ETH and removed from sequencer set if challenger succeeds.
-- Even if get proven fraud by multiple challenges, each sequencer will only be slashed once.
-- The challenger reward for a successful challenge is a fixed proportion of the staking amount.
-- If the slash makes all the sequencers go down, then the L2 will stop running. We can restart by upgrading the L1 staking contract, reset stakers and sequencer sets. This does not affect the Layer 2 state as no transactions will be processed because of this.
+- Le séquenceur sera pénalisé, tout son ETH misé sera perdu, et il sera retiré du groupe de séquenceurs si le contestataire réussit.
+- Même s'il est prouvé qu'il y a eu fraude à plusieurs reprises, chaque séquenceur ne sera pénalisé qu'une seule fois.
+- La récompense pour le contestataire en cas de succès est une proportion fixe du montant misé.
+- Si la réduction fait tomber tous les séquenceurs, alors le L2 cessera de fonctionner. Nous pourrons redémarrer en mettant à jour le contrat de staking L1, en réinitialisant les stakers et les groupes de séquenceurs. Cela n'affecte pas l'état de la Couches 2, car aucune transaction ne sera traitée à cause de cela.
 
-Process:
+Processus :
 
-1. `L1` Staking Contract: Slash staked ETH of sequencers who signed the fraud batch and remove them from sequencer set.
-2. `L1` Staking Contract: Distribute validator rewards.
-3. A `remove staker` message will be sent as a cross-layer message from L1 staking contract to L2 staking contract.
-4. `L2`Staking Contract: Update sequencer set.
+1. `Contrat de Staking L1` : Réduire l'ETH misé des séquenceurs ayant signé le lot frauduleux et les retirer du groupe.
+2. `Contrat de Staking L1` : Distribuer les récompenses aux validateurs.
+3. Un message `remove staker` sera envoyé comme message cross-layer du contrat de staking L1 au contrat de staking L2.
+4. `Contrat de Staking L2` : Mise à jour du groupe de séquenceurs.
 
-### Delegation Stake
+### Délégation de Stake
 
-1. `L2` Staking Contract: Staker set delegation commission rate by their own will.
-2. `L2` Oracle: Upload sequencers work records (block production records, submitter work records, expect work records) on the epoch basis (an epoch is a day).
-3. `L2` MorphToken Contract: Mint MorphToken (inflation) as delegation reward and sent to L2 distributor contract.
-4. `L2` Staking Contract: Users claim delegation reward, sequencers claim commission.
+1. `Contrat de Staking L2` : Le staker fixe son propre taux de commission pour la délégation.
+2. `Oracle L2` : Téléverser les enregistrements de travail des séquenceurs (enregistrements de production de blocs, enregistrements de soumission, enregistrements attendus) sur une base d'époque (une époque est un jour).
+3. `Contrat de Token Morph L2` : Créer des tokens Morph (inflation) comme récompense de délégation et les envoyer au contrat distributeur L2.
+4. `Contrat de Staking L2` : Les utilisateurs réclament leur récompense de délégation, les séquenceurs réclament leur commission.
 
-### Staker/Sequencer exit
+### Sortie des Stakers/Séquenceurs
 
-The exit lock period should be long enough to ensure that stakers and sequencers in L2 have been updated and greater than the challenge period of sequencer’s last produced block (if staker is also sequencer).
+La période de verrouillage de la sortie doit être suffisamment longue pour garantir que les stakers et séquenceurs sur la Couches 2 ont été mis à jour et supérieure à la période de contestation du dernier bloc produit par le séquenceur (si le staker est également séquenceur).
 
+Processus :
 
-1. `L1` Staking Contract: Stakers apply to exit, the stake ETH is locked to enter the lock period.
-2. A `remove staker` message will be sent as a cross-layer message from L1 staking contract to L2 staking contract.
-3. `L2` Staking Contract: Received the message, remove staker, and sequencers (if the staker is also sequencer).
-4. `L1` Staking Contract: Withdraw allowed until reach unlock block height，remove staker info after claiming.
+1. `Contrat de Staking L1` : Les stakers demandent à sortir, leur ETH misé est verrouillé pour entrer dans la période de verrouillage.
+2. Un message `remove staker` sera envoyé comme message cross-layer du contrat de staking L1 au contrat de staking L2.
+3. `Contrat de Staking L2` : Recevoir le message, retirer le staker et les séquenceurs (si ce staker est également un séquenceur) du groupe de séquenceurs.
+4. `Contrat de Rollup L1` : Le soumissionnaire s'engage à soumettre le lot au contrat de rollup.
+
+:::warning
+La sortie du groupe de séquenceurs n'est pas encore implémentée et est encore en cours de conception.
+:::
+
+### Oracle & Récompenses Automatiques
+
+La récompense des séquenceurs et des délégataires est le calcul basé sur l'inflation du total de tokens Morph au sein du réseau de la Couches 2. L'enregistrement des données est traité par un Oracle qui est essentiellement le Rollup ZKP complet produit par le séquenceur.

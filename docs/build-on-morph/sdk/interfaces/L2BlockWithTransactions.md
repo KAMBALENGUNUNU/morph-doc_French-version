@@ -4,174 +4,174 @@
 
 [@morph-l2/sdk](../globals.md) / L2BlockWithTransactions
 
-# Interface: L2BlockWithTransactions
+# Interface : L2BlockWithTransactions
 
-JSON block representation when returned by L2Geth nodes. Just a normal block but with
-L2Transaction objects instead of the standard transaction response object.
+Représentation JSON d'un bloc lorsqu'il est retourné par les nœuds L2Geth. C'est un bloc normal, mais avec
+des objets L2Transaction au lieu de l'objet de réponse standard pour les transactions.
 
-## Extends
+## Étend
 
 - `BlockWithTransactions`
 
-## Properties
+## Propriétés
 
 ### \_difficulty
 
-> **\_difficulty**: `BigNumber`
+> **\_difficulty** : `BigNumber`
 
-#### Inherited from
+#### Hérité de
 
 `BlockWithTransactions._difficulty`
 
 #### Source
 
-node\_modules/@ethersproject/abstract-provider/lib/index.d.ts:41
+node_modules/@ethersproject/abstract-provider/lib/index.d.ts:41
 
 ***
 
 ### baseFeePerGas?
 
-> `optional` **baseFeePerGas**: `BigNumber`
+> `optionnel` **baseFeePerGas** : `BigNumber`
 
-#### Inherited from
+#### Hérité de
 
 `BlockWithTransactions.baseFeePerGas`
 
 #### Source
 
-node\_modules/@ethersproject/abstract-provider/lib/index.d.ts:46
+node_modules/@ethersproject/abstract-provider/lib/index.d.ts:46
 
 ***
 
 ### difficulty
 
-> **difficulty**: `number`
+> **difficulty** : `number`
 
-#### Inherited from
+#### Hérité de
 
 `BlockWithTransactions.difficulty`
 
 #### Source
 
-node\_modules/@ethersproject/abstract-provider/lib/index.d.ts:40
+node_modules/@ethersproject/abstract-provider/lib/index.d.ts:40
 
 ***
 
 ### extraData
 
-> **extraData**: `string`
+> **extraData** : `string`
 
-#### Inherited from
+#### Hérité de
 
 `BlockWithTransactions.extraData`
 
 #### Source
 
-node\_modules/@ethersproject/abstract-provider/lib/index.d.ts:45
+node_modules/@ethersproject/abstract-provider/lib/index.d.ts:45
 
 ***
 
 ### gasLimit
 
-> **gasLimit**: `BigNumber`
+> **gasLimit** : `BigNumber`
 
-#### Inherited from
+#### Hérité de
 
 `BlockWithTransactions.gasLimit`
 
 #### Source
 
-node\_modules/@ethersproject/abstract-provider/lib/index.d.ts:42
+node_modules/@ethersproject/abstract-provider/lib/index.d.ts:42
 
 ***
 
 ### gasUsed
 
-> **gasUsed**: `BigNumber`
+> **gasUsed** : `BigNumber`
 
-#### Inherited from
+#### Hérité de
 
 `BlockWithTransactions.gasUsed`
 
 #### Source
 
-node\_modules/@ethersproject/abstract-provider/lib/index.d.ts:43
+node_modules/@ethersproject/abstract-provider/lib/index.d.ts:43
 
 ***
 
 ### hash
 
-> **hash**: `string`
+> **hash** : `string`
 
-#### Inherited from
+#### Hérité de
 
 `BlockWithTransactions.hash`
 
 #### Source
 
-node\_modules/@ethersproject/abstract-provider/lib/index.d.ts:35
+node_modules/@ethersproject/abstract-provider/lib/index.d.ts:35
 
 ***
 
 ### miner
 
-> **miner**: `string`
+> **miner** : `string`
 
-#### Inherited from
+#### Hérité de
 
 `BlockWithTransactions.miner`
 
 #### Source
 
-node\_modules/@ethersproject/abstract-provider/lib/index.d.ts:44
+node_modules/@ethersproject/abstract-provider/lib/index.d.ts:44
 
 ***
 
 ### nonce
 
-> **nonce**: `string`
+> **nonce** : `string`
 
-#### Inherited from
+#### Hérité de
 
 `BlockWithTransactions.nonce`
 
 #### Source
 
-node\_modules/@ethersproject/abstract-provider/lib/index.d.ts:39
+node_modules/@ethersproject/abstract-provider/lib/index.d.ts:39
 
 ***
 
 ### number
 
-> **number**: `number`
+> **number** : `number`
 
-#### Inherited from
+#### Hérité de
 
 `BlockWithTransactions.number`
 
 #### Source
 
-node\_modules/@ethersproject/abstract-provider/lib/index.d.ts:37
+node_modules/@ethersproject/abstract-provider/lib/index.d.ts:37
 
 ***
 
 ### parentHash
 
-> **parentHash**: `string`
+> **parentHash** : `string`
 
-#### Inherited from
+#### Hérité de
 
 `BlockWithTransactions.parentHash`
 
 #### Source
 
-node\_modules/@ethersproject/abstract-provider/lib/index.d.ts:36
+node_modules/@ethersproject/abstract-provider/lib/index.d.ts:36
 
 ***
 
 ### stateRoot
 
-> **stateRoot**: `string`
+> **stateRoot** : `string`
 
 #### Source
 
@@ -181,23 +181,23 @@ src/interfaces/l2-provider.ts:35
 
 ### timestamp
 
-> **timestamp**: `number`
+> **timestamp** : `number`
 
-#### Inherited from
+#### Hérité de
 
 `BlockWithTransactions.timestamp`
 
 #### Source
 
-node\_modules/@ethersproject/abstract-provider/lib/index.d.ts:38
+node_modules/@ethersproject/abstract-provider/lib/index.d.ts:38
 
 ***
 
 ### transactions
 
-> **transactions**: [[`L2Transaction`](L2Transaction.md)]
+> **transactions** : [[`L2Transaction`](L2Transaction.md)]
 
-#### Overrides
+#### Remplace
 
 `BlockWithTransactions.transactions`
 

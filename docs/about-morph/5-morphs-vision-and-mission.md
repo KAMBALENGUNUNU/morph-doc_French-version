@@ -1,33 +1,24 @@
 ---
-title: Morph's Vision and Mission
-lang: en-US
-keywords: [morph,layer2,validity proof,optimistic zk-rollup]
-description: Upgrade your blockchain experience with Morph - the secure decentralized, cost0efficient, and high-performing optimistic zk-rollup solution. Try it now!
+title: La Vision et la Mission de Morph
+lang: fr-FR
+keywords: [morph,layer2,preuve de validité,optimistic zk-rollup]
+description: Améliorez votre expérience blockchain avec Morph - la solution optimistic zk-rollup sécurisée, décentralisée et performante. Essayez-le maintenant !
 ---
 
-Morph is redefining the blockchain landscape with a clear focus on the consumer. Our vision is rooted in the belief that blockchain technology should be an accessible, practical tool for daily life, rather than a complex concept reserved for experts. We aim to transform how individuals interact with blockchain technology, making it as integral and user-friendly as any essential service in the digital age.
+Morph redéfinit le paysage blockchain avec un accent clair sur le consommateur. Notre vision est basée sur la conviction que la technologie blockchain devrait être un outil accessible et pratique pour la vie quotidienne, plutôt qu'un concept complexe réservé aux experts. Nous visons à transformer la façon dont les individus interagissent avec la technologie blockchain, la rendant aussi intégrée et conviviale que tout service essentiel à l'ère numérique.
 
+## Nous Cherchons à Combler le Fossé
 
-## We Seek to Bridge the Gap​
+Notre mission est de construire un écosystème d'applications pour consommateurs sur une infrastructure complètement décentralisée. Morph a été créé comme une solution blockchain plus accessible et pratique en réponse au fossé dans les offres existantes de Layer 2 – un manque de concentration sur l'expérience de l'utilisateur final et la praticité.
 
-Our mission is to build an ecosystem of on-chain consumer applications on a completely decentralized infrastructure. Morph was created as a more approachable and practical blockchain solution in response to the gap in existing Layer 2 offerings – a lack of focus on the end-user experience and practicality. 
+## Pourquoi Morph ?
 
+L'inspiration derrière Morph est une fusion de rêves et de précision. Notre plateforme porte le nom de Morphée, le dieu grec des rêves, symbolisant notre capacité à influencer à la fois le quotidien et l'extraordinaire. Morph s'inspire également du principe mathématique de la morphologie, représentant des transformations qui maintiennent la structure et l'intégrité. La combinaison de ces concepts représente notre capacité à apporter des applications blockchain révolutionnaires qui se concentrent sur l'amélioration de la vie quotidienne avec précision et fiabilité.
 
-## Why Morph?​
+## Engagement envers Notre Communauté
 
-The inspiration behind Morph is a fusion of dreams and precision. Our platform is named after Morpheus, the Greek god of dreams, symbolizing our ability to influence both the commonplace and the extraordinary. Morph also draws on the mathematical principle of morphology, representing transformations that maintain structure and integrity. The combination of these concepts represents our ability to bring revolutionary blockchain applications that focus on improving everyday life with precision and reliability.
+Chez Morph, notre engagement va au-delà de la technologie. Nous priorisons :
 
-
-## Commitment to Our Community​
-
-At Morph, our commitment extends beyond technology. We prioritize:
-
-- Consumer-Centric Innovation: Focusing on the needs and experiences of users, ensuring that our platform is intuitive, efficient, and beneficial for everyday use.
-- Transparency and Trust: Building a community grounded in openness and mutual trust, where every step we take is communicated clearly and honestly.
-- Collaborative Ecosystem: Encouraging active participation and feedback from our community, ensuring that Morph evolves in alignment with the needs and demands of its users.
-
-
-
-
-
-
+- Innovation Centrée sur le Consommateur : Se concentrer sur les besoins et les expériences des utilisateurs, en veillant à ce que notre plateforme soit intuitive, efficace et bénéfique pour un usage quotidien.
+- Transparence et Confiance : Construire une communauté fondée sur l'ouverture et la confiance mutuelle, où chaque étape que nous prenons est communiquée clairement et honnêtement.
+- Écosystème Collaboratif : Encourager la participation active et les retours de notre communauté, en veillant à ce que Morph évolue en fonction des besoins et des demandes de ses utilisateurs.

@@ -4,15 +4,15 @@
 
 [@morph-l2/sdk](../globals.md) / ProvenWithdrawal
 
-# Interface: ProvenWithdrawal
+# Interface : ProvenWithdrawal
 
-ProvenWithdrawal in L1CrossDomainMessenger
+ProvenWithdrawal dans L1CrossDomainMessenger
 
-## Properties
+## Propriétés
 
 ### timestamp
 
-> **timestamp**: `BigNumber`
+> **timestamp** : `BigNumber`
 
 #### Source
 
@@ -22,7 +22,7 @@ src/interfaces/types.ts:316
 
 ### withdrawalIndex
 
-> **withdrawalIndex**: `BigNumber`
+> **withdrawalIndex** : `BigNumber`
 
 #### Source
 
@@ -32,7 +32,7 @@ src/interfaces/types.ts:319
 
 ### withdrawalRoot
 
-> **withdrawalRoot**: `string`
+> **withdrawalRoot** : `string`
 
 #### Source
 

@@ -1,25 +1,25 @@
 ---
-title: Upgrade node running on the host
-lang: en-US
+title: Mise à jour du nœud exécuté sur l'hôte
+lang: fr-FR
 ---
 
-Upgrading the node is straightforward. Simply install the new version of the node executable file and replace the previous version. Then, stop the currently running node and restart it with the updated version. Node will automatically use the data of your old node and sync the latest blocks that were mined since you shut down the old software.
+La mise à jour du nœud est simple. Il suffit d'installer la nouvelle version du fichier exécutable du nœud et de remplacer la version précédente. Ensuite, arrêtez le nœud en cours d'exécution et redémarrez-le avec la version mise à jour. Le nœud utilisera automatiquement les données de votre ancien nœud et synchronisera les derniers blocs qui ont été minés depuis que vous avez arrêté l'ancien logiciel.
 
-Running the node requires two binary files: `morphnode` and `geth`. Choose to upgrade the binary files according to your specific needs.
+L'exécution du nœud nécessite deux fichiers binaires : `morphnode` et `geth`. Choisissez de mettre à jour les fichiers binaires en fonction de vos besoins spécifiques.
 
-### Step1: Compile the new version of the code
+### Étape 1 : Compiler la nouvelle version du code
 
 ```bash
 git clone https://github.com/morph-l2/morph.git
-## checkout the latest version of the source code you need
+## vérifier la dernière version du code source dont vous avez besoin
 git checkout ${latestVersion}
-## install geth
+## installer geth
 make nccc_geth
-## install morphnode
+## installer morphnode
 cd ./morph/node && make build
 ```
 
-### Step2: Stop nodes
+### Étape 2 : Arrêter les nœuds
 
 ```bash
 ## stop morphnode process
@@ -31,9 +31,9 @@ pid=`ps -ef | grep geth | grep -v grep | awk '{print $2}'`
 kill  $pid
 ```
 
-### Step3: Restart
+### Étape 3 : Redémarrer
 
-Make sure to use the same start-up command you used before the upgrade
+Assurez-vous d'utiliser la même commande de démarrage que vous avez utilisée avant la mise à jour
 
 ```bash
 ## start geth

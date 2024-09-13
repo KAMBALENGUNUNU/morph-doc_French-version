@@ -1,69 +1,68 @@
 ---
-title: Morph's Decentralized Sequencer Network
-lang: en-US
-keywords: [morph,ethereum,rollup,layer2,validity proof,optimistic zk-rollup]
-description: Upgrade your blockchain experience with Morph - the secure decentralized, cost0efficient, and high-performing optimistic zk-rollup solution. Try it now!
+title: Réseau de Séquenceurs Décentralisés de Morph
+lang: fr-FR
+keywords: [morph,ethereum,rollup,couche2,preuve de validité,optimistic zk-rollup]
+description: Améliorez votre expérience blockchain avec Morph - une solution zk-rollup optimiste décentralisée, sécurisée, économique et performante. Essayez-la dès maintenant !
 ---
 
 
-![RVP](../../../assets/docs/protocol/dese/dseq1.jpg)
+![PVR](../../../assets/docs/protocol/dese/dseq1.jpg)
 
 
-## The Importance of Decentralized Sequencers
-
-
-
-### What is a sequencer and what does it do?
-
-In a traditional Layer 1 blockchain, transactions are packaged and processed by miners in proof-of-work systems or validators nodes in proof-of-stake systems. These entities earn the authority to package, sequence, and produce blocks either through the competitive task of computational mining or via staking-based elections.
-
-However, many current Layer 2 designs employ a single role, unburdened by competition or staking costs, responsible for packaging and sequencing all Layer 2 transactions. This entity is known as the “sequencer”. Its duties extend beyond sequencing; it is also tasked with generating L2 blocks, periodically committing Layer 2 transactions and state changes to Layer 1, and addressing any potential challenges to its submissions.
-
-Centralized sequencers present a challenge due to their sole dominion over the sequencing and packaging of Layer 2 transactions. This monopoly raises concerns, largely stemming from this centralized control.
-
-
-### What are the problems with centralized sequencers?
-
-#### Vulnerability of a Single Point of Failure
-
-The proper functioning of Layer 2 is intrinsically tied to the operation of the sequencer. If the sequencer stops working, transactions from all Layer 2 users will not be processed, effectively bringing down Layer 2 operations. The problem is magnified when a single entity controls the sequencer. Should the entity fail, the entirety of the Layer 2 is paralyzed, rendering the system vulnerable to a single point of failure. Therefore, centralized sequencers pose a significant risk to the stability of Layer 2.
-
-#### Excessive Transaction Censorship
-
-Centralized sequencers have the ability to reject user-submitted transactions, rendering them unprocessable — a blatant form of transaction censorship. In a scenario where a centralized Layer 2 deliberately blocks transactions involving its governance tokens, panic and selling among users is likely to follow. 
-Some solutions allow users to submit their intended transactions directly on Layer 1. However, this process is time-consuming, often taking several hours, and burdens users with Layer 1 gas fees. Therefore, this alternative does not fundamentally solve the problem.
-In a decentralized sequencer framework, should one sequencer decline a transaction, users can still relay it to alternative sequencers. The content of the next block is ultimately determined through consensus, ensuring no single entity can censor transactions based on personal interests.
+## L'Importance des Séquenceurs Décentralisés
 
 
 
-#### Monopoly Over MEV
+### Qu'est-ce qu'un séquenceur et quel est son rôle ?
 
-Because the sequencer can determine the order (or "sequence") of received transactions, it effectively has a monopoly over all Miner Extractable Value (MEV). In this scenario, users must bear any potential losses incurred by the sequencer’s exclusive control over MEV, necessitating an additional and unwarranted layer of trust in the sequencer.
-Decentralized sequencers introduce a competitive dynamic among multiple entities aiming for MEV. This competition eliminates the monopoly of any single sequencer, mitigating the adverse effects of unchecked MEV on users.
+Dans une blockchain de couche 1 traditionnelle, les transactions sont regroupées et traitées par des mineurs dans les systèmes de preuve de travail ou par des nœuds validateurs dans les systèmes de preuve d'enjeu. Ces entités obtiennent l'autorité pour regrouper, séquencer et produire des blocs soit par la tâche concurrentielle du minage, soit par des élections basées sur le staking.
+
+Cependant, beaucoup de conceptions actuelles de la couche 2 emploient un rôle unique, non soumis à la concurrence ou aux coûts de staking, responsable du regroupement et de la séquence de toutes les transactions de la couche 2. Cette entité est connue sous le nom de "séquenceur". Ses tâches ne se limitent pas à la séquence, mais comprennent également la génération de blocs L2, l'engagement périodique des transactions et des changements d'état de la couche 2 à la couche 1, ainsi que la gestion de tout défi potentiel à ses soumissions.
+
+Les séquenceurs centralisés posent un problème en raison de leur contrôle exclusif sur le regroupement et la séquence des transactions de la couche 2, soulevant des préoccupations liées à ce contrôle centralisé.
+
+
+### Quels sont les problèmes avec les séquenceurs centralisés ?
+
+#### Vulnérabilité d'un Point Unique de Défaillance
+
+Le bon fonctionnement de la couche 2 est intrinsèquement lié à l'opération du séquenceur. Si le séquenceur cesse de fonctionner, les transactions de tous les utilisateurs de la couche 2 ne seront pas traitées, entraînant un arrêt des opérations de la couche 2. Ce problème est amplifié lorsqu'une seule entité contrôle le séquenceur. Si cette entité échoue, l'ensemble de la couche 2 est paralysé, rendant le système vulnérable à un point unique de défaillance. Par conséquent, les séquenceurs centralisés représentent un risque important pour la stabilité de la couche 2.
+
+#### Censure Excessive des Transactions
+
+Les séquenceurs centralisés peuvent rejeter les transactions soumises par les utilisateurs, les rendant inaccessibles — une forme manifeste de censure des transactions. Dans un scénario où une couche 2 centralisée bloque délibérément des transactions impliquant ses tokens de gouvernance, la panique et la vente massive parmi les utilisateurs peuvent suivre.
+Certaines solutions permettent aux utilisateurs de soumettre leurs transactions directement sur la couche 1. Cependant, ce processus est long, souvent plusieurs heures, et oblige les utilisateurs à payer des frais de gaz de la couche 1. Par conséquent, cette alternative ne résout pas fondamentalement le problème.
+Dans un cadre de séquenceur décentralisé, si un séquenceur refuse une transaction, les utilisateurs peuvent toujours la relayer à d'autres séquenceurs. Le contenu du prochain bloc est déterminé par consensus, garantissant qu'aucune entité ne puisse censurer les transactions selon ses intérêts personnels.
+
+
+#### Monopole sur la MEV
+
+Le séquenceur, en déterminant l'ordre (ou "séquence") des transactions reçues, détient un monopole sur toute la valeur extractible par les mineurs (MEV). Dans ce scénario, les utilisateurs doivent supporter les pertes potentielles causées par le contrôle exclusif du séquenceur sur la MEV, créant ainsi un besoin supplémentaire et injustifié de faire confiance au séquenceur.
+Les séquenceurs décentralisés introduisent une dynamique concurrentielle entre plusieurs entités visant la MEV. Cette concurrence élimine le monopole d'un seul séquenceur, atténuant les effets négatifs de la MEV incontrôlée sur les utilisateurs.
 
 
 
-## What's Morph's Approach to Decentralized Sequencers?
+## Quelle est l'approche de Morph pour les Séquenceurs Décentralisés ?
 
-Morph is distinct from other Rollup projects due to the emphasis on establishing a decentralized sequencer network from inception. This design is guided by the following core principles:
+Morph se distingue des autres projets Rollup en mettant l'accent dès le début sur l'établissement d'un réseau de séquenceurs décentralisé. Cette conception repose sur les principes clés suivants :
 
-### Efficiency:​
-Morph is first and foremost an Ethereum scaling solution, focused on improved efficiency and cost reduction. Our solution must guarantee fast execution and transaction confirmation at Layer 2 while maintaining the highest possible level of decentralization.
+### Efficacité :
+Morph est avant tout une solution de mise à l'échelle d'Ethereum, axée sur l'amélioration de l'efficacité et la réduction des coûts. Notre solution doit garantir une exécution rapide et une confirmation des transactions en couche 2 tout en maintenant le plus haut niveau possible de décentralisation.
 
-### Scalable and Manageable:​
-The sequencer network’s design prioritizes ease of maintenance, expansion, and updating. If one network functionality requires maintenance, it should not disrupt the operation of other functionalities. In addition, the sequencer network should be adaptable and easily upgradable as new and more efficient solutions emerge.
+### Extensible et Gérable :
+La conception du réseau de séquenceurs privilégie la facilité de maintenance, d'expansion et de mise à jour. Si une fonctionnalité du réseau nécessite une maintenance, elle ne doit pas perturber le fonctionnement des autres fonctionnalités. De plus, le réseau de séquenceurs doit être adaptable et facilement évolutif à mesure que de nouvelles solutions plus efficaces émergent.
 
-### Solutions Formulated on These Principles​
-With these principles, Morph’s sequencer network design includes:
- - Modularity: The structure emphasizes modular components that are loosely connected, allowing for swift upgrades or replacements.
- - Byzantine Fault Tolerant (BFT) Consensus: Sequencers employ a BFT consensus for L2 block generation.
- - BLS Signature for Batch Signing: Sequencers sign a collective of L2 blocks using the BLS signature method. The L1 contract then verifies this L2 consensus through the BLS signature.
+### Solutions Formulées sur Ces Principes
+Avec ces principes, la conception du réseau de séquenceurs de Morph inclut :
+ - Modularité : La structure met l'accent sur des composants modulaires qui sont faiblement connectés, permettant des mises à jour ou des remplacements rapides.
+ - Consensus Tolérant aux Pannes Byzantines (BFT) : Les séquenceurs emploient un consensus BFT pour la génération de blocs L2.
+ - Signature BLS pour la Signature de Lots : Les séquenceurs signent collectivement des blocs L2 en utilisant la méthode de signature BLS. Le contrat L1 vérifie ensuite ce consensus L2 à travers la signature BLS.
 
 
 :::tip
-Why BLS signature?
+Pourquoi la signature BLS ?
 
-A current basic signature algorithm such as ECDSA in Ethereum has an excessive cost. This issue arises because the signature data needs to be submitted to the Layer 1 contract and requires payment of the corresponding cost. As the number of validators increases, this cost will also increase proportionally. By using BLS signatures, the cost of uploading signatures can be maintained at a constant level, unaffected by the gradual growth of the sequencer's quantity.
+Un algorithme de signature de base actuel tel que l'ECDSA dans Ethereum a un coût excessif. Ce problème se pose car les données de signature doivent être soumises au contrat de la couche 1 et nécessitent le paiement du coût correspondant. À mesure que le nombre de validateurs augmente, ce coût augmentera proportionnellement. En utilisant les signatures BLS, le coût de téléchargement des signatures peut être maintenu à un niveau constant, indépendamment de la croissance progressive du nombre de séquenceurs.
 
 :::
 
@@ -71,60 +70,61 @@ A current basic signature algorithm such as ECDSA in Ethereum has an excessive c
 
 ### Architecture
 
-The following is a simple illustration of Morph’s decentralized sequencing network architecture.
+Voici une illustration simple de l'architecture du réseau de séquenceurs décentralisé de Morph.
 
 
-![Sequencer Network Archi](../../../assets/docs/protocol/dese/seq1.png)
+![Réseau de Séquenceurs](../../../assets/docs/protocol/dese/seq1.png)
 
 
-#### Sequencer Set Selection
+#### Sélection du Groupe de Séquenceurs
 
-A complete Morph decentralized sequencer network consists of two parts:
+Un réseau complet de séquenceurs décentralisé Morph se compose de deux parties :
 
-- **Sequencer Set** : This forms the core group that provides sequencing services
-- **Sequencer Staking Contract**: This contract facilitates the selection of the sequencer set via an election process. 
+- **Groupe de Séquenceurs** : Il forme le groupe central qui fournit les services de séquence.
+- **Contrat de Staking des Séquenceurs** : Ce contrat facilite la sélection du groupe de séquenceurs via un processus électoral.
 
-Through the sequencer staking contract, members are elected into the sequencer set, where they collaboratively provide services for the Morph network. Periodically, the election results are synchronized to the Layer 1 Rollup contract. This synchronized data is utilized to obtain the BLS aggregate signatures of sequencer network participants for comparison and verification.
+Grâce au contrat de staking des séquenceurs, des membres sont élus dans le groupe de séquenceurs, où ils fournissent des services de manière collaborative pour le réseau Morph. Périodiquement, les résultats des élections sont synchronisés avec le contrat de Rollup de la couche 1. Ces données synchronisées sont utilisées pour obtenir les signatures agrégées BLS des participants du réseau de séquenceurs à des fins de comparaison et de vérification.
 
-### Layer 2 Blocks Generation
+### Génération de Blocs de la Couche 2
 
-Given Morph's modular design, each sequencer operates a consensus client that runs BFT to communicate with other sequencers.
+Grâce à la conception modulaire de Morph, chaque séquenceur exploite un client de consensus qui exécute le BFT pour communiquer avec d'autres séquenceurs.
 
-![Block Generation](../../../assets/docs/protocol/dese/block-con.png)
+![Génération de Blocs](../../../assets/docs/protocol/dese/block-con.png)
 
-Following the BFT consensus protocol, the selected sequencer extracts transactions from the mempool, constructs blocks, and synchronizes these blocks with other sequencers to undergo verification and voting. The end result is the generation of new Layer 2 blocks.
+Conformément au protocole de consensus BFT, le séquenceur sélectionné extrait les transactions du mempool, construit des blocs et les synchronise avec d'autres séquenceurs pour les soumettre à la vérification et au vote. Le résultat final est la génération de nouveaux blocs de la couche 2.
 
-### Batching
+### Regroupement
 
-Considering the costs of uploading to and validating signatures on Layer 1, sequencers will sign a batch of blocks with BLS signatures at designated checkpoints.
+En tenant compte des coûts liés au téléchargement et à la validation des signatures sur la couche 1, les séquenceurs signeront un lot de blocs avec des signatures BLS à des points de contrôle désignés.
 
-![BlockSign](../../../assets/docs/protocol/dese/batch-sign.png)
+![Signature de Blocs](../../../assets/docs/protocol/dese/batch-sign.png)
 
-Post-signing, the designated sequencer forwards the collective batch of blocks to Layer 1 through its batch submitter component.
+Après la signature, le séquenceur désigné transmet le lot collectif de blocs à la couche 1 via son composant soumetteur de lots.
 
-### Consensus Verification
+### Vérification du Consensus
 
-The selected sequencer must submit to the Layer 1 contract:
+Le séquenceur sélectionné doit soumettre au contrat de la couche 1 :
 
-- The aggregated BLS signatures
-- The batch of transactions
-- The consensus-determined state 
+- Les signatures BLS agrégées
+- Le lot de transactions
+- L'état déterminé par consensus
 
-The Layer 1 contract will verify the submitted signature to confirm the transaction's consensus.
+Le contrat de la couche 1 vérifiera la signature soumise pour confirmer le consensus de la transaction.
 
-## Summary 
+## Résumé 
 
-- Morph operates a native decentralized sequencer network based on BFT consensus.
-- Through protocol and network optimization, Morph maximizes the scalability of Ethereum while ensuring decentralization.
-- Based on BLS signatures, other participants in Layer 1 and Layer 2 can effectively verify the consensus results of Layer 2, ensuring the security provided by the sequencer network is confirmable at the Layer 1 level.
+- Morph exploite un réseau de séquenceurs décentralisé natif basé sur le consensus BFT.
+- Grâce à l'optimisation du protocole et du réseau, Morph maximise la scalabilité d'Ethereum tout en garantissant la décentralisation.
+- Grâce aux signatures BLS, les autres participants des couches 1 et 2 peuvent efficacement vérifier les résultats de consensus de la couche 2, garantissant ainsi que la sécurité fournie par le réseau de séquenceurs soit confirmée au niveau de la couche 1.
 
 
-## Roadmap
+## Feuille de Route
 
-**Stage 1**: Close test on morph beta testnet
+**Étape 1**: Test fermé sur le testnet beta de Morph
 
-**Stage 2**: Decentralized sequencer network live on mainnet
+**Étape 2**: Réseau de séquenceurs décentralisé en direct sur le mainnet
 
-**Stage 3**: Open election of sequencer set
+**Étape 3**: Élection ouverte du groupe de séquenceurs
 
-**Stage 4**: Open Morph's sequencer network to the public l2 space
+Rejoignez Morph dès maintenant pour un avenir blockchain plus décentralisé, sécurisé et efficace !
+

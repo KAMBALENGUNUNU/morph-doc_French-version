@@ -4,24 +4,23 @@
 
 [@morph-l2/sdk](../globals.md) / toSignerOrProvider
 
-# Function: toSignerOrProvider()
+# Fonction : toSignerOrProvider()
 
-> **toSignerOrProvider**(`signerOrProvider`): `Provider` \| `Signer`
+> **toSignerOrProvider**(`signerOrProvider`) : `Provider` \| `Signer`
 
-Converts a SignerOrProviderLike into a Signer or a Provider. Assumes that if the input is a
-string then it is a JSON-RPC url.
+Convertit un SignerOrProviderLike en un Signer ou un Provider. On suppose que si l'entrée est une chaîne, alors c'est une URL JSON-RPC.
 
-## Parameters
+## Paramètres
 
-• **signerOrProvider**: [`SignerOrProviderLike`](../type-aliases/SignerOrProviderLike.md)
+• **signerOrProvider** : [`SignerOrProviderLike`](../type-aliases/SignerOrProviderLike.md)
 
-SignerOrProviderLike to turn into a Signer or Provider.
+SignerOrProviderLike à transformer en Signer ou Provider.
 
-## Returns
+## Retourne
 
 `Provider` \| `Signer`
 
-Input as a Signer or Provider.
+Entrée sous forme de Signer ou Provider.
 
 ## Source
 

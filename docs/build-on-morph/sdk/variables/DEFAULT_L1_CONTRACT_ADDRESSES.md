@@ -8,7 +8,7 @@
 
 > `const` **DEFAULT\_L1\_CONTRACT\_ADDRESSES**: [`OEL1ContractsLike`](../type-aliases/OEL1ContractsLike.md)
 
-Full list of default L1 contract addresses.
+Liste complète des adresses de contrat L1 par défaut.
 
 ## Source
 

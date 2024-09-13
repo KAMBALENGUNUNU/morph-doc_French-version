@@ -4,45 +4,45 @@
 
 [@morph-l2/sdk](../globals.md) / StandardBridgeAdapter
 
-# Class: StandardBridgeAdapter
+# Classe : StandardBridgeAdapter
 
-Bridge adapter for any token bridge that uses the standard token bridge interface.
+Adaptateur de pont pour tout pont de jetons qui utilise l'interface standard de pont de jetons.
 
-## Extended by
+## Étendu par
 
 - [`ETHBridgeAdapter`](ETHBridgeAdapter.md)
 
-## Implements
+## Implémente
 
 - [`IBridgeAdapter`](../interfaces/IBridgeAdapter.md)
 
-## Constructors
+## Constructeurs
 
 ### new StandardBridgeAdapter()
 
 > **new StandardBridgeAdapter**(`opts`): [`StandardBridgeAdapter`](StandardBridgeAdapter.md)
 
-Creates a StandardBridgeAdapter instance.
+Crée une instance de StandardBridgeAdapter.
 
-#### Parameters
+#### Paramètres
 
 • **opts**
 
-Options for the adapter.
+Options pour l'adaptateur.
 
 • **opts.l1Bridge**: [`AddressLike`](../type-aliases/AddressLike.md)
 
-L1 bridge contract.
+Contrat de pont L1.
 
 • **opts.l2Bridge**: [`AddressLike`](../type-aliases/AddressLike.md)
 
-L2 bridge contract.
+Contrat de pont L2.
 
 • **opts.messenger**: [`CrossChainMessenger`](CrossChainMessenger.md)
 
-Provider used to make queries related to cross-chain interactions.
+Fournisseur utilisé pour effectuer des requêtes liées aux interactions inter-chaînes.
 
-#### Returns
+#### Retourne
 
 [`StandardBridgeAdapter`](StandardBridgeAdapter.md)
 
@@ -50,20 +50,20 @@ Provider used to make queries related to cross-chain interactions.
 
 src/adapters/standard-bridge.ts:52
 
-## Properties
+## Propriétés
 
 ### estimateGas
 
 > **estimateGas**: `object`
 
-Object that holds the functions that estimates the gas required for a given transaction.
-Follows the pattern used by ethers.js.
+Objet qui contient les fonctions qui estiment le gaz requis pour une transaction donnée.
+Suit le modèle utilisé par ethers.js.
 
 #### approve()
 
 > **approve**: (`l1Token`, `l2Token`, `amount`, `opts`?) => `Promise`\<`BigNumber`\>
 
-##### Parameters
+##### Paramètres
 
 • **l1Token**: [`AddressLike`](../type-aliases/AddressLike.md)
 
@@ -73,7 +73,7 @@ Follows the pattern used by ethers.js.
 
 • **opts?**: [`IActionOptions`](../interfaces/IActionOptions.md)
 
-##### Returns
+##### Retourne
 
 `Promise`\<`BigNumber`\>
 
@@ -81,7 +81,7 @@ Follows the pattern used by ethers.js.
 
 > **deposit**: (`l1Token`, `l2Token`, `amount`, `opts`?) => `Promise`\<`BigNumber`\>
 
-##### Parameters
+##### Paramètres
 
 • **l1Token**: [`AddressLike`](../type-aliases/AddressLike.md)
 
@@ -91,7 +91,7 @@ Follows the pattern used by ethers.js.
 
 • **opts?**: [`IActionOptions`](../interfaces/IActionOptions.md)
 
-##### Returns
+##### Retourne
 
 `Promise`\<`BigNumber`\>
 
@@ -99,7 +99,7 @@ Follows the pattern used by ethers.js.
 
 > **withdraw**: (`l1Token`, `l2Token`, `amount`, `opts`?) => `Promise`\<`BigNumber`\>
 
-##### Parameters
+##### Paramètres
 
 • **l1Token**: [`AddressLike`](../type-aliases/AddressLike.md)
 
@@ -109,11 +109,11 @@ Follows the pattern used by ethers.js.
 
 • **opts?**: [`IActionOptions`](../interfaces/IActionOptions.md)
 
-##### Returns
+##### Retourne
 
 `Promise`\<`BigNumber`\>
 
-#### Implementation of
+#### Implémentation de
 
 [`IBridgeAdapter`](../interfaces/IBridgeAdapter.md).[`estimateGas`](../interfaces/IBridgeAdapter.md#estimategas)
 
@@ -127,9 +127,9 @@ src/adapters/standard-bridge.ts:405
 
 > **l1Bridge**: `Contract`
 
-L1 bridge contract.
+Contrat de pont L1.
 
-#### Implementation of
+#### Implémentation de
 
 [`IBridgeAdapter`](../interfaces/IBridgeAdapter.md).[`l1Bridge`](../interfaces/IBridgeAdapter.md#l1bridge)
 
@@ -143,9 +143,9 @@ src/adapters/standard-bridge.ts:41
 
 > **l2Bridge**: `Contract`
 
-L2 bridge contract.
+Contrat de pont L2.
 
-#### Implementation of
+#### Implémentation de
 
 [`IBridgeAdapter`](../interfaces/IBridgeAdapter.md).[`l2Bridge`](../interfaces/IBridgeAdapter.md#l2bridge)
 
@@ -159,9 +159,9 @@ src/adapters/standard-bridge.ts:42
 
 > **messenger**: [`CrossChainMessenger`](CrossChainMessenger.md)
 
-Provider used to make queries related to cross-chain interactions.
+Fournisseur utilisé pour effectuer des requêtes liées aux interactions inter-chaînes.
 
-#### Implementation of
+#### Implémentation de
 
 [`IBridgeAdapter`](../interfaces/IBridgeAdapter.md).[`messenger`](../interfaces/IBridgeAdapter.md#messenger)
 
@@ -175,14 +175,14 @@ src/adapters/standard-bridge.ts:40
 
 > **populateTransaction**: `object`
 
-Object that holds the functions that generate transactions to be signed by the user.
-Follows the pattern used by ethers.js.
+Objet qui contient les fonctions qui génèrent des transactions à signer par l'utilisateur.
+Suit le modèle utilisé par ethers.js.
 
 #### approve()
 
 > **approve**: (`l1Token`, `l2Token`, `amount`, `opts`?) => `Promise`\<`TransactionRequest`\>
 
-##### Parameters
+##### Paramètres
 
 • **l1Token**: [`AddressLike`](../type-aliases/AddressLike.md)
 
@@ -192,7 +192,7 @@ Follows the pattern used by ethers.js.
 
 • **opts?**: [`IActionOptions`](../interfaces/IActionOptions.md)
 
-##### Returns
+##### Retourne
 
 `Promise`\<`TransactionRequest`\>
 
@@ -200,7 +200,7 @@ Follows the pattern used by ethers.js.
 
 > **deposit**: (`l1Token`, `l2Token`, `amount`, `opts`?) => `Promise`\<`TransactionRequest`\>
 
-##### Parameters
+##### Paramètres
 
 • **l1Token**: [`AddressLike`](../type-aliases/AddressLike.md)
 
@@ -210,7 +210,7 @@ Follows the pattern used by ethers.js.
 
 • **opts?**: [`IActionOptions`](../interfaces/IActionOptions.md)
 
-##### Returns
+##### Retourne
 
 `Promise`\<`TransactionRequest`\>
 
@@ -218,7 +218,7 @@ Follows the pattern used by ethers.js.
 
 > **withdraw**: (`l1Token`, `l2Token`, `amount`, `opts`?) => `Promise`\<`TransactionRequest`\>
 
-##### Parameters
+##### Paramètres
 
 • **l1Token**: [`AddressLike`](../type-aliases/AddressLike.md)
 
@@ -228,11 +228,11 @@ Follows the pattern used by ethers.js.
 
 • **opts?**: [`IActionOptions`](../interfaces/IActionOptions.md)
 
-##### Returns
+##### Retourne
 
 `Promise`\<`TransactionRequest`\>
 
-#### Implementation of
+#### Implémentation de
 
 [`IBridgeAdapter`](../interfaces/IBridgeAdapter.md).[`populateTransaction`](../interfaces/IBridgeAdapter.md#populatetransaction)
 
@@ -240,35 +240,35 @@ Follows the pattern used by ethers.js.
 
 src/adapters/standard-bridge.ts:286
 
-## Methods
+## Méthodes
 
 ### approval()
 
 > **approval**(`l1Token`, `l2Token`, `opts`): `Promise`\<`BigNumber`\>
 
-Queries the account's approval amount for a given L1 token.
+Interroge le montant d'approbation du compte pour un jeton L1 donné.
 
-#### Parameters
+#### Paramètres
 
 • **l1Token**: [`AddressLike`](../type-aliases/AddressLike.md)
 
-The L1 token address.
+L'adresse du jeton L1.
 
 • **l2Token**: [`AddressLike`](../type-aliases/AddressLike.md)
 
-The L2 token address.
+L'adresse du jeton L2.
 
 • **opts**: [`IActionOptions`](../interfaces/IActionOptions.md)
 
-Additional options.
+Options supplémentaires.
 
-#### Returns
+#### Retourne
 
 `Promise`\<`BigNumber`\>
 
-Amount of tokens approved for deposits from the account.
+Montant des jetons approuvés pour les dépôts depuis le compte.
 
-#### Implementation of
+#### Mise en œuvre de
 
 [`IBridgeAdapter`](../interfaces/IBridgeAdapter.md).[`approval`](../interfaces/IBridgeAdapter.md#approval)
 
@@ -282,37 +282,37 @@ src/adapters/standard-bridge.ts:209
 
 > **approve**(`l1Token`, `l2Token`, `amount`, `signer`, `opts`?): `Promise`\<`TransactionResponse`\>
 
-Approves a deposit into the L2 chain.
+Approuve un dépôt dans la chaîne L2.
 
-#### Parameters
+#### Paramètres
 
 • **l1Token**: [`AddressLike`](../type-aliases/AddressLike.md)
 
-The L1 token address.
+L'adresse du jeton L1.
 
 • **l2Token**: [`AddressLike`](../type-aliases/AddressLike.md)
 
-The L2 token address.
+L'adresse du jeton L2.
 
 • **amount**: [`NumberLike`](../type-aliases/NumberLike.md)
 
-Amount of the token to approve.
+Montant du jeton à approuver.
 
 • **signer**: `Signer`
 
-Signer used to sign and send the transaction.
+Signer utilisé pour signer et envoyer la transaction.
 
 • **opts?**: [`IActionOptions`](../interfaces/IActionOptions.md)
 
-Additional options.
+Options supplémentaires.
 
-#### Returns
+#### Retourne
 
 `Promise`\<`TransactionResponse`\>
 
-Transaction response for the approval transaction.
+Réponse de la transaction pour la transaction d'approbation.
 
-#### Implementation of
+#### Mise en œuvre de
 
 [`IBridgeAdapter`](../interfaces/IBridgeAdapter.md).[`approve`](../interfaces/IBridgeAdapter.md#approve-2)
 
@@ -326,37 +326,37 @@ src/adapters/standard-bridge.ts:250
 
 > **deposit**(`l1Token`, `l2Token`, `amount`, `signer`, `opts`?): `Promise`\<`TransactionResponse`\>
 
-Deposits some tokens into the L2 chain.
+Dépose des jetons dans la chaîne L2.
 
-#### Parameters
+#### Paramètres
 
 • **l1Token**: [`AddressLike`](../type-aliases/AddressLike.md)
 
-The L1 token address.
+L'adresse du jeton L1.
 
 • **l2Token**: [`AddressLike`](../type-aliases/AddressLike.md)
 
-The L2 token address.
+L'adresse du jeton L2.
 
 • **amount**: [`NumberLike`](../type-aliases/NumberLike.md)
 
-Amount of the token to deposit.
+Montant du jeton à déposer.
 
 • **signer**: `Signer`
 
-Signer used to sign and send the transaction.
+Signer utilisé pour signer et envoyer la transaction.
 
 • **opts?**: [`IActionOptions`](../interfaces/IActionOptions.md)
 
-Additional options.
+Options supplémentaires.
 
-#### Returns
+#### Retourne
 
 `Promise`\<`TransactionResponse`\>
 
-Transaction response for the deposit transaction.
+Réponse de la transaction pour la transaction de dépôt.
 
-#### Implementation of
+#### Mise en œuvre de
 
 [`IBridgeAdapter`](../interfaces/IBridgeAdapter.md).[`deposit`](../interfaces/IBridgeAdapter.md#deposit-2)
 
@@ -370,29 +370,29 @@ src/adapters/standard-bridge.ts:262
 
 > **getDepositsByAddress**(`address`, `opts`?): `Promise`\<[`TokenBridgeMessage`](../interfaces/TokenBridgeMessage.md)[]\>
 
-Gets all deposits for a given address.
+Obtient tous les dépôts pour une adresse donnée.
 
-#### Parameters
+#### Paramètres
 
 • **address**: [`AddressLike`](../type-aliases/AddressLike.md)
 
-Address to search for messages from.
+Adresse à rechercher pour les messages.
 
 • **opts?**
 
-Options object.
+Objet d'options.
 
 • **opts.fromBlock?**: `BlockTag`
 
 • **opts.toBlock?**: `BlockTag`
 
-#### Returns
+#### Retourne
 
 `Promise`\<[`TokenBridgeMessage`](../interfaces/TokenBridgeMessage.md)[]\>
 
-All deposit token bridge messages sent by the given address.
+Tous les messages de pont de jetons de dépôt envoyés par l'adresse donnée.
 
-#### Implementation of
+#### Mise en œuvre de
 
 [`IBridgeAdapter`](../interfaces/IBridgeAdapter.md).[`getDepositsByAddress`](../interfaces/IBridgeAdapter.md#getdepositsbyaddress)
 
@@ -406,29 +406,29 @@ src/adapters/standard-bridge.ts:75
 
 > **getWithdrawalsByAddress**(`address`, `opts`?): `Promise`\<[`TokenBridgeMessage`](../interfaces/TokenBridgeMessage.md)[]\>
 
-Gets all withdrawals for a given address.
+Obtient tous les retraits pour une adresse donnée.
 
-#### Parameters
+#### Paramètres
 
 • **address**: [`AddressLike`](../type-aliases/AddressLike.md)
 
-Address to search for messages from.
+Adresse à rechercher pour les messages.
 
 • **opts?**
 
-Options object.
+Objet d'options.
 
 • **opts.fromBlock?**: `BlockTag`
 
 • **opts.toBlock?**: `BlockTag`
 
-#### Returns
+#### Retourne
 
 `Promise`\<[`TokenBridgeMessage`](../interfaces/TokenBridgeMessage.md)[]\>
 
-All withdrawal token bridge messages sent by the given address.
+Tous les messages de pont de jetons de retrait envoyés par l'adresse donnée.
 
-#### Implementation of
+#### Mise en œuvre de
 
 [`IBridgeAdapter`](../interfaces/IBridgeAdapter.md).[`getWithdrawalsByAddress`](../interfaces/IBridgeAdapter.md#getwithdrawalsbyaddress)
 
@@ -442,25 +442,25 @@ src/adapters/standard-bridge.ts:122
 
 > **supportsTokenPair**(`l1Token`, `l2Token`): `Promise`\<`boolean`\>
 
-Checks whether the given token pair is supported by the bridge.
+Vérifie si la paire de jetons donnée est supportée par le pont.
 
-#### Parameters
+#### Paramètres
 
 • **l1Token**: [`AddressLike`](../type-aliases/AddressLike.md)
 
-The L1 token address.
+L'adresse du jeton L1.
 
 • **l2Token**: [`AddressLike`](../type-aliases/AddressLike.md)
 
-The L2 token address.
+L'adresse du jeton L2.
 
-#### Returns
+#### Retourne
 
 `Promise`\<`boolean`\>
 
-Whether the given token pair is supported by the bridge.
+Si la paire de jetons donnée est supportée par le pont.
 
-#### Implementation of
+#### Mise en œuvre de
 
 [`IBridgeAdapter`](../interfaces/IBridgeAdapter.md).[`supportsTokenPair`](../interfaces/IBridgeAdapter.md#supportstokenpair)
 
@@ -474,37 +474,37 @@ src/adapters/standard-bridge.ts:165
 
 > **withdraw**(`l1Token`, `l2Token`, `amount`, `signer`, `opts`?): `Promise`\<`TransactionResponse`\>
 
-Withdraws some tokens back to the L1 chain.
+Retire des jetons vers la chaîne L1.
 
-#### Parameters
+#### Paramètres
 
 • **l1Token**: [`AddressLike`](../type-aliases/AddressLike.md)
 
-The L1 token address.
+L'adresse du jeton L1.
 
 • **l2Token**: [`AddressLike`](../type-aliases/AddressLike.md)
 
-The L2 token address.
+L'adresse du jeton L2.
 
 • **amount**: [`NumberLike`](../type-aliases/NumberLike.md)
 
-Amount of the token to withdraw.
+Montant du jeton à retirer.
 
 • **signer**: `Signer`
 
-Signer used to sign and send the transaction.
+Signer utilisé pour signer et envoyer la transaction.
 
 • **opts?**: [`IActionOptions`](../interfaces/IActionOptions.md)
 
-Additional options.
+Options supplémentaires.
 
-#### Returns
+#### Retourne
 
 `Promise`\<`TransactionResponse`\>
 
-Transaction response for the withdraw transaction.
+Réponse de la transaction pour la transaction de retrait.
 
-#### Implementation of
+#### Mise en œuvre de
 
 [`IBridgeAdapter`](../interfaces/IBridgeAdapter.md).[`withdraw`](../interfaces/IBridgeAdapter.md#withdraw-2)
 

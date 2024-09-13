@@ -1,53 +1,48 @@
 ---
-title: Dapp Examples on Morph
-lang: en-US
-keywords: [morph,ethereum,rollup,layer2,validity proof,optimistic zk-rollup]
-description: Upgrade your blockchain experience with Morph - the secure decentralized, cost0efficient, and high-performing optimistic zk-rollup solution. Try it now!
+title: Exemples de Dapp sur Morph
+lang: fr-FR
+keywords: [morph, ethereum, rollup, couche2, preuve de validité, optimistic zk-rollup]
+description: Améliorez votre expérience blockchain avec Morph - la solution optimistic zk-rollup sécurisée, décentralisée, économique et performante. Essayez-le maintenant !
 ---
 
-We provide multiple example Dapps for developers, built on our [Morph starter template](https://github.com/morph-l2/morph_starter_kit), deployed on the Morph Testnet, and accompanied by corresponding frontends.
+Nous fournissons plusieurs exemples de Dapps pour les développeurs, construits sur notre [modèle de démarrage Morph](https://github.com/morph-l2/morph_starter_kit), déployés sur le Testnet Morph, et accompagnés de frontends correspondants.
 
-These examples are very helpful for developers to go through the entire development process on Morph. Below is a brief introduction of the example Dapps and tutorial links.
+Ces exemples sont très utiles pour les développeurs afin de parcourir l'ensemble du processus de développement sur Morph. Ci-dessous se trouve une brève introduction des Dapps d'exemple et des liens vers les tutoriels.
 
-:::tip Morph Starter Template
+:::tip Modèle de Démarrage Morph
 
-The Morph starter kit helps developers quickly and efficiently, build dApps on the Morph blockchain. It is a comprehensive template for building fullstack dApps. 
+Le kit de démarrage Morph aide les développeurs à construire rapidement et efficacement des dApps sur la blockchain Morph. C'est un modèle complet pour construire des dApps fullstack. 
 
 :::
 
-
-## Example Dapp: Building a Decentralized Hotel Booking System on Morph
-
+## Dapp d'Exemple : Construire un Système de Réservation d'Hôtel Décentralisé sur Morph
 
 ![Okido Finance](../../../assets/docs/dev/resources/example-dapp/ExampleDapp1.png)
 
-[Check the tutorial](https://morph.ghost.io/developer-guide-building-a-decentralized-hotel-booking-system-on-morph-2/)
+[Consultez le tutoriel](https://morph.ghost.io/developer-guide-building-a-decentralized-hotel-booking-system-on-morph-2/)
 
-This guide walks you through the process of building a decentralized hotel booking system on the MorphL2 blockchain using Solidity smart contracts and a React & Wagmi front-end. This system allows hotel owners to add rooms, manage room availability, accept bookings, and receive reviews from guests.
+Ce guide vous accompagne dans le processus de construction d'un système de réservation d'hôtel décentralisé sur la blockchain MorphL2 en utilisant des contrats intelligents Solidity et un frontend React & Wagmi. Ce système permet aux propriétaires d'hôtels d'ajouter des chambres, de gérer la disponibilité des chambres, d'accepter des réservations et de recevoir des avis des clients.
 
-## Example Dapp: Building a fractionalized real-estate dApp
-
+## Dapp d'Exemple : Construire une Dapp de Immobilier Fractionné
 
 ![Okido Finance](../../../assets/docs/dev/resources/example-dapp/ExampleDapp2.png)
 
-[Check the tutorial](https://morph.ghost.io/developer-guide-realestate-dapp/)
+[Consultez le tutoriel](https://morph.ghost.io/developer-guide-realestate-dapp/)
 
-Imagine being able to invest in a high-value real estate property without needing to shell out a huge amount of money upfront. Sounds pretty appealing, right? This is the magic of fractionalization. By dividing a property into smaller, more affordable shares, fractionalization makes it possible for just about anyone to get in on the real estate action. It’s like turning a luxury mansion into a bunch of reasonably priced slices that you can buy and sell easily, just like stocks.
+Imaginez pouvoir investir dans une propriété immobilière de grande valeur sans avoir besoin de débourser une énorme somme d'argent au départ. Cela semble assez attrayant, n'est-ce pas ? C'est la magie de la fractionnalisation. En divisant une propriété en parts plus petites et plus abordables, la fractionnalisation permet à presque tout le monde de participer à l'action immobilière. C'est comme transformer un manoir de luxe en plusieurs parts raisonnablement priced que vous pouvez acheter et vendre facilement, tout comme des actions.
 
-Our project today, Okido Finance, takes this idea and builds a decentralized application (DApp) around it. With Okido Finance, property owners can create shares of their real estate assets and investors can buy these shares using a custom ERC20 token. This not only democratizes real estate investment but also adds a layer of liquidity, making it easier to trade shares and get in or out of investments.
+Notre projet aujourd'hui, Okido Finance, prend cette idée et construit une application décentralisée (DApp) autour d'elle. Avec Okido Finance, les propriétaires peuvent créer des parts de leurs actifs immobiliers et les investisseurs peuvent acheter ces parts en utilisant un jeton ERC20 personnalisé. Cela non seulement démocratise l'investissement immobilier mais ajoute également un niveau de liquidité, facilitant l'échange de parts et l'entrée ou la sortie d'investissements.
 
-In this tutorial, I’ll walk you through building the Okido Finance DApp step by step. We’ll start with setting up the development environment, move on to deploying smart contracts, and finish with designing a user-friendly UI.
+Dans ce tutoriel, je vous guiderai à travers la construction de la DApp Okido Finance étape par étape. Nous commencerons par configurer l'environnement de développement, passerons au déploiement des contrats intelligents et finirons par concevoir une interface utilisateur conviviale.
 
-By the end, you’ll have a solid grasp of how to build a decentralized real estate fractionalization platform. Whether you’re looking to create something similar or just want to learn more about these technologies, you’ll be well-equipped to dive deeper into fractionalization. Let’s get started!
+À la fin, vous aurez une solide compréhension de la façon de construire une plateforme de fractionnalisation immobilière décentralisée. Que vous souhaitiez créer quelque chose de similaire ou simplement en apprendre davantage sur ces technologies, vous serez bien équipé pour plonger plus profondément dans la fractionnalisation. Commençons !
 
-
-## Query and Index Smart Contracts on Morph using Goldsky
+## Interroger et Indexer des Contrats Intelligents sur Morph en utilisant Goldsky
 
 ![Okido Finance](../../../assets/docs/dev/resources/example-dapp/subg.png)
 
-[Check the tutorial](https://morph.ghost.io/query-and-index-smart-contracts-on-morph-using-goldsky/)
+[Consultez le tutoriel](https://morph.ghost.io/query-and-index-smart-contracts-on-morph-using-goldsky/)
 
-Picture this: you're a developer with a brand-new smart contract deployed on the Morph. Your next challenge is to efficiently query and retrieve on-chain data for your decentralized application (dApp). That's where subgraphs come in. Subgraphs offer a powerful and flexible way to index and query blockchain data, making it easy to build responsive and data-rich dApps.
+Imaginez ceci : vous êtes un développeur avec un tout nouveau contrat intelligent déployé sur Morph. Votre prochain défi est de requêter et de récupérer efficacement des données en chaîne pour votre application décentralisée (dApp). C'est là que les sous-graphes entrent en jeu. Les sous-graphes offrent un moyen puissant et flexible d'indexer et de requêter des données blockchain, facilitant ainsi la création de dApps réactives et riches en données.
 
-In this tutorial, we'll walk through deploying a smart contract on the Morph chain and setting up a subgraph to query this contract. We’ll also introduce Goldsky, a tool that makes creating and managing subgraphs a breeze. Let’s get started and see what we can build together!
-
+Dans ce tutoriel, nous allons déployer un contrat intelligent sur la chaîne Morph et configurer un sous-graphe pour interroger ce contrat. Nous allons également introduire Goldsky, un outil qui rend la création et la gestion des sous-graphes très faciles. Commençons et voyons ce que nous pouvons construire ensemble !

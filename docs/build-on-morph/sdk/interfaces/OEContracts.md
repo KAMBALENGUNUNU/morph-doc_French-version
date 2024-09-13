@@ -4,16 +4,16 @@
 
 [@morph-l2/sdk](../globals.md) / OEContracts
 
-# Interface: OEContracts
+# Interface : OEContracts
 
-Represents Morph contracts, assumed to be connected to their appropriate
-providers and addresses.
+Représente les contrats Morph, supposés être connectés à leurs
+fournisseurs et adresses appropriés.
 
-## Properties
+## Propriétés
 
 ### l1
 
-> **l1**: [`OEL1Contracts`](OEL1Contracts.md)
+> **l1** : [`OEL1Contracts`](OEL1Contracts.md)
 
 #### Source
 
@@ -23,7 +23,7 @@ src/interfaces/types.ts:121
 
 ### l2
 
-> **l2**: [`OEL2Contracts`](OEL2Contracts.md)
+> **l2** : [`OEL2Contracts`](OEL2Contracts.md)
 
 #### Source
 

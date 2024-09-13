@@ -4,12 +4,11 @@
 
 [@morph-l2/sdk](../globals.md) / OEL2ContractsLike
 
-# Type alias: OEL2ContractsLike
+# Alias de type : OEL2ContractsLike
 
-> **OEL2ContractsLike**: `{ [K in keyof OEL2Contracts]: AddressLike }`
+> **OEL2ContractsLike** : `{ [K in keyof OEL2Contracts]: AddressLike }`
 
-Convenience type for something that looks like the L2 OE contract interface but could be
-addresses instead of actual contract objects.
+Type pratique pour quelque chose qui ressemble à l'interface de contrat L2 OE mais qui pourrait être des adresses au lieu d'objets de contrat réels.
 
 ## Source
 

@@ -1,79 +1,73 @@
 ---
-title: Bridge between Morph and Ethereum
-lang: en-US
-keywords: [morph,ethereum,rollup,layer2,validity proof,optimistic zk-rollup]
-description: Upgrade your blockchain experience with Morph - the secure decentralized, cost0efficient, and high-performing optimistic zk-rollup solution. Try it now!
+title: Pont entre Morph et Ethereum
+lang: fr-FR
+keywords: [morph,ethereum,rollup,couche2,preuve de validité,optimistic zk-rollup]
+description: Améliorez votre expérience blockchain avec Morph - la solution zk-rollup optimiste sécurisée, décentralisée, économique et performante. Essayez-le maintenant !
 ---
 
-Please first review our documentation on [Communication Between Morph and Ethereum](../../how-morph-works/general-protocol-design/2-communicate-between-morph-and-ethereum.md) for some required fundamental knowledge. 
+Veuillez d'abord consulter notre documentation sur [Communication entre Morph et Ethereum](../../how-morph-works/general-protocol-design/2-communicate-between-morph-and-ethereum.md) pour certaines connaissances de base requises.
 
+## Déposer des ETH et des jetons ERC20 depuis L1​
 
-## Deposit ETH and ERC20 Tokens from L1​
-
-The Gateway Router allows ETH and ERC20 token bridging from L1 to L2 using the depositETH and depositERC20 functions respectively. It is a permissionless bridge deployed on L1. Notice that ERC20 tokens will have a different address on L2, you can use the getL2ERC20Address function to query the new address.
+Le **Gateway Router** permet le pontage d'ETH et de jetons ERC20 de L1 à L2 en utilisant respectivement les fonctions `depositETH` et `depositERC20`. C'est un pont sans autorisation déployé sur L1. Notez que les jetons ERC20 auront une adresse différente sur L2. Vous pouvez utiliser la fonction `getL2ERC20Address` pour interroger la nouvelle adresse.
 
 :::tip
-  **`depositETH`** and **`depositERC20`** are payable functions, the amount of ETH sent to these functions will be used
-  to pay for L2 fees. If the amount is not enough, the transaction will not be sent. All excess ETH will be sent back to
-  the sender. `0.00001 ETH` should be more than enough to process a token deposit.
+  Les fonctions **`depositETH`** et **`depositERC20`** sont des fonctions payantes. Le montant d'ETH envoyé à ces fonctions sera utilisé pour payer les frais sur L2. Si le montant n'est pas suffisant, la transaction ne sera pas envoyée. Tout excès d'ETH sera renvoyé à l'expéditeur. `0.00001 ETH` devrait être largement suffisant pour traiter un dépôt de jetons.
 :::
 
-When bridging ERC20 tokens, you don’t have to worry about selecting the right Gateway. This is because the `L1GatewayRouter` will choose the correct underlying entry point to send the message:
+Lors du pontage de jetons ERC20, vous n'avez pas à vous soucier de sélectionner le bon Gateway. En effet, le `L1GatewayRouter` choisira le bon point d'entrée sous-jacent pour envoyer le message :
 
-- **`L1StandardERC20Gateway`:** This Gateway permits any ERC20 deposit and will be selected as the default by the L1GatewayRouter for an ERC20 token that doesn’t need custom logic on L2. On the very first token bridging, a new token will be created on L2 that implements the MorphStandardERC20. To bridge a token, call the `depositERC20` function on the `L1GatewayRouter`.
+- **`L1StandardERC20Gateway` :** Ce Gateway permet tout dépôt ERC20 et sera sélectionné par défaut par le `L1GatewayRouter` pour un jeton ERC20 qui n'a pas besoin de logique personnalisée sur L2. Lors du tout premier pontage de jetons, un nouveau jeton sera créé sur L2 implémentant le `MorphStandardERC20`. Pour pontage un jeton, appelez la fonction `depositERC20` sur le `L1GatewayRouter`.
 
 <!---->
 <!--
-- **`L1CustomERC20Gateway`:** This Gateway will be selected by the `L1GatewayRouter` for tokens with custom logic. For an L1/L2 token pair to work on the Morph Custom ERC20 Bridge, the L2 token contract has to implement `IMorphStandardERC20`. Additionally, the token should grant `mint` or `burn` capability to the `L2CustomERC20Gateway`. 
+- **`L1CustomERC20Gateway` :** Ce Gateway sera sélectionné par le `L1GatewayRouter` pour les jetons avec une logique personnalisée. Pour qu'une paire de jetons L1/L2 fonctionne sur le pont Morph Custom ERC20, le contrat de jeton L2 doit implémenter `IMorphStandardERC20`. De plus, le jeton doit accorder la capacité de `mint` ou de `burn` au `L2CustomERC20Gateway`.
 -->
 
-All Gateway contracts will form the message and send it to the `L1CrossDomainMessenger` which can send arbitrary messages to L2. The `L1CrossDomainMessenger` passes the message to the `L1MessageQueueWithGasPriceOracle`. Any user can send messages directly to the Messenger to execute arbitrary data on L2. 
+Tous les contrats du Gateway formeront le message et l'enverront au `L1CrossDomainMessenger`, qui peut envoyer des messages arbitraires à L2. Le `L1CrossDomainMessenger` passe le message au `L1MessageQueueWithGasPriceOracle`. Tout utilisateur peut envoyer des messages directement au Messenger pour exécuter des données arbitraires sur L2.
 
-This means they can execute any function on L2 from a transaction made on L1 via the bridge. Although an application could directly pass messages to existing token contracts, the Gateway abstracts the specifics and simplifies making transfers and calls.
+Cela signifie qu'ils peuvent exécuter n'importe quelle fonction sur L2 à partir d'une transaction effectuée sur L1 via le pont. Bien qu'une application puisse directement transmettre des messages aux contrats de jetons existants, le Gateway abstrait les détails et simplifie les transferts et les appels.
 
-When a new block gets created on L1, the Sequencer will detect the message on the `L1MessageQueue`, and submit the transaction to the L2 via the L2 node. Finally, the L2 node will pass the transaction to the `L2CrossDomainMessenger` contract for execution on L2.
+Lorsqu'un nouveau bloc est créé sur L1, le **Sequencer** détectera le message sur le `L1MessageQueue` et soumettra la transaction à L2 via le nœud L2. Enfin, le nœud L2 transmettra la transaction au contrat `L2CrossDomainMessenger` pour exécution sur L2.
 
-## Withdraw ETH and ERC20 tokens from L2
+## Retirer des ETH et des jetons ERC20 depuis L2
 
-The L2 Gateway is very similar to the L1 Gateway. We can withdraw ETH and ERC20 tokens back to L1 using the `withdrawETH` and `withdrawERC20` functions. The contract address is deployed on L2. We use the `getL1ERC20Address` to retrieve the token address on L1.
+Le Gateway L2 est très similaire au Gateway L1. Nous pouvons retirer des ETH et des jetons ERC20 vers L1 en utilisant les fonctions `withdrawETH` et `withdrawERC20`. L'adresse du contrat est déployée sur L2. Nous utilisons `getL1ERC20Address` pour récupérer l'adresse du jeton sur L1.
 
 :::tip
-  **`withdrawETH`** and **`withdrawERC20`** are payable functions, and the amount of ETH sent to these functions will be used to pay for L1 fees. If the amount is not enough, the transaction will not be sent. All excess ETH will be sent back to the sender. Fees will depend on L1 activity but `0.005 ETH` should be enough to process a token withdrawal.
+  Les fonctions **`withdrawETH`** et **`withdrawERC20`** sont payantes. Le montant d'ETH envoyé à ces fonctions sera utilisé pour payer les frais sur L1. Si le montant n'est pas suffisant, la transaction ne sera pas envoyée. Tout excès d'ETH sera renvoyé à l'expéditeur. Les frais dépendront de l'activité sur L1, mais `0.005 ETH` devrait suffire pour traiter un retrait de jetons.
 :::
 
 :::tip
-  **Ensure transactions won’t revert on L1 while sending from L2**  There is no way to recover bridged ETH, tokens, or NFTs if your transaction reverts on L1. All assets are burned on Morph when the transaction is sent, and it's impossible to mint them again.
+  **Assurez-vous que les transactions ne seront pas annulées sur L1 lors de l'envoi depuis L2**. Il n'est pas possible de récupérer les ETH, jetons ou NFT pontés si votre transaction échoue sur L1. Tous les actifs sont brûlés sur Morph lorsque la transaction est envoyée, et il est impossible de les créer à nouveau.
 :::
 
-### Finalize your Withdrawal
+### Finaliser votre Retrait
 
-Besides starting a withdrawal request on Morph, there is one additional step to do. You need to finalize your withdrawal on Ethereum.
+En plus de lancer une demande de retrait sur Morph, il y a une étape supplémentaire à effectuer. Vous devez finaliser votre retrait sur Ethereum.
 
-This is because of Morph's optimistic zkEVM design, you can read the details [here](../../how-morph-works/general-protocol-design/2-communicate-between-morph-and-ethereum.md): 
+En raison de la conception optimiste du zkEVM de Morph, vous pouvez lire les détails [ici](../../how-morph-works/general-protocol-design/2-communicate-between-morph-and-ethereum.md).
 
+Pour ce faire, vous devez d'abord vous assurer :
 
+- Que le lot contenant les transactions de retrait a passé la période de contestation et est marqué comme finalisé (c'est-à-dire dans le contrat `Rollup`, **withdrawalRoots[batchDataStore[_batchIndex].withdrawalRoot] = true**).
 
-To do this, first you need to make sure:
-
-- The batch containing the withdraw transactions has passed the challenge period and is marked as finalized (meaning in the `Rollup`contract, **withdrawalRoots[batchDataStore[_batchIndex].withdrawalRoot] = true**).
-
-Once confirmed, you can call our backend services interface:
+Une fois confirmé, vous pouvez appeler notre interface de services backend :
 
 `/getProof?nonce=withdraw.index`
 
-to obtain all the information you need to finalize your withdraw, which include:
+pour obtenir toutes les informations nécessaires à la finalisation de votre retrait, qui incluent :
 
-- Index: The position of the withdrawal transaction in the withdraw tree, or rank of your transaction among all the L2->L1 transactions.
-- Leaf: The hash value of your withdraw transaction that stored in the tree.
-- Proof: The merkel proof of your withdraw transaction.
-- Root: The withdraw tree root.
+- Index : La position de la transaction de retrait dans l'arbre de retrait, ou le rang de votre transaction parmi toutes les transactions L2->L1.
+- Feuille : La valeur de hachage de votre transaction de retrait stockée dans l'arbre.
+- Preuve : La preuve de Merkle de votre transaction de retrait.
+- Racine : La racine de l'arbre de retrait.
 
+Vous devez utiliser la fonction `proveAndRelayMessage` du contrat `L1CrossDomainMessenger`.
 
-you need to use the `proveAndRelayMessage` function of the `L1CrossDomainMessenger` contract.
+Après avoir obtenu les informations ci-dessus, la finalisation de l'opération de retrait peut être effectuée en appelant `L1CrossDomainMessenger.proveAndRelayMessage()`.
 
-After obtaining the above information, the finalization of the withdraw operation can be carried out by calling `L1CrossDomainMessenger.proveAndRelayMessage()`.
-
-The required parameters are 
+Les paramètres requis sont :
 
 ```solidity
   address _from, 
@@ -85,94 +79,92 @@ The required parameters are
   bytes32 _withdrawalRoot
 ```
 
-`_from`, `_to`, `_value`, `_nonce`, and `_message` are the original content of the withdraw transaction, which can be obtained from the Event `SentMessage` included in the transaction initiated by the L2 layer withdraw. 
+`_from`, `_to`, `_value`, `_nonce`, et `_message` sont le contenu original de la transaction de retrait, qui peut être obtenu à partir de l'événement `SentMessage` inclus dans la transaction initiée par le retrait de la couche L2.
 
-`_withdrawalProof` and `_withdrawalRoot` can be obtained from the aforementioned backend API interface.
+`_withdrawalProof` et `_withdrawalRoot` peuvent être obtenus à partir de l'interface API backend mentionnée ci-dessus.
 
 <!--
 
-## Creating an ERC20 token with custom logic on L2
+## Création d'un jeton ERC20 avec une logique personnalisée sur L2
 
-If a token needs custom logic on L2, it will need to be bridged through an `L1CustomERC20Gateway` and `L2CustomERC20Gateway` respectively. The custom token on L2 will need to give permission to the Gateway to mint new tokens when a deposit occurs and to burn when tokens are withdrawn
+Si un jeton nécessite une logique personnalisée sur L2, il devra être relié via un `L1CustomERC20Gateway` et un `L2CustomERC20Gateway` respectivement. Le jeton personnalisé sur L2 devra donner l'autorisation à la passerelle de créer de nouveaux jetons lors d'un dépôt et de brûler des jetons lors d'un retrait.
 
-The following interface is the `IMorphStandardERC20` needed for deploying tokens compatible with the `L2CustomERC20Gateway` on L2.
+L'interface suivante est l'`IMorphStandardERC20` nécessaire pour déployer des jetons compatibles avec le `L2CustomERC20Gateway` sur L2.
 
 ```solidity
 interface IMorphStandardERC20 {
-  /// @notice Return the address of Gateway the token belongs to.
+  /// @notice Retourne l'adresse de la passerelle à laquelle le jeton appartient.
   function gateway() external view returns (address);
 
-  /// @notice Return the address of counterpart token.
+  /// @notice Retourne l'adresse du jeton contrepartie.
   function counterpart() external view returns (address);
 
-  /// @dev ERC677 Standard, see https://github.com/ethereum/EIPs/issues/677
-  /// Defi can use this method to transfer L1/L2 token to L2/L1,
-  /// and deposit to L2/L1 contract in one transaction
+  /// @dev Norme ERC677, voir https://github.com/ethereum/EIPs/issues/677
+  /// Defi peut utiliser cette méthode pour transférer des jetons L1/L2 à L2/L1,
+  /// et déposer sur le contrat L2/L1 en une seule transaction
   function transferAndCall(address receiver, uint256 amount, bytes calldata data) external returns (bool success);
 
-  /// @notice Mint some token to recipient's account.
-  /// @dev Gateway Utilities, only gateway contract can call
-  /// @param _to The address of recipient.
-  /// @param _amount The amount of token to mint.
+  /// @notice Crée un certain nombre de jetons pour le compte du destinataire.
+  /// @dev Outils de passerelle, seul le contrat de passerelle peut appeler cette fonction.
+  /// @param _to L'adresse du destinataire.
+  /// @param _amount Le montant du jeton à créer.
   function mint(address _to, uint256 _amount) external;
 
-  /// @notice Burn some token from account.
-  /// @dev Gateway Utilities, only gateway contract can call
-  /// @param _from The address of account to burn token.
-  /// @param _amount The amount of token to mint.
+  /// @notice Brûle un certain nombre de jetons du compte.
+  /// @dev Outils de passerelle, seul le contrat de passerelle peut appeler cette fonction.
+  /// @param _from L'adresse du compte à partir duquel les jetons sont brûlés.
+  /// @param _amount Le montant du jeton à brûler.
   function burn(address _from, uint256 _amount) external;
 }
 ```
+### Ajout d'un token ERC20 personnalisé sur L2 au Morph Bridge
 
-### Adding a Custom L2 ERC20 token to the Morph Bridge
-
-Tokens can be bridged securely and permissionlessly through Gateway contracts deployed by any developer. However, Morph also manages an ERC20 Router and a Gateway where all tokens created by the community are welcome. Being part of the Morph-managed Gateway means you won't need to deploy the Gateway contracts, and your token will appear in the Morph frontend. To be part of the Morph Gateway, you must contact the Morph team to add the token to both L1 and L2 bridge contracts. To do so, follow the instructions on the [token lists](https://github.com/Morph-tech/token-list) repository to add your new token to the official Morph frontend.
+Les tokens peuvent être transférés de manière sécurisée et sans autorisation via les contrats Gateway déployés par n'importe quel développeur. Cependant, Morph gère également un routeur ERC20 et une passerelle où tous les tokens créés par la communauté sont les bienvenus. Faire partie de la passerelle gérée par Morph signifie que vous n'aurez pas besoin de déployer les contrats Gateway, et votre token apparaîtra dans l'interface de Morph. Pour faire partie de la passerelle Morph, vous devez contacter l'équipe Morph pour ajouter le token aux contrats de pont sur L1 et L2. Pour cela, suivez les instructions dans le dépôt [token lists](https://github.com/Morph-tech/token-list) pour ajouter votre nouveau token à l'interface officielle de Morph.
 
 -->
 
-:::tip Use the SDK
 
-You can also try our SDK to interact with the bridge system by referring to our [SDK Doc](../sdk/globals.md).
+:::tip Utilisez le SDK
+
+Vous pouvez également essayer notre SDK pour interagir avec le système de pont en vous référant à notre [documentation SDK](../sdk/globals.md).
 
 :::
-## Add your Token to the Official Bridge
 
-Currently, our official bridge only supports certain pre-defined tokens to be bridged. If you want to bridge your own tokens, you need to manually add the token, and here is how to do it.
+## Ajouter votre Token au Pont Officiel
 
-### Add Tokens to the gateway through Morph Bridge Frontend
+Actuellement, notre pont officiel ne prend en charge que certains tokens prédéfinis. Si vous souhaitez transférer vos propres tokens, vous devez ajouter manuellement le token, et voici comment procéder.
 
-The easiest way to support your token is to manually add it on our [official bridge frontend](https://bridge-holesky.morphl2.io/), you can simply do it with the following steps:
+### Ajouter des Tokens à la passerelle via l'interface Morph Bridge
 
-1. Click the token selection button on Morph Holesky Bridge
+La méthode la plus simple pour prendre en charge votre token est de l'ajouter manuellement sur notre [interface officielle de pont](https://bridge-holesky.morphl2.io/). Vous pouvez le faire simplement en suivant les étapes ci-dessous :
+
+1. Cliquez sur le bouton de sélection des tokens sur Morph Holesky Bridge
 
 ![tokenlist1](../../../assets/docs/protocol/general/bridge/tokenlist/tokenlist1.png)
 
-
-2. Input & Confirm your desire Ethereum token contract address under the custom token section
+2. Entrez et confirmez l'adresse du contrat token Ethereum souhaité dans la section des tokens personnalisés
 
 ![tokenlist2](../../../assets/docs/protocol/general/bridge/tokenlist/tokenlist2.png)
 
-3. Get the Layer 2 token contract address and confirm it.
+3. Obtenez l'adresse du contrat token sur Layer 2 et confirmez-la.
 
 ![tokenlist3](../../../assets/docs/protocol/general/bridge/tokenlist/tokenlist3.png)
 
-4. Now it is supported and you and other users can start to bridge it! 
+4. Maintenant, il est pris en charge et vous et d'autres utilisateurs pouvez commencer à transférer ce token !
 
 ![tokenlist4](../../../assets/docs/protocol/general/bridge/tokenlist/tokenlist4.png)
 
-### Add token support to the bridge frontend
+### Ajouter la prise en charge du token à l'interface du pont
 
-By adding your token to the gateway, you and other users can bridge the token by inputting the token address.You need to raise a PR to our bridge repo if you want your token shown on the bridge frontend token list.
+En ajoutant votre token à la passerelle, vous et d'autres utilisateurs pouvez transférer le token en entrant l'adresse du token. Vous devez soumettre une PR à notre dépôt de pont si vous souhaitez que votre token apparaisse dans la liste des tokens sur l'interface de pont.
 
-You can find how to do it in the [morph list repo](https://github.com/morph-l2/morph-list).
+Vous pouvez trouver comment procéder dans le [dépôt morph list](https://github.com/morph-l2/morph-list).
 
+Gardez à l'esprit que :
+- Vous devez ajouter à la liste à la fois votre token sur L1 et sur L2.
+- L'adresse du contrat token sur L2 est obtenue en ajoutant vos tokens via l'interface du pont Morph.
 
-Keep in mind that:
-- You need to add both your L1 & L2 token to the list.
-- The L2 token contract address is obtained by adding your tokens through Morph bridge frontend.
-
-Here is an [example PR commit](https://github.com/morph-l2/morph-list/pull/27/commits/228481db6b8d69b8f40e7369dae62722aa570eb7
-) for your reference.
+Voici un [exemple de PR commit](https://github.com/morph-l2/morph-list/pull/27/commits/228481db6b8d69b8f40e7369dae62722aa570eb7) pour référence.
 
 
 

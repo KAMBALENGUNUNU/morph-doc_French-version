@@ -4,11 +4,11 @@
 
 [@morph-l2/sdk](../globals.md) / TransactionLike
 
-# Type alias: TransactionLike
+# Alias de type : TransactionLike
 
-> **TransactionLike**: `string` \| `TransactionReceipt` \| `TransactionResponse`
+> **TransactionLike** : `string` \| `TransactionReceipt` \| `TransactionResponse`
 
-Stuff that can be coerced into a transaction.
+Des éléments qui peuvent être convertis en une transaction.
 
 ## Source
 

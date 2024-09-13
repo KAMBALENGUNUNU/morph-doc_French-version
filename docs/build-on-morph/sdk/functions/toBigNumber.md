@@ -4,23 +4,23 @@
 
 [@morph-l2/sdk](../globals.md) / toBigNumber
 
-# Function: toBigNumber()
+# Fonction : toBigNumber()
 
-> **toBigNumber**(`num`): `BigNumber`
+> **toBigNumber**(`num`) : `BigNumber`
 
-Converts a number-like into an ethers BigNumber.
+Convertit un nombre similaire en un BigNumber d'ethers.
 
-## Parameters
+## Paramètres
 
-• **num**: [`NumberLike`](../type-aliases/NumberLike.md)
+• **num** : [`NumberLike`](../type-aliases/NumberLike.md)
 
-Number-like to convert into a BigNumber.
+Nombre similaire à convertir en BigNumber.
 
-## Returns
+## Retourne
 
 `BigNumber`
 
-Number-like as a BigNumber.
+Nombre similaire sous forme de BigNumber.
 
 ## Source
 

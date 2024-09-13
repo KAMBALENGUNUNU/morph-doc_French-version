@@ -4,13 +4,13 @@
 
 [@morph-l2/sdk](../globals.md) / DeepPartial
 
-# Type alias: DeepPartial\<T\>
+# Alias de type : DeepPartial\<T\>
 
 > **DeepPartial**\<`T`\>: `{ [P in keyof T]?: DeepPartial<T[P]> }`
 
-Utility type for deep partials.
+Type utilitaire pour des parties profondes.
 
-## Type parameters
+## Paramètres de type
 
 • **T**
 

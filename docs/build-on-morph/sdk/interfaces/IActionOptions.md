@@ -4,31 +4,31 @@
 
 [@morph-l2/sdk](../globals.md) / IActionOptions
 
-# Interface: IActionOptions
+# Interface : IActionOptions
 
 ## Param
 
-Optional signer to use to send the transaction.
+Signataire optionnel à utiliser pour envoyer la transaction.
 
 ## Param
 
-Optional address to receive the funds on chain. Defaults to sender.
+Adresse optionnelle pour recevoir les fonds sur la chaîne. Par défaut, c'est l'expéditeur.
 
 ## Param
 
-Direction to search for messages in. If not provided, will attempt to
-  * automatically search both directions under the assumption that a transaction hash will only
-  * exist on one chain. If the hash exists on both chains, will throw an error.
+Direction dans laquelle rechercher des messages. Si non fourni, tentera de
+  * rechercher automatiquement dans les deux directions en supposant qu'un hachage de transaction n'existera que
+  * sur une seule chaîne. Si le hachage existe sur les deux chaînes, cela lancera une erreur.
 
 ## Param
 
-Optional transaction overrides.
+Remplacements de transaction optionnels.
 
-## Properties
+## Propriétés
 
 ### direction?
 
-> `optional` **direction**: [`MessageDirection`](../enumerations/MessageDirection.md)
+> `optionnel` **direction** : [`MessageDirection`](../enumerations/MessageDirection.md)
 
 #### Source
 
@@ -38,7 +38,7 @@ src/interfaces/types.ts:412
 
 ### from?
 
-> `optional` **from**: `string`
+> `optionnel` **from** : `string`
 
 #### Source
 
@@ -48,17 +48,17 @@ src/interfaces/types.ts:410
 
 ### overrides?
 
-> `optional` **overrides**: `object` & `CallOverrides`
+> `optionnel` **overrides** : `object` & `CallOverrides`
 
-#### Type declaration
+#### Déclaration de type
 
 ##### gatewayAddress?
 
-> `optional` **gatewayAddress**: `string`
+> `optionnel` **gatewayAddress** : `string`
 
 ##### gatewayName?
 
-> `optional` **gatewayName**: `string`
+> `optionnel` **gatewayName** : `string`
 
 #### Source
 
@@ -68,7 +68,7 @@ src/interfaces/types.ts:413
 
 ### recipient?
 
-> `optional` **recipient**: [`AddressLike`](../type-aliases/AddressLike.md)
+> `optionnel` **recipient** : [`AddressLike`](../type-aliases/AddressLike.md)
 
 #### Source
 
@@ -78,7 +78,7 @@ src/interfaces/types.ts:411
 
 ### signer?
 
-> `optional` **signer**: `Signer`
+> `optionnel` **signer** : `Signer`
 
 #### Source
 

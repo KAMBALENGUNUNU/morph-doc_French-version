@@ -1,8 +1,8 @@
 ---
-title: Use SDK to interact with Morph
-lang: en-US
-keywords: [morph,ethereum,rollup,layer2,validity proof,optimistic zk-rollup]
-description: Upgrade your blockchain experience with Morph - the secure decentralized, cost0efficient, and high-performing optimistic zk-rollup solution. Try it now!
+title: Utiliser le SDK pour interagir avec Morph
+lang: fr-FR
+keywords: [morph,ethereum,rollup,couche2,preuve de validité,zk-rollup optimiste]
+description: Améliorez votre expérience blockchain avec Morph - la solution zk-rollup optimiste, sécurisée, décentralisée, économique et performante. Essayez-la maintenant !
 ---
 
 
@@ -12,7 +12,7 @@ description: Upgrade your blockchain experience with Morph - the secure decentra
 
 # @morph-l2/sdk
 
-The `@morph-l2/sdk` package provides a set of tools for interacting with Morph.
+Le package `@morph-l2/sdk` fournit un ensemble d'outils pour interagir avec Morph.
 
 ## Installation
 
@@ -22,31 +22,33 @@ npm install @morph-l2/sdk@latest
 
 ## Docs
 
-You can find auto-generated API documentation over at [docs.morphl2.io](https://docs.morphl2.io/docs/build-on-morph/sdk/globals/).
 
-## Using the SDK
+Vous pouvez trouver la documentation API générée automatiquement sur [docs.morphl2.io](https://docs.morphl2.io/docs/build-on-morph/sdk/globals/).
+
+## Utiliser le SDK
 
 ### CrossChainMessenger
 
-The [`CrossChainMessenger`](https://docs.morphl2.io/docs/build-on-morph/sdk/classes/CrossChainMessenger) class simplifies the process of moving assets and data between Ethereum and Morph.
-You can use this class to, for example, initiate a withdrawal of ERC20 tokens from Morph back to Ethereum, accurately track when the withdrawal is ready to be finalized on Ethereum, and execute the finalization transaction after the challenge period has elapsed.
-The `CrossChainMessenger` can handle deposits and withdrawals of ETH and any ERC20-compatible token.
-The `CrossChainMessenger` automatically connects to all relevant contracts so complex configuration is not necessary.
+La classe [`CrossChainMessenger`](https://docs.morphl2.io/docs/build-on-morph/sdk/classes/CrossChainMessenger) simplifie le processus de déplacement des actifs et des données entre Ethereum et Morph. 
+Vous pouvez utiliser cette classe pour, par exemple, initier un retrait de tokens ERC20 de Morph vers Ethereum, suivre précisément quand le retrait est prêt à être finalisé sur Ethereum, et exécuter la transaction de finalisation après la fin de la période de contestation.
 
-### L2Provider and related utilities
+Le `CrossChainMessenger` peut gérer les dépôts et retraits d'ETH et de tout token compatible ERC20.
+Le `CrossChainMessenger` se connecte automatiquement à tous les contrats pertinents, donc une configuration complexe n'est pas nécessaire.
+
+### L2Provider et utilitaires associés
 
 The Morph SDK includes [various utilities](https://docs.morphl2.io/docs/build-on-morph/sdk/type-aliases/L2Provider) for handling Morph's [transaction fee model](https://docs.morphl2.io/docs/build-on-morph/build-on-morph/understand-transaction-cost-on-morph/).
 For instance, [`estimateTotalGasCost`](https://docs.morphl2.io/docs/build-on-morph/sdk/functions/estimateTotalGasCost) will estimate the total cost (in wei) to send at transaction on Morph including both the L2 execution cost and the L1 data cost.
 You can also use the [`asL2Provider`](https://docs.morphl2.io/docs/build-on-morph/sdk/functions/asL2Provider) function to wrap an ethers Provider object into an `L2Provider` which will have all of these helper functions attached.
 
-### Other utilities
+### Autres utilitaires
 
-The SDK contains other useful helper functions and constants.
-For a complete list, refer to the auto-generated [SDK documentation](https://docs.morphl2.io/docs/build-on-morph/sdk/globals/)
+Le SDK contient d'autres fonctions d'assistance utiles et constantes.
+Pour une liste complète, référez-vous à la  [SDK documentation](https://docs.morphl2.io/docs/build-on-morph/sdk/globals/)
 
 
 ## Documents
-### Enumerations
+### Énumérations
 
 - [L1ChainID](enumerations/L1ChainID.md)
 - [L1RpcUrls](enumerations/L1RpcUrls.md)

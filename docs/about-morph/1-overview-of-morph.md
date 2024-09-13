@@ -1,35 +1,29 @@
 ---
-title: Overview
-lang: en-US
-keywords: [morph,layer2,validity proof,optimistic zk-rollup]
-description: Upgrade your blockchain experience with Morph - the secure decentralized, cost0efficient, and high-performing optimistic zk-rollup solution. Try it now!
+title: Vue d'ensemble
+lang: fr-FR
+keywords: [morph,layer2,preuve de validité,optimistic zk-rollup]
+description: Améliorez votre expérience blockchain avec Morph - la solution optimistic zk-rollup sécurisée, décentralisée et performante. Essayez-le maintenant !
 ---
 
-Welcome to Morph, a blockchain for consumers. At the core of Morph is a revolutionary approach to Ethereum Layer 2 scalability, harnessing the power of rollup technology. 
+Bienvenue sur Morph, une blockchain pour les consommateurs. Au cœur de Morph se trouve une approche révolutionnaire de l'évolutivité de Layer 2 d'Ethereum, exploitant la puissance de la technologie rollup.
 
+Notre plateforme est conçue de manière unique pour améliorer l'expérience blockchain, la rendant plus accessible, efficace et conviviale pour les développeurs et les consommateurs. Nous réalisons ces innovations grâce à une combinaison unique de technologies de pointe.
 
-Our platform is uniquely designed to enhance the blockchain experience, making it more accessible, efficient, and user-friendly for both developers and consumers. We achieve these innovations through a unique combination of cutting-edge technologies.
+## Qu'est-ce qui rend Morph spécial ?
 
+Étant donné que notre plateforme est construite sur la philosophie de l'innovation centrée sur le consommateur, nous croyons que la technologie blockchain a le pouvoir transformateur d'améliorer la vie quotidienne des utilisateurs. Pour réaliser cette vision, notre infrastructure repose sur trois composants technologiques fondamentaux qui fonctionnent comme la base d'une blockchain pour les consommateurs.
 
-## What Makes Morph Special
+### Réseau de Séquenceurs Décentralisé
 
-Given that our platform is built on the philosophy of consumer-centric innovation, we believe blockchain technology has the transformative power to enhance users’ daily lives. To accomplish this vision, our infrastructure has three core technological components that function as the foundation of a consumer blockchain.   
+La distribution du rôle de séquençage de Morph élimine les points de défaillance uniques, réduit la censure des transactions et empêche les monopoles sur la Valeur Extractible par les Mineurs (MEV). Construire sur Morph signifie garantir une haute disponibilité, une résilience et une équité dans le traitement des transactions.
 
+### Intégration Optimistic zkEVM
 
-### Decentralized Sequencer Network 
+L'intégration Optimistic zkEVM de Morph combine l'efficacité des rollups optimistes avec la sécurité des preuves à connaissance nulle, en utilisant une méthode novatrice appelée Preuve de Validité Réactive (RVP). La RVP réduit les coûts et raccourcit les délais de retrait tout en maintenant une haute sécurité, permettant des applications robustes qui ne compromettent ni la performance ni la sécurité.
 
-Morph’s distribution of the sequencing role eliminates single points of failure, reduces transaction censorship, and prevents monopolies over Miner Extractable Value (MEV). Building on Morph means guaranteed high availability, resilience, and fairness in transaction processing.
+### Design Modulaire
 
+L'architecture de Morph est divisée en trois modules : Réseau de Séquenceurs pour le consensus et l'exécution, Optimistic zkEVM pour la vérification d'état, et Rollup pour la disponibilité des données. Les développeurs peuvent créer et maintenir des applications plus efficacement, garantissant que chaque composant peut être mis à niveau indépendamment sans perturber l'ensemble du système.
 
-### Optimistic zkEVM Integration 
-
-Morph’s Optimistic zkEVM Integration combines the efficiency of optimistic rollups with the security of zero-knowledge proofs, using a novel method called Responsive Validity Proof (RVP). RVP reduces costs and shortens withdrawal periods while maintaining high security, enabling robust applications that don’t compromise on performance or security.
-
-
-### Modular Design
-
-Morph's architecture is divided into three modules: Sequencer Network for consensus and execution, Optimistic zkEVM for state verification, and Rollup for data availability. Developers can build and maintain applications more efficiently, ensuring each component can be upgraded independently without disrupting the entire system.
-
-
-Before you dive into a deeper exploration of our technology, understanding our [Vision and Mission](./5-morphs-vision-and-mission.md) will offer a better idea of why Morph stands out in the industry. 
+Avant de plonger dans une exploration plus approfondie de notre technologie, comprendre notre [Vision et Mission](./5-morphs-vision-and-mission.md) vous donnera une meilleure idée de ce qui fait que Morph se distingue dans l'industrie.
 

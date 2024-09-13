@@ -1,16 +1,15 @@
 ---
-title: Development Setup
-lang: en-US
-keywords: [morph,ethereum,rollup,layer2,validity proof,optimistic zk-rollup]
-description: Upgrade your blockchain experience with Morph - the secure decentralized, cost0efficient, and high-performing optimistic zk-rollup solution. Try it now!
+title: Configuration de Développement
+lang: fr-FR
+keywords: [morph, ethereum, rollup, layer2, preuve de validité, optimistic zk-rollup]
+description: Améliorez votre expérience blockchain avec Morph - la solution optimistic zk-rollup sécurisée, décentralisée, rentable et performante. Essayez-le maintenant !
 ---
 
-# Start Developing on Morph
+# Commencez à Développer sur Morph
 
-Developing on Morph is as straightforward as developing on Ethereum. 
+Développer sur Morph est aussi simple que de développer sur Ethereum.
 
-To deploy contracts onto a MorphL2 chain, simply set the RPC endpoint of your target MorphL2 chain and deploy using your preferred Ethereum development framework:
-
+Pour déployer des contrats sur une chaîne MorphL2, il vous suffit de définir le point de terminaison RPC de votre chaîne MorphL2 cible et de déployer en utilisant votre cadre de développement Ethereum préféré :
 
 - [Hardhat](https://hardhat.org/)
 - [Foundry](https://github.com/foundry-rs/foundry)
@@ -18,40 +17,38 @@ To deploy contracts onto a MorphL2 chain, simply set the RPC endpoint of your ta
 - [Alchemy](https://docs.alchemy.com/reference/alchemy-sdk-quickstart)
 - [QuickNode SDK](https://www.quicknode.com/docs/quicknode-sdk/getting-started?utm_source=morph-docs)
 
-...it all just works!
+...tout fonctionne parfaitement !
 
+# Testnet Holesky :
 
-# Holesky Testnet:
+## Étape 1 : Configuration du Réseau
 
-## Step 1: Network Configuration
+Avant de commencer, assurez-vous d'être connecté aux réseaux suivants :
 
-Before you start, ensure you are connected to the following networks:
-
-| Network Name | Morph Holesky Testnet | Holesky Testnet |
+| Nom du Réseau | Testnet Holesky Morph | Testnet Holesky |
 | --- | --- | --- |
-| RPC URL | https://rpc-quicknode-holesky.morphl2.io| https://ethereum-holesky-rpc.publicnode.com/ |
-| Chain ID | 2810 | 17000 |
-| Currency Symbol | ETH | ETH |
-| Block Explorer URL | https://explorer-holesky.morphl2.io/| https://holesky.etherscan.io/ |
+| URL RPC | https://rpc-quicknode-holesky.morphl2.io | https://ethereum-holesky-rpc.publicnode.com/ |
+| ID de Chaîne | 2810 | 17000 |
+| Symbole de la Monnaie | ETH | ETH |
+| URL de l'Explorateur de Blocs | https://explorer-holesky.morphl2.io/ | https://holesky.etherscan.io/ |
 
-:::tip Websocket Connection
+:::tip Connexion Websocket
 
 wss://rpc-quicknode-holesky.morphl2.io
 
 :::
 
-### Tendermint Consensus Information
+### Informations sur le Consensus Tendermint
 
-Tendermint RPC: https://rpc-consensus-holesky.morphl2.io
+RPC Tendermint : https://rpc-consensus-holesky.morphl2.io
 
-Tendermint RPC Documentation: https://docs.tendermint.com/v0.34/rpc/#/
+Documentation RPC de Tendermint : https://docs.tendermint.com/v0.34/rpc/#/
 
-
-## Step 2: Set up your developing framework
+## Étape 2 : Configurez votre cadre de développement
 
 ### Hardhat
 
-Modify your Hardhat config file hardhat.config.ts to point at the Morph public RPC.
+Modifiez votre fichier de configuration Hardhat `hardhat.config.ts` pour pointer vers le RPC public de Morph.
 
 ```jsx
 const config: HardhatUserConfig = {
@@ -65,12 +62,11 @@ const config: HardhatUserConfig = {
     },
   },
 };
-
 ```
 
 ### Foundry
 
-To deploy using Morph Public RPC, run:
+Pour déployer en utilisant le RPC public de Morph, exécutez :
 
 ```jsx
 forge create ... --rpc-url= --legacy
@@ -90,13 +86,13 @@ const provider = new ethers.providers.JsonRpcProvider(
 );
 ```
 
-## Step 3: Acquire Ether
+## Étape 3 : Acquérir de l'Ether
 
-To start building on Morph, you may need some testnet ETH. Use a faucet to acquire holesky Ether, then [bridge](https://bridge-holesky.morphl2.io) the test Ethereum Ether to the Morph testnet.
+Pour commencer à construire sur Morph, vous aurez peut-être besoin d'un peu d'ETH de testnet. Utilisez un robinet (faucet) pour obtenir de l'Ether Holesky, puis [bridge](https://bridge-holesky.morphl2.io)  l'Ether Ethereum de test vers le testnet Morph.
 
-Each faucet has its own rules and requirements, so you may need to try a few before finding one that works for you.
+Chaque robinet a ses propres règles et exigences, vous devrez donc peut-être essayer plusieurs avant d'en trouver un qui fonctionne pour vous.
 
-Holesky ETH faucet websites:
+Sites Web des robinets Holesky ETH :
 
 https://stakely.io/en/faucet/ethereum-holesky-testnet-eth
 
@@ -104,13 +100,13 @@ https://faucet.quicknode.com/ethereum/holesky
 
 https://holesky-faucet.pk910.de/
 
-https://cloud.google.com/application/web3/faucet/ethereum (needs a Google account)
+https://cloud.google.com/application/web3/faucet/ethereum (nécessite un compte Google)
 
-We have our own [website faucet](https://morphfaucet.com/) that can claim ETH & USDT for you initial usage.
+Nous avons notre propre[website faucet](https://morphfaucet.com/) qui peut réclamer de l'ETH & USDT pour votre utilisation initiale.
 
 
-Morph also offers a [Discord faucet](../../quick-start/3-faucet.md#morph-holesky-eth) to obtain Morph Holesky USDT & Morph Holesky ETH.
+Morph propose également un [Discord faucet](../../quick-start/3-faucet.md#morph-holesky-eth) pour obtenir USDT Morph Holesky & ETH Morph Holesky.
 
-Once you receive ETH on Holesky, you should see it in your wallet on the *Holesky Network*. It may take a few seconds for them to appear, but you can check the status by looking for a transaction to your address on a **[Holesky Block Explorer](https://holesky.etherscan.io/)**.
+Une fois que vous avez reçu de l'ETH sur Holesky, vous devriez le voir dans votre portefeuille sur le *réseau Holesky*. Cela peut prendre quelques secondes pour qu'il apparaisse, mais vous pouvez vérifier le statut en recherchant une transaction vers votre adresse sur un **[Holesky Block Explorer](https://holesky.etherscan.io/)**.
 
 

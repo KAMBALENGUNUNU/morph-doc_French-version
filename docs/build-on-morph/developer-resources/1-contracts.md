@@ -1,29 +1,29 @@
 ---
-title: Contract Addresses
-lang: en-US
+title: Adresses de Contrat
+lang: fr-FR
 ---
 
 :::info
 
-Contract address could be dynamic during the public testnet stage, so it is recommended to visit this page frequently.
+L'adresse du contrat pourrait être dynamique pendant la phase de test public, donc il est recommandé de visiter cette page fréquemment.
 
 :::
 
 
-## Morph Holesky Network Info
+## Informations sur le Réseau Morph Holesky
 
-| Network Name | Morph Holesky Testnet | Ethereum Holesky Testnet |
+| Nom du Réseau | Testnet Morph Holesky | Testnet Ethereum Holesky |
 | --- | --- | --- |
-| RPC URL | https://rpc-quicknode-holesky.morphl2.io| https://ethereum-holesky-rpc.publicnode.com/ |
-| Chain ID | 2810 | 17000 |
-| Currency Symbol | ETH | ETH |
-| Block Explorer URL | https://explorer-holesky.morphl2.io/| https://holesky.etherscan.io/ |
+| URL RPC | https://rpc-quicknode-holesky.morphl2.io| https://ethereum-holesky-rpc.publicnode.com/ |
+| ID de Chaîne | 2810 | 17000 |
+| Symbole de Monnaie | ETH | ETH |
+| URL de l'Explorateur de Blocs | https://explorer-holesky.morphl2.io/| https://holesky.etherscan.io/ |
 
-## Morph Holesky Contracts
+## Contrats Morph Holesky
 
-### Main Contract
+### Contrat Principal
 
-#### L1 Contract
+#### Contrat L1
 
 [Staking](https://holesky.etherscan.io/address/0x868dd5d1c268277e331b726bb438edde8221d389): 0x868dd5d1c268277e331b726bb438edde8221d389
 
@@ -33,7 +33,7 @@ Contract address could be dynamic during the public testnet stage, so it is reco
 
 [L1CrossDomainMessenger](https://holesky.etherscan.io/address/0xecc966ab425f3f5bd58085ce4ebdbf81d829126f): 0xecc966ab425f3f5bd58085ce4ebdbf81d829126f
 
-#### L2 Contract
+#### Contrat L2
 
 [L2ToL1MessagePasser](https://explorer-holesky.morphl2.io/address/0x5300000000000000000000000000000000000001): 0x5300000000000000000000000000000000000001
 
@@ -45,9 +45,9 @@ Contract address could be dynamic during the public testnet stage, so it is reco
 
 [L2CrossDomainMessenger](https://explorer-holesky.morphl2.io/address/0x5300000000000000000000000000000000000007): 0x5300000000000000000000000000000000000007
 
-### Gateway
+### Passerelle
 
-#### L1 Gateway
+#### Passerelle L1
 
 [L1GatewayRouter](https://holesky.etherscan.io/address/0xea593b730d745fb5fe01b6d20e6603915252c6bf): 0xea593b730d745fb5fe01b6d20e6603915252c6bf
 
@@ -57,9 +57,9 @@ Contract address could be dynamic during the public testnet stage, so it is reco
 
 [L1StandardERC20Gateway](https://holesky.etherscan.io/address/0xb26dafdb434ae93e3b8efde4f0193934955d86cd): 0xb26dafdb434ae93e3b8efde4f0193934955d86cd
 
-#### L2 Gateway
+#### Passerelle L2
 
-[L2GatewayRouter](https://explorer-holesky.morphl2.io/address/https://explorer-holesky.morphl2.io/address/0x5300000000000000000000000000000000000002): 0x5300000000000000000000000000000000000002
+[L2GatewayRouter](https://explorer-holesky.morphl2.io/address/0x5300000000000000000000000000000000000002): 0x5300000000000000000000000000000000000002
 
 [L2StandardERC20Gateway](https://explorer-holesky.morphl2.io/address/0x5300000000000000000000000000000000000008): 0x5300000000000000000000000000000000000008
 
@@ -71,7 +71,7 @@ Contract address could be dynamic during the public testnet stage, so it is reco
 
 [L2ETHGateway](https://explorer-holesky.morphl2.io/address/0x5300000000000000000000000000000000000006): 0x5300000000000000000000000000000000000006
 
-### Other Layer 2 Predeploys
+### Autres Prédeployments de Couche 2
 
 [L2TxFeeVault](https://explorer-holesky.morphl2.io/address/0x530000000000000000000000000000000000000A): 0x530000000000000000000000000000000000000A
 

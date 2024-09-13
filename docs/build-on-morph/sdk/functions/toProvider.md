@@ -4,24 +4,23 @@
 
 [@morph-l2/sdk](../globals.md) / toProvider
 
-# Function: toProvider()
+# Fonction : toProvider()
 
-> **toProvider**(`provider`): `Provider`
+> **toProvider**(`provider`) : `Provider`
 
-Converts a ProviderLike into a Provider. Assumes that if the input is a string then it is a
-JSON-RPC url.
+Convertit un ProviderLike en un Provider. On suppose que si l'entrée est une chaîne, alors c'est une URL JSON-RPC.
 
-## Parameters
+## Paramètres
 
-• **provider**: [`ProviderLike`](../type-aliases/ProviderLike.md)
+• **provider** : [`ProviderLike`](../type-aliases/ProviderLike.md)
 
-ProviderLike to turn into a Provider.
+ProviderLike à transformer en Provider.
 
-## Returns
+## Retourne
 
 `Provider`
 
-Input as a Provider.
+Entrée sous forme de Provider.
 
 ## Source
 

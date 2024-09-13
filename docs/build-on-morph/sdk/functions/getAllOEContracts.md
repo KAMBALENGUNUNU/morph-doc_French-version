@@ -4,39 +4,35 @@
 
 [@morph-l2/sdk](../globals.md) / getAllOEContracts
 
-# Function: getAllOEContracts()
+# Fonction : getAllOEContracts()
 
-> **getAllOEContracts**(`l2ChainId`, `opts`): [`OEContracts`](../interfaces/OEContracts.md)
+> **getAllOEContracts**(`l2ChainId`, `opts`) : [`OEContracts`](../interfaces/OEContracts.md)
 
-Automatically connects to all contract addresses, both L1 and L2, for the given L2 chain ID. The
-user can provide custom contract address overrides for L1 or L2 contracts. If the given chain ID
-is not known then the user MUST provide custom contract addresses for ALL L1 contracts or this
-function will throw an error.
+Se connecte automatiquement à toutes les adresses de contrat, à la fois L1 et L2, pour le L2 chain ID donné. L'utilisateur peut fournir des remplacements d'adresses de contrat personnalisés pour les contrats L1 ou L2. Si le L2 chain ID donné n'est pas connu, l'utilisateur DOIT fournir des adresses de contrat personnalisées pour TOUS les contrats L1 ou cette fonction générera une erreur.
 
-## Parameters
+## Paramètres
 
-• **l2ChainId**: `number`
+• **l2ChainId** : `number`
 
-Chain ID for the L2 network.
+Chain ID pour le réseau L2.
 
 • **opts**= `{}`
 
-Additional options for connecting to the contracts.
+Options supplémentaires pour se connecter aux contrats.
 
-• **opts.l1SignerOrProvider?**: `Provider` \| `Signer`
+• **opts.l1SignerOrProvider?** : `Provider` \| `Signer`
 
-• **opts.l2SignerOrProvider?**: `Provider` \| `Signer`
+• **opts.l2SignerOrProvider?** : `Provider` \| `Signer`
 
-• **opts.overrides?**: [`DeepPartial`](../type-aliases/DeepPartial.md)\<[`OEContractsLike`](../interfaces/OEContractsLike.md)\>
+• **opts.overrides?** : [`DeepPartial`](../type-aliases/DeepPartial.md)\<[`OEContractsLike`](../interfaces/OEContractsLike.md)\>
 
-Custom contract address overrides for L1 or L2 contracts.
+Remplacements d'adresses de contrat personnalisés pour les contrats L1 ou L2.
 
-## Returns
+## Renvoie
 
 [`OEContracts`](../interfaces/OEContracts.md)
 
-An object containing ethers.Contract objects connected to the appropriate addresses on
-both L1 and L2.
+Un objet contenant des objets ethers.Contract connectés aux adresses appropriées sur L1 et L2.
 
 ## Source
 

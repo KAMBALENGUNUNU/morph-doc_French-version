@@ -4,27 +4,27 @@
 
 [@morph-l2/sdk](../globals.md) / L1Provider
 
-# Type alias: L1Provider\<TProvider\>
+# Alias de type : L1Provider\<TProvider\>
 
 > **L1Provider**\<`TProvider`\>: `TProvider` & `object`
 
-Represents an extended version of an normal ethers Provider that returns additional L1 info and
-has special functions for L1-specific interactions.
+Représente une version étendue d'un fournisseur ethers normal qui retourne des informations supplémentaires sur L1 et
+dispose de fonctions spéciales pour les interactions spécifiques à L1.
 
-## Type declaration
+## Déclaration de type
 
 ### \_isL1Provider
 
 > **\_isL1Provider**: `true`
 
-Internal property to determine if a provider is a L1Provider
-You are likely looking for the isL2Provider function
+Propriété interne pour déterminer si un fournisseur est un L1Provider.
+Vous cherchez probablement la fonction isL2Provider.
 
 ### estimateCrossDomainMessageFee()
 
-Gets the current L1 (data) gas price.
+Obtient le prix du gaz L1 (données) actuel.
 
-#### Parameters
+#### Paramètres
 
 • **l1Provider**: [`ProviderLike`](ProviderLike.md)
 
@@ -32,15 +32,15 @@ Gets the current L1 (data) gas price.
 
 • **gasLimit**: `number` \| `bigint` \| `BigNumber`
 
-#### Returns
+#### Renvoie
 
 `Promise`\<`BigNumber`\>
 
-Current L1 data gas price in wei.
+Prix du gaz de données L1 actuel en wei.
 
-## Type parameters
+## Paramètres de type
 
-• **TProvider** *extends* `Provider`
+• **TProvider** *étend* `Provider`
 
 ## Source
 

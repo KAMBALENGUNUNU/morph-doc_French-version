@@ -1,89 +1,77 @@
 ---
 title: Faucet
-lang: en-US
-keywords: [morph,ethereum,rollup,layer2,validity proof,optimistic zk-rollup]
-description: Upgrade your blockchain experience with Morph - the secure decentralized, cost0efficient, and high-performing optimistic zk-rollup solution. Try it now!
+lang: fr-FR
+keywords: [morph, ethereum, rollup, couche 2, preuve de validité, zk-rollup optimiste]
+description: Améliorez votre expérience blockchain avec Morph - la solution de zk-rollup optimiste sécurisée, décentralisée, rentable et performante. Essayez-le maintenant !
 ---
 
 ## Faucet
 
-### Morph Holesky Website Faucet
+### Faucet du site Morph Holesky
 
-![website faucet](../../assets/docs/quick-start/faucet/web_faucet.jpg)
+![faucet du site](../../assets/docs/quick-start/faucet/web_faucet.jpg)
 
-Our [website faucet](https://morphfaucet.com/) is live! 
+Notre [faucet du site](https://morphfaucet.com/) est en ligne !
 
-Users can claim Morph ETH & USDT to fund their initial activities.
+Les utilisateurs peuvent réclamer Morph ETH et USDT pour financer leurs activités initiales.
 
+### Faucet ETH Holesky de tiers
 
+Pour utiliser le testnet public de Morph, obtenez de l'ETH de test sur Holesky, puis faites-le passer au testnet Morph.
 
-### 3rd Party Ethereum Holesky ETH Faucet
+Voici quelques applications de faucet Holesky :
 
-To use Morph's public testnet, obtain testnet ETH on Holesky, then bridge it to the Morph testnet.
+- https://stakely.io/en/faucet/ethereum-holesky-testnet-eth
+- https://faucet.quicknode.com/ethereum/holesky
+- https://holesky-faucet.pk910.de/
+- https://cloud.google.com/application/web3/faucet/ethereum (nécessite un compte Google)
 
-Here are a few Holesky faucet apps:
+Une fois que vous recevez de l'ETH sur Holesky, vous devriez le voir dans votre portefeuille sur le réseau Holesky.
 
-https://stakely.io/en/faucet/ethereum-holesky-testnet-eth
+Cela peut prendre quelques secondes pour apparaître, mais vous pouvez vérifier l'état en recherchant une transaction vers votre adresse sur l'[Explorateur de blocs Holesky](https://holesky.etherscan.io/).
 
-https://faucet.quicknode.com/ethereum/holesky
-
-https://holesky-faucet.pk910.de/
-
-https://cloud.google.com/application/web3/faucet/ethereum (needs a Google account)
-
-Once you receive ETH on Holesky, you should see it in your wallet on the Holesky Network. 
-
-It may take a few seconds for them to appear, but you can check the status by looking for a transaction to your address on the [Holesky Block Explorer](https://holesky.etherscan.io/).
-
-
-### Discord Morph Holesky Faucet
+### Faucet Discord Morph Holesky
 
 ### Morph Holesky ETH
 
-You can obtain the Morph Holesky ETH in our discord too for development purposes.
+Vous pouvez obtenir de l'ETH Morph Holesky sur notre Discord également pour des fins de développement.
 
-Using the */morph_eth* command and type your address will grant you 0.01 Morph Holesky ETH.
+En utilisant la commande */morph_eth* et en tapant votre adresse, vous recevrez 0,01 Morph Holesky ETH.
 
-Once succeed, you will see the following message:
+Une fois réussi, vous verrez le message suivant :
 
-![success](../../assets/docs/quick-start/faucet/faucet_eth.png)
+![succès](../../assets/docs/quick-start/faucet/faucet_eth.png)
 
 ### ERC20 USDT
 
 :::tip
 
-Currently, we set the limit that for each discord user, you can only request the tokens once every 24 hours.
+Actuellement, nous avons fixé la limite à un seul retrait de tokens par utilisateur Discord toutes les 24 heures.
 
 :::
 
-You can obtain morph's version of USDT on Holesky through our discord faucet, here's how it works:
+Vous pouvez obtenir la version USDT de Morph sur Holesky via notre faucet Discord, voici comment cela fonctionne :
 
-1. Join our discord server through this [link](https://discord.com/invite/L2Morph).
+1. Rejoignez notre serveur Discord via ce [lien](https://discord.com/invite/L2Morph).
 
-2. Find the *#| discord-faucet* channel.
+2. Trouvez le canal *#| discord-faucet*.
 
-3. Type */faucet* in the channel and add your Holesky address behind it.
+3. Tapez */faucet* dans le canal et ajoutez votre adresse Holesky derrière.
 
-![command](../../assets/docs/quick-start/faucet/faucet_c.png)
+![commande](../../assets/docs/quick-start/faucet/faucet_c.png)
 
-4. Wait for a few seconds.
+4. Attendez quelques secondes.
 
-5. Once succeeded, you will see this in the channel.
+5. Une fois réussi, vous verrez ceci dans le canal.
 
-![success](../../assets/docs/quick-start/faucet/success.png)
+![succès](../../assets/docs/quick-start/faucet/success.png)
 
-6.  Add the Morph Holesky USDT information to your wallet.
+6. Ajoutez les informations USDT Morph Holesky à votre portefeuille.
 
+~~~markdown
+Adresse USDT Ethereum Holesky : "0xD6e9Cd5ef382b0830653d1b2007D5Ca6987FaA26"
+
+Adresse USDT Morph Holesky : "0x9E12AD42c4E4d2acFBADE01a96446e48e6764B98"
 ~~~
 
-Ethereum Holesky USDT address: "0xD6e9Cd5ef382b0830653d1b2007D5Ca6987FaA26"
-
-Morph Holesky USDT address: "0x9E12AD42c4E4d2acFBADE01a96446e48e6764B98"
-
-~~~
-
-7. Check you wallet for USDT balance and start to bridge!
-
-
-
-
+7. Vérifiez votre solde USDT dans le portefeuille et commencez à faire le pont !

@@ -4,19 +4,19 @@
 
 [@morph-l2/sdk](../globals.md) / CoreCrossChainMessage
 
-# Interface: CoreCrossChainMessage
+# Interface : CoreCrossChainMessage
 
-Core components of a cross chain message.
+Composants principaux d'un message inter-chaînes.
 
-## Extended by
+## Étendu par
 
 - [`CrossChainMessage`](CrossChainMessage.md)
 
-## Properties
+## Propriétés
 
 ### message
 
-> **message**: `string`
+> **message** : `string`
 
 #### Source
 
@@ -26,7 +26,7 @@ src/interfaces/types.ts:242
 
 ### messageNonce
 
-> **messageNonce**: `BigNumber`
+> **messageNonce** : `BigNumber`
 
 #### Source
 
@@ -36,7 +36,7 @@ src/interfaces/types.ts:243
 
 ### minGasLimit
 
-> **minGasLimit**: `BigNumber`
+> **minGasLimit** : `BigNumber`
 
 #### Source
 
@@ -46,7 +46,7 @@ src/interfaces/types.ts:245
 
 ### sender
 
-> **sender**: `string`
+> **sender** : `string`
 
 #### Source
 
@@ -56,7 +56,7 @@ src/interfaces/types.ts:240
 
 ### target
 
-> **target**: `string`
+> **target** : `string`
 
 #### Source
 
@@ -66,7 +66,7 @@ src/interfaces/types.ts:241
 
 ### value
 
-> **value**: `BigNumber`
+> **value** : `BigNumber`
 
 #### Source
 

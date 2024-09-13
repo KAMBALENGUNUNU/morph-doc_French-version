@@ -4,11 +4,11 @@
 
 [@morph-l2/sdk](../globals.md) / SignerLike
 
-# Type alias: SignerLike
+# Alias de type : SignerLike
 
-> **SignerLike**: `string` \| `Signer`
+> **SignerLike** : `string` \| `Signer`
 
-Stuff that can be coerced into a signer.
+Des éléments qui peuvent être convertis en un signataire.
 
 ## Source
 

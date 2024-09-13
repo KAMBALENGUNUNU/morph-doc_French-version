@@ -1,28 +1,27 @@
 ---
-title: How to Run a Morph Node
-lang: en-US
+title: Comment Exécuter un Noeud Morph
+lang: fr-FR
 ---
 
-## Run a Morph Full Node 
+## Exécuter un Noeud Complet Morph 
 
-This guide outlines the steps to start a Morph node. The example assumes the home directory is `~/.morph` 
+Ce guide décrit les étapes pour démarrer un noeud Morph. L'exemple suppose que le répertoire personnel est `~/.morph` 
 
-### Hardware requirements
+### Exigences matérielles
 
-Running the morph node requires 2 processes:`geth` and `node`.  
+L'exécution du noeud Morph nécessite 2 processus : `geth` et `node`.  
 
-- `Geth`:the Morph execution layer which needs to meet the [go-ethereum hardware requirements](https://github.com/ethereum/go-ethereum#hardware-requirements), but with less storage, 500GB is enough so far. 
+- `Geth` : la couche d'exécution Morph qui doit respecter les [exigences matérielles de go-ethereum](https://github.com/ethereum/go-ethereum#hardware-requirements), mais avec moins de stockage, 500 Go suffisent jusqu'à présent. 
 
-- `Node`:the Morph consensus layer embedded tendermint which needs to meet the [tendermint hardware requirements](https://docs.tendermint.com/v0.34/tendermint-core/running-in-production.html#processor-and-memory). 
-
+- `Node` : la couche de consensus Morph intégrée de Tendermint qui doit respecter les [exigences matérielles de Tendermint](https://docs.tendermint.com/v0.34/tendermint-core/running-in-production.html#processor-and-memory). 
 
 :::tip
-Due to limitations in the current geth implementation, only archive mode is supported, meaning the storage size will continually increase with produced blocks.
+En raison des limitations de l'implémentation actuelle de geth, seul le mode archive est pris en charge, ce qui signifie que la taille de stockage augmentera continuellement avec les blocs produits.
 :::
 
-### Build executable binary
+### Construire le binaire exécutable
 
-#### Clone morph
+#### Cloner Morph
 
 ```
 mkdir -p ~/.morph 
@@ -30,33 +29,33 @@ cd ~/.morph
 git clone https://github.com/morph-l2/morph.git
 ```
 
-Currently, we use tag v0.2.0-beta as our beta version.
+Actuellement, nous utilisons la balise v0.2.0-beta comme notre version bêta.
 
 ```
 cd morph
 git checkout v0.2.0-beta
 ```
 
-#### Build Geth
+#### Construire Geth
 
-Notice: You need C compiler to build geth
+Remarque : Vous avez besoin d'un compilateur C pour construire geth.
 
 ```
 make nccc_geth
 ```
 
-#### Build Node
+#### Construire Node
 
 ```
 cd ~/.morph/morph/node 
 make build
 ```
 
-### Sync from genesis block
+### Synchroniser depuis le bloc de genèse
 
-#### Config Preparation
+#### Préparation de la configuration
 
-Download the config files and make data dir
+Téléchargez les fichiers de configuration et créez le répertoire de données.
 
 ```
 cd ~/.morph
@@ -64,14 +63,14 @@ wget https://raw.githubusercontent.com/morph-l2/config-template/main/holesky/dat
 unzip data.zip
 ```
 
-Create a shared secret with node
+Créez un secret partagé avec le noeud.
 
 ```
 cd ~/.morph
 openssl rand -hex 32 > jwt-secret.txt
 ```
 
-#### Script to start the process
+#### Script pour démarrer le processus
 
 *Geth*
 
@@ -87,7 +86,9 @@ openssl rand -hex 32 > jwt-secret.txt
     --log.filename=./geth.log
 ```
 
-*tail -f geth.log* to check if the Geth is running properly, or you can also exeucte the below curl command to check if you are connected to the peer.
+
+*tail -f geth.log* pour vérifier si Geth fonctionne correctement, ou vous pouvez également exécuter la commande curl ci-dessous pour vérifier si vous êtes connecté au pair.
+
 
 ```
 curl -X POST -H 'Content-Type: application/json' --data 
@@ -108,7 +109,9 @@ localhost:8545
      --log.filename ./node.log
 ```
 
-tail -f node.log to check if the node is running properly, and you can also execute the command curl to check your node connection status.
+
+tail -f node.log pour vérifier si le noeud fonctionne correctement, et vous pouvez également exécuter la commande curl pour vérifier l'état de connexion de votre noeud.
+
 
 ```
 curl http://localhost:26657/net_info
@@ -144,7 +147,7 @@ curl http://localhost:26657/net_info
         "is_outbound": true,
 ```
 
-### Check sync status
+### Vérifier l'état de synchronisation
 
 
 curl http://localhost:26657/status to check the sync status of the node
@@ -194,7 +197,13 @@ curl http://localhost:26657/status to check the sync status of the node
 }
 ```
 
-The returned "catching_up" indicates whether the node is in sync or not. True means it is in sync. Meanwhile, the returned latest_block_height indicates the latest block height this node synced.
+Le "catching_up" retourné indique si le nœud est synchronisé ou non. Vrai signifie qu'il est synchronisé. Pendant ce temps, le "latest_block_height" retourné indique la hauteur du dernier bloc que ce nœud a synchronisé.
+
+
+
+
+
+
 
 
 

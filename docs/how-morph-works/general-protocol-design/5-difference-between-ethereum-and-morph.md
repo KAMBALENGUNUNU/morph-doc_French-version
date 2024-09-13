@@ -1,130 +1,122 @@
 ---
-title: Difference between Morph and Ethereum
-lang: en-US
-keywords: [morph,ethereum,rollup,layer2,validity proof,optimistic zk-rollup]
-description: Upgrade your blockchain experience with Morph - the secure decentralized, cost0efficient, and high-performing optimistic zk-rollup solution. Try it now!
+title: Différence entre Morph et Ethereum
+lang: fr-FR
+keywords: [morph,ethereum,rollup,layer2,preuve de validité,optimistic zk-rollup]
+description: Améliorez votre expérience blockchain avec Morph - la solution optimistic zk-rollup sécurisée, décentralisée, rentable et performante. Essayez-le maintenant !
 ---
-There are several technical differences between Ethereum’s EVM and Morph's optimistic zkEVM. We’ve compiled a list to help you understand these distinctions better.
-
+Il existe plusieurs différences techniques entre l'EVM d'Ethereum et l'optimistic zkEVM de Morph. Nous avons compilé une liste pour vous aider à mieux comprendre ces distinctions.
 
 :::tip
-For most Solidity developers, these technical details won't significantly impact your development experience.
+Pour la plupart des développeurs Solidity, ces détails techniques n'auront pas d'impact significatif sur votre expérience de développement.
 :::
 
-## EVM Opcodes
+## Opcodes EVM
 
+| Opcode                      | Équivalent en Solidity | Comportement de Morph                                                                                      |
+| --------------------------- | --------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `BLOCKHASH`                 | `block.blockhash`     | Renvoie `keccak(chain_id \|\| block_number)` pour les 256 derniers blocs.                                  |
+| `COINBASE`                  | `block.coinbase`      | Renvoie l'adresse du contrat de frais pré-déployé. Voir [Contrats](../../build-on-morph/developer-resources/1-contracts.md). |
+| `DIFFICULTY` / `PREVRANDAO` | `block.difficulty`    | Renvoie 0.                                                                                                  |
+| `BASEFEE`                   | `block.basefee`       | Désactivé. Si l'opcode est rencontré, la transaction sera annulée.                                         |
+| `SELFDESTRUCT`              | `selfdestruct`        | Désactivé. Si l'opcode est rencontré, la transaction sera annulée.                                         |
 
-| Opcode                      | Solidity equivalent | Morph Behavior                                                                                            |
-| --------------------------- | ------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `BLOCKHASH`                 | `block.blockhash`   | Returns `keccak(chain_id \|\| block_number)` for the last 256 blocks.                                      |
-| `COINBASE`                  | `block.coinbase`    | Returns the pre-deployed fee vault contract address. See [Contracts](../../build-on-morph/developer-resources/1-contracts.md). |
-| `DIFFICULTY` / `PREVRANDAO` | `block.difficulty`  | Returns 0.                                                                                                 |
-| `BASEFEE`                   | `block.basefee`     | Disabled. If the opcode is encountered, the transaction will be reverted.                        |
-| `SELFDESTRUCT`              | `selfdestruct`      | Disabled. If the opcode is encountered, the transaction will be reverted.                     |
+## Précompilations EVM
 
-## EVM Precompiles
+Les précompilations `RIPEMD-160` (adresse `0x3`), `blake2f` (adresse `0x9`) et `évaluation de point` (adresse `0x0a`) ne sont actuellement pas supportées. Les appels à des contrats précompilés non supportés seront annulés. Nous prévoyons d'activer ces précompilations dans de futures mises à jour.
 
-The `RIPEMD-160` (address `0x3`) `blake2f` (address `0x9`), and `point evaluation` (address `0x0a`) precompiles are currently not supported. Calls to unsupported precompiled contracts will revert. We plan to enable these precompiles in future hard forks.
+La précompilation `modexp` est supportée mais ne prend en charge que les entrées de taille inférieure ou égale à 32 octets (c'est-à-dire `u256`).
 
-The `modexp` precompile is supported but only supports inputs of size less than or equal to 32 bytes (i.e. `u256`).
+La précompilation `ecPairing` est supportée, mais le nombre de points (ensembles, paires) est limité à 4, au lieu de 6.
 
-The `ecPairing` precompile is supported, but the number of points(sets, pairs) is limited to 4, instead of 6.
+Les autres précompilations EVM sont toutes supportées : `ecRecover`, `identity`, `ecAdd`, `ecMul`.
 
-The other EVM precompiles are all supported: `ecRecover`, `identity`, `ecAdd`, `ecMul`.
+### Limites de précompilation
 
-### Precompile Limits
+En raison de la taille limitée des circuits zkEVM, il existe une limite supérieure sur le nombre d'appels qui peuvent être effectués pour certaines précompilations. Ces transactions ne seront pas annulées, mais simplement ignorées par le séquenceur si elles ne peuvent pas s'insérer dans l'espace du circuit.
 
-Because of a bounded size of the zkEVM circuits, there is an upper limit on the number of calls that can be made for some precompiles. These transactions will not revert, but simply be skipped by the sequencer if they cannot fit into the space of the circuit. 
+| Précompilation / Opcode | Limite |
+| ----------------------- | ------ |
+| `keccak256`            | 3157   |
+| `ecRecover`            | 119    |
+| `modexp`               | 23     |
+| `ecAdd`                | 50     |
+| `ecMul`                | 50     |
+| `ecPairing`            | 2      |
 
-| Precompile / Opcode | Limit | 
-| ------------------- | ----- |
-| `keccak256`         | 3157  |
-| `ecRecover`         | 119   |
-| `modexp`            | 23    |
-| `ecAdd`             | 50    |
-| `ecMul`             | 50    |
-| `ecPairing`         | 2     |
+:::tip Opcodes de mise à jour Dencun non disponibles
 
-:::tip Dencun upgrade opcode not available
-
-Opcodes from the Dencun upgrade are not yet available on Morph, including `MCOPY`, `TSTORE`, `TLOAD`, `BLOBHASH` and `BLOBBASEFEE`. Additionally, [EIP-4788](https://eips.ethereum.org/EIPS/eip-4788) for accessing the Beacon Chain block root is not supported. We recommend using `shanghai` as your EVM target and avoiding using a Solidity version higher than `0.8.23`.
+Les opcodes de la mise à jour Dencun ne sont pas encore disponibles sur Morph, y compris `MCOPY`, `TSTORE`, `TLOAD`, `BLOBHASH` et `BLOBBASEFEE`. De plus, [EIP-4788](https://eips.ethereum.org/EIPS/eip-4788) pour accéder à la racine de bloc de la Beacon Chain n'est pas supporté. Nous vous recommandons d'utiliser `shanghai` comme cible EVM et d'éviter d'utiliser une version de Solidity supérieure à `0.8.23`.
 
 :::
 
-## State Account
+## Compte d'État
 
-### **Additional Fields**
+### **Champs supplémentaires**
 
-We added two fields in the current `StateAccount` object: `PoseidonCodehash` and `CodeSize`.
+Nous avons ajouté deux champs dans l'objet `StateAccount` actuel : `PoseidonCodehash` et `CodeSize`.
 
 ```go
 type StateAccount struct {
 	Nonce    uint64
 	Balance  *big.Int
-	Root     common.Hash // merkle root of the storage trie
-	KeccakCodeHash []byte // still the Keccak codehash
-	// added fields
-	PoseidonCodeHash []byte // the Poseidon codehash
+	Root     common.Hash // racine merkle du trie de stockage
+	KeccakCodeHash []byte // toujours le Keccak codehash
+	// champs ajoutés
+	PoseidonCodeHash []byte // le Poseidon codehash
 	CodeSize uint64
 }
-```
 
+```
 ### **CodeHash**
 
-Related to this, we maintain two types of codehash for each contract bytecode: Keccak hash and Poseidon hash.
+En rapport avec cela, nous maintenons deux types de codehash pour chaque bytecode de contrat : le hash Keccak et le hash Poseidon.
 
-`KeccakCodeHash` is kept to maintain compatibility for `EXTCODEHASH`. `PoseidonCodeHash` is used for verifying the correctness of bytecodes loaded in the zkEVM, where Poseidon hashing is far more efficient.
+`KeccakCodeHash` est conservé pour maintenir la compatibilité avec `EXTCODEHASH`. `PoseidonCodeHash` est utilisé pour vérifier l'exactitude des bytecodes chargés dans le zkEVM, où le hachage Poseidon est beaucoup plus efficace.
 
 ### CodeSize
 
-When verifying `EXTCODESIZE`, it is expensive to load the whole contract data into the zkEVM. Instead, we store the contract size in storage during contract creation. This way, we do not need to load the code — a storage proof is sufficient to verify this opcode.
+Lors de la vérification de `EXTCODESIZE`, il est coûteux de charger l'ensemble des données du contrat dans le zkEVM. Au lieu de cela, nous stockons la taille du contrat dans le stockage lors de la création du contrat. De cette manière, nous n'avons pas besoin de charger le code — une preuve de stockage suffit pour vérifier cet opcode.
 
-## Block Time
+## Temps de Bloc
 
-:::tip Block Time Subject to Change
+:::tip Temps de Bloc Suceptible de Changement
 
-Blocks are produced every second, with an empty block generated if there are no transactions for 5 seconds. However, this frequency may change in the future.
+Les blocs sont produits chaque seconde, avec un bloc vide généré s'il n'y a pas de transactions pendant 5 secondes. Cependant, cette fréquence peut changer à l'avenir.
 :::
 
-To compare, Ethereum has a block time of ~12 seconds.
+Pour comparer, Ethereum a un temps de bloc d'environ 12 secondes.
 
-Reasons for Faster Block Time in Morph
-User Experience: 
+Raisons d'un Temps de Bloc Plus Rapide dans Morph
+Expérience Utilisateur : 
 
-- A faster, consistent block time provides quicker feedback, enhancing the user experience.
+- Un temps de bloc plus rapide et constant offre un retour d'information plus rapide, améliorant l'expérience utilisateur.
 
-- Optimization: As we refine the zkEVM circuits in our testnets, we can achieve higher throughput than Ethereum, even with a smaller gas limit per block or batch.
+- Optimisation : À mesure que nous affinons les circuits zkEVM dans nos testnets, nous pouvons atteindre un meilleur débit qu'Ethereum, même avec une limite de gaz plus petite par bloc ou par lot.
 
-
-Notice:
-- `TIMESTAMP` will return the timestamp of the block. It will update every second.
-- `BLOCKNUMBER` will return an actual block number. It will update every second. The one-to-one mapping between blocks and transactions will no longer apply.
-
-
-
+Remarques :
+- `TIMESTAMP` renverra le timestamp du bloc. Il sera mis à jour chaque seconde.
+- `BLOCKNUMBER` renverra un numéro de bloc réel. Il sera mis à jour chaque seconde. Le mappage un-à-un entre les blocs et les transactions ne s'appliquera plus.
 
 <!--
-We also introduce the concept of system transactions that are created by the `op-node`, and are used to execute deposits and update the L2's view of L1. They have the following attributes:
+Nous introduisons également le concept de transactions système qui sont créées par le `op-node`, et qui sont utilisées pour exécuter des dépôts et mettre à jour la vue de L2 sur L1. Elles ont les attributs suivants :
 
-- Every block will contain at least one system transaction called the L1 attributes deposited transaction. It will always be the first transaction in the block.
-- Some blocks will contain one or more user-deposited transactions.
-- All system transactions have an [EIP-2718](https://eips.ethereum.org/EIPS/eip-2718)-compatible transaction type of `0x7E`.
-- All system transactions are unsigned, and set their `v`, `r`, and `s` fields to `null`.
+- Chaque bloc contiendra au moins une transaction système appelée la transaction de dépôt d'attributs L1. Ce sera toujours la première transaction dans le bloc.
+- Certains blocs contiendront une ou plusieurs transactions déposées par les utilisateurs.
+- Toutes les transactions système ont un type de transaction compatible avec [EIP-2718](https://eips.ethereum.org/EIPS/eip-2718) de `0x7E`.
+- Toutes les transactions système ne sont pas signées et définissent leurs champs `v`, `r` et `s` sur `null`.
 
-
-:::Warning Known Issue
-Some Ethereum client libraries, such as Web3js, cannot parse the `null` signature fields described above. To work around this issue, you will need to manually filter out the system transactions before passing them to the library. 
+:::Warning Problème Connu
+Certaines bibliothèques de clients Ethereum, comme Web3js, ne peuvent pas analyser les champs de signature `null` décrits ci-dessus. Pour contourner ce problème, vous devrez filtrer manuellement les transactions système avant de les transmettre à la bibliothèque.
 :::
 -->
 
-## Future EIPs
+## EIPs Futurs
 
-Morph closely monitors emerging Ethereum Improvement Proposals (EIPs) and adopts them when suitable. For more specifics, join our community forum or [Discord](https://discord.gg/L2Morph) for discussions.
+Morph surveille de près les propositions d'amélioration d'Ethereum (EIPs) émergentes et les adopte lorsque cela est approprié. Pour plus de détails, rejoignez notre forum communautaire ou [Discord](https://discord.gg/L2Morph) pour des discussions.
 
-<!-- ## EVM Target version 
+<!-- ## Version cible EVM 
 
-To avoid unexpected behaviors in your contracts, we recommend using ‘london’ as the target version when compiling your smart contracts.
+Pour éviter des comportements inattendus dans vos contrats, nous recommandons d'utiliser 'london' comme version cible lors de la compilation de vos contrats intelligents.
 
-You can read in more details on Shanghai hard fork differences from London on the [Ethereum Execution spec](https://github.com/ethereum/execution-specs/tree/master/network-upgrades/mainnet-upgrades/shanghai.md) and how the new PUSH0 instruction [impacts the Solidity compiler](https://blog.soliditylang.org/2023/05/10/solidity-0.8.20-release-announcement/).
+Vous pouvez lire en plus de détails sur les différences entre le hard fork de Shanghai et London sur les [spécifications d'exécution Ethereum](https://github.com/ethereum/execution-specs/tree/master/network-upgrades/mainnet-upgrades/shanghai.md) et comment la nouvelle instruction PUSH0 [impacte le compilateur Solidity](https://blog.soliditylang.org/2023/05/10/solidity-0.8.20-release-announcement/).
 -->
-

@@ -1,69 +1,71 @@
 ---
-title: Run a Morph Full Node with Docker
-lang: en-US
+title: Exécuter un nœud Morph complet avec Docker
+lang: fr-FR
 ---
 
-This guide will help you start a full node running in the docker container. 
+Ce guide vous aidera à démarrer un nœud complet s'exécutant dans le conteneur Docker.
 
-## Quick Start
+## Démarrage rapide
 
-Currently, users need to build the Docker image themselves using the Docker file and Docker Compose file we provide. However, there's no need to worry, as you only need one command to quickly start a full node. This command will handle everything for you, including downloading snapshots, structure data and config files, building the image, and starting the container.
+Actuellement, les utilisateurs doivent construire eux-mêmes l'image Docker en utilisant le fichier Docker et le fichier Docker Compose que nous fournissons. Cependant, il n'est pas nécessaire de s'inquiéter, car vous n'avez besoin que d'une seule commande pour démarrer rapidement un nœud complet. Cette commande s'occupera de tout pour vous, y compris le téléchargement des instantanés, la structuration des données et des fichiers de configuration, la construction de l'image et le démarrage du conteneur.
 
-1. Clone the dockerfile repository
+1. Clonez le dépôt du dockerfile
 
 ```bash
 git clone --branch release/v0.2.x https://github.com/morph-l2/morph.git
 ```
-2. Run the following command
+2. Exécutez la commande suivante
+
 
 ```bash
 cd ops/publicnode
 make run-holesky-node
 ```
 
-Running this command will create a `.morph-holesky` directory in your user directory by default, serving as the node's home directory. Before starting the node, this command will perform several preparations:
+L'exécution de cette commande créera un répertoire `.morph-holesky` dans votre répertoire utilisateur par défaut, servant de répertoire principal du nœud. Avant de démarrer le nœud, cette commande effectuera plusieurs préparations :
 
-- Create the node's home directory and copy the default configuration files into it.
-- Prepare the `secret-jwt.txt` file for for authentication during RPC calls between geth and the node.
-- Download the latest snapshot data to speed up node synchronization.
-- Place the extracted snapshot data into the corresponding folder within the home directory.
+- Créer le répertoire principal du nœud et copier les fichiers de configuration par défaut à l'intérieur.
+- Préparer le fichier `secret-jwt.txt`pour l'authentification lors des appels RPC entre geth et le nœud.
+- Télécharger les données d'instantané les plus récentes pour accélérer la synchronisation du nœud.
+- Placer les données d'instantané extraites dans le dossier correspondant au sein du répertoire principal.
 
-After completing these preparations, the command will automatically build the image and start the container, with Docker volumes mounted to the created node home directory. 
+Après avoir terminé ces préparations, la commande construira automatiquement l'image et démarrera le conteneur, avec des volumes Docker montés sur le répertoire principal du nœud créé.
+
 
 :::info
-If this is your first run, these processes may take some time. Note that if you are starting the node for the first time but already have a `.morph-holesky` directory, you must delete that directory before running the command. Otherwise, the preparation phase will be skipped, which may prevent the node from running properly.
+Si c'est votre première exécution, ces processus peuvent prendre un certain temps. Notez que si vous démarrez le nœud pour la première fois mais que vous avez déjà un répertoire `.morph-holesky` vous devez supprimer ce répertoire avant d'exécuter la commande. Sinon, la phase de préparation sera sautée, ce qui peut empêcher le nœud de fonctionner correctement.
 
-If the command fails during execution, you will also need to delete the previously created `.morph-holesky` directory before restarting.
+Si la commande échoue pendant l'exécution, vous devrez également supprimer le répertoire `.morph-holesky`  précédemment créé avant de redémarrer.
 :::
 
-## Advanced Usage
+## Utilisation avancée
 
-With the [Quick Start](#quick-start) guide above, you can quickly start a node using the default configuration files. However, we also support customizing the node's home directory and parameter settings.
+Avec le guide [Quick Start](#quick-start) ci-dessus, vous pouvez rapidement démarrer un nœud en utilisant les fichiers de configuration par défaut. Cependant, nous supportons également la personnalisation du répertoire principal du nœud et des paramètres.
 
-### Customizing Data Directory
-The host directory paths that are mounted by the Docker container are specified in the ```ops/publicnode/.env``` file.
+### Personnalisation du répertoire de données
+
+Les chemins des répertoires hôtes qui sont montés par le conteneur Docker sont spécifiés dans le fichier ```ops/publicnode/.env```.
 
 ```js title="ops/publicnode/.env"
-// the home folder of your Morph node
+// le dossier principal de votre nœud Morph
 NODE_HOME=${HOME}/.morph-holesky 
-// the data directory for your execution client: geth
+// le répertoire de données pour votre client d'exécution : geth
 GETH_DATA_DIR=${NODE_HOME}/geth-data
-// the data directory for you consensus client: tendermint
+// le répertoire de données pour votre client de consensus : tendermint
 NODE_DATA_DIR=${NODE_HOME}/node-data
-// the entrypoint shell script for start execution client
+// le script shell d'entrée pour démarrer le client d'exécution
 GETH_ENTRYPOINT_FILE=${NODE_HOME}/entrypoint-geth.sh
-// the jwt secret file for communicating between execution client and consensus client via engine API
+// le fichier secret jwt pour communiquer entre le client d'exécution et le client de consensus via l'API engine
 JWT_SECRET_FILE=${NODE_HOME}/jwt-secret.txt
-// the snapshot name for holesky Morph node 
+// le nom de l'instantané pour le nœud Morph holesky 
 SNAPSHOT_NAME=snapshot-20240805-1
 ```
 
-You have the flexibility to customize the directory paths as per your requirements. 
-Please note that if you want to execute **make run-holesky-node** to generate the necessary configuration files and snapshots for running the node, you need to ensure that the specified node home directory is new (not previously created) and do **NOT** alter the paths for ```GETH_DATA_DIR``` and ```NODE_DATA_DIR```.
+Vous avez la flexibilité de personnaliser les chemins des répertoires selon vos besoins. Veuillez noter que si vous souhaitez exécuter **make run-holesky-node** pour générer les fichiers de configuration nécessaires et les instantanés pour faire fonctionner le nœud, vous devez vous assurer que le répertoire principal du nœud spécifié est nouveau (non créé précédemment) et ne pas modifier les chemins pour  ```GETH_DATA_DIR``` et ```NODE_DATA_DIR```.
 
-### Customizing parameters
+### Personnalisation des paramètres
 
-The default configuration required for node startup is located in the ```ops/publicnode/holesky``` directory. If your node home directory is empty, the **run** command will automatically copy these configuration files to the directory mounted in the node's docker container.
+La configuration par défaut requise pour le démarrage du nœud se trouve dans le répertoire ```ops/publicnode/holesky``` Si votre répertoire principal du nœud est vide, la commande **run** copiera automatiquement ces fichiers de configuration dans le répertoire monté dans le conteneur Docker du nœud.
 
 ```javascript
 └── holesky
@@ -77,12 +79,11 @@ The default configuration required for node startup is located in the ```ops/pub
         └── data
 ```
 
-If you wish to modify the Geth startup command, you can do so by editing the ```entrypoint-geth.sh``` file. For adjustments to the Tendermint-related configuration parameters, you should modify the node-data/config/config.toml file.
-Note that if you have customized your ```GETH_DATA_DIR``` and ```NODE_DATA_DIR```, you will need to manually place the modified configuration files in the appropriate locations.
-#### Managing Snapshots Yourself
+Si vous souhaitez modifier la commande de démarrage de Geth, vous pouvez le faire en éditant le fichier ```entrypoint-geth.sh```Pour les ajustements des paramètres de configuration liés à Tendermint, vous devez modifier le fichier node-data/config/config.toml. Notez que si vous avez personnalisé votre ```GETH_DATA_DIR``` et ```NODE_DATA_DIR```, vous devrez placer manuellement les fichiers de configuration modifiés aux emplacements appropriés.
 
-You may also manually manage snapshot, particularly if you are using custom paths for the node directories. 
-The **make download-and-decompress-snapshot** command in the ```ops/publicnode``` directory will assist you in downloading and decompressing the snapshot archive.
+#### Gestion des instantanés (snapshot) vous-même
 
-Then, you need to manually place the decompressed data files in the appropriate node data directories.
-For example, if the snapshot folder is named ```snapshot-20240805-1```, move the contents from ```snapshot-20240805-1/geth``` to the ```${GETH_DATA_DIR}/geth``` directory and the contents from ```snapshot-20240805-1/data``` to the ```${NODE_DATA_DIR}/data``` directory.
+
+Vous pouvez également gérer manuellement les instantanés, en particulier si vous utilisez des chemins personnalisés pour les répertoires du nœud. La commande **make download-and-decompress-snapshot** dans le répertoire ```ops/publicnode``` vous aidera à télécharger et à décompresser l'archive d'instantané.
+
+Ensuite, vous devez placer manuellement les fichiers de données décompressés dans les répertoires de données du nœud appropriés. Par exemple, si le dossier instantané s'appelle  ```snapshot-20240805-1```, déplacez le contenu de ```snapshot-20240805-1/geth``` vers le répertoire ```${GETH_DATA_DIR}/geth``` et le contenu de ```snapshot-20240805-1/data``` vers le répertoire ```${NODE_DATA_DIR}/data```.

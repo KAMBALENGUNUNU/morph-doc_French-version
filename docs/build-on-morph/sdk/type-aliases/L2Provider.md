@@ -4,103 +4,103 @@
 
 [@morph-l2/sdk](../globals.md) / L2Provider
 
-# Type alias: L2Provider\<TProvider\>
+# Alias de type : L2Provider\<TProvider\>
 
 > **L2Provider**\<`TProvider`\>: `TProvider` & `object`
 
-Represents an extended version of an normal ethers Provider that returns additional L2 info and
-has special functions for L2-specific interactions.
+Représente une version étendue d'un fournisseur ethers normal qui retourne des informations supplémentaires sur L2 et
+dispose de fonctions spéciales pour les interactions spécifiques à L2.
 
-## Type declaration
+## Déclaration de type
 
 ### \_isL2Provider
 
 > **\_isL2Provider**: `true`
 
-Internal property to determine if a provider is a L2Provider
-You are likely looking for the isL2Provider function
+Propriété interne pour déterminer si un fournisseur est un L2Provider.
+Vous cherchez probablement la fonction isL2Provider.
 
 ### estimateL1Gas()
 
-Estimates the L1 (data) gas required for a transaction.
+Estime le gaz L1 (données) requis pour une transaction.
 
-#### Parameters
+#### Paramètres
 
 • **tx**: `TransactionRequest`
 
-Transaction to estimate L1 gas for.
+Transaction pour laquelle estimer le gaz L1.
 
-#### Returns
+#### Renvoie
 
 `Promise`\<`BigNumber`\>
 
-Estimated L1 gas.
+Gaz L1 estimé.
 
 ### estimateL1GasCost()
 
-Estimates the L1 (data) gas cost for a transaction in wei by multiplying the estimated L1 gas
-cost by the current L1 gas price.
+Estime le coût du gaz L1 (données) pour une transaction en wei en multipliant le coût estimé du gaz L1
+par le prix du gaz L1 actuel.
 
-#### Parameters
+#### Paramètres
 
 • **tx**: `TransactionRequest`
 
-Transaction to estimate L1 gas cost for.
+Transaction pour laquelle estimer le coût du gaz L1.
 
-#### Returns
+#### Renvoie
 
 `Promise`\<`BigNumber`\>
 
-Estimated L1 gas cost.
+Coût estimé du gaz L1.
 
 ### estimateL2GasCost()
 
-Estimates the L2 (execution) gas cost for a transaction in wei by multiplying the estimated L1
-gas cost by the current L2 gas price. This is a simple multiplication of the result of
-getGasPrice and estimateGas for the given transaction request.
+Estime le coût du gaz L2 (exécution) pour une transaction en wei en multipliant le coût estimé du gaz L1
+par le prix du gaz L2 actuel. C'est une simple multiplication du résultat de
+getGasPrice et estimateGas pour la demande de transaction donnée.
 
-#### Parameters
+#### Paramètres
 
 • **tx**: `TransactionRequest`
 
-Transaction to estimate L2 gas cost for.
+Transaction pour laquelle estimer le coût du gaz L2.
 
-#### Returns
+#### Renvoie
 
 `Promise`\<`BigNumber`\>
 
-Estimated L2 gas cost.
+Coût estimé du gaz L2.
 
 ### estimateTotalGasCost()
 
-Estimates the total gas cost for a transaction in wei by adding the estimated the L1 gas cost
-and the estimated L2 gas cost.
+Estime le coût total du gaz pour une transaction en wei en ajoutant le coût estimé du gaz L1
+et le coût estimé du gaz L2.
 
-#### Parameters
+#### Paramètres
 
 • **tx**: `TransactionRequest`
 
-Transaction to estimate total gas cost for.
+Transaction pour laquelle estimer le coût total du gaz.
 
-#### Returns
+#### Renvoie
 
 `Promise`\<`BigNumber`\>
 
-Estimated total gas cost.
+Coût total estimé du gaz.
 
 ### getL1GasPrice()
 
-Gets the current L1 (data) gas price.
+Obtient le prix actuel du gaz L1 (données).
 
-#### Returns
+#### Renvoie
 
 `Promise`\<`BigNumber`\>
 
-Current L1 data gas price in wei.
+Prix actuel du gaz de données L1 en wei.
 
-## Type parameters
+## Paramètres de type
 
-• **TProvider** *extends* `Provider`
+• **TProvider** *étend* `Provider`
 
 ## Source
 

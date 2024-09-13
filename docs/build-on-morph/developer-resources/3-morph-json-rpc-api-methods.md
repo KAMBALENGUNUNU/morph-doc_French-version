@@ -1,38 +1,38 @@
 ---
-title: Morph JSON-RPC API Methods
-lang: en-US
+title: Méthodes de l'API Morph JSON-RPC
+lang: fr-FR
 ---
 
-Most methods are similar to Ethereum's. For those methods, we recommend you visit [Ethereum JSON-RPC API](https://ethereum.org/en/developers/docs/apis/json-rpc/#json-rpc-methods). 
+La plupart des méthodes sont similaires à celles d'Ethereum. Pour ces méthodes, nous vous recommandons de visiter [API JSON-RPC d'Ethereum](https://ethereum.org/en/developers/docs/apis/json-rpc/#json-rpc-methods).
 
-This page lists some unique methods exclusive to Morph.
-
+Cette page liste certaines méthodes uniques réservées à Morph.
 
 ## morph_getBlockByNumber
 
-Returns information about a block by block number. In addition, it returns more fields than the standard eth_getBlockByNumber, such as **withdrawTrieRoot**, **batchHash**, **nextL1MsgIndex** and **rowConsumption**.
+Renvoie des informations sur un bloc par numéro de bloc. De plus, il renvoie plus de champs que l'eth_getBlockByNumber standard, tels que **withdrawTrieRoot**, **batchHash**, **nextL1MsgIndex** et **rowConsumption**.
 
-### Parameters
+### Paramètres
 
-1. QUANTITY|TAG - integer of a block number, or the string "earliest", "latest", "pending", "safe" or "finalized", as in the default block parameter.
-2. Boolean - If true it returns the full transaction objects, if false only the hashes of the transactions.
+1. QUANTITÉ|TAG - entier du numéro de bloc, ou la chaîne "earliest", "latest", "pending", "safe" ou "finalized", comme dans le paramètre de bloc par défaut.
+2. Booléen - Si vrai, cela renvoie les objets de transaction complets, sinon cela renvoie uniquement les hachages des transactions.
 
-### Returns
+### Retourne
 
-See [JSON-RPC API | ethereum.org](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getblockbyhash), and more fields showing as the blew
+Voir [API JSON-RPC | ethereum.org](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getblockbyhash), et plus de champs montrés comme ci-dessous.
 
-- withdrawTrieRoot: DATA, 32 Bytes - the root of the withdraw trie, used to prove the users’ withdrawals.
-- batchHash: DATA, 32 Bytes - the hash of the latest batch. It indicates the block is a batch point if it is not empty.
-- nextL1MsgIndex: quantity - the next expected L1 message nonce after this block.
-- rowConsumption: the rows consumption of this block, which rows are used to generate the ZK Proof based on halo2 schema. 
+- withdrawTrieRoot: DATA, 32 Octets - la racine de l'arbre de retrait, utilisé pour prouver les retraits des utilisateurs.
+- batchHash: DATA, 32 Octets - le hachage du dernier lot. Il indique que le bloc est un point de lot s'il n'est pas vide.
+- nextL1MsgIndex: quantité - le prochain nonce de message L1 attendu après ce bloc.
+- rowConsumption: la consommation de lignes de ce bloc, qui indique quelles lignes sont utilisées pour générer la preuve ZK basée sur le schéma halo2.
 
-### Example
+### Exemple
 
 ```js
-// request
+// demande
 curl -X POST --data '{"jsonrpc":"2.0","method":"morph_getBlockByNumber","params":["0x1b4", true],"id":1}'
 
-// Result
+// Résultat
+
 {
     "jsonrpc": "2.0",
     "id": 1,
@@ -121,48 +121,46 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"morph_getBlockByNumber","params"
     }
 }
 ```
-
-
 ## morph_getBlockByHash
 
-Returns information about a block by hash.
+Renvoie des informations sur un bloc par son hash.
 
-### Parameters
+### Paramètres
 
-- DATA, 32 Bytes - Hash of a block.
-- Boolean - If true it returns the full transaction objects, if false only the hashes of the transactions.
+- DATA, 32 octets - Hash d'un bloc.
+- Booléen - Si vrai, il renvoie les objets de transaction complets, sinon il renvoie seulement les hashes des transactions.
 
-### Returns
+### Renvoie
 
-See [morph_getBlockByNumber returns](#morph_getblockbynumber)
-
+Voir [morph_getBlockByNumber renvoie](#morph_getblockbynumber)
 
 ## morph_estimateL1DataFee
 
-Generates and returns an estimate of how much L1DataFee the transaction will cost.
+Génère et renvoie une estimation du coût du L1DataFee pour la transaction.
 
-### Parameters
+### Paramètres
 
-1. Object - TransactionArgs
-	- from: DATA, 20 Bytes - (optional) The address the transaction is sent from.
-- to: DATA, 20 Bytes - The address the transaction is directed to.
-- gas: QUANTITY - (optional) Integer of the gas provided for the transaction execution. eth_call consumes zero gas, but this parameter may be needed by some executions.
-- gasPrice: QUANTITY - (optional) Integer of the gasPrice used for each paid gas.
-- value: QUANTITY - (optional) Integer of the value sent with this transaction.
-- input: DATA - (optional) Hash of the method signature and encoded parameters.
+1. Objet - TransactionArgs
+    - from : DATA, 20 octets - (optionnel) L'adresse d'où la transaction est envoyée.
+    - to : DATA, 20 octets - L'adresse à laquelle la transaction est dirigée.
+    - gas : QUANTITÉ - (optionnel) Entier du gaz fourni pour l'exécution de la transaction. eth_call ne consomme pas de gaz, mais ce paramètre peut être nécessaire pour certaines exécutions.
+    - gasPrice : QUANTITÉ - (optionnel) Entier du prix du gaz utilisé pour chaque gaz payé.
+    - value : QUANTITÉ - (optionnel) Entier de la valeur envoyée avec cette transaction.
+    - input : DATA - (optionnel) Hash de la signature de méthode et des paramètres encodés.
 
-2. QUANTITY|TAG - integer block number, or the string "latest", "earliest", "pending", "safe" or "finalized".
+2. QUANTITÉ|TAG - entier du numéro de bloc, ou la chaîne "latest", "earliest", "pending", "safe" ou "finalized".
 
-### Returns
-QUANTITY - integer of the current l1 data fee in wei.
+### Renvoie
 
-### Example
+QUANTITÉ - entier du coût actuel du L1 data fee en wei.
+
+### Exemple
 
 ```js
-// Request
-curl -X POST --data '{"jsonrpc":"2.0","method":"morph_estimateL1DataFee","params":[{see above}],"id":1}'
+// Demande
+curl -X POST --data '{"jsonrpc":"2.0","method":"morph_estimateL1DataFee","params":[{voir ci-dessus}],"id":1}'
 
-// Result
+// Résultat
 {
   "id":1,
   "jsonrpc": "2.0",
@@ -172,22 +170,26 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"morph_estimateL1DataFee","params
 
 ## morph_getNumSkippedTransactions
 
-Get the number of the skipped transactions
 
-### Parameters
+Obtenez le nombre de transactions ignorées.
 
-None
 
-### Returns
+### Paramètres
 
-Quantity - integer of the number of the skipped transactions
 
-### Example
+Aucun
+
+### Renvoie
+
+Quantité - entier du nombre de transactions ignorées.
+
+### Exemple
+
 ```js
-// Request
+// Demande
 curl -X POST --data '{"jsonrpc":"2.0","method":"morph_getNumSkippedTransactions","params":[],"id":1}'
 
-// Result
+// Résultat
 {
   "id":1,
   "jsonrpc": "2.0",
@@ -198,24 +200,26 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"morph_getNumSkippedTransactions"
 ## morph_getSkippedTransactionHashes
 
 
-Get a list of skipped transaction hashes between the two indices provided (inclusive)
+Obtenez une liste des hashes des transactions ignorées entre les deux indices fournis (inclus).
+
 
 ### Parameters
 
-1. from index
-2. to index
+1. index de départ
+2. index de fin
 
 
-### Returns
+### Renvoie
 
-Arrays of transaction hashes
+Tableaux de hashes de transactions.
 
-### Example
+### Exemple
+
 ```js
-// Request
+// Demande
 curl -X POST --data '{"jsonrpc":"2.0","method":"morph_getSkippedTransactionHashes","params":[0, 1],"id":1}'
 
-// Result
+// Resultat
 {
   "id":1,
   "jsonrpc": "2.0",
@@ -227,29 +231,32 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"morph_getSkippedTransactionHashe
 ## morph_getSkippedTransaction
 
 
-Get a skipped transaction by its hash.
-
-### Parameters
-
-DATA, 32 Bytes - Hash of a transaction.
+Obtenez une transaction ignorée par son hash.
 
 
-### Returns
-
-Object - a transaction object(see JSON-RPC API | ethereum.org), an some extended fields:
-- sender: DATA, 20 Bytes - address of the sender.
-- queueIndex: QUANTITY -  integer of the L1Message index.
-- skipReason: string - the skip reason of this transaction.
-- skipBlockNumber: quantity - integer of the block number where the transaction is skipped.
-- skipBlockHash: DATA, 32 Bytes - hash of the block where the transaction is skipped.
+### Paramètres
 
 
-### Example
+DATA, 32 octets - Hash d'une transaction.
+
+
+### Renvoie
+
+Objet - un objet de transaction (voir JSON-RPC API | ethereum.org), avec quelques champs étendus :
+
+- sender : DATA, 20 octets - adresse de l'expéditeur.
+- queueIndex : QUANTITÉ - entier de l'index de L1Message.
+- skipReason : chaîne - la raison pour laquelle cette transaction a été ignorée.
+- skipBlockNumber : quantité - entier du numéro du bloc où la transaction a été ignorée.
+- skipBlockHash : DATA, 32 octets - hash du bloc où la transaction a été ignorée.
+
+
+### Exemple
 ```js
-// Request
+// demande
 curl -X POST --data '{"jsonrpc":"2.0","method":"morph_getSkippedTransaction","params":[“0x…”],"id":1}'
 
-// Result
+// Resultat
 {
   "id":1,
   "jsonrpc": "2.0",
@@ -279,37 +286,38 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"morph_getSkippedTransaction","pa
 ## morph_getSkippedTransactionHashes
 
 
-Get the batches by index
+Obtenez les lots par index.
 
-### Parameters
+### Paramètres
 
-Quantity - integer of the index of batch
+Quantité - entier de l'index du lot.
 
-### Returns
+### Renvoie
 
-Object - RollupBatch
-1. version: quantity - the version of the batch
-2. hash: DATA: 32 bytes - the batch of this batch
-3. parentBatchHeader: bytes - the parent batch header
-4. Chunks: arrays of chunk - Chunk: bytes : the chunk bytes of this batch
-5. skippedL1MessageBitmap: bytes - the bitmap of the skipped L1Message
-6. prevStateRoot: DATA: 32 bytes - the state root at the beginning of this batch
-7. postStateRoot: DATA: 32 bytes - the state root at the end of this batch
-8. withdrawRoot: DATA : 32 bytes - the withdraw root at the end of this batch
-9. sidecar - the side car for the rollup transaction of the blob type
-10. signatures - array of object of signature:
+Objet - RollupBatch
 
-- version: quantity -  the version of sequencers
-- signer: quantity - the index of the registered sequencer on L1Sequencer
-- signerPubKey: bytes - the bls public key
-- signature: the bls signature of the batch signed by this signer
+1. version : quantité - la version du lot.
+2. hash : DATA : 32 octets - le hash de ce lot.
+3. parentBatchHeader : bytes - l'en-tête du lot parent.
+4. Chunks : tableaux de morceaux - Chunk : bytes : les octets du morceau de ce lot.
+5. skippedL1MessageBitmap : bytes - le bitmap des L1Message ignorés.
+6. prevStateRoot : DATA : 32 octets - la racine de l'état au début de ce lot.
+7. postStateRoot : DATA : 32 octets - la racine de l'état à la fin de ce lot.
+8. withdrawRoot : DATA : 32 octets - la racine de retrait à la fin de ce lot.
+9. sidecar - le side car pour la transaction de rollup du type blob.
+10. signatures - tableau d'objets de signature :
+
+- version : quantité - la version des séquenceurs.
+- signer : quantité - l'index du séquenceur enregistré sur L1Sequencer.
+- signerPubKey : bytes - la clé publique bls.
+- signature : la signature bls du lot signée par ce signataire.
 
 ### Example
 ```js
-// Request
+// Demande
 curl -X POST --data '{"jsonrpc":"2.0","method":"morph_getRollupBatchByIndex","params":[1],"id":1}'
 
-//Result
+// Résultat
 {
     "jsonrpc": "2.0",
     "id": 1,
@@ -368,20 +376,21 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"morph_getRollupBatchByIndex","pa
 
 ## morph_GetBlockTraceByNumberOrHash
 
-It replays the block and returns the structured blockTrace for rollers.
+Il rejoue le bloc et renvoie le blockTrace structuré pour les rollups.
 
-## Parameters
 
-1. QUANTITY|TAG - integer of a block number, or the string "earliest", "latest", "pending", "safe" or "finalized", as in the default block parameter. Or DATA, 32 Bytes - Hash of a block.
-2. tracerConfig(optional), see debug Namespace | go-ethereum
+## Paramètres
 
-## Example
+1. QUANTITÉ|TAG - entier d'un numéro de bloc, ou la chaîne "earliest", "latest", "pending", "safe" ou "finalized", comme dans le paramètre de bloc par défaut. Ou DATA, 32 octets - Hash d'un bloc.
+2. tracerConfig (optionnel), voir l'espace de noms debug | go-ethereum.
+
+## Exemple
 
 ```js
-// Request
+// Demande
 {"jsonrpc":"2.0","method":"morph_getBlockTraceByNumberOrHash","params":["latest"],"id":67}
 
-// Result
+// Résultat
 {
     "jsonrpc": "2.0",
     "id": 67,

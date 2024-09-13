@@ -4,11 +4,11 @@
 
 [@morph-l2/sdk](../globals.md) / AddressLike
 
-# Type alias: AddressLike
+# Alias de type : AddressLike
 
-> **AddressLike**: `string` \| `Contract`
+> **AddressLike** : `string` \| `Contract`
 
-Stuff that can be coerced into an address.
+Des choses qui peuvent être converties en une adresse.
 
 ## Source
 

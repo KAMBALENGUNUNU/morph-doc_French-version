@@ -1,39 +1,36 @@
 ---
-title: Roadmap
-lang: en-US
-keywords: [morph,layer2,validity proof,optimistic zk-rollup]
-description: Upgrade your blockchain experience with Morph - the secure decentralized, cost0efficient, and high-performing optimistic zk-rollup solution. Try it now!
+title: Feuille de Route
+lang: fr-FR
+keywords: [morph,layer2,preuve de validité,optimistic zk-rollup]
+description: Améliorez votre expérience blockchain avec Morph - la solution optimistic zk-rollup sécurisée, décentralisée et performante. Essayez-le maintenant !
 ---
 
 :::tip
- The roadmap is subject to changes based on technological developments, community feedback, and external factors.
+La feuille de route est sujette à des changements en fonction des développements technologiques, des retours de la communauté et de facteurs externes.
 :::
-
 
 ![1](../../assets/docs/about/roadmap/roadmap.png)
 
+## Phase 1 : Testnet (2024 S1)
 
-## Phase 1: Testnet (2024 H1)
-
-Testnet Sepolia (2024 Q1)
+Testnet Sepolia (T1 2024)
 
 - Optimistic zkEVM
-- Decentralized Sequencers
+- Séquenceurs Décentralisés
 
-Testnet Holesky (2024 Q2)
+Testnet Holesky (T2 2024)
 
-- EIP-4844 Integration
-- zkEVM Upgrade
+- Intégration de l'EIP-4844
+- Mise à niveau du zkEVM
 
 ### Testnet Holesky
 
-## Phase 2: Mainnet Launch (2024 H2)
+## Phase 2 : Lancement de Mainnet (2024 S2)
 
-### Mainnet Beta 2024 Q3
-- Morph Staking
-- AI Ecosystem Support
-  
-### Mainnet Update Q4
-- Account Abstraction
-- Layer 3 Support
+### Beta de Mainnet T3 2024
+- Staking Morph
+- Support pour l'Écosystème AI
 
+### Mise à jour de Mainnet T4
+- Abstraction de Compte
+- Support pour Layer 3

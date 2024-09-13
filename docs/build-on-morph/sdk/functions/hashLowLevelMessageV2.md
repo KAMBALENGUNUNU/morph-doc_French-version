@@ -4,23 +4,23 @@
 
 [@morph-l2/sdk](../globals.md) / hashLowLevelMessageV2
 
-# Function: hashLowLevelMessageV2()
+# Fonction : hashLowLevelMessageV2()
 
-> **hashLowLevelMessageV2**(`message`): `string`
+> **hashLowLevelMessageV2**(`message`) : `string`
 
-Utility for hashing a LowLevelMessage object.
+Utilitaire pour hacher un objet LowLevelMessage.
 
-## Parameters
+## Paramètres
 
-• **message**: [`LowLevelMessage`](../type-aliases/LowLevelMessage.md)
+• **message** : [`LowLevelMessage`](../type-aliases/LowLevelMessage.md)
 
-LowLevelMessage object to hash.
+Objet LowLevelMessage à hacher.
 
-## Returns
+## Retourne
 
 `string`
 
-Hash of the given LowLevelMessage.
+Hachage de l'objet LowLevelMessage donné.
 
 ## Source
 

@@ -4,103 +4,103 @@
 
 [@morph-l2/sdk](../globals.md) / IBridgeAdapter
 
-# Interface: IBridgeAdapter
+# Interface : IBridgeAdapter
 
-Represents an adapter for an L1 - L2 token bridge. Each custom bridge currently needs its own
-adapter because the bridge interface is not standardized. This may change in the future.
+Représente un adaptateur pour un pont de jetons L1 - L2. Chaque pont personnalisé a actuellement besoin de son propre
+adaptateur car l'interface du pont n'est pas standardisée. Cela peut changer à l'avenir.
 
-## Properties
+## Propriétés
 
 ### estimateGas
 
-> **estimateGas**: `object`
+> **estimateGas** : `object`
 
-Object that holds the functions that estimates the gas required for a given transaction.
-Follows the pattern used by ethers.js.
+Objet qui contient les fonctions qui estiment le gaz requis pour une transaction donnée.
+Suit le modèle utilisé par ethers.js.
 
 #### approve()
 
-Estimates gas required to approve some tokens to deposit into the L2 chain.
+Estime le gaz requis pour approuver des jetons à déposer dans la chaîne L2.
 
-##### Parameters
+##### Paramètres
 
-• **l1Token**: [`AddressLike`](../type-aliases/AddressLike.md)
+• **l1Token** : [`AddressLike`](../type-aliases/AddressLike.md)
 
-The L1 token address.
+L'adresse du jeton L1.
 
-• **l2Token**: [`AddressLike`](../type-aliases/AddressLike.md)
+• **l2Token** : [`AddressLike`](../type-aliases/AddressLike.md)
 
-The L2 token address.
+L'adresse du jeton L2.
 
-• **amount**: [`NumberLike`](../type-aliases/NumberLike.md)
+• **amount** : [`NumberLike`](../type-aliases/NumberLike.md)
 
-Amount of the token to approve.
+Montant du jeton à approuver.
 
-• **opts?**: [`IActionOptions`](IActionOptions.md)
+• **opts?** : [`IActionOptions`](IActionOptions.md)
 
-Additional options.
+Options supplémentaires.
 
-##### Returns
+##### Retourne
 
 `Promise`\<`BigNumber`\>
 
-Gas estimate for the transaction.
+Estimation du gaz pour la transaction.
 
 #### deposit()
 
-Estimates gas required to deposit some tokens into the L2 chain.
+Estime le gaz requis pour déposer des jetons dans la chaîne L2.
 
-##### Parameters
+##### Paramètres
 
-• **l1Token**: [`AddressLike`](../type-aliases/AddressLike.md)
+• **l1Token** : [`AddressLike`](../type-aliases/AddressLike.md)
 
-The L1 token address.
+L'adresse du jeton L1.
 
-• **l2Token**: [`AddressLike`](../type-aliases/AddressLike.md)
+• **l2Token** : [`AddressLike`](../type-aliases/AddressLike.md)
 
-The L2 token address.
+L'adresse du jeton L2.
 
-• **amount**: [`NumberLike`](../type-aliases/NumberLike.md)
+• **amount** : [`NumberLike`](../type-aliases/NumberLike.md)
 
-Amount of the token to deposit.
+Montant du jeton à déposer.
 
-• **opts?**: [`IActionOptions`](IActionOptions.md)
+• **opts?** : [`IActionOptions`](IActionOptions.md)
 
-Additional options.
+Options supplémentaires.
 
-##### Returns
+##### Retourne
 
 `Promise`\<`BigNumber`\>
 
-Gas estimate for the transaction.
+Estimation du gaz pour la transaction.
 
 #### withdraw()
 
-Estimates gas required to withdraw some tokens back to the L1 chain.
+Estime le gaz requis pour retirer des jetons vers la chaîne L1.
 
-##### Parameters
+##### Paramètres
 
-• **l1Token**: [`AddressLike`](../type-aliases/AddressLike.md)
+• **l1Token** : [`AddressLike`](../type-aliases/AddressLike.md)
 
-The L1 token address.
+L'adresse du jeton L1.
 
-• **l2Token**: [`AddressLike`](../type-aliases/AddressLike.md)
+• **l2Token** : [`AddressLike`](../type-aliases/AddressLike.md)
 
-The L2 token address.
+L'adresse du jeton L2.
 
-• **amount**: [`NumberLike`](../type-aliases/NumberLike.md)
+• **amount** : [`NumberLike`](../type-aliases/NumberLike.md)
 
-Amount of the token to withdraw.
+Montant du jeton à retirer.
 
-• **opts?**: [`IActionOptions`](IActionOptions.md)
+• **opts?** : [`IActionOptions`](IActionOptions.md)
 
-Additional options.
+Options supplémentaires.
 
-##### Returns
+##### Retourne
 
 `Promise`\<`BigNumber`\>
 
-Gas estimate for the transaction.
+Estimation du gaz pour la transaction.
 
 #### Source
 
@@ -110,9 +110,9 @@ src/interfaces/bridge-adapter.ts:221
 
 ### l1Bridge
 
-> **l1Bridge**: `Contract`
+> **l1Bridge** : `Contract`
 
-L1 bridge contract.
+Contrat de pont L1.
 
 #### Source
 
@@ -122,9 +122,9 @@ src/interfaces/bridge-adapter.ts:38
 
 ### l2Bridge
 
-> **l2Bridge**: `Contract`
+> **l2Bridge** : `Contract`
 
-L2 bridge contract.
+Contrat de pont L2.
 
 #### Source
 
@@ -134,9 +134,9 @@ src/interfaces/bridge-adapter.ts:43
 
 ### messenger
 
-> **messenger**: [`CrossChainMessenger`](../classes/CrossChainMessenger.md)
+> **messenger** : [`CrossChainMessenger`](../classes/CrossChainMessenger.md)
 
-Provider used to make queries related to cross-chain interactions.
+Fournisseur utilisé pour faire des requêtes liées aux interactions inter-chaînes.
 
 #### Source
 
@@ -146,126 +146,125 @@ src/interfaces/bridge-adapter.ts:33
 
 ### populateTransaction
 
-> **populateTransaction**: `object`
+> **populateTransaction** : `object`
 
-Object that holds the functions that generate transactions to be signed by the user.
-Follows the pattern used by ethers.js.
+Objet qui contient les fonctions qui génèrent des transactions à signer par l'utilisateur.
+Suit le modèle utilisé par ethers.js.
 
 #### approve()
 
-Generates a transaction for approving some tokens to deposit into the L2 chain.
+Génère une transaction pour approuver des jetons à déposer dans la chaîne L2.
 
-##### Parameters
+##### Paramètres
 
-• **l1Token**: [`AddressLike`](../type-aliases/AddressLike.md)
+• **l1Token** : [`AddressLike`](../type-aliases/AddressLike.md)
 
-The L1 token address.
+L'adresse du jeton L1.
 
-• **l2Token**: [`AddressLike`](../type-aliases/AddressLike.md)
+• **l2Token** : [`AddressLike`](../type-aliases/AddressLike.md)
 
-The L2 token address.
+L'adresse du jeton L2.
 
-• **amount**: [`NumberLike`](../type-aliases/NumberLike.md)
+• **amount** : [`NumberLike`](../type-aliases/NumberLike.md)
 
-Amount of the token to approve.
+Montant du jeton à approuver.
 
-• **opts?**: [`IActionOptions`](IActionOptions.md)
+• **opts?** : [`IActionOptions`](IActionOptions.md)
 
-Additional options.
+Options supplémentaires.
 
-##### Returns
+##### Retourne
 
 `Promise`\<`TransactionRequest`\>
 
-Transaction that can be signed and executed to deposit the tokens.
+Transaction qui peut être signée et exécutée pour déposer les jetons.
 
 #### deposit()
 
-Generates a transaction for depositing some tokens into the L2 chain.
+Génère une transaction pour déposer des jetons dans la chaîne L2.
 
-##### Parameters
+##### Paramètres
 
-• **l1Token**: [`AddressLike`](../type-aliases/AddressLike.md)
+• **l1Token** : [`AddressLike`](../type-aliases/AddressLike.md)
 
-The L1 token address.
+L'adresse du jeton L1.
 
-• **l2Token**: [`AddressLike`](../type-aliases/AddressLike.md)
+• **l2Token** : [`AddressLike`](../type-aliases/AddressLike.md)
 
-The L2 token address.
+L'adresse du jeton L2.
 
-• **amount**: [`NumberLike`](../type-aliases/NumberLike.md)
+• **amount** : [`NumberLike`](../type-aliases/NumberLike.md)
 
-Amount of the token to deposit.
+Montant du jeton à déposer.
 
-• **opts?**: [`IActionOptions`](IActionOptions.md)
+• **opts?** : [`IActionOptions`](IActionOptions.md)
 
-Additional options.
+Options supplémentaires.
 
-##### Returns
+##### Retourne
 
 `Promise`\<`TransactionRequest`\>
 
-Transaction that can be signed and executed to deposit the tokens.
+Transaction qui peut être signée et exécutée pour déposer les jetons.
 
 #### withdraw()
 
-Generates a transaction for withdrawing some tokens back to the L1 chain.
+Génère une transaction pour retirer des jetons vers la chaîne L1.
 
-##### Parameters
+##### Paramètres
 
-• **l1Token**: [`AddressLike`](../type-aliases/AddressLike.md)
+• **l1Token** : [`AddressLike`](../type-aliases/AddressLike.md)
 
-The L1 token address.
+L'adresse du jeton L1.
 
-• **l2Token**: [`AddressLike`](../type-aliases/AddressLike.md)
+• **l2Token** : [`AddressLike`](../type-aliases/AddressLike.md)
 
-The L2 token address.
+L'adresse du jeton L2.
 
-• **amount**: [`NumberLike`](../type-aliases/NumberLike.md)
+• **amount** : [`NumberLike`](../type-aliases/NumberLike.md)
 
-Amount of the token to withdraw.
+Montant du jeton à retirer.
 
-• **opts?**: [`IActionOptions`](IActionOptions.md)
+• **opts?** : [`IActionOptions`](IActionOptions.md)
 
-Additional options.
+Options supplémentaires.
 
-##### Returns
+##### Retourne
 
 `Promise`\<`TransactionRequest`\>
 
-Transaction that can be signed and executed to withdraw the tokens.
+Transaction qui peut être signée et exécutée pour retirer les jetons.
 
 #### Source
 
 src/interfaces/bridge-adapter.ts:167
 
-## Methods
+## Méthodes
 
 ### approval()
 
-> **approval**(`l1Token`, `l2Token`, `opts`?): `Promise`\<`BigNumber`\>
+> **approval**(`l1Token`, `l2Token`, `opts`?) : `Promise`\<`BigNumber`\>
 
-Queries the account's approval amount for a given L1 token.
-
-#### Parameters
+Interroge le montant d'approbation du compte pour un jeton L1 donné.
+#### Paramètres
 
 • **l1Token**: [`AddressLike`](../type-aliases/AddressLike.md)
 
-The L1 token address.
+L'adresse du token L1.
 
 • **l2Token**: [`AddressLike`](../type-aliases/AddressLike.md)
 
-The L2 token address.
+L'adresse du token L2.
 
 • **opts?**: [`IActionOptions`](IActionOptions.md)
 
-Additional options.
+Options supplémentaires.
 
-#### Returns
+#### Retourne
 
 `Promise`\<`BigNumber`\>
 
-Amount of tokens approved for deposits from the account.
+Montant de tokens approuvés pour les dépôts depuis le compte.
 
 #### Source
 
@@ -277,35 +276,35 @@ src/interfaces/bridge-adapter.ts:103
 
 > **approve**(`l1Token`, `l2Token`, `amount`, `signer`, `opts`?): `Promise`\<`TransactionResponse`\>
 
-Approves a deposit into the L2 chain.
+Approuve un dépôt dans la chaîne L2.
 
-#### Parameters
+#### Paramètres
 
 • **l1Token**: [`AddressLike`](../type-aliases/AddressLike.md)
 
-The L1 token address.
+L'adresse du token L1.
 
 • **l2Token**: [`AddressLike`](../type-aliases/AddressLike.md)
 
-The L2 token address.
+L'adresse du token L2.
 
 • **amount**: [`NumberLike`](../type-aliases/NumberLike.md)
 
-Amount of the token to approve.
+Montant du token à approuver.
 
 • **signer**: `Signer`
 
-Signer used to sign and send the transaction.
+Signer utilisé pour signer et envoyer la transaction.
 
 • **opts?**: [`IActionOptions`](IActionOptions.md)
 
-Additional options.
+Options supplémentaires.
 
-#### Returns
+#### Retourne
 
 `Promise`\<`TransactionResponse`\>
 
-Transaction response for the approval transaction.
+Réponse de la transaction pour l'opération d'approbation.
 
 #### Source
 
@@ -317,35 +316,35 @@ src/interfaces/bridge-adapter.ts:119
 
 > **deposit**(`l1Token`, `l2Token`, `amount`, `signer`, `opts`?): `Promise`\<`TransactionResponse`\>
 
-Deposits some tokens into the L2 chain.
+Dépose des tokens dans la chaîne L2.
 
-#### Parameters
+#### Paramètres
 
 • **l1Token**: [`AddressLike`](../type-aliases/AddressLike.md)
 
-The L1 token address.
+L'adresse du token L1.
 
 • **l2Token**: [`AddressLike`](../type-aliases/AddressLike.md)
 
-The L2 token address.
+L'adresse du token L2.
 
 • **amount**: [`NumberLike`](../type-aliases/NumberLike.md)
 
-Amount of the token to deposit.
+Montant du token à déposer.
 
 • **signer**: `Signer`
 
-Signer used to sign and send the transaction.
+Signer utilisé pour signer et envoyer la transaction.
 
 • **opts?**: [`IActionOptions`](IActionOptions.md)
 
-Additional options.
+Options supplémentaires.
 
-#### Returns
+#### Retourne
 
 `Promise`\<`TransactionResponse`\>
 
-Transaction response for the deposit transaction.
+Réponse de la transaction pour l'opération de dépôt.
 
 #### Source
 
@@ -357,33 +356,33 @@ src/interfaces/bridge-adapter.ts:137
 
 > **getDepositsByAddress**(`address`, `opts`?): `Promise`\<[`TokenBridgeMessage`](TokenBridgeMessage.md)[]\>
 
-Gets all deposits for a given address.
+Obtient tous les dépôts pour une adresse donnée.
 
-#### Parameters
+#### Paramètres
 
 • **address**: [`AddressLike`](../type-aliases/AddressLike.md)
 
-Address to search for messages from.
+Adresse à partir de laquelle chercher les messages.
 
 • **opts?**
 
-Options object.
+Objet d'options.
 
 • **opts.fromBlock?**: `BlockTag`
 
-Block to start searching for messages from. If not provided, will start
-from the first block (block #0).
+Bloc à partir duquel commencer la recherche de messages. S'il n'est pas fourni, commencera
+à partir du premier bloc (bloc #0).
 
 • **opts.toBlock?**: `BlockTag`
 
-Block to stop searching for messages at. If not provided, will stop at the
-latest known block ("latest").
+Bloc à partir duquel arrêter la recherche de messages. S'il n'est pas fourni, s'arrêtera au
+dernier bloc connu ("dernier").
 
-#### Returns
+#### Retourne
 
 `Promise`\<[`TokenBridgeMessage`](TokenBridgeMessage.md)[]\>
 
-All deposit token bridge messages sent by the given address.
+Tous les messages de dépôt envoyés par l'adresse donnée.
 
 #### Source
 
@@ -395,33 +394,33 @@ src/interfaces/bridge-adapter.ts:56
 
 > **getWithdrawalsByAddress**(`address`, `opts`?): `Promise`\<[`TokenBridgeMessage`](TokenBridgeMessage.md)[]\>
 
-Gets all withdrawals for a given address.
+Obtient tous les retraits pour une adresse donnée.
 
-#### Parameters
+#### Paramètres
 
 • **address**: [`AddressLike`](../type-aliases/AddressLike.md)
 
-Address to search for messages from.
+Adresse à partir de laquelle chercher les messages.
 
 • **opts?**
 
-Options object.
+Objet d'options.
 
 • **opts.fromBlock?**: `BlockTag`
 
-Block to start searching for messages from. If not provided, will start
-from the first block (block #0).
+Bloc à partir duquel commencer la recherche de messages. S'il n'est pas fourni, commencera
+à partir du premier bloc (bloc #0).
 
 • **opts.toBlock?**: `BlockTag`
 
-Block to stop searching for messages at. If not provided, will stop at the
-latest known block ("latest").
+Bloc à partir duquel arrêter la recherche de messages. S'il n'est pas fourni, s'arrêtera au
+dernier bloc connu ("dernier").
 
-#### Returns
+#### Retourne
 
 `Promise`\<[`TokenBridgeMessage`](TokenBridgeMessage.md)[]\>
 
-All withdrawal token bridge messages sent by the given address.
+Tous les messages de retrait envoyés par l'adresse donnée.
 
 #### Source
 
@@ -433,23 +432,23 @@ src/interfaces/bridge-adapter.ts:75
 
 > **supportsTokenPair**(`l1Token`, `l2Token`): `Promise`\<`boolean`\>
 
-Checks whether the given token pair is supported by the bridge.
+Vérifie si la paire de tokens donnée est supportée par le pont.
 
-#### Parameters
+#### Paramètres
 
 • **l1Token**: [`AddressLike`](../type-aliases/AddressLike.md)
 
-The L1 token address.
+L'adresse du token L1.
 
 • **l2Token**: [`AddressLike`](../type-aliases/AddressLike.md)
 
-The L2 token address.
+L'adresse du token L2.
 
-#### Returns
+#### Retourne
 
 `Promise`\<`boolean`\>
 
-Whether the given token pair is supported by the bridge.
+Si la paire de tokens donnée est supportée par le pont.
 
 #### Source
 
@@ -461,35 +460,35 @@ src/interfaces/bridge-adapter.ts:90
 
 > **withdraw**(`l1Token`, `l2Token`, `amount`, `signer`, `opts`?): `Promise`\<`TransactionResponse`\>
 
-Withdraws some tokens back to the L1 chain.
+Retire des tokens vers la chaîne L1.
 
-#### Parameters
+#### Paramètres
 
 • **l1Token**: [`AddressLike`](../type-aliases/AddressLike.md)
 
-The L1 token address.
+L'adresse du token L1.
 
 • **l2Token**: [`AddressLike`](../type-aliases/AddressLike.md)
 
-The L2 token address.
+L'adresse du token L2.
 
 • **amount**: [`NumberLike`](../type-aliases/NumberLike.md)
 
-Amount of the token to withdraw.
+Montant du token à retirer.
 
 • **signer**: `Signer`
 
-Signer used to sign and send the transaction.
+Signer utilisé pour signer et envoyer la transaction.
 
 • **opts?**: [`IActionOptions`](IActionOptions.md)
 
-Additional options.
+Options supplémentaires.
 
-#### Returns
+#### Retourne
 
 `Promise`\<`TransactionResponse`\>
 
-Transaction response for the withdraw transaction.
+Réponse de la transaction pour l'opération de retrait.
 
 #### Source
 

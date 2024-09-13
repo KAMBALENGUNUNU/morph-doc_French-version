@@ -4,11 +4,11 @@
 
 [@morph-l2/sdk](../globals.md) / MessageRequestLike
 
-# Type alias: MessageRequestLike
+# Alias de type : MessageRequestLike
 
 > **MessageRequestLike**: [`CrossChainMessageRequest`](../interfaces/CrossChainMessageRequest.md) \| [`CrossChainMessage`](../interfaces/CrossChainMessage.md) \| [`TransactionLike`](TransactionLike.md) \| [`TokenBridgeMessage`](../interfaces/TokenBridgeMessage.md)
 
-Stuff that can be coerced into a CrossChainMessageRequest.
+Des éléments qui peuvent être convertis en un CrossChainMessageRequest.
 
 ## Source
 

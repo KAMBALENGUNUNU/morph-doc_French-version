@@ -4,11 +4,11 @@
 
 [@morph-l2/sdk](../globals.md) / SignerOrProviderLike
 
-# Type alias: SignerOrProviderLike
+# Alias de type : SignerOrProviderLike
 
-> **SignerOrProviderLike**: [`SignerLike`](SignerLike.md) \| [`ProviderLike`](ProviderLike.md)
+> **SignerOrProviderLike** : [`SignerLike`](SignerLike.md) \| [`ProviderLike`](ProviderLike.md)
 
-Stuff that can be coerced into a signer or provider.
+Des éléments qui peuvent être convertis en un signataire ou un fournisseur.
 
 ## Source
 

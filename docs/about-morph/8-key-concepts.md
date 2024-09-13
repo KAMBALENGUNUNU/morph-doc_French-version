@@ -1,49 +1,48 @@
 ---
-title: Key Concepts
-lang: en-US
-keywords: [morph,layer2,validity proof,optimistic zk-rollup]
-description: Upgrade your blockchain experience with Morph - the secure decentralized, cost0efficient, and high-performing optimistic zk-rollup solution. Try it now!
+title: Concepts Clés
+lang: fr-FR
+keywords: [morph,layer2,preuve de validité,optimistic zk-rollup]
+description: Améliorez votre expérience blockchain avec Morph - la solution optimistic zk-rollup sécurisée, décentralisée et performante. Essayez-le maintenant !
 ---
 
-## Optimistic Rollups
+## Rollups Optimistes
 
+Les rollups optimistes sont une solution de mise à l'échelle de Layer 2 pour les blockchains qui améliorent le débit des transactions et réduisent les coûts en supposant que les transactions sont valides et en ne les vérifiant que si un défi est soulevé. Cette méthode repose sur une période de contestation pendant laquelle les validateurs peuvent contester des transactions qu'ils estiment incorrectes. Si aucune contestation n'est soulevée, les transactions sont considérées comme finales. Les rollups optimistes améliorent considérablement l'évolutivité tout en maintenant la sécurité, ce qui en fait une solution efficace pour gérer un volume plus élevé de transactions sur les réseaux blockchain.
 
-Optimistic rollups are a Layer 2 scaling solution for blockchains that enhance transaction throughput and reduce costs by assuming transactions are valid and only verifying them if a challenge is raised. This method relies on a challenge period during which validators can dispute transactions they believe to be incorrect. If no disputes are raised, the transactions are considered final. Optimistic rollups significantly improve scalability while maintaining security, making them an efficient solution for handling a higher volume of transactions on blockchain networks.
+[En savoir plus sur les Rollups Optimistes](https://ethereum.org/en/developers/docs/scaling/optimistic-rollups/)
 
-[Learn more about Optimistic Rollups](https://ethereum.org/en/developers/docs/scaling/optimistic-rollups/)
+## Rollups ZK
 
-## ZK Rollups
+Les rollups ZK, ou rollups à connaissance nulle, sont une solution de mise à l'échelle de Layer 2 qui utilise des preuves cryptographiques pour vérifier la validité des transactions hors chaîne avant de les regrouper et de soumettre une preuve à la blockchain principale. Chaque lot de transactions est accompagné d'une preuve à connaissance nulle, qui garantit que toutes les transactions du lot sont valides sans révéler les données sous-jacentes. Cette méthode offre une finalité immédiate et une grande sécurité, car la chaîne principale n'a besoin de vérifier que la preuve et non chaque transaction individuelle, réduisant ainsi considérablement la charge de calcul et améliorant l'évolutivité.
 
-ZK rollups, or zero-knowledge rollups, are a Layer 2 scaling solution that uses cryptographic proofs to verify the validity of transactions off-chain before bundling them and submitting a proof to the main blockchain. Each batch of transactions is accompanied by a zero-knowledge proof, which ensures that all transactions within the batch are valid without revealing the underlying data. This method provides immediate finality and high security, as the main chain only needs to verify the proof rather than each individual transaction, significantly reducing the computational load and enhancing scalability.
+[En savoir plus sur les Rollups ZK](https://ethereum.org/en/developers/docs/scaling/zk-rollups/)
 
-[Learn more about ZK Rollups](https://ethereum.org/en/developers/docs/scaling/zk-rollups/)
+## Séquenceurs
 
-## Sequencers
+Les séquenceurs sont des nœuds spécialisés responsables de l'ordonnancement et du regroupement des transactions dans des solutions de mise à l'échelle de Layer 2 comme les rollups. Ils jouent un rôle crucial dans la détermination de la séquence des transactions, la création de blocs et l'engagement périodique de ces blocs à la blockchain principale. Dans les systèmes décentralisés, plusieurs séquenceurs travaillent ensemble pour renforcer la sécurité et éviter les points de défaillance uniques. En garantissant que les transactions sont traitées efficacement et en toute sécurité, les séquenceurs aident à maintenir l'intégrité et la performance des réseaux de Layer 2.
 
-Sequencers are specialized nodes responsible for ordering and bundling transactions in Layer 2 scaling solutions like rollups. They play a crucial role in determining the sequence of transactions, creating blocks, and periodically committing these blocks to the main blockchain. In decentralized systems, multiple sequencers work together to enhance security and prevent single points of failure. By ensuring transactions are processed efficiently and securely, sequencers help maintain the integrity and performance of Layer 2 networks.
+## Preuve de Fraude
 
-## Fraud Proof
+La preuve de fraude est un mécanisme utilisé dans les solutions de mise à l'échelle blockchain comme les rollups optimistes pour garantir la validité des transactions. Lorsqu'un séquenceur soumet un lot de transactions, celles-ci sont supposées valides sauf contestation. Pendant une période de contestation désignée, tout validateur ou participant au réseau peut soumettre une preuve de fraude s'il détecte une transaction incorrecte. Cette preuve implique la vérification des données de la transaction et la démonstration de l'erreur à la blockchain principale. Si la preuve de fraude est validée, la transaction incorrecte est rejetée, garantissant l'intégrité et la sécurité du réseau tout en minimisant les coûts de calcul.
 
-Fraud proof is a mechanism used in blockchain scaling solutions like optimistic rollups to ensure transaction validity. When a sequencer submits a batch of transactions, they are assumed to be valid unless contested. During a designated challenge period, any validator or network participant can submit a fraud proof if they detect an incorrect transaction. This proof involves verifying the transaction data and demonstrating the error to the main blockchain. If the fraud proof is validated, the incorrect transaction is rejected, ensuring the integrity and security of the network while minimizing computational costs.
+## Preuve de Validité
 
-## Validity Proof
-
-Validity proof is a cryptographic method used to ensure that transactions within a rollup are correct before they are finalized on the main blockchain. In systems like ZK rollups, each batch of transactions is accompanied by a validity proof that verifies the correctness of all transactions within the batch. This approach enhances security and efficiency by eliminating the need for individual transaction verification on the main chain, providing immediate finality and reducing computational overhead.
+La preuve de validité est une méthode cryptographique utilisée pour garantir que les transactions au sein d'un rollup sont correctes avant qu'elles ne soient finalisées sur la blockchain principale. Dans les systèmes comme les rollups ZK, chaque lot de transactions est accompagné d'une preuve de validité qui vérifie la correction de toutes les transactions du lot. Cette approche améliore la sécurité et l'efficacité en éliminant le besoin de vérification individuelle des transactions sur la chaîne principale, offrant une finalité immédiate et réduisant les coûts de calcul.
 
 ## zkEVM
 
-zkEVM, or Zero-Knowledge Ethereum Virtual Machine, is an advanced implementation of the Ethereum Virtual Machine that integrates zero-knowledge proofs to enhance scalability and security. By using zk proofs, zkEVM allows for the validation of transactions off-chain, ensuring that only valid state transitions are submitted to the main chain. This method provides high throughput and lower transaction costs while maintaining the security and trustlessness of Ethereum.
+Le zkEVM, ou Zero-Knowledge Ethereum Virtual Machine, est une implémentation avancée de la machine virtuelle Ethereum qui intègre des preuves à connaissance nulle pour améliorer l'évolutivité et la sécurité. En utilisant des preuves zk, le zkEVM permet la validation des transactions hors chaîne, garantissant que seules les transitions d'état valides sont soumises à la chaîne principale. Cette méthode offre un débit élevé et des coûts de transaction réduits tout en maintenant la sécurité et l'absence de confiance d'Ethereum.
 
-## BLS Signatures
+## Signatures BLS
 
-BLS (Boneh-Lynn-Shacham) signatures are a cryptographic technique used to aggregate multiple signatures into a single compact signature. This is particularly useful in blockchain networks for reducing the data size and improving the efficiency of transaction verification. BLS signatures enable multiple validators to sign a message collectively, resulting in a single signature that can be verified quickly and cost-effectively, enhancing the overall scalability of the network.
+Les signatures BLS (Boneh-Lynn-Shacham) sont une technique cryptographique utilisée pour agréger plusieurs signatures en une seule signature compacte. Cela est particulièrement utile dans les réseaux blockchain pour réduire la taille des données et améliorer l'efficacité de la vérification des transactions. Les signatures BLS permettent à plusieurs validateurs de signer un message collectivement, ce qui donne une seule signature qui peut être vérifiée rapidement et de manière rentable, améliorant ainsi l'évolutivité globale du réseau.
 
-## Data availability
+## Disponibilité des Données
 
-Data availability refers to the assurance that all necessary data for verifying blockchain transactions is accessible and retrievable. In the context of rollups, ensuring data availability is crucial for maintaining the integrity and security of off-chain transactions. It guarantees that anyone can download and verify the data used in rollup proofs, preventing scenarios where transactions are finalized without the possibility of verification.
+La disponibilité des données fait référence à la garantie que toutes les données nécessaires pour vérifier les transactions blockchain sont accessibles et récupérables. Dans le contexte des rollups, garantir la disponibilité des données est crucial pour maintenir l'intégrité et la sécurité des transactions hors chaîne. Cela garantit que quiconque peut télécharger et vérifier les données utilisées dans les preuves de rollup, empêchant des scénarios où les transactions sont finalisées sans possibilité de vérification.
 
 ## EIP - 4844
 
-EIP-4844, also known as Proto-Danksharding, is an Ethereum Improvement Proposal aimed at introducing a new type of transaction that reduces data costs and improves scalability. It involves adding a new transaction format that can efficiently handle large amounts of data, laying the groundwork for future sharding implementations. This proposal enhances the network's ability to manage data more effectively, contributing to overall improvements in throughput and cost-efficiency.
+L'EIP-4844, également connu sous le nom de Proto-Danksharding, est une proposition d'amélioration d'Ethereum visant à introduire un nouveau type de transaction qui réduit les coûts de données et améliore l'évolutivité. Cela implique d'ajouter un nouveau format de transaction capable de gérer efficacement de grandes quantités de données, préparant le terrain pour de futures implémentations de sharding. Cette proposition améliore la capacité du réseau à gérer les données plus efficacement, contribuant aux améliorations globales du débit et de l'efficacité des coûts.
 
-[Discover how EIP-4844 impacts Morph and other rollups.](https://www.eip4844.com/)
+[Découvrez comment l'EIP-4844 impacte Morph et d'autres rollups.](https://www.eip4844.com/)

@@ -4,34 +4,34 @@
 
 [@morph-l2/sdk](../globals.md) / isL2Provider
 
-# Function: isL2Provider()
+# Fonction : isL2Provider()
 
-> **isL2Provider**\<`TProvider`\>(`provider`): `provider is L2Provider<TProvider>`
+> **isL2Provider**\<`TProvider`\>(`provider`) : `provider est L2Provider<TProvider>`
 
-Determines if a given Provider is an L2Provider.  Will coerce type
-if true
+Détermine si un fournisseur donné est un L2Provider. Cela forcera le type
+si c'est vrai.
 
-## Type parameters
+## Paramètres de type
 
-• **TProvider** *extends* `Provider`\<`TProvider`\>
+• **TProvider** *étend* `Provider`\<`TProvider`\>
 
-## Parameters
+## Paramètres
 
-• **provider**: `TProvider`
+• **provider** : `TProvider`
 
-The provider to check
+Le fournisseur à vérifier.
 
-## Returns
+## Retourne
 
-`provider is L2Provider<TProvider>`
+`provider est L2Provider<TProvider>`
 
-Boolean
+Booléen
 
-## Example
+## Exemple
 
 ```ts
 if (isL2Provider(provider)) {
-  // typescript now knows it is of type L2Provider
+  // typescript sait maintenant qu'il s'agit d'un type L2Provider
   const gasPrice = await provider.estimateL2GasPrice(tx)
 }
 ```

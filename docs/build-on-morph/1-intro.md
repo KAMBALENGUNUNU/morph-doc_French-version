@@ -1,38 +1,36 @@
 ---
-title: Developer Docs
-lang: en-US
-keywords: [morph,ethereum,rollup,layer2,validity proof,optimistic zk-rollup]
-description: Upgrade your blockchain experience with Morph - the secure decentralized, cost0efficient, and high-performing optimistic zk-rollup solution. Try it now!
+title: Documentation Développeur
+lang: fr-FR
+keywords: [morph,ethereum,rollup,couche2,preuve de validité,zk-rollup optimiste]
+description: Améliorez votre expérience blockchain avec Morph - la solution zk-rollup optimiste, sécurisée, décentralisée, économique et performante. Essayez-la maintenant !
 ---
 
+Bienvenue dans la Documentation Développeur de Morph !
 
+Vous êtes impatient de créer des applications sur Morph mais vous ne savez pas par où commencer ?
 
-Welcome to Morph’s Developer Docs!
-
-Are you eager to build applications on Morph but unsure where to start? 
-
-You're in the right place – we've got you covered!
+Vous êtes au bon endroit – nous avons tout ce qu'il vous faut !
 
 ![devintro](../../assets/docs/dev/devintro.png)
 
-As the first optimistic zkEVM Ethereum Layer 2 solution, Morph is 100% EVM compatible.
+En tant que première solution zkEVM optimiste sur Ethereum, Morph est 100% compatible avec l'EVM.
 
-Building on morph is just like building on Ethereum. If you’re experienced in Ethereum development, you'll find your existing code, tooling, and dependencies are fully compatible with Morph.
-
-
-## What's next
-
-**Depending on what do you need**
-
-- For foundational knowledge: Check out our [development basics](../build-on-morph/build-on-morph/1-difference-between-morph-and-ethereum.md)
-- For handy step by step [contract deployment tutorial](../build-on-morph/code-examples/1-deploy-contract-on-morph.md)
-
-- If you're well-versed and need specific [developer resources](../build-on-morph/developer-resources/1-contracts.md) like contract addresses, they are readily available.
+Développer sur Morph, c'est comme développer sur Ethereum. Si vous avez de l'expérience en développement Ethereum, vous trouverez que votre code, vos outils et vos dépendances existants sont entièrement compatibles avec Morph.
 
 
-## Engage in Our Developer Community
+## Et maintenant
 
-We're actively enhancing our network with more integrations and support infrastructure, progressing towards our Mainnet release.
+**Selon vos besoins**
+
+- Pour des connaissances de base : Consultez nos [development basics](../build-on-morph/build-on-morph/1-difference-between-morph-and-ethereum.md)
+- Pour un tutoriel pratique étape par étape sur [contract deployment tutorial](../build-on-morph/code-examples/1-deploy-contract-on-morph.md)
+
+- Si vous êtes expérimenté et que vous avez besoin de [developer resources](../build-on-morph/developer-resources/1-contracts.md) spécifiques comme des adresses de contrats, elles sont facilement disponibles.
 
 
-Join our growing developer community. You can find us on [Discord](https://discord.com/invite/L2Morph), join our discussion forum, or follow our progress on [Twitter](https://twitter.com/Morphl2).
+## Participez à notre communauté de développeurs
+
+Nous améliorons activement notre réseau avec plus d'intégrations et d'infrastructures de support, tout en avançant vers notre lancement Mainnet.
+
+
+Rejoignez notre communauté croissante de développeurs. Vous pouvez nous retrouver sur [Discord](https://discord.com/invite/L2Morph), participer à notre forum de discussion, ou suivre nos avancées sur [Twitter](https://twitter.com/Morphl2).

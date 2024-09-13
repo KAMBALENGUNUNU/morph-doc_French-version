@@ -1,110 +1,104 @@
 ---
-title: Morph Modular Design
-lang: en-US
-keywords: [morph,ethereum,rollup,layer2,validity proof,optimistic zk-rollup]
-description: Upgrade your blockchain experience with Morph - the secure decentralized, cost0efficient, and high-performing optimistic zk-rollup solution. Try it now!
+title: Conception Modulaire de Morph
+lang: fr-FR
+keywords: [morph,ethereum,rollup,layer2,preuve de validité,optimistic zk-rollup]
+description: Améliorez votre expérience blockchain avec Morph - la solution de rollup optimiste zk sécurisée, décentralisée, économique et performante. Essayez-le maintenant !
 ---
 
-The modular design of blockchain technology, known for its improved composability, has become a prevalent trend. Morph leverages this design principle to enhance its architecture and functionality.
+La conception modulaire de la technologie blockchain, connue pour sa meilleure composition, est devenue une tendance répandue. Morph tire parti de ce principe de conception pour améliorer son architecture et sa fonctionnalité.
 
-![arichitecture](../../assets/docs/protocol/archi.png)
+![architecture](../../assets/docs/protocol/archi.png)
 
-## Overview
+## Vue d'ensemble
 
-A modular design typically divides a Layer 1 blockchain into four core functions:
+Une conception modulaire divise généralement une blockchain de couche 1 en quatre fonctions principales :
 
 1. Consensus
-2. Execution
-3. Data Availability
-4. Settlements
+2. Exécution
+3. Disponibilité des données
+4. Règlements
 
-Morph applies this modular approach to its Layer 2 solution by dividing it into three primary modules, each responsible for specific functionalities.
-
-
-### 3 Major Morph Modules
-
-#### Sequencer Network - Consensus & Execution
+Morph applique cette approche modulaire à sa solution de couche 2 en la divisant en trois modules principaux, chacun responsable de fonctions spécifiques.
 
 
-![Sequencer Network](../../assets/docs/protocol/dese/seq1.png)
+### 3 Modules Principaux de Morph
 
+#### Réseau de Séquenceurs - Consensus et Exécution
 
-Sequencer network responsible for the execution & consensus of the Layer 2 transactions, for more details please refer to Morph's [decentralized sequencers](../how-morph-works/decentralized-sequencers/morph-decentralized-sequencer-network).
+![Réseau de Séquenceurs](../../assets/docs/protocol/dese/seq1.png)
 
-#### Optimistic zkEVM - Settlement
+Le réseau de séquenceurs est responsable de l'exécution et du consensus des transactions de couche 2. Pour plus de détails, veuillez consulter les [séquenceurs décentralisés de Morph](../how-morph-works/decentralized-sequencers/morph-decentralized-sequencer-network).
+
+#### Optimistic zkEVM - Règlement
 
 ![Optimistic zkEVM](../../assets/docs/protocol/resvapro/opzk.png)
 
-State verification ensures that state changes on Layer 2 are valid on Layer 1. Morph introduces Optimistic zkEVM, a hybrid solution combining zk-rollups and optimistic rollups for state verification. The process involves a Morph innovation known as Responsive Validity Proof (RVP). This innovative approach finalizes and settles Layer 2 transactions and states efficiently. For more details, refer to the documentation on [Responsive Validity Proof](../how-morph-works/optimistic-zkevm).
+La vérification d'état garantit que les changements d'état sur la couche 2 sont valides sur la couche 1. Morph introduit Optimistic zkEVM, une solution hybride combinant zk-rollups et optimistic rollups pour la vérification d'état. Le processus implique une innovation de Morph connue sous le nom de Preuve de Validité Réactive (RVP). Cette approche innovante finalise et règle efficacement les transactions et états de couche 2. Pour plus de détails, consultez la documentation sur la [Preuve de Validité Réactive](../how-morph-works/optimistic-zkevm).
 
-#### Rollup - Data Availability
+#### Rollup - Disponibilité des Données
 
 ![Rollup](../../assets/docs/protocol/general/rollup/rollup.png)
 
+Le processus de [Rollup](../how-morph-works/general-protocol-design/1-rollup.md) implique la soumission de transactions et d'états de couche 2 à la couche 1, garantissant la disponibilité des données. La stratégie de rollup de Morph maximise l'efficacité en compressant le contenu des blocs à l'aide de zk-preuves, ce qui aide à gérer le coût de la disponibilité des données de couche 1. 
 
 
-The [Rollup](../how-morph-works/general-protocol-design/1-rollup.md) process involves submitting Layer 2 transactions and states to Layer 1, ensuring data availability. Morph's rollup strategy maximizes efficiency by compressing block content using zk-proofs, which helps manage the cost of Layer 1 data availability. 
+### 5 Rôles de Morph
+
+#### Séquenceurs
+
+Les séquenceurs jouent un rôle crucial dans le réseau en :
+
+- Recevant les transactions des utilisateurs de couche 2 et en formant des blocs.
+- Atteignant un consensus avec d'autres séquenceurs.
+- Exécutant des blocs et appliquant des transitions d'état.
+- Groupant les blocs et les soumettant à la couche 1.
+- Synchronisant les blocs avec des nœuds complets.
+- Générant des preuves de validité lorsqu'ils sont contestés.
 
 
-### 5 Morph Roles
+#### Preuveur
 
-#### Sequencers
+Les preuveurs sont essentiels pour générer des zk preuves lorsqu'un séquenceur est contesté. Ils synchronisent les informations de transaction de couche 2 et produisent les zk preuves nécessaires pour valider les changements d'état.
 
-Sequencers play a crucial role in the network by:
+#### Validateur
 
-- Receiving Layer 2 user transactions and forming blocks.
-- Reaching consensus with other sequencers.
-- Executing blocks and applying state transitions.
-- Batching blocks and submitting them to Layer 1.
-- Synchronizing blocks with full nodes.
-- Generating validity proofs when challenged.
+Les validateurs peuvent être n'importe quel utilisateur et jouent un rôle clé dans l'assurance de l'exactitude des états soumis par les séquenceurs à la couche 1. Ils maintiennent un nœud L2 pour synchroniser les transactions et les changements d'état, déclenchant des contestations lorsqu'ils identifient des états incorrects.
 
+#### Nœuds
 
-#### Prover
+Les nœuds facilitent l'accès plus facile aux transactions et aux états de couche 2 sans participer activement aux opérations du réseau. L'exécution d'un nœud L2 est ouverte à tous et ne nécessite pas d'autorisation.
 
-Provers are essential for generating zk proofs when a sequencer is challenged. They synchronize Layer 2 transaction information and produce the necessary zk proofs to validate state changes.
+#### Couche 1
 
-#### Validator
+Chaque solution de couche 2 repose sur une blockchain de couche 1 pour les règlements finaux et la disponibilité des données. Pour Morph, ce rôle est rempli par Ethereum. Les contrats clés sur la couche 1 garantissent la sécurité et la finalité des transactions et états de couche 2.
 
-Validators can be any user and play a key role in ensuring the correctness of states submitted by sequencers to Layer 1. They maintain an L2 node to synchronize transactions and state changes, triggering challenges when incorrect states are identified.
+### 6 Composants de Morph
 
-#### Nodes
+#### Nœud L2
 
-Nodes facilitate easier access to Layer 2 transactions and states without actively participating in network operations. Running an L2 node is open to anyone and does not require permission.
+Le nœud L2 est central dans l'architecture de Morph, interagissant avec divers modules et rôles. Il comprend des sous-composants tels que :
+- Gestionnaire de Transactions (Mempool) : Gère toutes les transactions de couche 2, acceptant et stockant les transactions initiées par les utilisateurs.
+- Exécuteur : Applique les transitions d'état et maintient le statut en temps réel de la couche 2.
+- Synchroniseur : Synchronise les données entre les nœuds L2 pour restaurer le statut du réseau.
 
-#### Layer 1
+#### Soumissionnaire de Lots
+Le Soumissionnaire de Lots fait partie du séquenceur, responsable de l'obtention continue des blocs L2, de leur emballage en lots et de l'assemblage des lots en transactions de couche 1, qui sont ensuite soumises au contrat de couche 1.
 
-Every Layer 2 solution relies on a Layer 1 blockchain for final settlements and data availability. For Morph, this role is fulfilled by Ethereum. Key contracts on Layer 1 ensure the security and finality of Layer 2 transactions and states.
+#### Client de Consensus
+Chaque séquenceur exécute un client de consensus pour atteindre un consensus avec d'autres séquenceurs. La conception actuelle utilise le client Tendermint pour garantir une intégration transparente et une convivialité pour les développeurs.
 
-### 6 Morph Components
+#### zkEVM
+zkEVM fait partie du Preuveur et est une machine virtuelle adaptée aux zk, utilisée pour générer des zk preuves pour les blocs et les changements d'état d'Ethereum. Ces zk preuves sont finalement utilisées pour prouver la validité des transactions et états de L2.
 
-#### L2 Node​
+#### Agrégateurs
+Les agrégateurs travaillent avec zkEVM pour réduire le coût de vérification des zk preuves en les agrégeant pour la production de blocs.
 
-The L2 node is central to Morph's architecture, interacting with various modules and roles. It includes sub-components such as:
-- Transactions Manager (Mempool): Manages all Layer 2 transactions, accepting and storing user-initiated transactions.
-- Executor: Applies state transitions and maintains the real-time status of Layer 2.
-- Synchronizer: Synchronizes data between L2 nodes to restore network status.
-
-#### Batch Submitter​
-The Batch Submitter is part of the sequencer, responsible for continuously obtaining L2 blocks, packaging them into batches, and assembling the batches into Layer 1 transactions, which are then submitted to the Layer 1 contract.
-
-#### Consensus Client​
-Each sequencer runs a consensus client to reach consensus with other sequencers. The current design uses the Tendermint client to ensure seamless integration and developer friendliness.
-
-#### zkEVM​
-zkEVM is part of the Prover and is a zk-friendly virtual machine used to generate zk proofs for Ethereum blocks and state changes. These zk proofs are ultimately used to prove the validity of L2 transactions and states.
-
-#### Aggregators​
-Aggregators work with zkEVM to reduce the cost of verifying zk proofs by aggregating them for block production.
-
-#### Layer 1 Contract​
-These contracts on Ethereum store Layer 2 transactions, execute global state changes, and bridge assets and information between Layer 2 and Layer 1. They also manage the election and governance of the sequencer set, inheriting the security of Ethereum.
+#### Contrat de Couche 1
+Ces contrats sur Ethereum stockent les transactions de couche 2, exécutent des changements d'état globaux et relient les actifs et les informations entre la couche 2 et la couche 1. Ils gèrent également l'élection et la gouvernance de l'ensemble des séquenceurs, héritant de la sécurité d'Ethereum.
 
 
-### Integration of Components, Roles, and Modules
+### Intégration des Composants, Rôles et Modules
 
+![modulaire](../../assets/docs/about/overview/modu.png)
 
-![modular](../../assets/docs/about/overview/modu.png)
-
-
-The components form the foundation of the various roles in Morph. For instance, running an L2 node allows one to become a Node, while adding batch submitter and consensus client functionalities enables the role of Sequencer. These roles collaborate to perform the core functions of Morph, creating a complete and efficient rollup solution.
+Les composants forment la base des différents rôles dans Morph. Par exemple, exécuter un nœud L2 permet de devenir un Nœud, tandis qu'ajouter des fonctionnalités de soumissionnaire de lots et de client de consensus permet d'assumer le rôle de Séquenceur. Ces rôles collaborent pour réaliser les fonctions essentielles de Morph, créant une solution de rollup complète et efficace.

@@ -1,70 +1,70 @@
 ---
-title: Deploy Contracts on Morph
-lang: en-US
-keywords: [morph,ethereum,rollup,layer2,validity proof,optimistic zk-rollup]
-description: Upgrade your blockchain experience with Morph - the secure decentralized, cost0efficient, and high-performing optimistic zk-rollup solution. Try it now!
+title: Déployer des contrats sur Morph
+lang: fr-FR
+keywords: [morph,ethereum,rollup,layer2,preuve de validité,optimistic zk-rollup]
+description: Améliorez votre expérience blockchain avec Morph - la solution optimiste zk-rollup sécurisée, décentralisée et rentable. Essayez-le maintenant !
 ---
 
+Le réseau de test Morph Holesky permet à quiconque de déployer un contrat intelligent sur Morph. Ce tutoriel vous guidera dans le déploiement d'un contrat sur Morph Holesky en utilisant des outils de développement Ethereum courants.
 
-
-The Morph Holesky Testnet allows anyone to deploy a smart contract on Morph. This tutorial will guide you through deploying a contract on Morph Holesky using common Ethereum development tools.
-
-This [demo repo](https://github.com/morph-l2/morph-examples/tree/main/contract-deployment-demos) illustrates contract deployment with [Hardhat](https://hardhat.org/) and [Foundry](https://github.com/foundry-rs/foundry).
+Ce [dépôt de démonstration](https://github.com/morph-l2/morph-examples/tree/main/contract-deployment-demos) illustre le déploiement de contrats avec [Hardhat](https://hardhat.org/) et [Foundry](https://github.com/foundry-rs/foundry).
 
 :::tip
-  Before you start deploying the contract, you need to request test tokens from a Holesky faucet and use the
-  [bridge](https://bridge-holesky.morphl2.io) to transfer some test ETH from _Holesky_ to _Morph Holesky_. 
+  Avant de commencer à déployer le contrat, vous devez demander des jetons de test à un robinet Holesky et utiliser le
+  [pont](https://bridge-holesky.morphl2.io) pour transférer des ETH de test de _Holesky_ à _Morph Holesky_. 
   
-  See our [Faucet](../../quick-start/3-faucet.md) for details.
+  Consultez notre [robinet](../../quick-start/3-faucet.md) pour plus de détails.
 :::
 
 <!--
 
-## Deploy contracts with Remix
+## Déployer des contrats avec Remix
 
 -->
 
+## Déployer avec Hardhat
 
-## Deploy with Hardhat
-
-### Clone the repo
+### Cloner le dépôt
 
 ```bash
 git clone https://github.com/morph-l2/morph-examples.git
 ```
 
-### Install Dependencies
+### Installer les dépendances
 
-If you haven't already, install [nodejs](https://nodejs.org/en/download/) and [yarn](https://classic.yarnpkg.com/lang/en/docs/install).
+Si ce n'est pas déjà fait, installez [nodejs](https://nodejs.org/en/download/) et [yarn](https://classic.yarnpkg.com/lang/en/docs/install).
 
 ```bash
 cd contract-deployment-demos/hardhat-demo
 yarn install
 ```
-This will install everything you need include hardhat for you.
+Cela installera tout ce dont vous avez besoin, y compris Hardhat pour vous.
 
 
-### Compile
 
-Compile your contract
+### Compiler
+
+Compilez votre contrat
+
 
 ```bash
 yarn compile
 ```
 
-### Test
+### Tester
 
-This will run the test script in test/Lock.ts
+Cela exécutera le script de test dans test/Lock.ts
+
 
 ```bash
 yarn test
 ```
 
-### Deploy
+### Déployer
 
- Create a `.env` file following the example `.env.example` in the root directory. Change `PRIVATE_KEY` to your own account private key in the `.env`.
+ Créez un fichier `.env` en suivant l'exemple de `.env.example` dans le répertoire racine. Changez `PRIVATE_KEY` par votre propre clé privée de compte dans le `.env`.
 
- And Change the network settings in the hardhat.config.ts file with the following information:
+Et changez les paramètres du réseau dans le fichier hardhat.config.ts avec les informations suivantes :
 
    ```javascript
     morphTestnet: {
@@ -73,15 +73,16 @@ yarn test
         process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
     }
    ```
-Then run the following command to deploy the contract on the Morph Holesky Testnet. This will run the deployment script that set the initialing parameters, you can edit the script in scripts/deploy.ts
+Ensuite, exécutez la commande suivante pour déployer le contrat sur le réseau de test Morph Holesky. Cela exécutera le script de déploiement qui définit les paramètres initiaux ; vous pouvez modifier le script dans scripts/deploy.ts.
 
 ```bash
 yarn deploy:morphTestnet
 ```
 
-### Verify your contracts on Morph Explorer
+### Vérifiez vos contrats sur Morph Explorer
 
-To verify your contract through hardhat, you need to add the following Etherscan and Sourcify configs to your hardhat.config.js file:
+Pour vérifier votre contrat via Hardhat, vous devez ajouter les configurations Etherscan et Sourcify suivantes à votre fichier hardhat.config.js :
+
 
 ```javascript
 module.exports = {
@@ -105,70 +106,76 @@ module.exports = {
   },
 };
 ```
-Then run the hardhat verify command to finish the verification
+Ensuite, exécutez la commande de vérification hardhat pour terminer la vérification
 
 ```bash
 npx hardhat verify --network morphTestnet DEPLOYED_CONTRACT_ADDRESS <ConstructorParameter>
 ```
 
-For example
+Parr example
 
 ```bash
 npx hardhat verify --network morphTestnet 0x8025985e35f1bAFfd661717f66fC5a434417448E '0.00001'
 ```
 
 
-Once succeed, you can check your contract and the deployment transaction on [Morph Holesky Explorer](https://explorer-holesky.morphl2.io)
+Une fois réussi, vous pouvez vérifier votre contrat et la transaction de déploiement sur [Morph Holesky Explorer](https://explorer-holesky.morphl2.io)
    
 
-## Deploy contracts with Foundry
+## Déployer des contrats avec Foundry
 
-### Clone the repo
+
+### Cloner le dépôt
 
 ```bash
 git clone https://github.com/morph-l2/morph-examples.git
 ```
 
-### Install Foundry
+### Installer Foundry
+
 ```bash
 curl -L https://foundry.paradigm.xyz | bash
 foundryup
 ```
 
-Then go the right folder of our example:
+Ensuite, allez dans le bon dossier de notre exemple :
+
 
 ```bash
 cd contract-deployment-demos/foundry-demo
 ```
 
-### Compile
+### Compiler
 
 ```bash
 forge build
 ```
-### Deploy
+### Déployer
 
-A Deployment script and use of environment variables has already been set up for you. You can view the script at script/Counter.s.sol
 
-Rename your .env.example file to .env and fill in your private key. The RPC URL has already been filled in along with the verifier URL. 
+Un script de déploiement et l'utilisation de variables d'environnement ont déjà été configurés pour vous. Vous pouvez voir le script dans script/Counter.s.sol
 
-To use the variables in your .env file run the following command: 
+Renommez votre fichier .env.example en .env et remplissez votre clé privée. L'URL RPC a déjà été remplie ainsi que l'URL du vérificateur.
+
+Pour utiliser les variables dans votre fichier .env, exécutez la commande suivante :
 
 ```shell
 source .env
 ```
 
-You can now deploy to Morph with the following command: 
+Vous pouvez maintenant déployer sur Morph avec la commande suivante :
+
 
 ```shell
 forge script script/Counter.s.sol --rpc-url $RPC_URL --broadcast --private-key $DEPLOYER_PRIVATE_KEY --legacy
 ```
 
-Adjust as needed for your own script names. 
+Ajustez au besoin pour vos propres noms de script.
 
-### Verify 
 
-Verification requires some flags passed to the normal verification script. You can verify using the command below:
+### Vérifier
+
+La vérification nécessite certains drapeaux passés au script de vérification normal. Vous pouvez vérifier en utilisant la commande ci-dessous :
 
 ```bash
  forge verify-contract YourContractAddress Counter\
@@ -177,11 +184,11 @@ Verification requires some flags passed to the normal verification script. You c
   --verifier blockscout --watch
 ```
 
-Once succeeded, you can check your contract and the deployment transaction on [Morph Holesky Explorer](https://explorer-holesky.morphl2.io).
+Une fois réussi, vous pouvez vérifier votre contrat et la transaction de déploiement sur  [Morph Holesky Explorer](https://explorer-holesky.morphl2.io).
 
 
-## Questions and Feedback
+## Questions et commentaires
 
-Thank you for participating in and developing on the Morph Holesky Testnet! If you encounter any issues, join our [Discord](https://discord.com/invite/L2Morph) and find us at #dev-support channel.
+Merci de participer et de développer sur le réseau de test Morph Holesky ! Si vous rencontrez des problèmes, rejoignez notre [Discord](https://discord.com/invite/L2Morph) et retrouvez-nous dans le canal #dev-support.
 
 

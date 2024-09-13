@@ -4,14 +4,14 @@
 
 [@morph-l2/sdk](../globals.md) / LowLevelMessage
 
-# Type alias: LowLevelMessage
+# Alias de type : LowLevelMessage
 
 > **LowLevelMessage**: [`CoreCrossChainMessage`](../interfaces/CoreCrossChainMessage.md) & `object`
 
-Describes messages sent inside the L2ToL1MessagePasser on L2. Happens to be the same structure
-as the CoreCrossChainMessage so we'll reuse the type for now.
+Décrit les messages envoyés à l'intérieur du L2ToL1MessagePasser sur L2. C'est la même structure
+que le CoreCrossChainMessage, donc nous allons réutiliser ce type pour l'instant.
 
-## Type declaration
+## Déclaration de type
 
 ### encodedMessage
 

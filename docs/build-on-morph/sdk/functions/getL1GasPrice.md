@@ -4,23 +4,23 @@
 
 [@morph-l2/sdk](../globals.md) / getL1GasPrice
 
-# Function: getL1GasPrice()
+# Fonction : getL1GasPrice()
 
-> **getL1GasPrice**(`l2Provider`): `Promise`\<`BigNumber`\>
+> **getL1GasPrice**(`l2Provider`) : `Promise`\<`BigNumber`\>
 
-Gets the current L1 gas price as seen on L2.
+Obtient le prix actuel du gaz L1 tel qu'il est vu sur L2.
 
-## Parameters
+## Paramètres
 
-• **l2Provider**: [`ProviderLike`](../type-aliases/ProviderLike.md)
+• **l2Provider** : [`ProviderLike`](../type-aliases/ProviderLike.md)
 
-L2 provider to query the L1 gas price from.
+Fournisseur L2 pour interroger le prix du gaz L1.
 
-## Returns
+## Retourne
 
 `Promise`\<`BigNumber`\>
 
-Current L1 gas price as seen on L2.
+Prix actuel du gaz L1 tel qu'il est vu sur L2.
 
 ## Source
 

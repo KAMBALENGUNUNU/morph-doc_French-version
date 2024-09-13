@@ -4,27 +4,27 @@
 
 [@morph-l2/sdk](../globals.md) / estimateL1GasCost
 
-# Function: estimateL1GasCost()
+# Fonction : estimateL1GasCost()
 
-> **estimateL1GasCost**(`l2Provider`, `tx`): `Promise`\<`BigNumber`\>
+> **estimateL1GasCost**(`l2Provider`, `tx`) : `Promise`\<`BigNumber`\>
 
-Estimates the amount of L1 gas cost for a given L2 transaction in wei.
+Estime le coût en gaz L1 pour une transaction L2 donnée en wei.
 
-## Parameters
+## Paramètres
 
-• **l2Provider**: [`ProviderLike`](../type-aliases/ProviderLike.md)
+• **l2Provider** : [`ProviderLike`](../type-aliases/ProviderLike.md)
 
-L2 provider to query the gas usage from.
+Fournisseur L2 pour interroger l'utilisation du gaz.
 
-• **tx**: `TransactionRequest`
+• **tx** : `TransactionRequest`
 
-Transaction to estimate L1 gas cost for.
+Transaction pour laquelle estimer le coût en gaz L1.
 
-## Returns
+## Renvoie
 
 `Promise`\<`BigNumber`\>
 
-Estimated L1 gas cost.
+Coût en gaz L1 estimé.
 
 ## Source
 

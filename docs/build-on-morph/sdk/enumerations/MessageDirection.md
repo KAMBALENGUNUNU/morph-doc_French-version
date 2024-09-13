@@ -4,11 +4,11 @@
 
 [@morph-l2/sdk](../globals.md) / MessageDirection
 
-# Enumeration: MessageDirection
+# Énumération: MessageDirection
 
 Enum describing the direction of a message.
 
-## Enumeration Members
+## Membres de l'Énumération
 
 ### L1\_TO\_L2
 

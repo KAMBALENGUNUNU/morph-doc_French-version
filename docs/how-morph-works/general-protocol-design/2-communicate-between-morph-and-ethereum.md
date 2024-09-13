@@ -1,127 +1,111 @@
 ---
-title: Communication between Morph and Ethereum
-lang: en-US
-keywords: [morph,ethereum,rollup,layer2,validity proof,optimistic zk-rollup]
-description: Upgrade your blockchain experience with Morph - the secure decentralized, cost0efficient, and high-performing optimistic zk-rollup solution. Try it now!
+title: Communication entre Morph et Ethereum
+lang: fr-FR
+keywords: [morph,ethereum,rollup,layer2,preuve de validité,optimistic zk-rollup]
+description: Améliorez votre expérience blockchain avec Morph - la solution zk-rollup optimiste décentralisée, sécurisée, rentable et performante. Essayez-le maintenant !
 ---
 
-Although Morph is a Layer 2 solution built atop Ethereum, it remains a separate and distinct blockchain. Thus, it’s essential to establish a communication channel between Morph and Ethereum to facilitate the smooth transfer of assets and messages. The communication can occur in two directions: from Ethereum to Morph and from Morph to Ethereum.
+Bien que Morph soit une solution Layer 2 construite sur Ethereum, elle reste une blockchain distincte. Ainsi, il est essentiel d'établir un canal de communication entre Morph et Ethereum pour faciliter le transfert fluide d'actifs et de messages. La communication peut se faire dans deux directions : d'Ethereum vers Morph et de Morph vers Ethereum.
 
-## The Basics of Morph - Ethereum Bridge​
+## Les bases du pont Morph - Ethereum​
 
+Le transfert d'actifs entre Ethereum et Morph implique le processus suivant :
 
-Transferring assets between Ethereum and Morph involves the following process:
+- **Verrouillage et emballage des actifs** : Pour initier le transfert, un utilisateur doit verrouiller son actif sur le pont inter-couches. Une fois le verrouillage confirmé, Morph frappe un Token Représentatif qui correspond à la valeur de l'actif verrouillé, dans une procédure appelée "dépôt".
 
-- Asset Locking and Wrapping: To initiate the transfer, a user must lock their asset on the cross-layer bridge. When the lock is confirmed, Morph mints a Wrapped Token that represents the value of the locked asset, in a procedure referred to as a "deposit".
+- **Réception d'actifs** : Après la frappe, l'utilisateur ou le destinataire recevra l'actif sur Morph, reflétant la valeur de l'actif initialement verrouillé.
 
-- Asset Reception: Following the minting, the user or intended recipient will receive the asset on Morph, reflecting the value of the originally locked asset. 
+- **Processus inverse** : À l'inverse, pour transférer des actifs vers Ethereum, le pont peut débloquer l'actif d'origine sur Ethereum en brûlant le Token Représentatif sur Morph. Cela s'appelle un "retrait".
 
-- Reverse Process: Conversely, to transfer assets back to Ethereum, the bridge can unlock the original asset on Ethereum by burning the Wrapped Token on Morph. This is referred to as "withdraw".
+En outre, l'utilité du pont dépasse les simples transferts d'actifs. Il utilise le même principe pour les transferts de messages, permettant la transmission de données entre les deux couches du réseau.
 
-Furthermore, the bridge’s utility extends beyond asset transfers. It employs the same foundational principle for message transfers, enabling the conveyance of data payloads across two network layers.
+## Comprendre le Gateway
 
+Le **Gateway** sert de point d'entrée principal pour les utilisateurs souhaitant interagir avec le système de pont dans son ensemble. Bien que le processus de base pour transférer des actifs repose toujours sur la transmission de messages, nous recommandons d'utiliser l'approche Gateway pour des transactions inter-couches efficaces.
 
-## Understanding the Gateway
+Pour répondre aux divers besoins de transfert d'actifs, nous avons conçu plusieurs Gateways distincts tels que l'ETH Gateway, le Gateway ERC20 standard, et d'autres.
 
+Nous avons également mis en place un **Gateway Router** qui appelle différents Gateways en fonction du type d'actifs que vous possédez, facilitant ainsi une interaction transparente avec le contrat Gateway Router.
 
-The Gateway serves as the primary entry point for users to interact with the entire bridge system. While the core process of transferring assets across layers still relies on message transmission, we recommend using the Gateway approach for efficient cross-layer transactions.
-
-Catering to diverse cross-layer asset transfer needs, we have designed distinct Gateways such as the ETH Gateway, standard ERC20 Gateway, and others.
-
-Furthermore, we have implemented the Gateway Router to call on different Gateways based on the type of assets you have. This facilitates seamless interaction with the Gateway Router contract.
-
-
-
-
-
-| L1 Gateway Contract         | Description                                                      |
+| Contrat Gateway L1         | Description                                                      |
 | ------------------------ | ---------------------------------------------------------------- |
-| `L1GatewayRouter`        | The gateway router supports the deposit of ETH and ERC20 tokens. |
-| `L1ETHGateway`           | The gateway to deposit ETH.                                      |
-| `L1StandardERC20Gateway` | The gateway for standard ERC20 token deposits.                   |
-| `L1CustomERC20Gateway`   | The gateway for custom ERC20 token deposits.                     |
-| `L1WETHGateway`          | The gateway for Wrapped ETH deposits.                            |
+| `L1GatewayRouter`        | Le router pour déposer des ETH et des tokens ERC20.               |
+| `L1ETHGateway`           | Le gateway pour déposer des ETH.                                  |
+| `L1StandardERC20Gateway` | Le gateway pour les dépôts de tokens ERC20 standards.             |
+| `L1CustomERC20Gateway`   | Le gateway pour les dépôts de tokens ERC20 personnalisés.         |
+| `L1WETHGateway`          | Le gateway pour les dépôts d'ETH encapsulés (WETH).               |
 
-
-| L2 Gateway Contract         | Description                                                      |
+| Contrat Gateway L2         | Description                                                      |
 | ------------------------ | ---------------------------------------------------------------- |
-| `L2GatewayRouter`        | The gateway router supports the withdraw of ETH and ERC20 tokens. |
-| `L2ETHGateway`           | The gateway to withdraw ETH.                                      |
-| `L2StandardERC20Gateway` | The gateway for standard ERC20 token withdraw.                   |
-| `L2CustomERC20Gateway`   | The gateway for custom ERC20 token withdraw.                     |
-| `L2WETHGateway`          | The gateway for Wrapped ETH withdraw.                            |
+| `L2GatewayRouter`        | Le router pour retirer des ETH et des tokens ERC20.               |
+| `L2ETHGateway`           | Le gateway pour retirer des ETH.                                  |
+| `L2StandardERC20Gateway` | Le gateway pour les retraits de tokens ERC20 standards.           |
+| `L2CustomERC20Gateway`   | Le gateway pour les retraits de tokens ERC20 personnalisés.       |
+| `L2WETHGateway`          | Le gateway pour les retraits d'ETH encapsulés (WETH).             |
 
+## Dépôt (Message L1 vers L2)
 
-## Deposit (L1 to L2 message) 
+![Processus de Dépôt](../../../assets/docs/protocol/general/bridge/deposit.png)
 
-![Deposit Process](../../../assets/docs/protocol/general/bridge/deposit.png)
+### Construire une demande de dépôt via le Gateway
 
-### Constructing a Deposit Request Through the Gateway
+Une demande de pont, qu'il s'agisse d'ETH, ERC20 ou ERC721, est essentiellement un message inter-couches, qui nécessite la construction initiale d'un message.
 
-A bridge request, whether it is for ETH, ERC20, or ERC721, is essentially a cross-layer message, which necessitates the initial construction of a message. 
+Généralement, la structure du message reste cohérente, notamment pour les Gateways ETH et ERC20.
 
-Generally, the message structure remains consistent, especially for ETH & ERC20 Gateways.
+L'utilisation d'un token gateway compile un message standard et le relaie au ```CrossDomainMessenger```.
 
-Employing a token gateway compiles a standard token gateway message and relays it to the ```CrossDomainMessenger```.
+### Transmission du message via le CrossDomainMessenger
 
-### Passing the Message Through the CrossDomainMessenger
+Le ```CrossDomainMessenger``` sert de composant central pour la communication inter-couches, avec des contrats correspondants sur Layer 1 et Layer 2.
 
+Pour un dépôt, le messager L1 envoie un message au messager L2, similaire à un appel de contrat sur Layer 1, ce qui signifie que des messages personnalisés peuvent être construits pour diverses interactions inter-couches.
 
-The ```CrossDomainMessenger``` serves as the core unit of cross-layer communication,
-with corresponding messenger contracts on both Layer 1 and Layer 2.
+### Exécution du message sur Layer 2
 
-For a deposit, the L1 messenger sends a message to the L2 messenger, akin to a contract call on Layer 1, which means custom messages (contract interactions) can be constructed to perform various types of cross-layer interactions.
+Le message inter-couches est livré au ```L1MessageQueueWithGasPriceOracle```, ce qui déclenche un événement appelé ```QueueTransaction```.
 
-### Executing the Message on Layer 2
+Le Séquenceur surveillera cet événement et inclura une transaction Layer 2 dans son prochain bloc.
 
-The cross-domain message is delivered to the ```L1MessageQueueWithGasPriceOracle```, which then triggers an event called ```QueueTransaction```.
+### Comment s'assurer que le Séquenceur ne falsifie pas une transaction de dépôt ?
 
-The Sequencer will monitor this event and include a Layer 2 transaction in its next block.
+Les séquenceurs pourraient être tentés de forger une transaction de dépôt inexistante, comme frapper une grande quantité de tokens Layer 2 et les transférer à une adresse qu'ils possèdent.
 
+Morph prévient ces risques par deux mesures :
 
-### How to make sure Sequencer doesn't fake a deposit transaction?
+- L'architecture décentralisée des séquenceurs de Morph rend la falsification de transactions très difficile sans contrôler au moins deux tiers des Séquenceurs.
 
-Sequencers may have the motivation to forge a non-existent deposit transaction, such as minting a large amount of Layer 2 tokens and transferring these to an address they own.
+- Le cadre zkEVM optimiste de Morph permet aux challengers de détecter ce comportement malveillant et d'initier des défis pour corriger l'inconduite.
 
-Morph prevents these risks with two measures:
+Un exécuteur Layer 2, détenant le message inter-couches, interagit avec le messager L2 pour exécuter le message, ce qui peut inclure le transfert d'ETH L2 ou de tokens ERC20 à leur destinataire.
 
-Due to Morph’s decentralized Sequencer architecture, forging transactions would require control of at least two-thirds of the Sequencers, a challenging feat.
+### Finalisation du message de dépôt
 
-Morph's optimistic zkEVM framework allows challengers to detect such malicious behavior and initiate challenges to correct the misconduct.
+La finalisation du processus de dépôt implique plus que l'exécution de la demande sur Layer 2. Il est possible que l'exécution Layer 2 et sa mise à jour d'état correspondante puissent être annulées en raison de la détection de données incorrectes dans le processus de défi.
 
+Ainsi, une demande de dépôt n'est considérée comme complète que lorsque le lot correspondant à la transaction d'exécution du dépôt est finalisé.
 
-A Layer 2 executor, holding the cross-layer message, interacts with the L2 messenger to execute the message, which may include transferring L2 ETH or ERC20 tokens to the recipient.
+En général, cela suit un flux de travail simple :
 
+- Les transactions d'exécution de dépôt sont compilées en lot et soumises à Layer 1 par les soumetteurs de lots.
 
-### Finalizing the Deposit Message
+- Après la période de défi, les lots valides sont finalisés par des soumissions de lots ultérieures via ```rollup.commitBatch```.
 
-The completion of the deposit process involves more than just executing the request on Layer 2. There is a possibility that the Layer 2 execution and its corresponding state update could be reverted due to incorrect batch data being identified through the challenge process.
+- Pendant la finalisation, le ```L1MessageQueueAndGasPriceOracle``` supprime (pop) le message de dépôt de la file d'attente, marquant ainsi la fin du processus de dépôt.
 
-Therefore, a deposit request is only considered complete once the corresponding batch of the deposit execution transaction is finalized.
+## Retrait (Message L2 -> L1)
 
-Typically, this follows a simple workflow:
+![Processus de Retrait](../../../assets/docs/protocol/general/bridge/withdraw.png)
 
-- The deposit execution transactions are compiled into a batch and submitted to Layer 1 by batch submitters. 
+### Finalisation d'un Retrait
 
-- Following the challenge period, valid batches are finalized by subsequent batch submissions using ```rollup.commitBatch```. 
+Contrairement aux Dépôts, une demande de retrait doit passer par 2 processus avant son exécution :
 
-- During finalization, the ```L1MessageQueueAndGasPriceOracle``` removes(pop) the deposit message from the queue, marking the completion of  the deposit process.
+1. Prouver qu'une demande de retrait a réellement eu lieu sur la Layer 2 en vérifiant une preuve d'arbre Merkle contre la racine de l'arbre de retrait validée par les séquenceurs.
 
+2. Attendre la fin de la période de contestation et finaliser la racine de l'arbre de retrait, pour éviter que les séquenceurs ne soumettent des données de lot incorrectes, y compris la racine de l'arbre de retrait.
 
-
-## Withdraw (L2 -> L1 message) 
-
-![Withdraw Process](../../../assets/docs/protocol/general/bridge/withdraw.png)
-
-### Finalizing a Withdrawal
-
-Unlike Deposits, a withdrawal request must undergo 2 processes for execution:
-
-1. Prove that a withdraw request actually happened on Layer 2 by verifying a Merkle tree proof against the withdrawal tree root committed by sequencers.
-
-2. Wait for the challenge period to end and finalize the withdraw tree root, addressing the risk of sequencer submitting incorrect batch data, including the withdraw tree root.
-
-Typically, these 2 processes happen at the same time. Once the withdraw tree root is finalized, users can call the ```proveAndRelayMessage``` method within the ```L1CrossDomainMessenger``` contract to execute the withdrawal message.
+En général, ces deux processus se déroulent simultanément. Une fois la racine de l'arbre de retrait finalisée, les utilisateurs peuvent appeler la méthode ```proveAndRelayMessage``` dans le contrat ```L1CrossDomainMessenger``` pour exécuter le message de retrait.
 
 ```solidity
 function proveAndRelayMessage(
@@ -136,70 +120,65 @@ function proveAndRelayMessage(
 
 ```
 
-This function serves two primary purposes:
+Cette fonction a deux objectifs principaux :
 
-1. It checks if the withdraw tree root associated with this message has been finalized through the rollup contract.
-2. It verifies whether the withdraw request actually occurred by validating the provided Merkle proof.
+Vérifier si la racine de l'arbre de retrait associée à ce message a été finalisée via le contrat rollup.
+Valider si la demande de retrait a réellement eu lieu en validant la preuve Merkle fournie.
+Une fois ces deux processus terminés avec succès, cette méthode exécutera l'action correspondante, comme la libération des ETH de l'utilisateur sur Layer 1 pour une demande de retrait d'ETH standard.
 
-Upon successful completion of both processes, this method will execute the corresponding action, such as releasing the user's ETH on Layer 1 for a standard ETH withdrawal request.
+### Comprendre l'Arbre de Retrait
 
+Les actions de retrait impliquent d'interagir avec des actifs/contrats L1 à la suite d'une transaction Layer 2. Par conséquent, il est essentiel de vérifier l'existence d'une transaction Layer 2 déclenchant une demande de retrait, d'une manière vérifiable sur Layer 1.
 
-### Understanding the Withdraw Tree
+Pour cela, nous introduisons une structure appelée Arbre de Retrait, qui enregistre chaque transaction de retrait L2 dans un arbre de Merkle. Ainsi, les propriétés de l'arbre de Merkle peuvent être utilisées pour confirmer la survenue d'une demande de retrait.
 
-Withdrawal actions involve interacting with L1 assets/contracts as a result of a Layer 2 transaction. Consequently, it’s imperative to verify the existence of a Layer 2 transaction that triggers a withdrawal request, in a manner that is verifiable on Layer 1.
+Le terme Arbre de Retrait fait référence à un Arbre de Merkle Sparse (SMT) en mode ajout-seul, dont les nœuds feuilles capturent les informations sur les actifs transférés hors du réseau. Chaque feuille dans l'Arbre de Retrait, connue sous le nom de feuille de Retrait, appartient à deux catégories : type 0 pour enregistrer des informations d'actif(s) et type 1 pour enregistrer des informations de messagerie.
 
-To achieve this, we introduce a structure known as a Withdraw Tree, which records every L2 withdrawal transaction within a Merkle tree. Thus, a Merkle tree's properties can be leveraged to confirm a withdrawal request’s occurrence.
+Une feuille de Retrait est un hash Keccak256 de la structure ABI encodée de manière packée avec un message inter-domaines.
 
-The term Withdraw Tree refers to an append-only Sparse Merkle Tree (SMT) with leaf nodes that capture information on assets being transferred out of the network.
-Each leaf in the Withdraw Tree, known as a Withdraw leaf, falls into two categories: type 0 for recording asset(s) information and type 1 for recording messaging information.
+L'Arbre de Retrait est essentiel pour cataloguer les transactions de retrait et vérifier la légitimité des demandes de retrait.
 
-A withdraw leaf, in particular, is a Keccak256 hash of the ABI encoded packed structure with cross domain message.
+Morph a pré-déployé un contrat d'Arbre de Merkle Simple dédié à la construction de l'arbre de retrait de Layer 2.
 
-The Withdraw Tree is instrumental in cataloging withdrawal transactions and ascertaining the legitimacy of withdrawal requests.
+Cet arbre intègre trois méthodes :
 
-Morph has pre-deployed a Simple Merkle Tree contract dedicated to constructing the Layer 2 withdraw tree.
+1. ```getTreeroot``` - Récupère le hash racine actuel de l'arbre.
+2. ```appendMessageHash``` - Ajoute un nouveau nœud feuille à l'arbre.
+3. ```verifyMerkleProof``` - Vérifie si un nœud feuille existe dans l'arbre, ce qui indique la validité de la demande de pontage qu'il représente.
 
-This tree incorporates three methods:
+### Comprendre la Période de Contestation & la Finalisation des Batches
 
-1. ```getTreeroot``` - Retrieves the current tree's root hash.
-2. ```appendMessageHash``` - Appends a new leaf node to the tree.
-3. ```verifyMerkleProof``` - Verifies if a leaf node exists in the tree, indicating the validity of the bridge request it represents.
+L'architecture zkEVM Optimiste exige que chaque transaction L2 soit soumise à Layer 1 et passe par une période de contestation avant d'être finalisée.
 
-### Understanding the Challenge Period & Batch Finalization
+Ce processus est essentiel pour valider l'état de Layer 2 et, finalement, valider l'authenticité de la demande de retrait.
 
-The Optimistic zkEVM architecture mandates that each L2 transaction be submitted to Layer 1 and undergo a challenge period before finalization.
+La racine de l'arbre de retrait, cruciale pour la vérification des demandes de retrait, est également soumise par les séquenceurs une fois que la période de contestation, les batches et les états ont été finalisés.
 
-This process is vital to validate the Layer 2 state, eventually validating the authenticity of the withdraw request.
+## Erreurs Inter-couches (Pont)
+Avec la conception des ponts inter-couches, le message inter-couches pour les dépôts doit être exécuté et mettre à jour ses états Layer 2. L'envoi d'une demande inter-chaînes réussie ne garantit pas son exécution sur L2.
 
-The withdraw tree root, integral for withdrawal request verification, is also submitted by sequencers once the challenge period, batches, and states have been finalized.
+Avant cela, il existe une possibilité que le message inter-couches échoue lors de l'exécution sur Layer 2. Cette section décrit les scénarios potentiels et les solutions pour gérer les messages de dépôt inter-couches échoués.
 
-## Cross-layer (Bridge) Errors
+### Scénarios d'échec Inter-couches (Pont) :
 
-With the design of cross-layer bridges, the cross-layer message for deposits needs to be executed and have its Layer 2 states updated. Sending a cross-chain request successfully does not guarantee its successful execution on L2.
+Deux types principaux d'échecs peuvent survenir dans les communications inter-couches (pont) :
 
-Prior to this, there is a possibility of the cross-layer message failing during execution on Layer 2. 
-This section outlines the potential scenarios and solutions for handling failed cross-layer deposit messages.
+Échec de Gaz : Les messages inter-couches envoyés de L1 à L2 peuvent échouer lors de leur exécution sur L2 en raison de limitations dans gasLimit ou la logique du code.
 
-### Cross-layer (Bridge) Failure Scenarios:
-Two primary types of failures can occur in cross-layer (bridge) communications:
+Message Ignoré : Certaines exécutions de données peuvent provoquer des débordements dans les circuits des nœuds L2, entraînant l'omission ou l'ignorance des messages inter-couches.
 
-1. Gas Failure: Cross-layer messages sent from the L1 to the L2 might fail during execution on the L2 due to limitations in gasLimit or code logic. 
+### Gestion des Échecs Inter-couches (Pont) :
 
-2. Skipped Message: Some data executions may trigger overflows in the circuits of L2 nodes, leading to the omission or skipping of cross-layer messages. 
+Pour les Échecs de Gaz :
 
-### Handling Cross-layer (Bridge) Failures:
+- Lorsque le contrat ```L1CrossDomainMessenger``` sur L1 envoie un message inter-couches, il enregistre le hash correspondant du message mais n'intègre pas le gasLimit dans cet enregistrement. Après l'exécution sur L2, le  ```L2CrossDomainMessenger``` effectue un calcul équivalent, stockant le résultat de l'appel du contrat dans ```mapping(isL1MessageExecuted)```.Cette mesure empêche l'exécution multiple du même message et facilite l'ajustement des paramètres de gasLimit pour rejouer les messages échoués.
 
-For Gas Failures:
+- Rejouer le Message : Si gasLimit est insuffisant, provoquant un échec d'exécution sur L2, un nouveau message inter-couches avec un paramètre gasLimit révisé peut être envoyé en appelant  ```L1CrossDomainMessenger.replayMessage```.
+Pour les Messages Ignorés :
 
-- When the ```L1CrossDomainMessenger``` contract on L1 dispatches a cross-layer message, it records the corresponding message hash but does not incorporate the gasLimit in this record. Post-execution on L2, the ```L2CrossDomainMessenger``` performs an equivalent calculation, storing the contract call result in ```mapping(isL1MessageExecuted)```. This measure prevents multiple executions of the same message and facilitates the adjustment of gasLimit parameters for replaying failed messages.
+- Les messages abandonnés en raison de débordements potentiels de circuits sur L2 sont ignorés et non exécutés. Les contrats d'appel inter-couches personnalisés doivent implémenter la méthode
+```onDropMessage```pour tenir compte de ces cas.
 
-- Replay Message: If gasLimit is insufficient, causing a failed execution on the L2, a new cross-layer message with a revised gasLimit parameter can be sent by calling ```L1CrossDomainMessenger.replayMessage```.
+- Le contrat gateway inclut la méthode onDropMessage, conçue pour rembourser l'initiateur du message inter-couches.
 
-For Skipped Messages:
-
-- Messages dropped due to potential circuit overflow on the L2 are skipped and not executed. Custom cross-layer calling contracts need to implement the 
-```onDropMessage``` method to consider such cases.
-
-- The gateway contract includes the onDropMessage method, designed to refund the initiator of the cross-layer message.
-
-- Calling ```L1CrossDomainMessenger.dropMessage``` discards the cross-layer message and triggers the onDropMessage method in the originating contract, passing the transaction's value and message as msg.value and method parameters, accordingly.
+- Appeler  ```L1CrossDomainMessenger.dropMessage``` permet de supprimer le message inter-couches et de déclencher la méthode onDropMessage dans le contrat d'origine, en passant la valeur et le message de la transaction comme msg.value et paramètres de la méthode, respectivement.

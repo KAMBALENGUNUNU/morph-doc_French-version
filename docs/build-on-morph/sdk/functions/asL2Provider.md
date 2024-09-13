@@ -4,29 +4,29 @@
 
 [@morph-l2/sdk](../globals.md) / asL2Provider
 
-# Function: asL2Provider()
+# Fonction : asL2Provider()
 
-> **asL2Provider**\<`TProvider`\>(`provider`): [`L2Provider`](../type-aliases/L2Provider.md)\<`TProvider`\>
+> **asL2Provider**\<`TProvider`\>(`provider`) : [`L2Provider`](../type-aliases/L2Provider.md)\<`TProvider`\>
 
-Returns an provider wrapped as an Morph L2 provider. Adds a few extra helper functions to
-simplify the process of estimating the gas usage for a transaction on Morph. Returns a COPY
-of the original provider.
+Renvoie un fournisseur enveloppé en tant que fournisseur Morph L2. Ajoute quelques fonctions d'aide supplémentaires pour
+simplifier le processus d'estimation de l'utilisation du gaz pour une transaction sur Morph. Renvoie une COPIE
+du fournisseur original.
 
-## Type parameters
+## Paramètres de type
 
-• **TProvider** *extends* `Provider`\<`TProvider`\>
+• **TProvider** *s'étend* `Provider`\<`TProvider`\>
 
-## Parameters
+## Paramètres
 
-• **provider**: `TProvider`
+• **provider** : `TProvider`
 
-Provider to wrap into an L2 provider.
+Fournisseur à envelopper en tant que fournisseur L2.
 
-## Returns
+## Renvoie
 
 [`L2Provider`](../type-aliases/L2Provider.md)\<`TProvider`\>
 
-Provider wrapped as an L2 provider.
+Fournisseur enveloppé en tant que fournisseur L2.
 
 ## Source
 

@@ -4,9 +4,9 @@
 
 [@morph-l2/sdk](../globals.md) / L2RpcUrls
 
-# Enumeration: L2RpcUrls
+# Énumération: L2RpcUrls
 
-## Enumeration Members
+## Membres de l'Énumération
 
 ### MORPH\_HOLESKY
 

@@ -4,33 +4,33 @@
 
 [@morph-l2/sdk](../globals.md) / omit
 
-# Function: omit()
+# Fonction : omit()
 
-> **omit**\<`T`, `K`\>(`obj`, ...`keys`): `Omit`\<`T`, `K`\>
+> **omit**\<`T`, `K`\>(`obj`, ...`keys`) : `Omit`\<`T`, `K`\>
 
-Returns a copy of the given object ( ...obj ) with the given keys omitted.
+Renvoie une copie de l'objet donné ( ...obj ) avec les clés données omises.
 
-## Type parameters
+## Paramètres de type
 
 • **T** *extends* `object`
 
 • **K** *extends* `string` \| `number` \| `symbol`
 
-## Parameters
+## Paramètres
 
-• **obj**: `T`
+• **obj** : `T`
 
-Object to return with the keys omitted.
+Objet à renvoyer avec les clés omises.
 
-• ...**keys**: `K`[]
+• ...**keys** : `K`[]
 
-Keys to omit from the returned object.
+Clés à omettre de l'objet renvoyé.
 
-## Returns
+## Retourne
 
 `Omit`\<`T`, `K`\>
 
-A copy of the given object with the given keys omitted.
+Une copie de l'objet donné avec les clés omises.
 
 ## Source
 

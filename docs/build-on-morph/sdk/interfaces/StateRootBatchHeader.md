@@ -4,15 +4,15 @@
 
 [@morph-l2/sdk](../globals.md) / StateRootBatchHeader
 
-# Interface: StateRootBatchHeader
+# Interface : StateRootBatchHeader
 
-Header for a state root batch.
+En-tête pour un lot d'états racines.
 
-## Properties
+## Propriétés
 
 ### batchIndex
 
-> **batchIndex**: `BigNumber`
+> **batchIndex** : `BigNumber`
 
 #### Source
 
@@ -22,7 +22,7 @@ src/interfaces/types.ts:326
 
 ### batchRoot
 
-> **batchRoot**: `string`
+> **batchRoot** : `string`
 
 #### Source
 
@@ -32,7 +32,7 @@ src/interfaces/types.ts:327
 
 ### batchSize
 
-> **batchSize**: `BigNumber`
+> **batchSize** : `BigNumber`
 
 #### Source
 
@@ -42,7 +42,7 @@ src/interfaces/types.ts:328
 
 ### extraData
 
-> **extraData**: `string`
+> **extraData** : `string`
 
 #### Source
 
@@ -52,7 +52,7 @@ src/interfaces/types.ts:330
 
 ### prevTotalElements
 
-> **prevTotalElements**: `BigNumber`
+> **prevTotalElements** : `BigNumber`
 
 #### Source
 

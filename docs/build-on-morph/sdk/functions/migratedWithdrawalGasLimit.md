@@ -4,19 +4,19 @@
 
 [@morph-l2/sdk](../globals.md) / migratedWithdrawalGasLimit
 
-# Function: migratedWithdrawalGasLimit()
+# Fonction : migratedWithdrawalGasLimit()
 
-> **migratedWithdrawalGasLimit**(`data`, `chainID`): `BigNumber`
+> **migratedWithdrawalGasLimit**(`data`, `chainID`) : `BigNumber`
 
-Compute the min gas limit for a migrated withdrawal.
+Calcule la limite minimale de gaz pour un retrait migré.
 
-## Parameters
+## Paramètres
 
-• **data**: `string`
+• **data** : `string`
 
-• **chainID**: `number`
+• **chainID** : `number`
 
-## Returns
+## Retourne
 
 `BigNumber`
 

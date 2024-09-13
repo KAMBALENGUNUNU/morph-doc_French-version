@@ -1,20 +1,18 @@
 ---
-title: Prune State
-lang: en-US
+title: État de Prune
+lang: fr-FR
 ---
-The performance of a full node will degrade when the storage size reaches a high volume. We suggest that the fullnode always keep light storage by pruning the storage.
 
-### How to Prune
+La performance d'un nœud complet se dégrade lorsque la taille de stockage atteint un volume élevé. Nous suggérons que le nœud complet garde toujours un stockage léger en effectuant une taille de prune.
 
-1. Stop the node, including the consensus client(morphnode) and the execution client(geth)
-2. Run ```nohup geth snapshot prune-zk-state --datadir "$GETH_DB_DIR" > prune.log &```. It will take 5~7 hours to finish.
-3. Start the node once it is done. 
+### Comment Pruner
 
-The hardware is important, **make sure the SSD meets: solid-state drive(SSD), 8k IOPS, 500 MB/S throughput, read latency < 1ms.**
+1. Arrêtez le nœud, y compris le client de consensus (morphnode) et le client d'exécution (geth).
+2. Exécutez ```nohup geth snapshot prune-zk-state --datadir "$GETH_DB_DIR" > prune.log &```. Cela prendra environ 5 à 7 heures pour finir.
+3. Démarrez le nœud une fois terminé.
+
+Le matériel est important, **assurez-vous que le SSD respecte : disque à état solide (SSD), 8k IOPS, débit de 500 Mo/s, latence de lecture < 1 ms.**
 
 :::note
-To prune a Geth node at least 200 GB of free disk space is recommended. This means pruning cannot be used to save a hard drive that has been completely filled. A good rule of thumb is to prune before the node fills ~80% of the available disk space.
+Pour pruner un nœud Geth, au moins 200 Go d'espace disque libre sont recommandés. Cela signifie que le prune ne peut pas être utilisé pour sauver un disque dur qui a été complètement rempli. Une bonne règle de base est de pruner avant que le nœud remplisse environ 80 % de l'espace disque disponible.
 :::
-
-
-

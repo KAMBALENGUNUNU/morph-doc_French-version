@@ -1,28 +1,26 @@
 ---
-title: FAQs
-lang: en-US
-keywords: [morph,layer2,validity proof,optimistic zk-rollup]
-description: Upgrade your blockchain experience with Morph - the secure decentralized, cost0efficient, and high-performing optimistic zk-rollup solution. Try it now!
+title: Questions Fréquemment Posées
+lang: fr-FR
+keywords: [morph,layer2,preuve de validité,optimistic zk-rollup]
+description: Améliorez votre expérience blockchain avec Morph - la solution optimistic zk-rollup sécurisée, décentralisée et performante. Essayez-le maintenant !
 ---
 
-## What Kind of Rollup is Morph?
+## Quel Type de Rollup Est Morph ?
 
-Morph uses a hybrid rollup model called "Optimistic zkEVM & RVP". This combines the strengths of both zkRollups and Optimistic Rollups, optimizing for efficiency, cost, and speed. This unique approach places Morph at the cutting edge of rollup technology.
+Morph utilise un modèle de rollup hybride appelé "Optimistic zkEVM & RVP". Cela combine les forces des zkRollups et des Optimistic Rollups, optimisant l'efficacité, le coût et la rapidité. Cette approche unique place Morph à la pointe de la technologie des rollups.
 
-## What Sets Morph Apart from Other Rollups?
+## Qu'est-ce Qui Différencie Morph des Autres Rollups ?
 
-Morph stands out with its innovative features:
+Morph se distingue par ses fonctionnalités innovantes :
 
+**Vérification d'État** : La méthode Optimistic zkEVM & RVP améliore l'efficacité en combinant les zkRollups et les Optimistic Rollups.
 
-**State Verification**: The Optimistic zkEVM & RVP method enhances efficiency by combining zkRollups and Optimistic Rollups.
+**Efficacité et Réduction des Coûts** : Morph assure une exécution rapide des transactions et un bon rapport coût-efficacité tout en maintenant la décentralisation.
 
-**Efficiency and Cost Reduction**: Morph ensures fast transaction execution and cost-effectiveness while maintaining decentralization.
+**Réseau de Séquenceurs Décentralisé** : Cette configuration de réseau novatrice répond aux préoccupations de sécurité et garantit la robustesse au niveau de Layer 1.
 
-**Decentralized Sequencer Network**: This pioneering network setup addresses security concerns and ensures robustness at a Layer 1 level.
+**Architecture Modulaire** : L'architecture adaptable et composée de Morph favorise un écosystème flexible et interactif.
 
-**Modular Architecture**: Morph’s adaptable and composable architecture fosters a flexible and interactive ecosystem.
+## En Tant que Développeur Solidity, Vais-je Remarquer des Différences en Déployant sur Morph Comparé à Ethereum ?
 
-## As a Solidity Developer, Will I Notice Differences Deploying on Morph Compared to Ethereum?
-
-Deploying on Morph is very similar to deploying on Ethereum, thanks to its EVM compatibility. Ethereum applications can be migrated to Morph with minimal adjustments. For more detailed guidance, check out the [Development Guides](../build-on-morph/build-on-morph/2-development-setup.md) section.
-
+Déployer sur Morph est très similaire à déployer sur Ethereum, grâce à sa compatibilité EVM. Les applications Ethereum peuvent être migrées vers Morph avec des ajustements minimes. Pour des conseils plus détaillés, consultez la section [Guides de Développement](../build-on-morph/build-on-morph/2-development-setup.md).

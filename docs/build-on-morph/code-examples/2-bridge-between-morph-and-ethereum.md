@@ -1,16 +1,15 @@
 ---
-title: Bridge between Morph and Ethereum
-lang: en-US
-keywords: [morph,ethereum,rollup,layer2,validity proof,optimistic zk-rollup]
-description: Upgrade your blockchain experience with Morph - the secure decentralized, cost0efficient, and high-performing optimistic zk-rollup solution. Try it now!
+title: Pont entre Morph et Ethereum
+lang: fr-FR
+keywords: [morph,ethereum,rollup,layer2,preuve de validité,optimistic zk-rollup]
+description: Améliorez votre expérience blockchain avec Morph - la solution de rollup optimiste zk sécurisée, décentralisée, rentable et performante. Essayez-le maintenant !
 ---
 
-## Bridge an ERC20 through custom gateway
+## Pont d'un ERC20 à travers une passerelle personnalisée
 
+## Étape 1 : Lancez un token sur Holesky
 
-## Step 1: Launch a token on Holesky
-
-First, we need a token to bridge. There is no need for a particular ERC20 implementation in order for a token to be compatible with L2. If you already have a token, feel free to skip this step. If you want to deploy a new token, use the following contract of a simple ERC20 token that mints 1 million tokens to the deployer when launched.
+Tout d'abord, nous avons besoin d'un token à relier. Il n'est pas nécessaire d'avoir une mise en œuvre particulière d'ERC20 pour qu'un token soit compatible avec L2. Si vous avez déjà un token, n'hésitez pas à passer cette étape. Si vous souhaitez déployer un nouveau token, utilisez le contrat suivant d'un simple token ERC20 qui émet 1 million de tokens au déployeur lors du lancement.
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -18,38 +17,38 @@ pragma solidity ^0.8.16;
 
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
-contract L1Token is ERC20 {
-  constructor() ERC20("My Token L1", "MTL1") {
+contract L1Token est ERC20 {
+  constructor() ERC20("Mon Token L1", "MTL1") {
     _mint(msg.sender, 1_000_000 ether);
   }
 }
+
 ```
 
-## Step 2: Launch the counterpart token on Morph Holesky testnet
+## Étape 2 : Lancez le token correspondant sur le testnet Morph Holesky
 
-Next, you'll launch a counterpart to this token on Morph, which will represent the original token on Holesky. This token can implement custom logic to match that of the L1 token or even add additional features beyond those of the L1 token.
+Ensuite, vous lancerez un équivalent de ce token sur Morph, qui représentera le token original sur Holesky. Ce token peut mettre en œuvre une logique personnalisée pour correspondre à celle du token L1 ou même ajouter des fonctionnalités supplémentaires au-delà de celles du token L1.
 
-For this to work:
+Pour que cela fonctionne :
 
-- The token must implement the `IMorphStandardERC20` interface in order to be compatible with the bridge.
-- The contract should provide the gateway address and the counterpart token addresses (the L1 token we just launched) under the `gateway()` and `counterpart()` functions. It should also allow the L2 gateway to call the token `mint()` and `burn()` functions, which are called when a token is deposited and withdrawn.
+- Le token doit mettre en œuvre l'interface `IMorphStandardERC20`pour être compatible avec le pont.
+- Le contrat doit fournir l'adresse de la passerelle et les adresses des tokens correspondants (le token L1 que nous venons de lancer) dans les fonctions `gateway()` et `counterpart()`Il doit également permettre à la passerelle L2 d'appeler les fonctions `mint()` et `burn()`du token, qui sont appelées lorsqu'un token est déposé et retiré.
 
-The following is a complete example of a token compatible with the bridge. To the constructor, you will pass the official Morph Custom Gateway address (`0x058dec71E53079F9ED053F3a0bBca877F6f3eAcf`) and the address of the token launched on Holesky.
+Voici un exemple complet d'un token compatible avec le pont. Dans le constructeur, vous passerez l'adresse de la passerelle personnalisée Morph (`0x058dec71E53079F9ED053F3a0bBca877F6f3eAcf`) et l'adresse du token lancé sur Holesky.
 
-```solidity
-// SPDX-License-Identifier: MIT
+```solidity// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.16;
 
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@Morph-tech/contracts@0.1.0/libraries/token/IMorphERC20Extension.sol";
 
-contract L2Token is ERC20, IMorphERC20Extension {
-  // We store the gateway and the L1 token address to provide the gateway() and counterpart() functions which are needed from the Morph Standard ERC20 interface
+contract L2Token est ERC20, IMorphERC20Extension {
+  // Nous stockons la passerelle et l'adresse du token L1 pour fournir les fonctions gateway() et counterpart() qui sont nécessaires à l'interface Morph Standard ERC20
   address _gateway;
   address _counterpart;
 
-  // In the constructor we pass as parameter the Custom L2 Gateway and the L1 token address as parameters
-  constructor(address gateway_, address counterpart_) ERC20("My Token L2", "MTL2") {
+  // Dans le constructeur, nous passons comme paramètres la passerelle personnalisée L2 et l'adresse du token L1
+  constructor(address gateway_, address counterpart_) ERC20("Mon Token L2", "MTL2") {
     _gateway = gateway_;
     _counterpart = counterpart_;
   }
@@ -62,85 +61,81 @@ contract L2Token is ERC20, IMorphERC20Extension {
     return _counterpart;
   }
 
-  // We allow minting only to the Gateway so it can mint new tokens when bridged from L1
+  // Nous permettons la création de tokens uniquement à la Passerelle afin qu'elle puisse émettre de nouveaux tokens lorsqu'ils sont reliés depuis L1
   function transferAndCall(address receiver, uint256 amount, bytes calldata data) external returns (bool success) {
     transfer(receiver, amount);
     data;
     return true;
   }
 
-  // We allow minting only to the Gateway so it can mint new tokens when bridged from L1
+  // Nous permettons la création de tokens uniquement à la Passerelle afin qu'elle puisse émettre de nouveaux tokens lorsqu'ils sont reliés depuis L1
   function mint(address _to, uint256 _amount) external onlyGateway {
     _mint(_to, _amount);
   }
 
-  // Similarly to minting, the Gateway is able to burn tokens when bridged from L2 to L1
+  // De même que pour la création, la Passerelle peut brûler des tokens lorsqu'ils sont reliés de L2 à L1
   function burn(address _from, uint256 _amount) external onlyGateway {
     _burn(_from, _amount);
   }
 
   modifier onlyGateway() {
-    require(gateway() == _msgSender(), "Ownable: caller is not the gateway");
+    require(gateway() == _msgSender(), "Ownable: l'appelant n'est pas la passerelle");
     _;
   }
 }
+
 ```
+## Étape 3 : Ajoutez le jeton au Morph Bridge
 
-## Step 3: Add the token to the Morph Bridge
+Vous devez contacter l'équipe Morph pour ajouter le jeton au contrat `L2CustomERC20Gateway` dans Morph et au contrat `L1CustomERC20Gateway` dans L1. De plus, suivez les instructions sur le dépôt [token lists](https://github.com/Morph-tech/token-list) pour ajouter votre jeton à l'interface officielle du pont Morph.
 
-You need to contact the Morph team to add the token to `L2CustomERC20Gateway` contract in Morph and `L1CustomERC20Gateway` contract in L1. In addition, follow the instructions on the [token lists](https://github.com/Morph-tech/token-list) repository to add your token to the Morph official bridge frontend.
+## Étape 4 : Déposez des jetons
 
-## Step 4: Deposit tokens
+Une fois que votre jeton a été approuvé par l'équipe Morph, vous devriez pouvoir déposer des jetons depuis L1. Pour ce faire, vous devez d'abord approuver l'adresse du contrat `L1CustomGateway` sur Holesky (`0x31C994F2017E71b82fd4D8118F140c81215bbb37`). Ensuite, déposez des jetons en appelant la fonction `depositERC20` du contrat `L1CustomGateway`. Cela peut être fait en utilisant [notre interface du pont](https://Morph.io/bridge), [Etherscan Holesky](https://Holesky.etherscan.io/address/0x31C994F2017E71b82fd4D8118F140c81215bbb37#writeProxyContract), ou un contrat intelligent.
 
-Once your token has been approved by the Morph team, you should be able to deposit tokens from L1. To do so, you must first approve the `L1CustomGateway` contract address on Holesky (`0x31C994F2017E71b82fd4D8118F140c81215bbb37`). Then, deposit tokens by calling the `depositERC20` function from the `L1CustomGateway` contract. This can be done using [our bridge UI](https://Morph.io/bridge), [Etherscan Holesky](https://Holesky.etherscan.io/address/0x31C994F2017E71b82fd4D8118F140c81215bbb37#writeProxyContract), or a smart contract.
+## Étape 5 : Retirez des jetons
 
-## Step 5: Withdraw tokens
+Vous suivrez des étapes similaires pour renvoyer des jetons de L2 à L1. Tout d'abord, approuvez l'adresse `L2CustomGateway` (`0x058dec71E53079F9ED053F3a0bBca877F6f3eAcf`) puis retirez les jetons en appelant la fonction `withdrawERC20` du contrat `L2CustomGateway`.
 
-You will follow similar steps to send tokens back from L2 to L1. First, approve the `L2CustomGateway` address (`0x058dec71E53079F9ED053F3a0bBca877F6f3eAcf`) and then withdraw the tokens calling the `withdrawERC20` from the `L2CustomGateway` contract.
+## Envoyez des messages entre Morph et Ethereum
 
+## Déploiement des contrats
 
-## Send messages between Morph and Ethereum
+### Contrat intelligent cible
 
-## Deploying the Contracts
-
-### Target Smart Contract
-
-Let’s start by deploying the target smart contract. We will use the Greeter contract for this
-example, but you can use any other contract. Deploy it to either Holesky or Morph. On Morph, L1
-and L2 use the same API, so it’s up to you.
+Commençons par déployer le contrat intelligent cible. Nous allons utiliser le contrat Greeter pour cet exemple, mais vous pouvez utiliser n'importe quel autre contrat. Déployez-le sur Holesky ou Morph. Sur Morph, L1 et L2 utilisent la même API, donc c'est à vous de choisir.
 
 ```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.16;
 
-// This Greeter contract will be interacted with through the MorphMessenger across the bridge
+// Ce contrat Greeter sera interagi via le MorphMessenger à travers le pont
 contract Greeter {
   string public greeting = "Hello World!";
 
-  // This function will be called by executeFunctionCrosschain on the Operator Smart Contract
+  // Cette fonction sera appelée par executeFunctionCrosschain sur le contrat intelligent Operator
   function setGreeting(string memory greeting_) public {
     greeting = greeting_;
   }
 }
 ```
 
-We will now execute `setGreeting` in a cross-chain way.
+Nous allons maintenant exécuter `setGreeting`de manière inter-chaînes.
 
-### Operator Smart Contract
+### Contrat intelligent Operator
 
-Switch to the other chain and deploy the `GreeterOperator`. So, if you deployed the `Greeter` contract on L1, deploy the `GreeterOperator` on L2 or vice versa.
+Changez de chaîne et déployez le `GreeterOperator`. Donc, si vous avez déployé le contrat `Greeter` sur L1, déployez le `GreeterOperator` sur L2 ou vice versa.
 
-```solidity
-// SPDX-License-Identifier: MIT
+```solidity// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.16;
 
-// The Morph Messenger interface is the same on both L1 and L2, it allows sending cross-chain transactions
-// Let's import it directly from the Morph Contracts library
+// L'interface Morph Messenger est la même sur L1 et L2, elle permet d'envoyer des transactions inter-chaînes
+// Importons-la directement depuis la bibliothèque des contrats Morph
 import "@Morph-tech/contracts@0.1.0/libraries/IMorphMessenger.sol";
 
-// The GreeterOperator is capable of executing the Greeter function through the bridge
+// Le GreeterOperator est capable d'exécuter la fonction Greeter à travers le pont
 contract GreeterOperator {
-  // This function will execute setGreeting on the Greeter contract
+  // Cette fonction exécutera setGreeting sur le contrat Greeter
   function executeFunctionCrosschain(
     address MorphMessengerAddress,
     address targetAddress,
@@ -149,7 +144,7 @@ contract GreeterOperator {
     uint32 gasLimit
   ) public payable {
     IMorphMessenger MorphMessenger = IMorphMessenger(MorphMessengerAddress);
-    // sendMessage is able to execute any function by encoding the abi using the encodeWithSignature function
+    // sendMessage peut exécuter n'importe quelle fonction en encodant l'abi en utilisant la fonction encodeWithSignature
     MorphMessenger.sendMessage{ value: msg.value }(
       targetAddress,
       value,
@@ -159,53 +154,49 @@ contract GreeterOperator {
     );
   }
 }
+
 ```
 
-## Calling a Cross-chain Function
+## Appeler une fonction inter-chaînes
 
-We pass the message by executing `executeFunctionCrosschain` and passing the following parameters:
+Nous passons le message en exécutant `executeFunctionCrosschain` et en passant les paramètres suivants :
 
-- `MorphMessengerAddress`: This will depend on where you deployed the `GreeterOperator` contract.
-  - If you deployed it on Holesky use `0x50c7d3e7f7c656493D1D76aaa1a836CedfCBB16A`. If you deployed on Morph Holesky use `0xBa50f5340FB9F3Bd074bD638c9BE13eCB36E603d`.
-- `targetAddress`: The address of the `Greeter` contract on the opposite chain.
-- `value`: In this case, it is `0` because the `setGreeting`is not payable.
-- `greeting`: This is the parameter that will be sent through the message. Try passing `“This message was cross-chain!”`
+- `MorphMessengerAddress`: Cela dépendra d'où vous avez déployé le contrat `GreeterOperator`.
+  - Si vous l'avez déployé sur Holesky, utilisez `0x50c7d3e7f7c656493D1D76aaa1a836CedfCBB16A`. Si vous l'avez déployé sur Morph Holesky, utilisez `0xBa50f5340FB9F3Bd074bD638c9BE13eCB36E603d`.
+- `targetAddress`:  L'adresse du contrat `Greeter` sur la chaîne opposée.
+- `value`: Dans ce cas, c'est `0` car `setGreeting`n'est pas payable.
+- `greeting`:  C'est le paramètre qui sera envoyé à travers le message. Essayez de passer `“This message was cross-chain!”`
 - `gasLimit`:
-  - If you are sending the message from L1 to L2, around `1000000` gas limit should be more than enough. That said, if you set this too high, and `msg.value` doesn't cover `gasLimit` * `baseFee`, the transaction will revert. If `msg.value` is greater than the gas fee, the unused portion will be refunded.
-  - If you are sending the message from L2 to L1, pass `0`, as the transaction will be completed by executing an additional transaction on L1.
+  - Si vous envoyez le message de L1 à L2, une limite de gaz d'environ `1000000`devrait être plus que suffisante. Cela dit, si vous fixez cela trop haut, et que  `msg.value` ne couvre pas `gasLimit` * `baseFee`,la transaction sera annulée. Si `msg.value` est supérieur aux frais de gaz, la portion non utilisée sera remboursée.
+   - Si vous envoyez le message de L2 à L1, passez  `0`, car la transaction sera complétée en exécutant une transaction supplémentaire sur L1.
 
-### Relay the Message when sending from L2 to L1
+### Relayer le message lors de l'envoi de L2 à L1
 
-When a transaction is passed from L2 to L1, an additional "execute withdrawal transaction" must be sent on L1. To do this, you must call `relayMessageWithProof` on the L1 Morph Messenger
-contract from an EOA wallet.
+Lorsqu'une transaction est passée de L2 à L1, une "exécution de transaction de retrait" supplémentaire doit être envoyée sur L1. Pour ce faire, vous devez appeler  `relayMessageWithProof` sur le contrat L1 Morph Messenger depuis un portefeuille EOA.
 
-You can do this directly on [Etherscan Holesky](https://Holesky.etherscan.io/address/0x50c7d3e7f7c656493d1d76aaa1a836cedfcbb16a#writeProxyContract#F3).
-To do so, you will need to pass a Merkle inclusion proof for the bridged transaction and other parameters. You'll query these using the Morph Bridge API.
+Vous pouvez le faire directement sur [Etherscan Holesky](https://Holesky.etherscan.io/address/0x50c7d3e7f7c656493d1d76aaa1a836cedfcbb16a#writeProxyContract#F3).
 
-{/* TODO: finish looking into API issues */}
+Pour ce faire, vous devrez passer une preuve d'inclusion Merkle pour la transaction transférée et d'autres paramètres. Vous les interrogez en utilisant l'API Morph Bridge.
 
-We're finalizing the API specifics, but for now, fetch or curl the following endpoint:
+{/* TODO: finir d'examiner les problèmes d'API */}
+
+Nous finalisons les spécificités de l'API, mais pour l'instant, récupérez ou utilisez curl pour accéder à l'endpoint suivant :
 
 ```bash
 curl "https://Holesky-api-bridge.Morph.io/api/claimable?page_size=10&page=1&address=GREETER_OPERATOR_ADDRESS_ON_L2"
 ```
 
 <!--
-Replace `GREETER_OPERATOR_ADDRESS_ON_L2` with your GreeterOperator contract address as launched on L2. Read more about Execute Withdraw transactions
-in the [Morph Messenger](/developers/l1-and-l2-bridging/the-Morph-messenger) article.
+ Remplacez `GREETER_OPERATOR_ADDRESS_ON_L2` par l'adresse de votre contrat GreeterOperator tel que lancé sur L2. Lisez-en plus sur les transactions d'exécution de retrait dans l'article sur le [Morph Messenger](/developers/l1-and-l2-bridging/the-Morph-messenger).
 -->
-
 :::tip
-  This API was made for our Bridge UI. It is not yet finalized and may change in the future. We will update this guide
-  when the API is finalized.
+  Cette API a été créée pour notre interface de pont. Elle n'est pas encore finalisée et pourrait changer à l'avenir. Nous mettrons à jour ce guide lorsque l'API sera finalisée.
 :::
 
-:::tip Anyone can execute your message
-  `relayMessageWithProof` is fully permissionless, so anyone can call it on your behalf if they're willing to pay the L1
-  gas fees. This feature allows for additional support infrastructure, including tooling to automate this process for
-  applications and users.
+:::tip Quiconque peut exécuter votre message
+  `relayMessageWithProof` est entièrement sans autorisation, donc tout le monde peut l'appeler en votre nom s'il est prêt à payer les frais de gaz L1. Cette fonctionnalité permet d'ajouter une infrastructure de support supplémentaire, y compris des outils pour automatiser ce processus pour les applications et les utilisateurs.
 :::
 
-After executing and confirming the transaction on both L1 and L2, the new state of `greeting` on the `Greeter` contract should be `“This message was cross-chain!”`. Sending a message from one chain to the other should take around 20 minutes after the transactions are confirmed on the origin chain.
+Après avoir exécuté et confirmé la transaction sur L1 et L2, le nouvel état de `greeting` dans le contrat `Greeter` devrait être `“Ce message a été transféré entre chaînes!”`. Envoyer un message d'une chaîne à l'autre devrait prendre environ 20 minutes après que les transactions soient confirmées sur la chaîne d'origine.
 
-Congratulations, you now executed a transaction from one chain to the other using our native bridge!
+Félicitations, vous avez maintenant exécuté une transaction d'une chaîne à l'autre en utilisant notre pont natif !

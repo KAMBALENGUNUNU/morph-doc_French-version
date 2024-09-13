@@ -4,23 +4,23 @@
 
 [@morph-l2/sdk](../globals.md) / toNumber
 
-# Function: toNumber()
+# Fonction : toNumber()
 
-> **toNumber**(`num`): `number`
+> **toNumber**(`num`) : `number`
 
-Converts a number-like into a number.
+Convertit un nombre similaire en un nombre.
 
-## Parameters
+## Paramètres
 
-• **num**: [`NumberLike`](../type-aliases/NumberLike.md)
+• **num** : [`NumberLike`](../type-aliases/NumberLike.md)
 
-Number-like to convert into a number.
+Nombre similaire à convertir en nombre.
 
-## Returns
+## Retourne
 
 `number`
 
-Number-like as a number.
+Nombre similaire sous forme de nombre.
 
 ## Source
 

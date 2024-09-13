@@ -1,26 +1,25 @@
 ---
-title: Run a Morph Full Node from Source
-lang: en-US
+title: Exécuter un Nœud Complet Morph depuis le Source
+lang: fr-FR
 ---
 
-This guide outlines the steps to start a Morph node. The example assumes the home directory is `~/.morph` 
+Ce guide décrit les étapes pour démarrer un nœud Morph. L'exemple suppose que le répertoire personnel est `~/.morph`
 
-## Hardware requirements
+## Exigences matérielles
 
-Running the morph node requires 2 processes: `geth` and `node`.  
+L'exécution du nœud Morph nécessite 2 processus : `geth` et `node`.
 
-- `Geth`:the Morph execution layer which needs to meet the [go-ethereum hardware requirements](https://github.com/ethereum/go-ethereum#hardware-requirements), but with less storage, 500GB is enough so far. 
+- `Geth` : la couche d'exécution de Morph qui doit répondre aux [exigences matérielles de go-ethereum](https://github.com/ethereum/go-ethereum#hardware-requirements), mais avec moins de stockage, 500 Go suffisent pour l'instant.
 
-- `Node`:the Morph consensus layer embedded tendermint which needs to meet the [tendermint hardware requirements](https://docs.tendermint.com/v0.34/tendermint-core/running-in-production.html#processor-and-memory). 
-
+- `Node` : la couche de consensus de Morph intégrée tendermint qui doit répondre aux [exigences matérielles de tendermint](https://docs.tendermint.com/v0.34/tendermint-core/running-in-production.html#processor-and-memory).
 
 :::tip
-According to limitations of the current geth implementation, we only support archive mode for launching a Geth.  So the storage size of Geth will constantly increase along with blocks produced. 
+Selon les limitations de l'implémentation actuelle de geth, nous ne supportons que le mode archive pour lancer Geth. Ainsi, la taille de stockage de Geth augmentera constamment avec les blocs produits.
 :::
 
-## Build executable binary
+## Construire le binaire exécutable
 
-### Clone morph
+### Cloner Morph
 
 ```
 mkdir -p ~/.morph 
@@ -28,31 +27,31 @@ cd ~/.morph
 git clone https://github.com/morph-l2/morph.git
 ```
 
-Currently, we use tag v0.2.0-beta as our beta version.
+Actuellement, nous utilisons le tag v0.2.0-beta comme notre version bêta.
 
 ```
 cd morph
 git checkout v0.2.0-beta
 ```
 
-### Build Geth
+### Construire Geth
 
-Notice: You need C compiler to build geth
+Remarque : Vous avez besoin d'un compilateur C pour construire geth.
 
 ```
 make nccc_geth
 ```
 
-### Build Node
+### Construire Node
 
 ```
 cd ~/.morph/morph/node 
 make build
 ```
 
-## Config Preparation
+## Préparation de la Configuration
 
-1. Download the config files and make data dir
+1. Téléchargez les fichiers de configuration et créez le répertoire de données.
 
 ```
 cd ~/.morph
@@ -60,34 +59,35 @@ wget https://raw.githubusercontent.com/morph-l2/config-template/main/holesky/dat
 unzip data.zip
 ```
 
-2. Create a shared secret with node
+2. Créez un secret partagé avec le nœud.
 
 ```
 cd ~/.morph
 openssl rand -hex 32 > jwt-secret.txt
 ```
 
-## Sync from snapshot(Recommended)
+## Synchroniser à partir d'un snapshot(Recommandé)
 
-You should build the binary and prepare the config files in the above steps first, then download the snapshot. 
+Vous devez d'abord construire le binaire et préparer les fichiers de configuration dans les étapes ci-dessus, puis télécharger l'instantané.
 
-### Download snapshot
+### Télécharger le snapshot
 
 ```bash
-## download package
+## télécharger le paquet
 wget -q --show-progress https://snapshot.morphl2.io/holesky/snapshot-20240805-1.tar.gz
-## uncompress package
+## décompresser le paquet
 tar -xzvf snapshot-20240805-1.tar.gz
 ```
 
-Extracting snapshot data to the data directory your node points to 
+Extraire les données de l'instantané dans le répertoire de données auquel votre nœud fait référence.
+
 
 ```bash
 mv snapshot-20240805-1/geth geth-data
 mv snapshot-20240805-1/data node-data
 ```
 
-### Start execution client
+### Démarrer le client d'exécution
 
 ```bash
 ./morph/go-ethereum/build/bin/geth --morph-holesky \
@@ -100,7 +100,8 @@ mv snapshot-20240805-1/data node-data
     --log.filename=./geth.log
 ```
 
-tail -f geth.log to check if the Geth is running properly, or you can also execute the curl command below to check if you are connected to the peer. 
+Utilisez tail -f geth.log pour vérifier si Geth fonctionne correctement, ou vous pouvez également exécuter la commande curl ci-dessous pour vérifier si vous êtes connecté au pair.
+
 
 ```Shell
 curl -X POST -H 'Content-Type: application/json' --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":74}' localhost:8545
@@ -108,7 +109,8 @@ curl -X POST -H 'Content-Type: application/json' --data '{"jsonrpc":"2.0","metho
 {"jsonrpc":"2.0","id":74,"result":"0x3"}
 ```
 
-### Start consensus client
+Démarrer le client de consensus
+
 ```Bash
  ./morph/node/build/bin/morphnode --home ./node-data \
      --l2.jwt-secret ./jwt-secret.txt \
@@ -117,7 +119,7 @@ curl -X POST -H 'Content-Type: application/json' --data '{"jsonrpc":"2.0","metho
      --log.filename ./node.log 
 ```
 
-tail -f node.log to check if the node is running properly, and you can also execute the command curl to check your node connection status.
+Utilisez tail -f node.log pour vérifier si le nœud fonctionne correctement, et vous pouvez également exécuter la commande curl pour vérifier l'état de connexion de votre nœud.
 
 ```Bash
 curl http://localhost:26657/net_info
@@ -154,9 +156,9 @@ curl http://localhost:26657/net_info
  ....... 
  ```
 
-### Check sync status
+### Vérifier l'état de synchronisation
 
-curl http://localhost:26657/status to check the sync status of the node
+Utilisez http://localhost:26657/status pour vérifier l'état de synchronisation du nœud.
 
 ```Bash
 {
@@ -203,7 +205,9 @@ curl http://localhost:26657/status to check the sync status of the node
 }
 ```
 
-The returned "catching_up" indicates  whether the node is in sync or not. *True* means it is in sync. Meanwhile, the returned  latest_block_height indicates the latest block height this node synced.
+Le retour de "catching_up" indique si le nœud est synchronisé ou non. *True* signifie qu'il est synchronisé. Meanwhile, the returned  latest_block_height indicates the latest block height this node synced.
 
-## Sync from genesis block(Not Recommended)
-Start the execution client and consensus client directly without downloading snapshot
+## Synchroniser à partir du bloc de genèse (Non Recommandé)
+
+Démarrez le client d'exécution et le client de consensus directement sans télécharger l'instantané.
+

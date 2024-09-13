@@ -4,161 +4,158 @@
 
 [@morph-l2/sdk](../globals.md) / L2Transaction
 
-# Interface: L2Transaction
+# Interface : L2Transaction
 
-JSON transaction representation when returned by L2Geth nodes. This is simply an extension to
-the standard transaction response type. You do NOT need to use this type unless you care about
-having typed access to L2-specific fields.
+Représentation JSON d'une transaction lorsqu'elle est retournée par les nœuds L2Geth. C'est simplement une extension au type de réponse standard pour les transactions. Vous n'avez PAS besoin d'utiliser ce type, sauf si vous souhaitez avoir un accès typé aux champs spécifiques à L2.
 
-## Extends
+## Étend
 
 - `TransactionResponse`
 
-## Properties
+## Propriétés
 
 ### accessList?
 
-> `optional` **accessList**: `AccessList`
+> `optionnel` **accessList** : `AccessList`
 
-#### Inherited from
+#### Hérité de
 
 `TransactionResponse.accessList`
 
 #### Source
 
-node\_modules/@ethersproject/transactions/lib/index.d.ts:40
+node_modules/@ethersproject/transactions/lib/index.d.ts:40
 
 ***
 
 ### blockHash?
 
-> `optional` **blockHash**: `string`
+> `optionnel` **blockHash** : `string`
 
-#### Inherited from
+#### Hérité de
 
 `TransactionResponse.blockHash`
 
 #### Source
 
-node\_modules/@ethersproject/abstract-provider/lib/index.d.ts:26
+node_modules/@ethersproject/abstract-provider/lib/index.d.ts:26
 
 ***
 
 ### blockNumber?
 
-> `optional` **blockNumber**: `number`
+> `optionnel` **blockNumber** : `number`
 
-#### Inherited from
+#### Hérité de
 
 `TransactionResponse.blockNumber`
 
 #### Source
 
-node\_modules/@ethersproject/abstract-provider/lib/index.d.ts:25
+node_modules/@ethersproject/abstract-provider/lib/index.d.ts:25
 
 ***
 
 ### chainId
 
-> **chainId**: `number`
+> **chainId** : `number`
 
-#### Inherited from
+#### Hérité de
 
 `TransactionResponse.chainId`
 
 #### Source
 
-node\_modules/@ethersproject/transactions/lib/index.d.ts:35
+node_modules/@ethersproject/transactions/lib/index.d.ts:35
 
 ***
 
 ### confirmations
 
-> **confirmations**: `number`
+> **confirmations** : `number`
 
-#### Inherited from
+#### Hérité de
 
 `TransactionResponse.confirmations`
 
 #### Source
 
-node\_modules/@ethersproject/abstract-provider/lib/index.d.ts:28
+node_modules/@ethersproject/abstract-provider/lib/index.d.ts:28
 
 ***
 
 ### data
 
-> **data**: `string`
+> **data** : `string`
 
-#### Inherited from
+#### Hérité de
 
 `TransactionResponse.data`
 
 #### Source
 
-node\_modules/@ethersproject/transactions/lib/index.d.ts:33
+node_modules/@ethersproject/transactions/lib/index.d.ts:33
 
 ***
 
 ### from
 
-> **from**: `string`
+> **from** : `string`
 
-#### Inherited from
+#### Hérité de
 
 `TransactionResponse.from`
 
 #### Source
 
-node\_modules/@ethersproject/abstract-provider/lib/index.d.ts:29
+node_modules/@ethersproject/abstract-provider/lib/index.d.ts:29
 
 ***
 
 ### gasLimit
 
-> **gasLimit**: `BigNumber`
+> **gasLimit** : `BigNumber`
 
-#### Inherited from
+#### Hérité de
 
 `TransactionResponse.gasLimit`
 
 #### Source
 
-node\_modules/@ethersproject/transactions/lib/index.d.ts:31
+node_modules/@ethersproject/transactions/lib/index.d.ts:31
 
 ***
 
 ### gasPrice?
 
-> `optional` **gasPrice**: `BigNumber`
+> `optionnel` **gasPrice** : `BigNumber`
 
-#### Inherited from
+#### Hérité de
 
 `TransactionResponse.gasPrice`
 
 #### Source
 
-node\_modules/@ethersproject/transactions/lib/index.d.ts:32
+node_modules/@ethersproject/transactions/lib/index.d.ts:32
 
 ***
-
 ### hash
 
-> **hash**: `string`
+> **hash** : `string`
 
-#### Inherited from
+#### Hérité de
 
 `TransactionResponse.hash`
 
 #### Source
 
-node\_modules/@ethersproject/abstract-provider/lib/index.d.ts:24
+node_modules/@ethersproject/abstract-provider/lib/index.d.ts:24
 
 ***
 
 ### l1BlockNumber
 
-> **l1BlockNumber**: `number`
+> **l1BlockNumber** : `number`
 
 #### Source
 
@@ -168,7 +165,7 @@ src/interfaces/l2-provider.ts:16
 
 ### l1TxOrigin
 
-> **l1TxOrigin**: `string`
+> **l1TxOrigin** : `string`
 
 #### Source
 
@@ -178,49 +175,49 @@ src/interfaces/l2-provider.ts:17
 
 ### maxFeePerGas?
 
-> `optional` **maxFeePerGas**: `BigNumber`
+> `optionnel` **maxFeePerGas** : `BigNumber`
 
-#### Inherited from
+#### Hérité de
 
 `TransactionResponse.maxFeePerGas`
 
 #### Source
 
-node\_modules/@ethersproject/transactions/lib/index.d.ts:42
+node_modules/@ethersproject/transactions/lib/index.d.ts:42
 
 ***
 
 ### maxPriorityFeePerGas?
 
-> `optional` **maxPriorityFeePerGas**: `BigNumber`
+> `optionnel` **maxPriorityFeePerGas** : `BigNumber`
 
-#### Inherited from
+#### Hérité de
 
 `TransactionResponse.maxPriorityFeePerGas`
 
 #### Source
 
-node\_modules/@ethersproject/transactions/lib/index.d.ts:41
+node_modules/@ethersproject/transactions/lib/index.d.ts:41
 
 ***
 
 ### nonce
 
-> **nonce**: `number`
+> **nonce** : `number`
 
-#### Inherited from
+#### Hérité de
 
 `TransactionResponse.nonce`
 
 #### Source
 
-node\_modules/@ethersproject/transactions/lib/index.d.ts:30
+node_modules/@ethersproject/transactions/lib/index.d.ts:30
 
 ***
 
 ### queueOrigin
 
-> **queueOrigin**: `string`
+> **queueOrigin** : `string`
 
 #### Source
 
@@ -230,35 +227,35 @@ src/interfaces/l2-provider.ts:18
 
 ### r?
 
-> `optional` **r**: `string`
+> `optionnel` **r** : `string`
 
-#### Inherited from
+#### Hérité de
 
 `TransactionResponse.r`
 
 #### Source
 
-node\_modules/@ethersproject/transactions/lib/index.d.ts:36
+node_modules/@ethersproject/transactions/lib/index.d.ts:36
 
 ***
 
 ### raw?
 
-> `optional` **raw**: `string`
+> `optionnel` **raw** : `string`
 
-#### Inherited from
+#### Hérité de
 
 `TransactionResponse.raw`
 
 #### Source
 
-node\_modules/@ethersproject/abstract-provider/lib/index.d.ts:30
+node_modules/@ethersproject/abstract-provider/lib/index.d.ts:30
 
 ***
 
 ### rawTransaction
 
-> **rawTransaction**: `string`
+> **rawTransaction** : `string`
 
 #### Source
 
@@ -268,104 +265,104 @@ src/interfaces/l2-provider.ts:19
 
 ### s?
 
-> `optional` **s**: `string`
+> `optionnel` **s** : `string`
 
-#### Inherited from
+#### Hérité de
 
 `TransactionResponse.s`
 
 #### Source
 
-node\_modules/@ethersproject/transactions/lib/index.d.ts:37
+node_modules/@ethersproject/transactions/lib/index.d.ts:37
 
 ***
 
 ### timestamp?
 
-> `optional` **timestamp**: `number`
+> `optionnel` **timestamp** : `number`
 
-#### Inherited from
+#### Hérité de
 
 `TransactionResponse.timestamp`
 
 #### Source
 
-node\_modules/@ethersproject/abstract-provider/lib/index.d.ts:27
+node_modules/@ethersproject/abstract-provider/lib/index.d.ts:27
 
 ***
 
 ### to?
 
-> `optional` **to**: `string`
+> `optionnel` **to** : `string`
 
-#### Inherited from
+#### Hérité de
 
 `TransactionResponse.to`
 
 #### Source
 
-node\_modules/@ethersproject/transactions/lib/index.d.ts:28
+node_modules/@ethersproject/transactions/lib/index.d.ts:28
 
 ***
 
 ### type?
 
-> `optional` **type**: `number`
+> `optionnel` **type** : `number`
 
-#### Inherited from
+#### Hérité de
 
 `TransactionResponse.type`
 
 #### Source
 
-node\_modules/@ethersproject/transactions/lib/index.d.ts:39
+node_modules/@ethersproject/transactions/lib/index.d.ts:39
 
 ***
 
 ### v?
 
-> `optional` **v**: `number`
+> `optionnel` **v** : `number`
 
-#### Inherited from
+#### Hérité de
 
 `TransactionResponse.v`
 
 #### Source
 
-node\_modules/@ethersproject/transactions/lib/index.d.ts:38
+node_modules/@ethersproject/transactions/lib/index.d.ts:38
 
 ***
 
 ### value
 
-> **value**: `BigNumber`
+> **value** : `BigNumber`
 
-#### Inherited from
+#### Hérité de
 
 `TransactionResponse.value`
 
 #### Source
 
-node\_modules/@ethersproject/transactions/lib/index.d.ts:34
+node_modules/@ethersproject/transactions/lib/index.d.ts:34
 
 ***
 
 ### wait()
 
-> **wait**: (`confirmations`?) => `Promise`\<`TransactionReceipt`\>
+> **wait** : (`confirmations`?) => `Promise`\<`TransactionReceipt`\>
 
-#### Parameters
+#### Paramètres
 
-• **confirmations?**: `number`
+• **confirmations?** : `number`
 
-#### Returns
+#### Retourne
 
 `Promise`\<`TransactionReceipt`\>
 
-#### Inherited from
+#### Hérité de
 
 `TransactionResponse.wait`
 
 #### Source
 
-node\_modules/@ethersproject/abstract-provider/lib/index.d.ts:31
+node_modules/@ethersproject/abstract-provider/lib/index.d.ts:31

@@ -4,20 +4,19 @@
 
 [@morph-l2/sdk](../globals.md) / CrossChainMessage
 
-# Interface: CrossChainMessage
+# Interface : CrossChainMessage
 
-Describes a message that is sent between L1 and L2. Direction determines where the message was
-sent from and where it's being sent to.
+Décrit un message qui est envoyé entre L1 et L2. La direction détermine d'où le message a été envoyé et où il est envoyé.
 
-## Extends
+## Étend
 
 - [`CoreCrossChainMessage`](CoreCrossChainMessage.md)
 
-## Properties
+## Propriétés
 
 ### blockNumber
 
-> **blockNumber**: `number`
+> **blockNumber** : `number`
 
 #### Source
 
@@ -27,7 +26,7 @@ src/interfaces/types.ts:255
 
 ### direction
 
-> **direction**: [`MessageDirection`](../enumerations/MessageDirection.md)
+> **direction** : [`MessageDirection`](../enumerations/MessageDirection.md)
 
 #### Source
 
@@ -37,7 +36,7 @@ src/interfaces/types.ts:253
 
 ### logIndex
 
-> **logIndex**: `number`
+> **logIndex** : `number`
 
 #### Source
 
@@ -47,9 +46,9 @@ src/interfaces/types.ts:254
 
 ### message
 
-> **message**: `string`
+> **message** : `string`
 
-#### Inherited from
+#### Hérité de
 
 [`CoreCrossChainMessage`](CoreCrossChainMessage.md).[`message`](CoreCrossChainMessage.md#message)
 
@@ -61,9 +60,9 @@ src/interfaces/types.ts:242
 
 ### messageNonce
 
-> **messageNonce**: `BigNumber`
+> **messageNonce** : `BigNumber`
 
-#### Inherited from
+#### Hérité de
 
 [`CoreCrossChainMessage`](CoreCrossChainMessage.md).[`messageNonce`](CoreCrossChainMessage.md#messagenonce)
 
@@ -75,9 +74,9 @@ src/interfaces/types.ts:243
 
 ### minGasLimit
 
-> **minGasLimit**: `BigNumber`
+> **minGasLimit** : `BigNumber`
 
-#### Inherited from
+#### Hérité de
 
 [`CoreCrossChainMessage`](CoreCrossChainMessage.md).[`minGasLimit`](CoreCrossChainMessage.md#mingaslimit)
 
@@ -89,9 +88,9 @@ src/interfaces/types.ts:245
 
 ### sender
 
-> **sender**: `string`
+> **sender** : `string`
 
-#### Inherited from
+#### Hérité de
 
 [`CoreCrossChainMessage`](CoreCrossChainMessage.md).[`sender`](CoreCrossChainMessage.md#sender)
 
@@ -103,9 +102,9 @@ src/interfaces/types.ts:240
 
 ### target
 
-> **target**: `string`
+> **target** : `string`
 
-#### Inherited from
+#### Hérité de
 
 [`CoreCrossChainMessage`](CoreCrossChainMessage.md).[`target`](CoreCrossChainMessage.md#target)
 
@@ -117,7 +116,7 @@ src/interfaces/types.ts:241
 
 ### transactionHash
 
-> **transactionHash**: `string`
+> **transactionHash** : `string`
 
 #### Source
 
@@ -127,9 +126,9 @@ src/interfaces/types.ts:256
 
 ### value
 
-> **value**: `BigNumber`
+> **value** : `BigNumber`
 
-#### Inherited from
+#### Hérité de
 
 [`CoreCrossChainMessage`](CoreCrossChainMessage.md).[`value`](CoreCrossChainMessage.md#value)
 

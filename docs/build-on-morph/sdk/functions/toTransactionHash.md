@@ -4,23 +4,23 @@
 
 [@morph-l2/sdk](../globals.md) / toTransactionHash
 
-# Function: toTransactionHash()
+# Fonction : toTransactionHash()
 
-> **toTransactionHash**(`transaction`): `string`
+> **toTransactionHash**(`transaction`) : `string`
 
-Pulls a transaction hash out of a TransactionLike object.
+Extrait un hash de transaction d'un objet TransactionLike.
 
-## Parameters
+## Paramètres
 
-• **transaction**: [`TransactionLike`](../type-aliases/TransactionLike.md)
+• **transaction** : [`TransactionLike`](../type-aliases/TransactionLike.md)
 
-TransactionLike to convert into a transaction hash.
+TransactionLike à convertir en un hash de transaction.
 
-## Returns
+## Retourne
 
 `string`
 
-Transaction hash corresponding to the TransactionLike input.
+Hash de la transaction correspondant à l'entrée TransactionLike.
 
 ## Source
 

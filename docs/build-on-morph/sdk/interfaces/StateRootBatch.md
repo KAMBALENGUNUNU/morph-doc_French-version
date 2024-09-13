@@ -4,15 +4,15 @@
 
 [@morph-l2/sdk](../globals.md) / StateRootBatch
 
-# Interface: StateRootBatch
+# Interface : StateRootBatch
 
-Information about a batch of state roots.
+Informations sur un lot d'états racines.
 
-## Properties
+## Propriétés
 
 ### blockNumber
 
-> **blockNumber**: `number`
+> **blockNumber** : `number`
 
 #### Source
 
@@ -22,7 +22,7 @@ src/interfaces/types.ts:346
 
 ### header
 
-> **header**: [`StateRootBatchHeader`](StateRootBatchHeader.md)
+> **header** : [`StateRootBatchHeader`](StateRootBatchHeader.md)
 
 #### Source
 
@@ -32,7 +32,7 @@ src/interfaces/types.ts:347
 
 ### stateRoots
 
-> **stateRoots**: `string`[]
+> **stateRoots** : `string`[]
 
 #### Source
 

@@ -4,16 +4,16 @@
 
 [@morph-l2/sdk](../globals.md) / WithdrawalEntry
 
-# Interface: WithdrawalEntry
+# Interface : WithdrawalEntry
 
-Represents a withdrawal entry within the logs of a L2 to L1
-CrossChainMessage
+Représente une entrée de retrait dans les journaux d'un
+CrossChainMessage de L2 à L1.
 
-## Properties
+## Propriétés
 
 ### MessagePassed
 
-> **MessagePassed**: `any`
+> **MessagePassed** : `any`
 
 #### Source
 

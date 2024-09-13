@@ -4,25 +4,25 @@
 
 [@morph-l2/sdk](../globals.md) / hashMessageHash
 
-# Function: hashMessageHash()
+# Fonction : hashMessageHash()
 
-> **hashMessageHash**(`messageHash`): `string`
+> **hashMessageHash**(`messageHash`) : `string`
 
-Utility for hashing a message hash. This computes the storage slot
-where the message hash will be stored in state. HashZero is used
-because the first mapping in the contract is used.
+Utilitaire pour hacher un hachage de message. Cela calcule l'emplacement de stockage
+où le hachage de message sera stocké dans l'état. HashZero est utilisé
+car le premier mappage dans le contrat est utilisé.
 
-## Parameters
+## Paramètres
 
-• **messageHash**: `string`
+• **messageHash** : `string`
 
-Message hash to hash.
+Hachage de message à hacher.
 
-## Returns
+## Retourne
 
 `string`
 
-Hash of the given message hash.
+Hachage du hachage de message donné.
 
 ## Source
 

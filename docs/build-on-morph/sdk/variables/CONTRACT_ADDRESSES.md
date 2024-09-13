@@ -8,9 +8,8 @@
 
 > `const` **CONTRACT\_ADDRESSES**: `{ [ChainID in L2ChainID]: OEContractsLike }`
 
-Mapping of L1 chain IDs to the appropriate contract addresses for the OE deployments to the
-given network. Simplifies the process of getting the correct contract addresses for a given
-contract name.
+Mapping des identifiants de chaîne L1 vers les adresses de contrat appropriées pour les déploiements OE sur le réseau donné. Cela simplifie le processus d'obtention des bonnes adresses de contrat pour un nom de contrat donné.
+
 
 ## Source
 

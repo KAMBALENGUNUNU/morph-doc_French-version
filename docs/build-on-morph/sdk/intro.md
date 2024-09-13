@@ -4,7 +4,7 @@
 
 # @morph-l2/sdk
 
-## Enumerations
+## Énumérations
 
 - [L1ChainID](enumerations/L1ChainID.md)
 - [L1RpcUrls](enumerations/L1RpcUrls.md)

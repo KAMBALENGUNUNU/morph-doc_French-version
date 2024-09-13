@@ -4,42 +4,41 @@
 
 [@morph-l2/sdk](../globals.md) / L2Block
 
-# Interface: L2Block
+# Interface : L2Block
 
-JSON block representation when returned by L2Geth nodes. Just a normal block but with
-an added stateRoot field.
+Représentation JSON d'un bloc lorsqu'il est renvoyé par les nœuds L2Geth. C'est juste un bloc normal mais avec un champ stateRoot ajouté.
 
-## Extends
+## Hérite de
 
 - `Block`
 
-## Properties
+## Propriétés
 
 ### \_difficulty
 
 > **\_difficulty**: `BigNumber`
 
-#### Inherited from
+#### Hérité de
 
 `Block._difficulty`
 
 #### Source
 
-node\_modules/@ethersproject/abstract-provider/lib/index.d.ts:41
+node_modules/@ethersproject/abstract-provider/lib/index.d.ts:41
 
 ***
 
 ### baseFeePerGas?
 
-> `optional` **baseFeePerGas**: `BigNumber`
+> `optionnel` **baseFeePerGas**: `BigNumber`
 
-#### Inherited from
+#### Hérité de
 
 `Block.baseFeePerGas`
 
 #### Source
 
-node\_modules/@ethersproject/abstract-provider/lib/index.d.ts:46
+node_modules/@ethersproject/abstract-provider/lib/index.d.ts:46
 
 ***
 
@@ -47,13 +46,13 @@ node\_modules/@ethersproject/abstract-provider/lib/index.d.ts:46
 
 > **difficulty**: `number`
 
-#### Inherited from
+#### Hérité de
 
 `Block.difficulty`
 
 #### Source
 
-node\_modules/@ethersproject/abstract-provider/lib/index.d.ts:40
+node_modules/@ethersproject/abstract-provider/lib/index.d.ts:40
 
 ***
 
@@ -61,13 +60,13 @@ node\_modules/@ethersproject/abstract-provider/lib/index.d.ts:40
 
 > **extraData**: `string`
 
-#### Inherited from
+#### Hérité de
 
 `Block.extraData`
 
 #### Source
 
-node\_modules/@ethersproject/abstract-provider/lib/index.d.ts:45
+node_modules/@ethersproject/abstract-provider/lib/index.d.ts:45
 
 ***
 
@@ -75,13 +74,13 @@ node\_modules/@ethersproject/abstract-provider/lib/index.d.ts:45
 
 > **gasLimit**: `BigNumber`
 
-#### Inherited from
+#### Hérité de
 
 `Block.gasLimit`
 
 #### Source
 
-node\_modules/@ethersproject/abstract-provider/lib/index.d.ts:42
+node_modules/@ethersproject/abstract-provider/lib/index.d.ts:42
 
 ***
 
@@ -89,27 +88,27 @@ node\_modules/@ethersproject/abstract-provider/lib/index.d.ts:42
 
 > **gasUsed**: `BigNumber`
 
-#### Inherited from
+#### Hérité de
 
 `Block.gasUsed`
 
 #### Source
 
-node\_modules/@ethersproject/abstract-provider/lib/index.d.ts:43
+node_modules/@ethersproject/abstract-provider/lib/index.d.ts:43
+
 
 ***
-
 ### hash
 
 > **hash**: `string`
 
-#### Inherited from
+#### Hérité de
 
 `Block.hash`
 
 #### Source
 
-node\_modules/@ethersproject/abstract-provider/lib/index.d.ts:35
+node_modules/@ethersproject/abstract-provider/lib/index.d.ts:35
 
 ***
 
@@ -117,13 +116,13 @@ node\_modules/@ethersproject/abstract-provider/lib/index.d.ts:35
 
 > **miner**: `string`
 
-#### Inherited from
+#### Hérité de
 
 `Block.miner`
 
 #### Source
 
-node\_modules/@ethersproject/abstract-provider/lib/index.d.ts:44
+node_modules/@ethersproject/abstract-provider/lib/index.d.ts:44
 
 ***
 
@@ -131,13 +130,13 @@ node\_modules/@ethersproject/abstract-provider/lib/index.d.ts:44
 
 > **nonce**: `string`
 
-#### Inherited from
+#### Hérité de
 
 `Block.nonce`
 
 #### Source
 
-node\_modules/@ethersproject/abstract-provider/lib/index.d.ts:39
+node_modules/@ethersproject/abstract-provider/lib/index.d.ts:39
 
 ***
 
@@ -145,13 +144,13 @@ node\_modules/@ethersproject/abstract-provider/lib/index.d.ts:39
 
 > **number**: `number`
 
-#### Inherited from
+#### Hérité de
 
 `Block.number`
 
 #### Source
 
-node\_modules/@ethersproject/abstract-provider/lib/index.d.ts:37
+node_modules/@ethersproject/abstract-provider/lib/index.d.ts:37
 
 ***
 
@@ -159,13 +158,13 @@ node\_modules/@ethersproject/abstract-provider/lib/index.d.ts:37
 
 > **parentHash**: `string`
 
-#### Inherited from
+#### Hérité de
 
 `Block.parentHash`
 
 #### Source
 
-node\_modules/@ethersproject/abstract-provider/lib/index.d.ts:36
+node_modules/@ethersproject/abstract-provider/lib/index.d.ts:36
 
 ***
 
@@ -183,13 +182,13 @@ src/interfaces/l2-provider.ts:27
 
 > **timestamp**: `number`
 
-#### Inherited from
+#### Hérité de
 
 `Block.timestamp`
 
 #### Source
 
-node\_modules/@ethersproject/abstract-provider/lib/index.d.ts:38
+node_modules/@ethersproject/abstract-provider/lib/index.d.ts:38
 
 ***
 
@@ -197,10 +196,10 @@ node\_modules/@ethersproject/abstract-provider/lib/index.d.ts:38
 
 > **transactions**: `string`[]
 
-#### Inherited from
+#### Hérité de
 
 `Block.transactions`
 
 #### Source
 
-node\_modules/@ethersproject/abstract-provider/lib/index.d.ts:49
+node_modules/@ethersproject/abstract-provider/lib/index.d.ts:49
